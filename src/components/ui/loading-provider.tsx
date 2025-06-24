@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { LoadingBar } from "./loading-bar";
 
@@ -31,14 +31,38 @@ interface LoadingProviderProps {
   };
 }
 
+// Component that uses useSearchParams - needs to be wrapped in Suspense
+const LoadingDetector: React.FC<{
+  onLoadingChange: (loading: boolean) => void;
+}> = ({ onLoadingChange }) => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  // Auto-detect route changes and show loading
+  useEffect(() => {
+    // Don't show loading on initial page load
+    if (typeof window !== 'undefined') {
+      // Start loading immediately when route changes
+      onLoadingChange(true);
+
+      // Stop loading after a delay to simulate page load
+      const timer = setTimeout(() => {
+        onLoadingChange(false);
+      }, 1500); // Increased duration for better visibility of the glassy effect
+
+      return () => clearTimeout(timer);
+    }
+  }, [pathname, searchParams, onLoadingChange]);
+
+  return null;
+};
+
 export const LoadingProvider: React.FC<LoadingProviderProps> = ({
   children,
   showLoadingBar = true,
   loadingBarProps = {},
 }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   const setLoading = (loading: boolean) => {
     setIsLoading(loading);
@@ -51,22 +75,6 @@ export const LoadingProvider: React.FC<LoadingProviderProps> = ({
   const stopLoading = () => {
     setIsLoading(false);
   };
-
-  // Auto-detect route changes and show loading
-  useEffect(() => {
-    // Don't show loading on initial page load
-    if (typeof window !== 'undefined') {
-      // Start loading immediately when route changes
-      setIsLoading(true);
-
-      // Stop loading after a delay to simulate page load
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 1500); // Increased duration for better visibility of the glassy effect
-
-      return () => clearTimeout(timer);
-    }
-  }, [pathname, searchParams]);
 
   // Auto-stop loading after a maximum time to prevent infinite loading
   useEffect(() => {
@@ -88,6 +96,9 @@ export const LoadingProvider: React.FC<LoadingProviderProps> = ({
 
   return (
     <LoadingContext.Provider value={value}>
+      <Suspense fallback={null}>
+        <LoadingDetector onLoadingChange={setLoading} />
+      </Suspense>
       {showLoadingBar && (
         <LoadingBar isLoading={isLoading} {...loadingBarProps} />
       )}
