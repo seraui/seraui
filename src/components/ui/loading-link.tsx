@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link, { LinkProps } from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useLoading } from "./loading-provider";
 
 interface LoadingLinkProps extends LinkProps {
@@ -20,7 +20,6 @@ export const LoadingLink: React.FC<LoadingLinkProps> = ({
   ...linkProps
 }) => {
   const { startLoading } = useLoading();
-  const router = useRouter();
   const currentPath = usePathname();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {

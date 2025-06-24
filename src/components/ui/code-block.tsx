@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, ReactElement } from "react";
+import { useState, useEffect, useRef, isValidElement } from "react";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { createHighlighter, type Highlighter } from "shiki";
@@ -122,16 +122,9 @@ export function CodeBlock({ children, className, ...props }: CodeBlockProps) {
   };
 
   const getLanguageFromChildren = () => {
-    if (
-      typeof children === "object" &&
-      children !== null &&
-      "props" in children &&
-      "type" in children
-    ) {
-      const codeElement = children as ReactElement<any, any>;
-      const codeProps = codeElement.props as React.HTMLAttributes<HTMLElement>;
-      if (codeProps?.className) {
-        const match = codeProps.className.match(/language-(\w+)/);
+    if (isValidElement<{ className?: string }>(children)) {
+      if (children.props.className) {
+        const match = children.props.className.match(/language-(\w+)/);
         return match ? match[1] : null;
       }
     }
