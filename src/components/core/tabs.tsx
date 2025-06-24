@@ -24,7 +24,7 @@ export default function Tabs({ items = [] }: TabsProps) {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`relative px-5 py-3 text-sm font-medium transition-colors duration-200 ${
+            className={`relative px-5 py-3 text-sm font-medium transition-all duration-300 ease-in-out transform hover:scale-105 ${
               activeTab === tab.id
                 ? 'text-blue-600 dark:text-blue-400'
                 : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200'
@@ -34,7 +34,7 @@ export default function Tabs({ items = [] }: TabsProps) {
           >
             <span>{tab.name}</span>
             {activeTab === tab.id && (
-              <span className='absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400'></span>
+              <span className='absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-transform duration-300 ease-in-out transform origin-left'></span>
             )}
           </button>
         ))}
@@ -43,7 +43,7 @@ export default function Tabs({ items = [] }: TabsProps) {
       {/* Content Area */}
       <div
         role='tabpanel'
-        className='p-6 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200'
+        className='p-6 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-300 ease-in-out'
       >
         {items.find((tab) => tab.id === activeTab)?.content || items[0]?.content}
       </div>
