@@ -1,12 +1,11 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 
-// Define the type for each tab item
 export type TabItem = {
   id: string | number;
   name: string;
-  content: ReactNode;
+  content: string;
 };
 
 export interface TabsProps {
