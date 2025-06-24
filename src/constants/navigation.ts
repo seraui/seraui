@@ -31,7 +31,6 @@ export const navigation: NavigationItem[] = [
     label: "Forms",
     children: [
       { label: "Checkbox", href: "/docs/checkbox" },
-      { label: "Input", href: "/docs/input" },
     ],
   },
   {
