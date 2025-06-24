@@ -38,21 +38,24 @@ const LoadingDetector: React.FC<{
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // Auto-detect route changes and show loading
+  // Track if this is the initial mount
+  const [isInitialMount, setIsInitialMount] = useState(true);
+
+  // Auto-detect route changes and stop loading
   useEffect(() => {
-    // Don't show loading on initial page load
-    if (typeof window !== 'undefined') {
-      // Start loading immediately when route changes
-      onLoadingChange(true);
-
-      // Stop loading after a delay to simulate page load
-      const timer = setTimeout(() => {
-        onLoadingChange(false);
-      }, 1500); // Increased duration for better visibility of the glassy effect
-
-      return () => clearTimeout(timer);
+    if (isInitialMount) {
+      // Mark that initial mount is complete
+      setIsInitialMount(false);
+      return;
     }
-  }, [pathname, searchParams, onLoadingChange]);
+
+    // Route has changed, stop loading after a short delay to simulate page load completion
+    const timer = setTimeout(() => {
+      onLoadingChange(false);
+    }, 300); // Short delay to show completion
+
+    return () => clearTimeout(timer);
+  }, [pathname, searchParams, onLoadingChange, isInitialMount]);
 
   return null;
 };
