@@ -17,6 +17,7 @@
     "@radix-ui/react-tabs": "^1.1.11",
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
+    "commander": "^14.0.0",
     "lucide-react": "^0.510.0",
     "motion": "^12.11.3",
     "next": "15.3.2",
