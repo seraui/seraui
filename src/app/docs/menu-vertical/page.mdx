@@ -1,0 +1,96 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+
+import MenuVerticalBasic from "./menu-vertical-basic";
+import MenuVerticalSkew from "./menu-vertical-skew";
+
+# Menu Vertical
+
+An animated vertical menu component that reveals a sliding arrow icon and animated text with optional skew.
+
+## Examples
+
+### Menu Vertical Basic
+
+Basic ussage with the default styles
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<MenuVerticalBasic />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/menu-vertical/menu-vertical-basic.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Using custom color and skew
+
+Uses a custom hover color and skew value for a more dynamic effect
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<MenuVerticalSkew />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/menu-vertical/menu-vertical-skew.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Installation
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add "https://berlix.vercel.app/registry/menu-vertical.json"`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/components/core/menu-vertical.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Component Props
+
+<PropsTable
+  props={[
+    {
+      name: "menuItems",
+      type: "MenuItem[]",
+      required: true,
+      description:
+        "An array of menu items, each with a label (string) and href (string).",
+    },
+    {
+      name: "color",
+      type: "string",
+      default: "#ff6900",
+      description: "Optional color used for the hover arrow and text.",
+    },
+    {
+      name: "skew",
+      type: "number",
+      required: false,
+      default: "0",
+      description: "Optional skew in degrees applied to the label on hover.",
+    },
+  ]}
+/>

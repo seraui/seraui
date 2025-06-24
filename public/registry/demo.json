@@ -1,0 +1,24 @@
+{
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "demo",
+    "title": "Demo",
+    "description": "A demo component that displays a demo.",
+    "author": "Reche Soares",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [], 
+    "cssVars": {
+      "dark": {},
+      "light": {}
+    },
+    "files": [
+      {
+        "path": "demo.tsx",
+         "content": "export default function Demo() {\n  return (\n    <div>\n        <h1 className=\"text-2xl font-bold text-green-500\">this is a demo</h1>\n        <p>this is a demo</p>\n        <button>click me</button>\n        <input type=\"text\" placeholder=\"enter your name\" />\n        <select>\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n        </select>\n    </div>\n  )\n}\n",
+        "type": "registry:ui"
+      }
+    ]
+  }

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flip-card",
+  "title": "Flip Card",
+  "description": "A 3D animated flip card component that flips on hover, customizable by direction, rotation style, and transition duration.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "flip-card.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport { motion, useMotionValue, useSpring } from \"motion/react\";\n\ninterface FlipCardProps {\n  front: React.ReactNode;\n  back: React.ReactNode;\n  duration?: number;\n  flipDirection?: \"horizontal\" | \"vertical\";\n  flipRotation?: \"forward\" | \"reverse\";\n  className?: string;\n  panelClassName?: string;\n}\n\nexport const FlipCard = ({\n  front,\n  back,\n  duration = 0.3,\n  className,\n  panelClassName,\n  flipDirection = \"horizontal\",\n  flipRotation = \"forward\",\n}: FlipCardProps) => {\n  const rotate = useMotionValue(0);\n  const rotateSpring = useSpring(rotate, {\n    stiffness: (1 / duration) * 50,\n    damping: 30,\n  });\n\n  const handleMouseEnter = () => {\n    const isVertical = flipDirection === \"vertical\";\n    const isForward = flipRotation === \"forward\";\n\n    const angle = isVertical\n      ? isForward\n        ? -180\n        : 180\n      : isForward\n      ? 180\n      : -180;\n\n    rotate.set(angle);\n  };\n  const handleMouseLeave = () => rotate.set(0);\n\n  const rotateStyle =\n    flipDirection === \"horizontal\"\n      ? { rotateY: rotateSpring }\n      : { rotateX: rotateSpring };\n\n  const backfaceTransform =\n    flipDirection === \"horizontal\" ? \"rotateY(180deg)\" : \"rotateX(180deg)\";\n\n  return (\n    <motion.div\n      onMouseEnter={handleMouseEnter}\n      onMouseLeave={handleMouseLeave}\n      style={{\n        perspective: 1000,\n      }}\n      className={cn(\"relative w-56 h-72\", className)}\n    >\n      <motion.div\n        style={{\n          ...rotateStyle,\n          width: \"100%\",\n          height: \"100%\",\n          transformStyle: \"preserve-3d\",\n          position: \"relative\",\n        }}\n      >\n        <div\n          className={cn(\n            \"absolute w-full h-full top-0 left-0 rounded-xl overflow-hidden shadow-md bg-white backface-hidden\",\n            panelClassName\n          )}\n        >\n          {front}\n        </div>\n\n        <div\n          style={{ transform: backfaceTransform }}\n          className={cn(\n            \"absolute w-full h-full top-0 left-0  rounded-xl overflow-hidden shadow-md bg-white backface-hidden\",\n            panelClassName\n          )}\n        >\n          {back}\n        </div>\n      </motion.div>\n    </motion.div>\n  );\n};\n",
+      "type": "registry:ui"
+    }
+  ]
+}

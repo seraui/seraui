@@ -1,0 +1,76 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+
+import InputPreview from "./input-preview";
+
+# Input
+
+A sleek, animated text input with a floating label that gracefully moves up on focus.
+
+## Preview
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<InputPreview />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/input/input-preview.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Installation
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add "https://berlix.vercel.app/registry/input.json"`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/components/core/input.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Component Props
+
+<PropsTable
+  props={[
+    {
+      name: "label",
+      type: "string",
+      required: true,
+      description: "Text label displayed with animated letters.",
+    },
+    {
+      name: "value",
+      type: "string",
+      required: true,
+      description: "Current value of the input (controlled).",
+    },
+    {
+      name: "className",
+      type: "string",
+      description: "Additional class names for the component.",
+    },
+    {
+      name: "...props",
+      type: "Standard HTML input attributes",
+      description: "Other standard input props like onChange, disabled etc.",
+    },
+  ]}
+/>

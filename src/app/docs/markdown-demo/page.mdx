@@ -1,0 +1,286 @@
+import { Table, StatusBadge } from "@/components/ui/table";
+
+# Markdown Demo - All Elements
+
+This page demonstrates all markdown elements rendered perfectly with our enhanced MDX components.
+
+## Headings
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+---
+
+## Text Formatting
+
+**Bold text** and *italic text* and ***bold italic text***.
+
+~~Strikethrough text~~ and <mark>highlighted text</mark>.
+
+Regular text with `inline code` and <kbd>Ctrl</kbd> + <kbd>C</kbd> keyboard shortcuts.
+
+Subscript: H<sub>2</sub>O and Superscript: E=mc<sup>2</sup>
+
+---
+
+## Links
+
+[Internal link](/docs) and [external link](https://example.com).
+
+---
+
+## Lists
+
+### Unordered List
+- First item
+- Second item
+  - Nested item
+  - Another nested item
+- Third item
+
+### Ordered List
+1. First item
+2. Second item
+   1. Nested item
+   2. Another nested item
+3. Third item
+
+### Task List
+- [x] Completed task
+- [ ] Incomplete task
+- [x] Another completed task
+- [ ] Task with **bold** text
+- [x] Task with `code`
+
+---
+
+## Blockquotes
+
+> This is a blockquote with some important information.
+
+---
+
+## Code
+
+### Inline Code
+Use `console.log()` to print to the console.
+
+### Code Blocks
+
+```javascript
+// JavaScript example
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+
+greet("World");
+```
+
+```typescript
+// TypeScript example
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+const user: User = {
+  id: 1,
+  name: "John Doe",
+  email: "john@example.com"
+};
+```
+
+---
+
+## Tables
+
+### Basic Table
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Supported</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Headers</td>
+      <td>✅</td>
+      <td>Auto-generated IDs</td>
+    </tr>
+    <tr>
+      <td>Links</td>
+      <td>✅</td>
+      <td>Internal and external</td>
+    </tr>
+    <tr>
+      <td>Code</td>
+      <td>✅</td>
+      <td>Syntax highlighting</td>
+    </tr>
+    <tr>
+      <td>Tables</td>
+      <td>✅</td>
+      <td>Responsive design</td>
+    </tr>
+    <tr>
+      <td>Images</td>
+      <td>✅</td>
+      <td>Next.js optimization</td>
+    </tr>
+  </tbody>
+</table>
+
+### Complex Table
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Experience</th>
+      <th>Skills</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John Doe</td>
+      <td>Frontend Developer</td>
+      <td>5 years</td>
+      <td>React, TypeScript, CSS</td>
+      <td>New York</td>
+    </tr>
+    <tr>
+      <td>Jane Smith</td>
+      <td>Backend Developer</td>
+      <td>3 years</td>
+      <td>Node.js, Python, SQL</td>
+      <td>San Francisco</td>
+    </tr>
+    <tr>
+      <td>Bob Johnson</td>
+      <td>Full Stack</td>
+      <td>7 years</td>
+      <td>React, Node.js, AWS</td>
+      <td>Remote</td>
+    </tr>
+    <tr>
+      <td>Alice Brown</td>
+      <td>UI/UX Designer</td>
+      <td>4 years</td>
+      <td>Figma, Sketch, CSS</td>
+      <td>London</td>
+    </tr>
+  </tbody>
+</table>
+
+### Default Table Style
+
+<Table
+  headers={["Framework", "Language", "Performance", "Learning Curve"]}
+  rows={[
+    ["React", "JavaScript/TypeScript", "High", "Medium"],
+    ["Vue", "JavaScript/TypeScript", "High", "Easy"],
+    ["Angular", "TypeScript", "High", "Hard"],
+    ["Svelte", "JavaScript/TypeScript", "Very High", "Easy"]
+  ]}
+/>
+
+### Striped Table Style
+
+<Table
+  variant="striped"
+  headers={["API Endpoint", "Method", "Status", "Response Time"]}
+  rows={[
+    ["/api/users", "GET", "✅ Active", "45ms"],
+    ["/api/posts", "POST", "✅ Active", "120ms"],
+    ["/api/auth", "POST", "⚠️ Slow", "890ms"],
+    ["/api/files", "PUT", "❌ Error", "Timeout"]
+  ]}
+/>
+
+### Bordered Table Style
+
+<Table
+  variant="bordered"
+  headers={["Component", "Props", "Description", "Example"]}
+  rows={[
+    ["Button", "variant, size, disabled", "Interactive button component", "<Button variant='primary' />"],
+    ["Input", "type, placeholder, value", "Form input field", "<Input type='email' />"],
+    ["Modal", "open, onClose, title", "Overlay dialog component", "<Modal open={true} />"],
+    ["Table", "headers, rows, variant", "Data table component", "<Table variant='striped' />"]
+  ]}
+/>
+
+### Minimal Table Style
+
+<Table
+  variant="minimal"
+  headers={["Package", "Version", "Size", "Downloads"]}
+  rows={[
+    ["react", "^18.2.0", "42.2kB", "20M/week"],
+    ["next", "^14.0.0", "1.2MB", "5M/week"],
+    ["tailwindcss", "^3.3.0", "3.5MB", "8M/week"],
+    ["typescript", "^5.0.0", "65MB", "25M/week"]
+  ]}
+/>
+
+---
+
+## Horizontal Rules
+
+Above this line.
+
+---
+
+Below this line.
+
+### Table Usage Guide
+
+The Table component supports multiple variants for different use cases:
+
+- **Default**: Clean, professional look with subtle shadows
+- **Striped**: Alternating row colors with gradient header
+- **Bordered**: Clear borders for data-heavy tables
+- **Minimal**: Clean, borderless design for simple data
+
+```jsx
+// Basic usage
+<Table
+  headers={["Name", "Role", "Status"]}
+  rows={[
+    ["John Doe", "Developer", "Active"],
+    ["Jane Smith", "Designer", "Active"]
+  ]}
+/>
+
+// With variant
+<Table
+  variant="striped"
+  headers={["API", "Status", "Response"]}
+  rows={[
+    ["/users", "✅ Active", "45ms"],
+    ["/posts", "⚠️ Slow", "890ms"]
+  ]}
+/>
+```
+
+---
+
+## Conclusion
+
+This demonstrates the major markdown elements with beautiful styling and functionality. Each element is:
+
+- ✅ **Properly styled** with Tailwind CSS
+- ✅ **Responsive** and mobile-friendly
+- ✅ **Accessible** with proper ARIA labels
+- ✅ **Interactive** where appropriate
+- ✅ **Consistent** with your design system

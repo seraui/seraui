@@ -1,0 +1,134 @@
+# Installation
+
+Get started with **Berlix UI** in a few steps—whether you want to install via CLI or copy components directly from the docs. Here's the complete setup guide.
+
+---
+
+## 1. Set Up a React Framework
+
+Start with any React-based framework like **Next.js**.
+
+### Install Next.js with Create Next App
+
+```bash
+npx create-next-app@latest
+```
+
+You'll see the following prompts:
+
+```
+What is your project named? my-app
+Would you like to use TypeScript? No / Yes
+Would you like to use ESLint? No / Yes
+Would you like to use Tailwind CSS? No / Yes
+Would you like to use `src/` directory? No / Yes
+Would you like to use App Router? (recommended) No / Yes
+Would you like to customize the default import alias (@/*)? No / Yes
+What import alias would you like configured? @/*
+```
+
+### Start the App
+
+```bash
+cd my-app
+npm run dev
+```
+
+---
+
+## 2. Install Tailwind CSS
+
+### Install Tailwind
+
+```bash
+npm install tailwindcss @tailwindcss/postcss @tailwindcss/cli
+```
+
+### Create a Global CSS File
+
+**`app/globals.css`**
+
+```css
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: "Inter", "sans-serif";
+  --color-primary-500: oklch(0.84 0.18 117.33);
+  --spacing: 0.25rem;
+}
+```
+
+### Configure PostCSS
+
+**`postcss.config.js`**
+
+```js
+module.exports = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+```
+
+### Start Using Tailwind
+
+**`app/page.tsx`**
+
+```tsx
+export default function Home() {
+  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+}
+```
+
+---
+
+## 3. Add Animation & Utility Dependencies
+
+Berlix UI uses `motion`, `clsx`, and `tailwind-merge`.
+
+```bash
+npm install motion clsx tailwind-merge
+```
+
+### Add Utility Function
+
+**`lib/utils.ts`**
+
+```ts
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
+---
+
+## 4. Install Berlix UI Components
+
+### Option A: CLI Installation
+
+```bash
+npx shadcn-ui@latest init
+```
+
+Then install components:
+
+```bash
+npx shadcn@latest add "https://berlix.vercel.app/registry/<component-name>.json"
+```
+
+Replace `<component-name>` with the component you want (e.g., `button`, `card`, `input`).
+
+### Option B: Copy-Paste from Docs
+
+If you prefer direct control, simply copy-paste the JSX/TSX code into your project.
+
+This method gives you full flexibility and no dependency lock-in.
+
+---
+
+## Done
+
+You’re ready to build stunning animated UI with **Berlix UI**. Explore the components or start building right away.

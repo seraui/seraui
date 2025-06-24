@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-split",
+  "title": "Text Split",
+  "description": "Split text animation that shifts top and bottom halves on hover with customizable offset and falloff.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "text-split.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { motion } from \"framer-motion\";\nimport { cn } from \"@/lib/utils\";\n\ninterface TextSplitProps {\n  children: string;\n  className?: string;\n  topClassName?: string;\n  bottomClassName?: string;\n  maxMove?: number;\n  falloff?: number;\n}\n\nexport const TextSplit = ({\n  children,\n  className,\n  topClassName,\n  bottomClassName,\n  maxMove = 50,\n  falloff = 0.3,\n}: TextSplitProps) => {\n  const [hoverIndex, setHoverIndex] = useState<number | null>(null);\n\n  const getOffset = (index: number) => {\n    if (hoverIndex === null) return 0;\n    const distance = Math.abs(index - hoverIndex);\n    return Math.max(0, maxMove * (1 - distance * falloff));\n  };\n\n  return (\n    <div\n      className={cn(\"relative flex items-center justify-center \", className)}\n    >\n      {children.split(\"\").map((char, index) => {\n        const offset = getOffset(index);\n        const displayChar = char === \" \" ? \"\\u00A0\" : char;\n\n        return (\n          <div\n            key={`${char}-${index}`}\n            className=\"relative flex flex-col h-[1em] w-auto leading-none\"\n            onMouseEnter={() => setHoverIndex(index)}\n            onMouseLeave={() => setHoverIndex(null)}\n          >\n            <motion.span\n              initial={false}\n              animate={{\n                y: `-${offset}%`,\n              }}\n              transition={{ duration: 0.3, ease: \"easeInOut\" }}\n              className={cn(\"overflow-hidden\", topClassName)}\n            >\n              {displayChar}\n            </motion.span>\n\n            <motion.span\n              initial={false}\n              animate={{\n                y: `${offset}%`,\n              }}\n              transition={{ duration: 0.3, ease: \"easeInOut\" }}\n              className={cn(\"overflow-hidden\", bottomClassName)}\n            >\n              <span className=\"block -translate-y-1/2\">{displayChar}</span>\n            </motion.span>\n          </div>\n        );\n      })}\n    </div>\n  );\n};\n",
+      "type": "registry:ui"
+    }
+  ]
+}

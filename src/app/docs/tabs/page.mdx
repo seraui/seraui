@@ -1,0 +1,60 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import { Table, StatusBadge } from "@/components/ui/table";
+import TabsView from "./tabs-view.tsx";
+
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TabsView />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/tabs/tabs-view.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Installation
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add "http://localhost:3000/registry/tabs.json"`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/components/core/tabs.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+<Table
+  variant="minimal"
+  headers={["Package", "Version", "Size", "Downloads"]}
+  rows={[
+    ["react", "^18.2.0", "42.2kB", "20M/week"],
+    ["next", "^14.0.0", "1.2MB", "5M/week"],
+    ["tailwindcss", "^3.3.0", "3.5MB", "8M/week"],
+    ["typescript", "^5.0.0", "65MB", "25M/week"]
+  ]}
+/>
+
+```js
+console.log("Hello World");
+````

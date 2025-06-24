@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* CSS Variables for theming */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222.2 84% 4.9%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96%;
+  --accent-foreground: 222.2 84% 4.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 84% 4.9%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 224.3 76.3% 94.1%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  html {
+    --scrollbar-color: #00000032;
+    -webkit-tap-highlight-color: transparent;
+    scrollbar-gutter: stable;
+    scrollbar-color: var(--scrollbar-color) transparent;
+    scrollbar-width: thin;
+  }
+
+  html.dark {
+    --scrollbar-color: #ffffff32;
+  }
+
+  .thin-scroll {
+    -webkit-tap-highlight-color: transparent;
+    scrollbar-gutter: stable;
+    scrollbar-color: #ffffff32 transparent;
+    scrollbar-width: thin;
+  }
+
+  /* Markdown-specific utilities */
+  .prose {
+    @apply max-w-none;
+  }
+
+  .prose pre {
+    @apply bg-muted border border-border;
+  }
+
+  .prose code {
+    @apply bg-muted px-1 py-0.5 rounded text-sm;
+  }
+
+  .prose pre code {
+    @apply bg-transparent p-0;
+  }
+
+  /* Syntax highlighting theme integration */
+  .shiki {
+    @apply bg-transparent;
+  }
+
+  .shiki.github-light {
+    @apply block dark:hidden;
+  }
+
+  .shiki.github-dark {
+    @apply hidden dark:block;
+  }
+}
+
+@theme {
+  --default-mono-font-family: "Geist Mono", ui-monospace, SFMono-Regular,
+    Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, Courier New,
+    monospace;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Roboto Mono, Menlo,
+    Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  --default-mono-font-feature-settings: normal;
+  --default-mono-font-variation-settings: normal;
+
+  /* Color palette for markdown elements */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+}
+
+/* Grid background with light/dark mode and very low opacity lines */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, var(--grid-line-color, rgba(34,34,34,0.07)) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-color, rgba(34,34,34,0.07)) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.light .grid-bg {
+  --grid-line-color: rgba(34,34,34,0.07);
+}
+.dark .grid-bg {
+  --grid-line-color: rgba(229,231,235,0.04);
+}

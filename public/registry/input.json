@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "title": "Input",
+  "description": "A sleek, animated text input with a floating label that gracefully moves up on focus.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "input.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { motion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {\n  label: string;\n  value: string;\n  className?: string;\n}\n\nconst containerVariants = {\n  initial: {},\n  animate: {\n    transition: {\n      staggerChildren: 0.05,\n    },\n  },\n};\n\nconst letterVariants = {\n  initial: {\n    y: 0,\n    color: \"inherit\",\n  },\n  animate: {\n    y: \"-120%\",\n    color: \"var(--color-zinc-500)\",\n    transition: {\n      type: \"spring\",\n      stiffness: 300,\n      damping: 20,\n    },\n  },\n};\n\nexport const Input = ({\n  label,\n  className = \"\",\n  value,\n  ...props\n}: InputProps) => {\n  const [isFocused, setIsFocused] = useState(false);\n  const showLabel = isFocused || value.length > 0;\n\n  return (\n    <div className={cn(\"relative\", className)}>\n      <motion.div\n        className=\"absolute top-1/2 -translate-y-1/2 pointer-events-none text-zinc-900 dark:text-zinc-50\"\n        variants={containerVariants}\n        initial=\"initial\"\n        animate={showLabel ? \"animate\" : \"initial\"}\n      >\n        {label.split(\"\").map((char, index) => (\n          <motion.span\n            key={index}\n            className=\"inline-block text-sm\"\n            variants={letterVariants}\n            style={{ willChange: \"transform\" }}\n          >\n            {char === \" \" ? \"\\u00A0\" : char}\n          </motion.span>\n        ))}\n      </motion.div>\n\n      <input\n        type=\"text\"\n        onFocus={() => setIsFocused(true)}\n        onBlur={() => setIsFocused(false)}\n        {...props}\n        className=\"outline-none border-b-2 border-zinc-900 dark:border-zinc-50 py-2 w-full text-base font-medium text-zinc-900 dark:text-zinc-50 bg-transparent placeholder-transparent\"\n      />\n    </div>\n  );\n};\n",
+      "type": "registry:ui"
+    }
+  ]
+}

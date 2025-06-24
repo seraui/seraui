@@ -1,0 +1,72 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table";
+
+import TextCirclePreview from "./text-circle-preview";
+
+# Text Circle
+
+A component that displays text in a circular layout with continuous rotation.
+
+## Preview
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer reTrigger component={<TextCirclePreview />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text-circle/text-circle-preview.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Installation
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add "https://berlix.vercel.app/registry/text-circle.json"`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/components/core/text-circle.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Component Props
+
+<PropsTable
+  props={[
+    {
+      name: "text",
+      type: "string",
+      required: true,
+      description: "The text to be rendered in the circle.",
+    },
+    {
+      name: "duration",
+      type: "number",
+      default: 20,
+      description: "Time in seconds it takes for one complete rotation.",
+    },
+    {
+      name: "className",
+      type: "string",
+      description:
+        "Optional Tailwind or custom class names for styling the component.",
+    },
+  ]}
+/>

@@ -1,0 +1,99 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+
+import TextRippleBasic from "./text-ripple-basic";
+import TextRippleSpread from "./text-ripple-spread";
+
+# Text Ripple
+
+A animated text effect that scales characters on hover with a ripple animation. Customize the maximum scale and ripple falloff to adjust the intensity and spread of the effect.
+
+## Examples
+
+### Text Ripple Basic
+
+Simple ripple with default scale and falloff
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TextRippleBasic />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text-ripple/text-ripple-basic.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Text Ripple with a wider spread
+
+Increases the falloff value to spread the ripple effect farther
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TextRippleSpread />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text-ripple/text-ripple-spread.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Installation
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add "https://berlix.vercel.app/registry/text-ripple.json"`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/components/core/text-ripple.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Component Props
+
+<PropsTable
+  props={[
+    {
+      name: "children",
+      type: "string",
+      required: true,
+      description: "Text to be animated",
+    },
+    {
+      name: "className",
+      type: "string",
+      description: "Optional class names for styling the text.",
+    },
+    {
+      name: "maxScale",
+      type: "number",
+      default: 2,
+      description: "Max Y scale on hover.",
+    },
+    {
+      name: "falloff",
+      type: "number",
+      default: 0.3,
+      description: "Controls how fast the scale reduces for nearby letters.",
+    },
+  ]}
+/>

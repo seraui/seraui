@@ -1,0 +1,95 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+
+import BookPreview from "./book-preview";
+
+# Book
+
+A sleek and interactive 3D book component that flips open on hover, featuring smooth motion, layered depth, and customizable content.
+
+## Preview
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<BookPreview />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/book/book-preview.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Installation
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add "https://berlix.vercel.app/registry/book.json"`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/components/core/book.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Component Props
+
+<PropsTable
+  props={[
+    {
+      name: "content",
+      type: "ReactNode",
+      required: true,
+      description: "The inner content of the book.",
+    },
+    {
+      name: "cover",
+      type: "ReactNode",
+      required: true,
+      description: "The front cover of the book.",
+    },
+    {
+      name: "backOfCover",
+      type: "ReactNode",
+      description:
+        "Optional content displayed on the inside of the front cover.",
+    },
+    {
+      name: "rotate",
+      type: "number",
+      default: -30,
+      description: "Initial Y-axis rotation of the entire book.",
+    },
+    {
+      name: "coverRotate",
+      type: "number",
+      default: -100,
+      description: "Y-axis rotation of the front cover when hovered.",
+    },
+    {
+      name: "color",
+      type: "string",
+      default: "#e30012",
+      description: "Color used for the book's spine and back cover.",
+    },
+    {
+      name: "className",
+      type: "string",
+      description: "Custom class name for additional styling.",
+    },
+  ]}
+/>
