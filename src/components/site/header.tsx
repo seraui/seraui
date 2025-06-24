@@ -91,12 +91,13 @@ const Header = () => {
               </LoadingLink>
             </nav>
           </div>
-          <nav className="flex items-center space-x-2">
+          <nav className="flex items-center space-x-3">
             <Link
               href="https://x.com/rechesoares13"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-9 w-9 items-center justify-center"
+              className="flex items-center justify-center h-9 w-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200"
+              aria-label="X (Twitter)"
             >
               <XIcon className="h-4 w-4 fill-zinc-950 dark:fill-zinc-50" />
             </Link>
@@ -104,7 +105,8 @@ const Header = () => {
               href="https://github.com/reche13/berlix"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-9 w-9 items-center justify-center"
+              className="flex items-center justify-center h-9 w-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200"
+              aria-label="GitHub"
             >
               <GitHubIcon className="h-4 w-4 fill-zinc-950 dark:fill-zinc-50" />
             </Link>
