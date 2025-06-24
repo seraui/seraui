@@ -5,24 +5,8 @@ import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { Eye } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
 
 const Tabs = TabsPrimitive.Root;
-
-const TabsContext = React.createContext<string>("");
-
-const TabsRoot = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>
->(({ ...props }, ref) => {
-  const uniqueId = React.useId();
-  return (
-    <TabsContext.Provider value={uniqueId}>
-      <Tabs ref={ref} {...props} />
-    </TabsContext.Provider>
-  );
-});
-TabsRoot.displayName = TabsPrimitive.Root.displayName;
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
@@ -41,34 +25,14 @@ TabsList.displayName = TabsPrimitive.List.displayName;
 
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> & {
-    classNameIndicator?: string;
-  }
->(({ className, children, classNameIndicator, ...props }, ref) => {
-  const triggerRef = React.useRef<HTMLButtonElement>(null);
-  const [isActive, setIsActive] = React.useState(false);
-  const tabsId = React.useContext(TabsContext);
-
-  React.useEffect(() => {
-    const element = triggerRef.current;
-    if (element) {
-      setIsActive(element.dataset.state === "active");
-
-      const observer = new MutationObserver(() => {
-        setIsActive(element.dataset.state === "active");
-      });
-
-      observer.observe(element, { attributes: true });
-
-      return () => observer.disconnect();
-    }
-  }, []);
-
-  const isPreviewTab = typeof children === 'string' && children.toLowerCase() === 'preview';
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
+>(({ className, children, ...props }, ref) => {
+  const isPreviewTab =
+    typeof children === "string" && children.toLowerCase() === "preview";
 
   return (
     <TabsPrimitive.Trigger
-      ref={triggerRef}
+      ref={ref}
       className={cn(
         "relative inline-flex h-8 items-center justify-center px-5 py-1 text-sm font-medium whitespace-nowrap transition-colors",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2",
@@ -102,4 +66,4 @@ const TabsContent = React.forwardRef<
 ));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
-export { TabsRoot as Tabs, TabsList, TabsTrigger, TabsContent };
+export { Tabs, TabsList, TabsTrigger, TabsContent };

@@ -12,7 +12,6 @@ interface LoadingBarProps {
 
 export const LoadingBar: React.FC<LoadingBarProps> = ({
   isLoading,
-  color = "bg-emerald-500",
   height = 2,
   duration = 0.6,
 }) => {

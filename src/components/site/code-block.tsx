@@ -8,6 +8,7 @@ import { ReactIcon } from "@/assets/icons/react";
 import { TypeScriptIcon } from "@/assets/icons/typescript";
 import { JSXIcon } from "@/assets/icons/jsx";
 import { JavaScriptIcon } from "@/assets/icons/javascript";
+import type { ReactElement } from "react";
 
 type CodeBlockProps = {
   filePath?: string;
@@ -16,7 +17,7 @@ type CodeBlockProps = {
 };
 
 // Function to get the appropriate icon for each language
-const getLanguageIcon = (language: string) => {
+const getLanguageIcon = (language: string): ReactElement | null => {
   const iconProps = { className: "w-4 h-4 mr-2 fill-zinc-400 dark:fill-zinc-500" };
 
   switch (language.toLowerCase()) {
@@ -66,7 +67,7 @@ export const CodeBlock = ({
   filePath,
   code = "",
   lang,
-}: CodeBlockProps) => {
+}: CodeBlockProps): ReactElement => {
   const fileContent = filePath ? extractCode(filePath) : code;
   const detectedLang = lang || (filePath ? detectLanguageFromPath(filePath) : "tsx");
   const fileName = filePath ? filePath.split('/').pop() || filePath : null;

@@ -2,7 +2,6 @@
 import { ScrollArea } from "@/components/site/scroll-area";
 import { navigation } from "@/constants/navigation";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { LoadingLink } from "@/components/ui";
 import { usePathname } from "next/navigation";
 import React from "react";

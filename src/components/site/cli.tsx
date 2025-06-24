@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import CodeCopy from "./code-copy";
 import { cn } from "@/lib/utils";
-import { FaNpm, FaYarn } from "react-icons/fa";
+import { FaYarn } from "react-icons/fa";
 import { SiNpm, SiPnpm } from "react-icons/si";
 
 const PM_COMMANDS = {

@@ -3,6 +3,14 @@ import { cn } from "@/lib/utils";
 import { RotateCw, Expand, Monitor, Tablet, Smartphone } from "lucide-react";
 import { cloneElement, useState, useRef, useEffect } from "react";
 
+interface HTMLElementWithFullscreen extends HTMLElement {
+  webkitRequestFullscreen?: () => Promise<void>;
+}
+
+interface DocumentWithFullscreen extends Document {
+  webkitExitFullscreen?: () => Promise<void>;
+}
+
 type ComponentPreviewProps = {
   component: React.ReactElement;
   reTrigger?: boolean;
@@ -30,18 +38,20 @@ export function ComponentRenderer({
   const handleFullscreen = () => {
     if (!isFullscreen) {
       if (containerRef.current) {
-        if (containerRef.current.requestFullscreen) {
-          containerRef.current.requestFullscreen();
-        } else if ((containerRef.current as any).webkitRequestFullscreen) {
-          (containerRef.current as any).webkitRequestFullscreen();
+        const element = containerRef.current as HTMLElementWithFullscreen;
+        if (element.requestFullscreen) {
+          element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) {
+          element.webkitRequestFullscreen();
         }
         setIsFullscreen(true);
       }
     } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if ((document as any).webkitExitFullscreen) {
-        (document as any).webkitExitFullscreen();
+      const doc = document as DocumentWithFullscreen;
+      if (doc.exitFullscreen) {
+        doc.exitFullscreen();
+      } else if (doc.webkitExitFullscreen) {
+        doc.webkitExitFullscreen();
       }
       setIsFullscreen(false);
     }
