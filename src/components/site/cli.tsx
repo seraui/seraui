@@ -22,7 +22,18 @@ type CliProps = {
 export const Cli = ({ command }: CliProps) => {
   const [pm, setPm] = useState<PackageManager>("npm");
 
-  const fullCommand = `${PM_COMMANDS[pm]} shadcn@latest ${command}`;
+  // Dynamically build the registry URL if command looks like 'add *.json'
+  let finalCommand = command;
+  if (typeof window !== "undefined") {
+    // Match 'add something.json' optionally with quotes
+    const match = command.match(/^add\s+"?([\w-]+\.json)"?$/);
+    if (match) {
+      const file = match[1];
+      finalCommand = `add \"${window.location.origin}/registry/${file}\"`;
+    }
+  }
+
+  const fullCommand = `${PM_COMMANDS[pm]} shadcn@latest ${finalCommand}`;
 
   return (
     <div className="w-full rounded-lg bg-zinc-100 dark:bg-zinc-950 relative overflow-hidden border border-zinc-200 dark:border-zinc-800">
@@ -101,7 +112,7 @@ export const Cli = ({ command }: CliProps) => {
       <div className="text-sm text-left font-mono text-nowrap font-medium bg-white dark:bg-zinc-950 px-4 py-4 overflow-x-auto max-w-full min-w-0">
         <span className="text-amber-400">{PM_COMMANDS[pm]}</span>{" "}
         <span className="text-teal-500">shadcn@latest</span>{" "}
-        <span className="text-zinc-700 dark:text-zinc-300">{command}</span>
+        <span className="text-zinc-700 dark:text-zinc-300">{finalCommand}</span>
       </div>
     </div>
   );
