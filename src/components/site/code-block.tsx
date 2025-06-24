@@ -74,8 +74,6 @@ export const CodeBlock = ({
 
   return (
     <div className="relative w-full">
-      <CodeCopy code={fileContent} />
-
       {/* Language header */}
       <div className="flex items-center justify-between px-4 py-2 bg-zinc-800/50 border-b border-zinc-700 rounded-t-lg">
         <div className="flex items-center">
@@ -89,6 +87,7 @@ export const CodeBlock = ({
             </span>
           )}
         </div>
+        <CodeCopy code={fileContent} />
       </div>
 
       <div

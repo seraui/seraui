@@ -25,7 +25,7 @@ const CodeCopy = ({
     <button
       onClick={copyCode}
       className={cn(
-        "absolute top-4 right-5 cursor-pointer z-20 p-2 text-zinc-50",
+        "relative cursor-pointer z-20 p-2 text-zinc-50",
         className
       )}
     >

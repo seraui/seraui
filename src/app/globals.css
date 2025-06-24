@@ -82,35 +82,6 @@
     scrollbar-width: thin;
   }
 
-  /* Markdown-specific utilities */
-  .prose {
-    @apply max-w-none;
-  }
-
-  .prose pre {
-    @apply bg-muted border border-border;
-  }
-
-  .prose code {
-    @apply bg-muted px-1 py-0.5 rounded text-sm;
-  }
-
-  .prose pre code {
-    @apply bg-transparent p-0;
-  }
-
-  /* Syntax highlighting theme integration */
-  .shiki {
-    @apply bg-transparent;
-  }
-
-  .shiki.github-light {
-    @apply block dark:hidden;
-  }
-
-  .shiki.github-dark {
-    @apply hidden dark:block;
-  }
 }
 
 @theme {
