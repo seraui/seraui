@@ -1,5 +1,6 @@
 import { Cli } from "@/components/site/cli";
 import React from "react";
+import Link from "next/link";
 
 export const CallToAction = () => {
   return (
@@ -26,10 +27,16 @@ export const CallToAction = () => {
         {/* Additional CTA buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mt-8">
           <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
-            Get Started
+            <Link href="/docs">
+              <span className="text-white">Get Started</span>
+            </Link>
           </button>
           <button className="px-8 py-3 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all duration-200">
-            View Components
+            <Link href="/docs/installation">
+              <span className="text-zinc-700 dark:text-zinc-300">
+                View Components
+              </span>
+            </Link>
           </button>
         </div>
       </div>
