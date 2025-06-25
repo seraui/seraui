@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { CallToAction } from "./call-to-action";
+import { BorderBeam } from "@/components/ui";
 
 export const Hero = () => {
   return (
@@ -25,9 +26,16 @@ export const Hero = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 dark:border-purple-500/20 mb-8 backdrop-blur-sm"
+            className="relative inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 dark:border-purple-500/20 mb-8 backdrop-blur-sm"
           >
-            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <BorderBeam 
+              size={40}
+              duration={4}
+              colorFrom="#3b82f6"
+              colorTo="#8b5cf6"
+              className="rounded-full"
+            />
+            <span className="text-sm font-medium text-blue-600 dark:text-purple-400">
               ✨ Now with enhanced components
             </span>
           </motion.div>
