@@ -7,10 +7,10 @@ export const CallToAction = () => {
     <div className="w-full max-w-4xl mx-auto">
       <div className="flex flex-col items-center text-center">
         <h2 className="font-bold text-2xl md:text-3xl lg:text-4xl text-zinc-900 dark:text-zinc-50 tracking-tight leading-[1.3] mb-4">
-          Copy. Paste. Use.
+          Build Faster. Launch Smarter.
         </h2>
         <p className="text-base md:text-lg font-medium text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl">
-          Instantly copy - paste components or install via CLI. No setup required.
+          Seamlessly integrate ready-made components with a single click or via our CLI. No setup. No hassle. Just speed and elegance.
         </p>
 
         <div className="w-full max-w-3xl">
@@ -28,13 +28,13 @@ export const CallToAction = () => {
         <div className="flex flex-col sm:flex-row gap-4 mt-8">
           <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
             <Link href="/docs">
-              <span className="text-white">Get Started</span>
+              <span className="text-white">Start Building</span>
             </Link>
           </button>
           <button className="px-8 py-3 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all duration-200">
             <Link href="/docs/installation">
               <span className="text-zinc-700 dark:text-zinc-300">
-                View Components
+                Browse Components
               </span>
             </Link>
           </button>

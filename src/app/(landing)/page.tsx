@@ -9,8 +9,8 @@ const page = () => {
       <Header />
       <Hero />
       
-      <div className="w-full bg-zinc-50 dark:bg-zinc-950 px-4 border-t border-gray-200 dark:border-zinc-800">
-        <div className="relative mx-auto max-w-7xl">
+      <div className="w-full bg-zinc-50 dark:bg-zinc-950">
+        <div className="relative">
           <Footer />
         </div>
       </div>
