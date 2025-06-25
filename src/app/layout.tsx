@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import { geistMono, geistSans } from "@/assets/fonts";
 import { Analytics } from "@vercel/analytics/next";
 import { LoadingProvider } from "@/components/ui";
+import { PackageManagerProvider } from "@/contexts/package-manager-context";
 
 export const metadata: Metadata = {
   title: "Sera UI – Animated React Components Library",
@@ -55,9 +56,11 @@ export default function RootLayout({
       >
         <Analytics />
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <LoadingProvider>
-            {children}
-          </LoadingProvider>
+          <PackageManagerProvider>
+            <LoadingProvider>
+              {children}
+            </LoadingProvider>
+          </PackageManagerProvider>
         </ThemeProvider>
       </body>
     </html>

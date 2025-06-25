@@ -1,134 +1,246 @@
-# Installation
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import { Table, StatusBadge } from "@/components/ui/table";
+import TabsView from "./tabs-view.tsx";
+import Install from "./install.tsx";
 
-Get started with **Berlix UI** in a few steps—whether you want to install via CLI or copy components directly from the docs. Here's the complete setup guide.
+<Install />
 
----
+# Vite
 
-## 1. Set Up a React Framework
+Install and configure shadcn/ui for Vite.
 
-Start with any React-based framework like **Next.js**.
+# Create project
 
-### Install Next.js with Create Next App
+Start by creating a new React project using `vite`. Select the `React + TypeScript` template:
 
-```bash
-npx create-next-app@latest
-```
+<PMTabs>
+  <PNPMTabContent>
+    ```bash
+    pnpm create vite@latest
+    ```
+  </PNPMTabContent>
+  <NPMTabContent>
+    ```bash
+    npm create vite@latest
+    ```
+  </NPMTabContent>
+  <YarnTabContent>
+     ```bash
+    yarn create vite@latest
+    ```
+  </YarnTabContent>
+  <BunTabContent>
+     ```bash
+    bun create vite@latest
+    ```
+  </BunTabContent>
+</PMTabs>
 
-You'll see the following prompts:
+## Add Tailwind CSS
 
-```
-What is your project named? my-app
-Would you like to use TypeScript? No / Yes
-Would you like to use ESLint? No / Yes
-Would you like to use Tailwind CSS? No / Yes
-Would you like to use `src/` directory? No / Yes
-Would you like to use App Router? (recommended) No / Yes
-Would you like to customize the default import alias (@/*)? No / Yes
-What import alias would you like configured? @/*
-```
+<PMTabs>
+  <PNPMTabContent>
+    ```bash
+    pnpm add tailwindcss @tailwindcss/vite
+    ```
+  </PNPMTabContent>
+  <NPMTabContent>
+    ```bash
+    npm install tailwindcss @tailwindcss/vite
+    ```
+  </NPMTabContent>
+  <YarnTabContent>
+    ```bash
+    yarn add tailwindcss @tailwindcss/vite
+    ```
+  </YarnTabContent>
+  <BunTabContent>
+    ```bash
+    bun add tailwindcss @tailwindcss/vite
+    ```
+  </BunTabContent>
+</PMTabs>
 
-### Start the App
-
-```bash
-cd my-app
-npm run dev
-```
-
----
-
-## 2. Install Tailwind CSS
-
-### Install Tailwind
-
-```bash
-npm install tailwindcss @tailwindcss/postcss @tailwindcss/cli
-```
-
-### Create a Global CSS File
-
-**`app/globals.css`**
+Replace everything in `src/index.css` with the following:
 
 ```css
 @import "tailwindcss";
+```
 
-@theme inline {
-  --font-display: "Inter", "sans-serif";
-  --color-primary-500: oklch(0.84 0.18 117.33);
-  --spacing: 0.25rem;
+# Edit tsconfig.json file
+
+The current version of Vite splits TypeScript configuration into three files, two of which need to be edited. Add the `baseUrl` and `paths` properties to the `compilerOptions` section of the `tsconfig.json` and `tsconfig.app.json` files:
+
+```json
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
 }
 ```
 
-### Configure PostCSS
+# Edit tsconfig.app.json file
 
-**`postcss.config.js`**
+Add the following code to the `tsconfig.app.json` file to resolve paths, for your IDE:
 
-```js
-module.exports = {
-  plugins: {
-    "@tailwindcss/postcss": {},
-  },
-};
+```json
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+    // ...
+  }
+}
 ```
 
-### Start Using Tailwind
+# Update vite.config.ts
 
-**`app/page.tsx`**
+Add the following code to the `vite.config.ts` so your app can resolve paths without error:
+
+
+<PMTabs>
+  <PNPMTabContent>
+    ```bash
+     pnpm add -D @types/node
+    ```
+  </PNPMTabContent>
+  <NPMTabContent>
+    ```bash
+    npm install -D @types/node
+    ```
+  </NPMTabContent>
+  <YarnTabContent>
+    ```bash
+    yarn add -D @types/node
+    ```
+  </YarnTabContent>
+  <BunTabContent>
+    ```bash
+    bun add -D @types/node
+    ```
+  </BunTabContent>
+</PMTabs>
+
+
+
+
+
+Now, update your `vite.config.ts` file:
+
+```typescript
+import path from "path"
+import tailwindcss from "@tailwindcss/vite"
+import react from "@vitejs/plugin-react"
+import { defineConfig } from "vite"
+
+// [https://vite.dev/config/](https://vite.dev/config/)
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+})
+```
+
+# Run the CLI
+
+Run the `shadcn` init command to setup your project:
+
+<PMTabs>
+  <PNPMTabContent>
+    ```bash
+    pnpm dlx shadcn@latest init
+    ```
+  </PNPMTabContent>
+  <NPMTabContent>
+    ```bash
+    npx shadcn@latest init
+    ```
+  </NPMTabContent>
+  <YarnTabContent>
+    ```bash
+    yarn dlx shadcn@latest init
+    ```
+  </YarnTabContent>
+  <BunTabContent>
+    ```bash
+    bunx --bun shadcn@latest init
+    ```
+  </BunTabContent>
+</PMTabs>
+
+You will be asked a few questions to configure `components.json`.
+
+```bash
+Which color would you like to use as base color? › Neutral
+```
+
+# Add Components
+
+You can now start adding components to your project.
+
+<PMTabs>
+  <PNPMTabContent>
+    ```bash
+    pnpm dlx shadcn@latest add button
+    ```
+  </PNPMTabContent>
+  <NPMTabContent>
+    ```bash
+    npx shadcn@latest add button
+    ```
+  </NPMTabContent>
+  <YarnTabContent>
+    ```bash
+    yarn dlx shadcn@latest add button
+    ```
+  </YarnTabContent>
+  <BunTabContent>
+    ```bash
+    bunx --bun shadcn@latest add button
+    ```
+  </BunTabContent>
+</PMTabs>
+
+The command above will add the `Button` component to your project. You can then import it like this:
 
 ```tsx
-export default function Home() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+import { Button } from "@/components/ui/button"
+
+function App() {
+  return (
+    <div className="flex min-h-svh flex-col items-center justify-center">
+      <Button>Click me</Button>
+    </div>
+  )
 }
-```
 
----
-
-## 3. Add Animation & Utility Dependencies
-
-Berlix UI uses `motion`, `clsx`, and `tailwind-merge`.
-
-```bash
-npm install motion clsx tailwind-merge
-```
-
-### Add Utility Function
-
-**`lib/utils.ts`**
-
-```ts
-import { ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-```
-
----
-
-## 4. Install Berlix UI Components
-
-### Option A: CLI Installation
-
-```bash
-npx shadcn-ui@latest init
-```
-
-Then install components:
-
-```bash
-npx shadcn@latest add "https://berlix.vercel.app/registry/<component-name>.json"
-```
-
-Replace `<component-name>` with the component you want (e.g., `button`, `card`, `input`).
-
-### Option B: Copy-Paste from Docs
-
-If you prefer direct control, simply copy-paste the JSX/TSX code into your project.
-
-This method gives you full flexibility and no dependency lock-in.
-
----
-
-## Done
-
-You’re ready to build stunning animated UI with **Berlix UI**. Explore the components or start building right away.
+export default App

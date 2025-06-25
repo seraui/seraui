@@ -17,11 +17,11 @@ export function useTableOfContents() {
     const extractHeadings = () => {
       // Wait a bit for MDX content to render
       setTimeout(() => {
-        // Only get h1 headings (# in markdown) from the main content area
+        // Get h1, h2, and h3 headings from the main content area
         const mainContent = document.querySelector("main");
         if (!mainContent) return;
 
-        const headings = mainContent.querySelectorAll("h1");
+        const headings = mainContent.querySelectorAll("h1, h2, h3");
         const tocItems: TOCItem[] = [];
 
         headings.forEach((heading, index) => {
@@ -40,10 +40,13 @@ export function useTableOfContents() {
             heading.id = id;
           }
 
+          // Get the heading level from the tag name
+          const level = parseInt(heading.tagName.charAt(1));
+
           tocItems.push({
             id,
             text,
-            level: 1, // Only h1 headings
+            level,
           });
         });
 

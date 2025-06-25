@@ -1,6 +1,16 @@
 import type { MDXComponents } from "mdx/types";
 import { createSlug } from "./lib/utils";
 import { CodeBlock } from "./components/ui/code-block";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/site/tabs";
+import { Cli } from "./components/site/cli";
+import {
+  PackageManagerTabs as PMTabs,
+  PMTabContent,
+  NPMTabContent,
+  PNPMTabContent,
+  YarnTabContent,
+  BunTabContent
+} from "./components/site/package-manager-tabs";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -241,5 +251,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </sup>
       );
     },
+
+    // Custom components
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+    Cli,
+    PMTabs,
+    PMTabContent,
+    NPMTabContent,
+    PNPMTabContent,
+    YarnTabContent,
+    BunTabContent,
   };
 }

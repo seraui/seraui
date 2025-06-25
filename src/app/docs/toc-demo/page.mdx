@@ -1,10 +1,14 @@
 # Table of Contents Demo
 
-This page demonstrates the automatic table of contents functionality. The TOC on the right side will show all the `#` headings from this page.
+This page demonstrates the automatic table of contents functionality. The TOC on the right side will now show all the `#`, `##`, and `###` headings from this page with proper hierarchical indentation.
 
 ## Introduction
 
-This is a regular h2 heading that won't appear in the TOC since we only track h1 headings.
+This is an h2 heading that will now appear in the TOC as a sub-item under the main heading.
+
+### Getting Started Quickly
+
+This is an h3 heading that will appear nested under the Introduction section.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
@@ -12,22 +16,51 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 
 This is the first main section that will appear in the table of contents. You can click on it in the TOC to jump directly to this section.
 
+## Prerequisites
+
+This h2 heading will now appear in the TOC as a sub-item under "Getting Started".
+
+### System Requirements
+
+This h3 heading will appear nested under Prerequisites.
+
+### Installation Tools
+
+Another h3 heading under Prerequisites.
+
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-## Subsection
+## Quick Setup
 
-This h2 won't appear in TOC.
+This h2 section will also appear in the TOC.
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
 # Features
 
-Here's another main section. Notice how the TOC automatically updates as you scroll through the page.
+Here's another main section. Notice how the TOC automatically updates as you scroll through the page and now shows hierarchical structure.
 
-- **Automatic Detection**: All h1 headings are automatically detected
+## Core Features
+
+This h2 section will appear indented under Features in the TOC.
+
+- **Automatic Detection**: All h1, h2, and h3 headings are automatically detected
+- **Hierarchical Display**: Headings are shown with proper indentation
 - **Smooth Scrolling**: Click any TOC item for smooth scrolling
 - **Active Highlighting**: Current section is highlighted in the TOC
 - **Reading Progress**: Visual progress indicator shows how far you've read
+
+### Navigation Features
+
+This h3 section shows even deeper nesting.
+
+### Visual Indicators
+
+Another h3 section under Core Features.
+
+## Advanced Features
+
+This h2 section demonstrates more advanced functionality.
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 
@@ -35,9 +68,31 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
 
 This section shows how the TOC works with longer content. The active section highlighting will update as you scroll.
 
+## Package Manager Installation
+
+This h2 section covers different installation methods.
+
+### Using npm
+
 ```bash
 npm install your-package
 ```
+
+### Using yarn
+
+```bash
+yarn add your-package
+```
+
+### Using pnpm
+
+```bash
+pnpm add your-package
+```
+
+## Manual Installation
+
+This h2 section covers manual installation steps.
 
 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
 
@@ -45,13 +100,29 @@ At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praese
 
 Another section to demonstrate the scrolling behavior. The TOC will highlight this section when it's in view.
 
+## Basic Configuration
+
+This h2 section covers basic setup options.
+
 ```typescript
 const config = {
   autoTOC: true,
-  headingLevel: 1, // Only h1 headings
+  headingLevels: [1, 2, 3], // Now supports h1, h2, and h3 headings
   smoothScroll: true
 };
 ```
+
+### Configuration Options
+
+This h3 section details specific configuration parameters.
+
+### Environment Setup
+
+Another h3 section under Basic Configuration.
+
+## Advanced Configuration
+
+This h2 section covers more complex setup scenarios.
 
 Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
 
@@ -59,11 +130,13 @@ Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et d
 
 This section contains more detailed information about advanced features and customization options.
 
-Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+## Custom Implementations
 
-## Code Examples
+This h2 section will appear in the TOC and covers custom usage patterns.
 
-This h2 section won't appear in the TOC, but the content is still important for the overall page structure.
+### React Integration
+
+This h3 section shows React-specific examples.
 
 ```jsx
 import { TableOfContents } from '@/components/site/table-of-contents';
@@ -78,15 +151,37 @@ export default function Layout({ children }) {
 }
 ```
 
+### TypeScript Support
+
+This h3 section covers TypeScript integration.
+
+## API Reference
+
+This h2 section provides detailed API documentation.
+
+Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+
 # Troubleshooting
 
 The final main section of our demo page. This helps test the "Go to bottom" functionality in the TOC.
 
-Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
-
 ## Common Issues
 
-Another h2 that won't appear in TOC.
+This h2 section will now appear in the TOC and covers frequently encountered problems.
+
+### Build Errors
+
+This h3 section addresses build-related issues.
+
+### Runtime Problems
+
+This h3 section covers runtime troubleshooting.
+
+Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+
+## Debugging Tips
+
+This h2 section provides debugging strategies.
 
 Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
 
@@ -94,4 +189,12 @@ Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatib
 
 This is the last main section. The reading progress indicator should show 100% when you reach here.
 
-Thank you for testing the table of contents functionality! The TOC should have automatically detected all the h1 headings on this page and provided smooth navigation between them.
+## Summary
+
+This h2 section summarizes the key points.
+
+### Key Takeaways
+
+This h3 section highlights the most important information.
+
+Thank you for testing the enhanced table of contents functionality! The TOC should now automatically detect all h1, h2, and h3 headings on this page and display them with proper hierarchical indentation and navigation.

@@ -20,19 +20,50 @@ export const TableOfContents: React.FC = () => {
         <div className="space-y-6">
           {/* Timeline Table of Contents */}
           <nav className="relative" role="navigation" aria-label="Table of contents">
-            {/* Timeline line */}
+            {/* Main timeline line */}
             <div className="absolute left-2 top-0 bottom-0 w-px bg-zinc-200 dark:bg-zinc-700" />
 
-            <div className="space-y-4">
+            {/* Secondary timeline lines for nested headings */}
+            {toc.map((item, index) => {
+              if (item.level > 1) {
+                const indentLevel = item.level - 1;
+                const leftOffset = indentLevel * 16;
+
+                return (
+                  <div
+                    key={`line-${item.id}`}
+                    className="absolute w-px bg-zinc-200 dark:bg-zinc-700 opacity-50"
+                    style={{
+                      left: `${8 + leftOffset}px`,
+                      top: `${index * 48}px`, // Approximate spacing
+                      height: '48px'
+                    }}
+                  />
+                );
+              }
+              return null;
+            })}
+
+            <div className="space-y-3">
               {toc.map((item) => {
                 const isActive = item.id === activeId;
 
+                // Calculate indentation based on heading level
+                const indentLevel = item.level - 1; // h1=0, h2=1, h3=2
+                const leftOffset = indentLevel * 16; // 16px per level
+
                 return (
-                  <div key={item.id} className="relative flex items-start">
-                    {/* Timeline dot */}
+                  <div
+                    key={item.id}
+                    className="relative flex items-start"
+                    style={{ marginLeft: `${leftOffset}px` }}
+                  >
+                    {/* Timeline dot - size varies by level */}
                     <motion.div
                       className={cn(
-                        "relative z-10 w-4 h-4 rounded-full border-2 transition-all duration-200",
+                        "relative z-10 rounded-full border-2 transition-all duration-200",
+                        // Size based on heading level
+                        item.level === 1 ? "w-4 h-4" : item.level === 2 ? "w-3 h-3" : "w-2.5 h-2.5",
                         isActive
                           ? "bg-blue-500 border-blue-500 shadow-lg shadow-blue-500/25"
                           : "bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-600"
@@ -47,7 +78,10 @@ export const TableOfContents: React.FC = () => {
                     <button
                       onClick={() => scrollToHeading(item.id)}
                       className={cn(
-                        "ml-4 text-left text-sm transition-all duration-200 hover:text-zinc-900 dark:hover:text-zinc-100",
+                        "ml-3 text-left transition-all duration-200 hover:text-zinc-900 dark:hover:text-zinc-100",
+                        // Font size and weight based on heading level
+                        item.level === 1 ? "text-sm font-medium" :
+                        item.level === 2 ? "text-sm" : "text-xs",
                         isActive
                           ? "text-blue-600 dark:text-blue-400 font-medium"
                           : "text-zinc-600 dark:text-zinc-400"
@@ -126,7 +160,7 @@ export const TableOfContents: React.FC = () => {
 
               {/* Progress percentage indicator */}
               <motion.div
-                className="absolute -top-8 text-xs font-medium px-2 py-1 rounded-md shadow-sm"
+                className="absolute top-0 -mt-6 text-xs font-medium px-2 py-1 rounded-md shadow-sm"
                 style={{
                   left: `${toc.length > 0 ? ((toc.findIndex(item => item.id === activeId) + 1) / toc.length) * 100 : 0}%`,
                   transform: 'translateX(-50%)',
