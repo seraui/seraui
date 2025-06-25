@@ -1,0 +1,73 @@
+{
+  "name": "Sera UI - Modern React Component Library",
+  "short_name": "Sera UI",
+  "description": "50+ animated React components built with Tailwind CSS & Framer Motion. Free, open-source, and production-ready.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["developer", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/product.png",
+      "sizes": "800x600",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Sera UI Component Showcase"
+    },
+    {
+      "src": "/product-dark.png",
+      "sizes": "800x600",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Sera UI Dark Mode Components"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Documentation",
+      "short_name": "Docs",
+      "description": "View Sera UI documentation",
+      "url": "/docs",
+      "icons": [
+        {
+          "src": "/logo.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Components",
+      "short_name": "Components",
+      "description": "Browse Sera UI components",
+      "url": "/docs/components",
+      "icons": [
+        {
+          "src": "/logo.svg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+} 

@@ -1,7 +1,24 @@
 import React from "react";
+import type { Metadata } from "next";
 import Header from "@/components/site/header";
 import { Hero } from "./_components/hero";
 import { Footer } from "./_components/footer";
+
+export const metadata: Metadata = {
+  title: "Sera UI - Modern React Component Library",
+  description: "Build stunning web applications with Sera UI's modern React components. Free, open-source, and built with Tailwind CSS & Framer Motion.",
+  keywords: ["React components", "UI library", "Tailwind CSS", "Framer Motion", "TypeScript"],
+  openGraph: {
+    title: "Sera UI - Modern React Component Library",
+    description: "Build stunning web applications with Sera UI's modern React components.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sera UI - Modern React Component Library",
+    description: "Build stunning web applications with Sera UI's modern React components.",
+  },
+};
 
 const page = () => {
   return (
