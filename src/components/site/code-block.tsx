@@ -18,10 +18,11 @@ type CodeBlockProps = {
 
 // Function to get the appropriate icon for each language
 const getLanguageIcon = (language: string): ReactElement | null => {
-  const iconProps = { className: "w-4 h-4 mr-2 fill-zinc-400 dark:fill-zinc-500" };
+  const iconProps = { className: "w-4 h-4 mr-2" };
 
   switch (language.toLowerCase()) {
     case 'tsx':
+    case 'react':
       return <ReactIcon {...iconProps} />;
     case 'jsx':
       return <JSXIcon {...iconProps} />;
@@ -30,6 +31,8 @@ const getLanguageIcon = (language: string): ReactElement | null => {
       return <TypeScriptIcon {...iconProps} />;
     case 'javascript':
     case 'js':
+    case 'mjs':
+    case 'cjs':
       return <JavaScriptIcon {...iconProps} />;
     default:
       return null;
@@ -40,27 +43,59 @@ const getLanguageIcon = (language: string): ReactElement | null => {
 const detectLanguageFromPath = (filePath: string): BuiltinLanguage => {
   const extension = filePath.split('.').pop()?.toLowerCase();
 
-  switch (extension) {
-    case 'tsx':
-      return 'tsx';
-    case 'jsx':
-      return 'jsx';
-    case 'ts':
-      return 'typescript';
-    case 'js':
-      return 'javascript';
-    case 'css':
-      return 'css';
-    case 'html':
-      return 'html';
-    case 'json':
-      return 'json';
-    case 'md':
-    case 'mdx':
-      return 'markdown';
-    default:
-      return 'tsx'; // default fallback
-  }
+  const extensionMap: Record<string, BuiltinLanguage> = {
+    'tsx': 'tsx',
+    'jsx': 'jsx',
+    'ts': 'typescript',
+    'js': 'javascript',
+    'mjs': 'javascript',
+    'cjs': 'javascript',
+    'css': 'css',
+    'scss': 'scss',
+    'sass': 'sass',
+    'less': 'less',
+    'html': 'html',
+    'htm': 'html',
+    'json': 'json',
+    'jsonc': 'jsonc',
+    'json5': 'json5',
+    'md': 'markdown',
+    'mdx': 'markdown',
+    'py': 'python',
+    'pyw': 'python',
+    'rs': 'rust',
+    'go': 'go',
+    'java': 'java',
+    'c': 'c',
+    'cpp': 'cpp',
+    'cxx': 'cpp',
+    'cc': 'cpp',
+    'h': 'c',
+    'hpp': 'cpp',
+    'hxx': 'cpp',
+    'php': 'php',
+    'rb': 'ruby',
+    'swift': 'swift',
+    'kt': 'kotlin',
+    'dart': 'dart',
+    'sql': 'sql',
+    'yaml': 'yaml',
+    'yml': 'yaml',
+    'toml': 'toml',
+    'xml': 'xml',
+    'sh': 'bash',
+    'bash': 'bash',
+    'zsh': 'bash',
+    'fish': 'bash',
+    'ps1': 'powershell',
+    'bat': 'batch',
+    'cmd': 'batch',
+    'vue': 'vue',
+    'svelte': 'svelte',
+    'astro': 'astro',
+  };
+
+  return extensionMap[extension || ''] || 'tsx'; // default fallback
 };
 
 export const CodeBlock = ({
@@ -75,14 +110,14 @@ export const CodeBlock = ({
   return (
     <div className="relative w-full">
       {/* Language header */}
-      <div className="flex items-center justify-between px-4 py-2 bg-zinc-800/50 border-b border-zinc-700 rounded-t-lg">
+      <div className="flex items-center justify-between px-4 py-2 bg-muted/50 border border-b-0 border-border rounded-t-lg">
         <div className="flex items-center">
           {getLanguageIcon(detectedLang)}
-          <span className="text-xs font-mono text-zinc-400 uppercase tracking-wide">
+          <span className="text-xs font-mono text-muted-foreground uppercase tracking-wide">
             {detectedLang}
           </span>
           {fileName && (
-            <span className="ml-2 text-xs text-zinc-500">
+            <span className="ml-2 text-xs text-muted-foreground/70">
               {fileName}
             </span>
           )}
@@ -92,7 +127,12 @@ export const CodeBlock = ({
 
       <div
         className={cn(
-          "not-prose relative max-h-[400px] thin-scroll overflow-auto w-full rounded-b-lg text-sm bg-zinc-950"
+          "not-prose relative max-h-[400px] overflow-auto w-full rounded-b-lg border border-border",
+          "scrollbar-thin scrollbar-track-transparent scrollbar-thumb-border",
+          // Remove background colors to let Shiki handle them
+          "[&_.shiki]:!bg-transparent [&_.shiki]:!m-0",
+          "[&_pre]:!bg-transparent [&_pre]:!m-0",
+          "[&_code]:!bg-transparent [&_code]:!p-0"
         )}
       >
         <CodeRenderer code={fileContent} lang={detectedLang} />

@@ -40,7 +40,7 @@ const Header = () => {
           <Link href="/" className="flex items-center gap-2">
             <Logo className="size-6 fill-rose-500" />
             <span className="font-semibold text-lg text-zinc-900 dark:text-zinc-100">
-              Berlix&nbsp;UI
+              Sera&nbsp;UI
             </span>
           </Link>
 
@@ -72,7 +72,7 @@ const Header = () => {
               <LoadingLink href="/" className="flex items-center gap-2">
                 <Logo className="size-6 fill-rose-500" />
                 <span className="font-semibold text-lg text-zinc-900 dark:text-zinc-100">
-                  Berlix&nbsp;UI
+                  Sera&nbsp;UI
                 </span>
               </LoadingLink>
             </div>

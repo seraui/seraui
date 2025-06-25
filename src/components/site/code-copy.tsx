@@ -25,7 +25,7 @@ const CodeCopy = ({
     <button
       onClick={copyCode}
       className={cn(
-        "relative cursor-pointer z-20 p-2 text-zinc-50",
+        "relative cursor-pointer z-20 p-2 text-muted-foreground hover:text-foreground transition-colors",
         className
       )}
     >
@@ -41,7 +41,7 @@ const CodeCopy = ({
           copied ? "scale-100 opacity-100" : "scale-0 opacity-0"
         }`}
       >
-        <Check className="h-4 w-" />
+        <Check className="h-4 w-4 text-green-500" />
       </div>
     </button>
   );

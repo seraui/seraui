@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, isValidElement } from "react";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { createHighlighter, type Highlighter } from "shiki";
+import { codeToHtml } from "shiki";
 import { ReactIcon } from "@/assets/icons/react";
 import { TypeScriptIcon } from "@/assets/icons/typescript";
 import { JSXIcon } from "@/assets/icons/jsx";
@@ -19,6 +19,7 @@ const getLanguageIcon = (language: string) => {
 
   switch (language.toLowerCase()) {
     case 'tsx':
+    case 'react':
       return <ReactIcon {...iconProps} />;
     case 'jsx':
       return <JSXIcon {...iconProps} />;
@@ -33,87 +34,199 @@ const getLanguageIcon = (language: string) => {
   }
 };
 
+// Normalize language names for better detection
+const normalizeLanguage = (lang: string): string => {
+  const normalized = lang.toLowerCase().trim();
+
+  // Handle common aliases and ensure language is supported
+  const aliases: Record<string, string> = {
+    'js': 'javascript',
+    'ts': 'typescript',
+    'py': 'python',
+    'sh': 'bash',
+    'shell': 'bash',
+    'zsh': 'bash',
+    'fish': 'bash',
+    'powershell': 'powershell',
+    'ps1': 'powershell',
+    'cmd': 'batch',
+    'bat': 'batch',
+    'yml': 'yaml',
+    'md': 'markdown',
+    'mdx': 'markdown',
+    'rb': 'ruby',
+    'rs': 'rust',
+    'kt': 'kotlin',
+    'cs': 'csharp',
+    'cpp': 'cpp',
+    'c++': 'cpp',
+    'cxx': 'cpp',
+    'cc': 'cpp',
+    'hpp': 'cpp',
+    'hxx': 'cpp',
+    'h': 'c',
+    'php': 'php',
+    'go': 'go',
+    'java': 'java',
+    'scala': 'scala',
+    'swift': 'swift',
+    'dart': 'dart',
+    'sql': 'sql',
+    'mysql': 'sql',
+    'postgresql': 'sql',
+    'sqlite': 'sql',
+    'toml': 'toml',
+    'xml': 'xml',
+    'html': 'html',
+    'htm': 'html',
+    'css': 'css',
+    'scss': 'scss',
+    'sass': 'sass',
+    'less': 'less',
+    'stylus': 'stylus',
+    'json': 'json',
+    'jsonc': 'jsonc',
+    'json5': 'json5',
+    'vue': 'vue',
+    'svelte': 'svelte',
+    'astro': 'astro',
+    'dockerfile': 'dockerfile',
+    'docker': 'dockerfile',
+    'makefile': 'makefile',
+    'make': 'makefile',
+    'nginx': 'nginx',
+    'apache': 'apache',
+    'ini': 'ini',
+    'cfg': 'ini',
+    'conf': 'ini',
+    'env': 'dotenv',
+    'gitignore': 'gitignore',
+    'ignore': 'gitignore',
+    'diff': 'diff',
+    'patch': 'diff',
+    'log': 'log',
+    'txt': 'text',
+    'text': 'text',
+    'plain': 'text',
+  };
+
+  return aliases[normalized] || normalized;
+};
+
 export function CodeBlock({ children, className, ...props }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
-  const [highlighter, setHighlighter] = useState<Highlighter | null>(null);
-  const preRef = useRef<HTMLPreElement>(null);
+  const [highlightedHtml, setHighlightedHtml] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [rawCode, setRawCode] = useState<string>("");
+  const [detectedLanguage, setDetectedLanguage] = useState<string>("");
 
+  // Extract code and language from children
   useEffect(() => {
-    const initHighlighter = async () => {
-      const highlighter = await createHighlighter({
-        themes: ["github-light", "github-dark"],
-        langs: [
-          "javascript",
-          "typescript",
-          "jsx",
-          "tsx",
-          "css",
-          "html",
-          "json",
-          "bash",
-          "shell",
-          "python",
-          "rust",
-          "go",
-          "java",
-          "c",
-          "cpp",
-          "php",
-          "ruby",
-          "swift",
-          "kotlin",
-          "dart",
-          "sql",
-          "yaml",
-          "toml",
-          "xml",
-          "markdown",
-        ],
-      });
-      setHighlighter(highlighter);
+    let code = "";
+    let language = "text";
+
+    if (isValidElement(children) && children.props) {
+      // Handle <code> element with className
+      if (children.props.className) {
+        const match = children.props.className.match(/language-(\w+)/);
+        if (match) {
+          language = normalizeLanguage(match[1]);
+        }
+      }
+
+      // Extract text content
+      if (typeof children.props.children === "string") {
+        code = children.props.children;
+      } else if (children.props.children) {
+        // Handle nested text nodes
+        const extractText = (node: any): string => {
+          if (typeof node === "string") return node;
+          if (Array.isArray(node)) return node.map(extractText).join("");
+          if (node?.props?.children) return extractText(node.props.children);
+          return "";
+        };
+        code = extractText(children.props.children);
+      }
+    } else if (typeof children === "string") {
+      code = children;
+    }
+
+    setRawCode(code.trim());
+    setDetectedLanguage(language);
+  }, [children]);
+
+  // Generate highlighted HTML
+  useEffect(() => {
+    if (!rawCode) {
+      setIsLoading(false);
+      return;
+    }
+
+    const highlightCode = async () => {
+      try {
+        setIsLoading(true);
+
+        // Try with the detected language first
+        let langToUse = detectedLanguage;
+
+        const html = await codeToHtml(rawCode, {
+          lang: langToUse,
+          themes: {
+            light: "github-light",
+            dark: "github-dark-default",
+          },
+          defaultColor: false,
+          transformers: [
+            {
+              name: 'remove-pre-bg',
+              pre(node) {
+                // Remove background from pre to let our CSS handle it
+                delete node.properties.style;
+              }
+            }
+          ]
+        });
+
+        setHighlightedHtml(html);
+      } catch (error) {
+        console.warn(`Failed to highlight code for language: ${detectedLanguage}`, error);
+
+        // Try fallback to 'text' if the language is not supported
+        try {
+          const fallbackHtml = await codeToHtml(rawCode, {
+            lang: 'text',
+            themes: {
+              light: "github-light",
+              dark: "github-dark-default",
+            },
+            defaultColor: false,
+            transformers: [
+              {
+                name: 'remove-pre-bg',
+                pre(node) {
+                  delete node.properties.style;
+                }
+              }
+            ]
+          });
+          setHighlightedHtml(fallbackHtml);
+          setDetectedLanguage('text'); // Update detected language to text
+        } catch (fallbackError) {
+          console.error('Failed to highlight even with text fallback:', fallbackError);
+          // Final fallback to plain HTML
+          setHighlightedHtml(`<pre class="shiki"><code>${rawCode.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`);
+        }
+      } finally {
+        setIsLoading(false);
+      }
     };
 
-    initHighlighter();
-  }, []);
-
-  useEffect(() => {
-    if (!highlighter || !preRef.current) return;
-
-    const codeElement = preRef.current.querySelector("code");
-    if (!codeElement) return;
-
-    const code = codeElement.textContent || "";
-    const language = codeElement.className?.match(/language-(\w+)/)?.[1] || "text";
-
-    try {
-      const html = highlighter.codeToHtml(code, {
-        lang: language,
-        themes: {
-          light: "github-light",
-          dark: "github-dark",
-        },
-      });
-
-      // Extract just the code content from the generated HTML
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, "text/html");
-      const preElement = doc.querySelector("pre");
-
-      if (preElement) {
-        codeElement.innerHTML = preElement.innerHTML;
-        codeElement.className = `language-${language}`;
-      }
-    } catch (error) {
-      console.warn(`Failed to highlight code for language: ${language}`, error);
-    }
-  }, [highlighter, children]);
+    highlightCode();
+  }, [rawCode, detectedLanguage]);
 
   const copyToClipboard = async () => {
-    const codeElement = preRef.current?.querySelector("code");
-    const text = codeElement?.textContent || "";
-
     try {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(rawCode);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -121,43 +234,58 @@ export function CodeBlock({ children, className, ...props }: CodeBlockProps) {
     }
   };
 
-  const getLanguageFromChildren = () => {
-    if (isValidElement<{ className?: string }>(children)) {
-      if (children.props.className) {
-        const match = children.props.className.match(/language-(\w+)/);
-        return match ? match[1] : null;
-      }
-    }
-    return null;
-  };
-
-  const language = getLanguageFromChildren();
+  if (isLoading) {
+    return (
+      <div className="relative group my-6">
+        <div className="flex items-center justify-between px-4 py-2 bg-muted/50 border border-b-0 border-border rounded-t-lg">
+          <div className="flex items-center">
+            <div className="w-4 h-4 mr-2 bg-muted animate-pulse rounded"></div>
+            <span className="text-xs font-mono text-muted-foreground uppercase tracking-wide">
+              Loading...
+            </span>
+          </div>
+        </div>
+        <div className="border border-border bg-muted p-4 rounded-t-none rounded-b-lg">
+          <div className="h-20 bg-muted-foreground/20 animate-pulse rounded"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative group my-6">
-      {language && (
+      {detectedLanguage && detectedLanguage !== "text" && (
         <div className="flex items-center justify-between px-4 py-2 bg-muted/50 border border-b-0 border-border rounded-t-lg">
           <div className="flex items-center">
-            {getLanguageIcon(language)}
+            {getLanguageIcon(detectedLanguage)}
             <span className="text-xs font-mono text-muted-foreground uppercase tracking-wide">
-              {language}
+              {detectedLanguage}
             </span>
           </div>
         </div>
       )}
-      <pre
-        ref={preRef}
+
+      <div
         className={cn(
-          "overflow-x-auto border border-border bg-muted p-4 font-mono text-sm",
+          "relative overflow-hidden border border-border",
           "scrollbar-thin scrollbar-track-transparent scrollbar-thumb-border",
-          "[&_code]:bg-transparent [&_code]:p-0",
-          language ? "rounded-t-none rounded-b-lg" : "rounded-lg",
+          // Remove background colors to let Shiki handle them
+          "[&_pre]:!bg-transparent [&_pre]:!m-0 [&_pre]:!p-4",
+          "[&_code]:!bg-transparent [&_code]:!p-0",
+          // Ensure proper text sizing and font
+          "[&_pre]:text-sm [&_pre]:font-mono",
+          "[&_code]:text-sm [&_code]:font-mono",
+          // Handle scrolling
+          "[&_pre]:overflow-x-auto",
+          detectedLanguage && detectedLanguage !== "text"
+            ? "rounded-t-none rounded-b-lg"
+            : "rounded-lg",
           className
         )}
+        dangerouslySetInnerHTML={{ __html: highlightedHtml }}
         {...props}
-      >
-        {children}
-      </pre>
+      />
+
       <button
         onClick={copyToClipboard}
         className={cn(
@@ -166,7 +294,7 @@ export function CodeBlock({ children, className, ...props }: CodeBlockProps) {
           "opacity-0 group-hover:opacity-100",
           "hover:bg-muted hover:scale-105",
           "focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary",
-          language ? "top-12" : "top-2"
+          detectedLanguage && detectedLanguage !== "text" ? "top-12" : "top-2"
         )}
         aria-label="Copy code to clipboard"
       >

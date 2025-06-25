@@ -16,7 +16,7 @@ export const navigation: NavigationItem[] = [
     ],
   },
   {
-    label: "Text Effects",
+    label: "Components",
     children: [
       { label: "Tabs", href: "/docs/tabs" },
     ],

@@ -1,5 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 import { createSlug } from "./lib/utils";
+import { CodeBlock } from "./components/ui/code-block";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -81,7 +82,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       );
     },
 
-    code: ({ children, ...props }: React.ComponentProps<"code">) => {
+    code: ({ children, className, ...props }: React.ComponentProps<"code">) => {
+      // If this code element has a language class, it's part of a pre block
+      // and will be handled by our CodeBlock component, so return as-is
+      if (className?.includes('language-')) {
+        return <code className={className} {...props}>{children}</code>;
+      }
+
+      // Otherwise, it's inline code, so style it appropriately
       return (
         <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono text-red-600 dark:text-red-400" {...props}>
           {children}
@@ -90,11 +98,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     },
 
     pre: ({ children, ...props }: React.ComponentProps<"pre">) => {
-      return (
-        <pre className="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg overflow-x-auto my-6 border" {...props}>
-          {children}
-        </pre>
-      );
+      return <CodeBlock {...props}>{children}</CodeBlock>;
     },
 
     table: ({ children, ...props }: React.ComponentProps<"table">) => {
