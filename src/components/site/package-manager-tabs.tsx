@@ -80,12 +80,5 @@ export function BunTabContent({ children }: { children: React.ReactNode }) {
   return <PMTabContent packageManager="bun">{children}</PMTabContent>;
 }
 
-// Export all components
-export {
-  PackageManagerTabs as PMTabs,
-  PMTabContent,
-  NPMTabContent,
-  PNPMTabContent, 
-  YarnTabContent,
-  BunTabContent
-};
+// Export alias for PackageManagerTabs
+export { PackageManagerTabs as PMTabs };
