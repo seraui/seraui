@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, isValidElement } from "react";
+import { useState, useEffect, isValidElement, ReactElement } from "react";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { codeToHtml } from "shiki";
@@ -9,8 +9,14 @@ import { TypeScriptIcon } from "@/assets/icons/typescript";
 import { JSXIcon } from "@/assets/icons/jsx";
 import { JavaScriptIcon } from "@/assets/icons/javascript";
 
-interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
+interface CodeBlockProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
+}
+
+// Type for React element with props
+interface CodeElementProps {
+  className?: string;
+  children?: React.ReactNode;
 }
 
 // Function to get the appropriate icon for each language
@@ -126,26 +132,30 @@ export function CodeBlock({ children, className, ...props }: CodeBlockProps) {
     let language = "text";
 
     if (isValidElement(children) && children.props) {
+      const codeElement = children as ReactElement<CodeElementProps>;
+      
       // Handle <code> element with className
-      if (children.props.className) {
-        const match = children.props.className.match(/language-(\w+)/);
+      if (codeElement.props.className) {
+        const match = codeElement.props.className.match(/language-(\w+)/);
         if (match) {
           language = normalizeLanguage(match[1]);
         }
       }
 
       // Extract text content
-      if (typeof children.props.children === "string") {
-        code = children.props.children;
-      } else if (children.props.children) {
+      if (typeof codeElement.props.children === "string") {
+        code = codeElement.props.children;
+      } else if (codeElement.props.children) {
         // Handle nested text nodes
-        const extractText = (node: any): string => {
+        const extractText = (node: React.ReactNode): string => {
           if (typeof node === "string") return node;
           if (Array.isArray(node)) return node.map(extractText).join("");
-          if (node?.props?.children) return extractText(node.props.children);
+          if (isValidElement(node) && node.props && typeof node.props === 'object' && 'children' in node.props) {
+            return extractText((node.props as { children: React.ReactNode }).children);
+          }
           return "";
         };
-        code = extractText(children.props.children);
+        code = extractText(codeElement.props.children);
       }
     } else if (typeof children === "string") {
       code = children;
@@ -167,7 +177,7 @@ export function CodeBlock({ children, className, ...props }: CodeBlockProps) {
         setIsLoading(true);
 
         // Try with the detected language first
-        let langToUse = detectedLanguage;
+        const langToUse = detectedLanguage;
 
         const html = await codeToHtml(rawCode, {
           lang: langToUse,

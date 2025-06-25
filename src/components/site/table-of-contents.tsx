@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { useTableOfContents } from "@/hooks/use-table-of-contents";
 import { cn } from "@/lib/utils";
 import { ArrowUp, ArrowDown } from "lucide-react";
@@ -24,7 +24,7 @@ export const TableOfContents: React.FC = () => {
             <div className="absolute left-2 top-0 bottom-0 w-px bg-zinc-200 dark:bg-zinc-700" />
 
             <div className="space-y-4">
-              {toc.map((item, index) => {
+              {toc.map((item) => {
                 const isActive = item.id === activeId;
 
                 return (
