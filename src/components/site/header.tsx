@@ -4,11 +4,10 @@ import { ThemeSwitcher } from "./theme";
 import Link from "next/link";
 import { LoadingLink } from "@/components/ui";
 import { GitHubIcon } from "@/assets/icons/github";
-import { XIcon } from "@/assets/icons/x";
 
 import { AnimatePresence, motion } from "motion/react";
 import { SidebarMobile } from "./sidebar-mobile";
-import { X, Search } from "lucide-react";
+import { X, Search, LinkedinIcon } from "lucide-react";
 import { Logo } from "@/assets/icons/logo";
 import { SearchModal } from "./search-modal";
 
@@ -100,7 +99,7 @@ const Header = () => {
               </LoadingLink>
               <LoadingLink
                 className="hover:text-zinc-900 dark:hover:text-zinc-50"
-                href="/docs/text-circle"
+                href="/docs/tabs"
               >
                 Components
               </LoadingLink>
@@ -118,16 +117,16 @@ const Header = () => {
               </span>
             </button>
             <Link
-              href="https://x.com/rechesoares13"
+              href="https://www.linkedin.com/in/codernazmulhossain/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center h-9 w-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200"
-              aria-label="X (Twitter)"
+              aria-label="Linkedin"
             >
-              <XIcon className="h-4 w-4 fill-zinc-950 dark:fill-zinc-50" />
+              <LinkedinIcon className="h-4 w-4 fill-zinc-950 dark:fill-zinc-50" />
             </Link>
             <Link
-              href="https://github.com/reche13/berlix"
+              href="https://github.com/seraprogrammer"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center h-9 w-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200"
