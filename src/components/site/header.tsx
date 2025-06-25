@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ThemeSwitcher } from "./theme";
 import Link from "next/link";
 import { LoadingLink } from "@/components/ui";
@@ -8,13 +8,28 @@ import { XIcon } from "@/assets/icons/x";
 
 import { AnimatePresence, motion } from "motion/react";
 import { SidebarMobile } from "./sidebar-mobile";
-import { X } from "lucide-react";
+import { X, Search } from "lucide-react";
 import { Logo } from "@/assets/icons/logo";
+import { SearchModal } from "./search-modal";
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
+  // Keyboard shortcut for search (Cmd+K on Mac, Ctrl+K on Windows/Linux)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <>
@@ -92,6 +107,13 @@ const Header = () => {
             </nav>
           </div>
           <nav className="flex items-center space-x-3">
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="flex items-center justify-center h-9 w-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200"
+              aria-label="Search"
+            >
+              <Search className="h-4 w-4 text-zinc-950 dark:text-zinc-50" />
+            </button>
             <Link
               href="https://x.com/rechesoares13"
               target="_blank"
@@ -114,6 +136,11 @@ const Header = () => {
           </nav>
         </header>
       </div>
+
+      <SearchModal
+        isOpen={searchOpen}
+        onClose={() => setSearchOpen(false)}
+      />
     </>
   );
 };

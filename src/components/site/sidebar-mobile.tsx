@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { LoadingLink } from "@/components/ui";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-import { ChevronDown, ChevronRight, FileText, Home, Settings } from "lucide-react";
+import { ChevronDown, ChevronRight, FileText, Home, Settings, Search } from "lucide-react";
 
 // Icon mapping for navigation items
 const getIcon = (label: string) => {
@@ -14,6 +14,8 @@ const getIcon = (label: string) => {
       return <Home className="w-4 h-4" />;
     case "installation":
       return <Settings className="w-4 h-4" />;
+    case "search":
+      return <Search className="w-4 h-4" />;
     case "tabs":
       return <FileText className="w-4 h-4" />;
     default:

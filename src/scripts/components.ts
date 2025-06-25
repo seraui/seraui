@@ -1,4 +1,3 @@
-import path from "path";
 import { RegistryItemSchema, RegistryType } from "./types";
 
 type ComponentType = Omit<
@@ -21,7 +20,39 @@ export const components: ComponentType[] = [
     title: "Tabs",
     description:
       "A minimalistic tab component designed with React and Tailwind CSS.",
-    path: path.join(__dirname, "../components/core/tabs.tsx"),
+    path: "../components/core/tabs.tsx",
+    dependencies: [],
+  },
+  {
+    name: "loading-bar",
+    title: "Loading Bar",
+    description:
+      "A YouTube-style loading bar component with smooth animations.",
+    path: "../components/ui/loading-bar.tsx",
+    dependencies: [],
+  },
+  {
+    name: "loading-link",
+    title: "Loading Link",
+    description:
+      "A link component that shows loading state with progress indication.",
+    path: "../components/ui/loading-link.tsx",
+    dependencies: ["loading-bar"],
+  },
+  {
+    name: "table",
+    title: "Table",
+    description:
+      "A flexible table component with multiple variants and styling options.",
+    path: "../components/ui/table.tsx",
+    dependencies: [],
+  },
+  {
+    name: "code-block",
+    title: "Code Block",
+    description:
+      "A syntax-highlighted code block component with copy functionality.",
+    path: "../components/ui/code-block.tsx",
     dependencies: [],
   },
 ];
