@@ -4,16 +4,16 @@ import React from "react";
 export const Footer = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between py-4 text-xs md:text-sm font-medium text-zinc-500 dark:text-zinc-300">
-      <span>© 2025 Berlix UI. All rights reserved.</span>
+      <span>© {new Date().getFullYear()} Sera UI. All rights reserved.</span>
       <span>
-        built with 🔥 by{" "}
+        Built by{" "}
         <Link
-          href="https://rechesoares.com"
+          href="https://seraprogrammer.com"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:underline"
         >
-          Reche
+          Sera Programmer
         </Link>
       </span>
     </div>

@@ -198,17 +198,31 @@ html.dark .shiki span {
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 }
-
-/* Grid background with light/dark mode and very low opacity lines */
+/* Grid background with light/dark mode and more visible lines */
 .grid-bg {
   background-image:
-    linear-gradient(to right, var(--grid-line-color, rgba(34,34,34,0.07)) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line-color, rgba(34,34,34,0.07)) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line-color, rgba(34,34,34,0.03)) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-color, rgba(34,34,34,0.03)) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 .light .grid-bg {
-  --grid-line-color: rgba(34,34,34,0.07);
+  --grid-line-color: rgba(34,34,34,0.03);
 }
 .dark .grid-bg {
-  --grid-line-color: rgba(229,231,235,0.04);
+  --grid-line-color: rgba(229,231,235,0.015);
 }
+
+/* Enhanced grid background for hero sections */
+.grid-bg-hero {
+  background-image:
+    linear-gradient(to right, var(--grid-line-color-hero, rgba(34,34,34,0.04)) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-color-hero, rgba(34,34,34,0.04)) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.light .grid-bg-hero {
+  --grid-line-color-hero: rgba(34,34,34,0.04);
+}
+.dark .grid-bg-hero {
+  --grid-line-color-hero: rgba(229,231,235,0.025);
+}
+
