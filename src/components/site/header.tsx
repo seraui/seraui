@@ -109,10 +109,13 @@ const Header = () => {
           <nav className="flex items-center space-x-3">
             <button
               onClick={() => setSearchOpen(true)}
-              className="flex items-center justify-center h-9 w-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200"
+              className="flex items-center gap-2 px-3 py-2 h-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200 text-left min-w-[200px] cursor-pointer"
               aria-label="Search"
             >
-              <Search className="h-4 w-4 text-zinc-950 dark:text-zinc-50" />
+              <Search className="h-4 w-4 text-zinc-500 dark:text-zinc-400 flex-shrink-0" />
+              <span className="text-sm text-zinc-500 dark:text-zinc-400 truncate">
+                Search...
+              </span>
             </button>
             <Link
               href="https://x.com/rechesoares13"
