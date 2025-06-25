@@ -97,8 +97,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       );
     },
 
-    pre: ({ children, ...props }: React.ComponentProps<"pre">) => {
-      return <CodeBlock {...props}>{children}</CodeBlock>;
+    pre: ({ children, className, id, style }: React.ComponentProps<"pre">) => {
+      // Only pass safe props that are compatible with div elements
+      return <CodeBlock className={className} id={id} style={style}>{children}</CodeBlock>;
     },
 
     table: ({ children, ...props }: React.ComponentProps<"table">) => {
