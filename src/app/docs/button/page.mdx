@@ -11,10 +11,17 @@ import { PropsTable } from "@/components/site/props-table.tsx";
 import { Table, StatusBadge } from "@/components/ui/table";
 
 import ButtonView from "./button-view"
+import SocialButton from "./social-button"
+import ActionButton from "./action"
+import RightIconButton from "./righticon"
+import OnlyIconButton from "./only"
+import CommerceButton from "./commerce"
+import OthersButton from "./others"
 
 # Buttons
 A customizable and interactive button component with a built-in ripple effect.
 
+## Basic Variants
 <Tabs defaultValue="preview" className="">
   <TabsList>
     <TabsTrigger value="preview">Preview</TabsTrigger>
@@ -25,6 +32,97 @@ A customizable and interactive button component with a built-in ripple effect.
   </TabsContent>
   <TabsContent value="code">
     <CodeBlock filePath="src/app/docs/button/button-view.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<OthersButton />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/button/others.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+
+## Social Buttons
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<SocialButton />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/button/social-button.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Action Buttons
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<ActionButton />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/button/action.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Right Icon Buttons
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<RightIconButton />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/button/righticon.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Icon Only Buttons
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<OnlyIconButton />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/button/only.tsx" />
+  </TabsContent>
+</Tabs>
+
+## E-commerce Buttons
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<CommerceButton />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/button/commerce.tsx" />
   </TabsContent>
 </Tabs>
 
