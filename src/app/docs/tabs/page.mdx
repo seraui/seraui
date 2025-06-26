@@ -10,6 +10,8 @@ import {
 import { PropsTable } from "@/components/site/props-table.tsx";
 import { Table, StatusBadge } from "@/components/ui/table";
 import TabsView from "./tabs-view.tsx";
+import TabsViewClassic from "./tabs-view-classic.tsx";
+import TabsViewFancy from "./tabs-view-fancy.tsx"
 
 
 # 🎛️ Tabs Component
@@ -17,7 +19,10 @@ import TabsView from "./tabs-view.tsx";
 A minimalistic and animated tab component built with **React**, **Tailwind CSS**, and powered by **Framer Motion** for smooth transitions.
 
 
-## Introduction
+---
+
+
+# Tabs View Minimal
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -49,57 +54,67 @@ A minimalistic and animated tab component built with **React**, **Tailwind CSS**
   </TabsContent>
 </Tabs>
 
-# 🚀 Usage
 
-Here's how to use the `Tabs` component in your project:
 
-## 🛠️ Installation
 
-You can manually copy the component into your project, **or** use the top-side CLI to install it automatically.
+# Tabs View Classic
 
-```bash
-npx shadcn@latest add "https://seraui.seraprogrammer.com/registry/tabs.json"
-```
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TabsViewClassic />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/tabs/tabs-view-classic.tsx" />
+  </TabsContent>
+</Tabs>
 
-> Once installed, you can use it anywhere in your app like this:
 
-## ✨ Example Use Case
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add tabs-classic.json`} />
+  </TabsContent>
 
-Use the `Tabs` component to organize different sections of content into a clean, navigable interface.
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/tabs/tabs-view-classic.tsx" />
+  </TabsContent>
+</Tabs>
 
-### 🧩 Code Example
 
-```tsx
-import Tabs from "@/components/core/tabs";
+# Tabs View Fancy
 
-export default function TabsView() {
-  const tabData = [
-    {
-      id: 1,
-      name: 'Photos',
-      content:
-        'This is the PHOTOS tab content. Here you would display your photo gallery or image collection.',
-    },
-    {
-      id: 2,
-      name: 'Music',
-      content:
-        'This is the MUSIC tab content. Here you would display your music player or audio tracks.',
-    },
-    {
-      id: 3,
-      name: 'Videos',
-      content:
-        'This is the VIDEOS tab content. Here you would display your video player or video collection.',
-    },
-  ];
 
-  return <Tabs items={tabData} />;
-}
-```
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TabsViewFancy />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/tabs/tabs-view-fancy.tsx" />
+  </TabsContent>
+</Tabs>
 
----
 
-✅ Just import the component and pass your desired tab data — the rest is handled with smooth transitions and a beautiful UI.
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add tabs-classic.json`} />
+  </TabsContent>
 
-Need more examples or want to add custom icons or components inside tabs? Let me know!
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/tabs/tabs-view-fancy.tsx" />
+  </TabsContent>
+</Tabs>
