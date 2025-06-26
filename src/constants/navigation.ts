@@ -13,8 +13,6 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "Introduction", href: "/docs" },
       { label: "Installation", href: "/docs/installation" },
-      { label: "Search", href: "/docs/search" },
-      { label: "TOC Demo", href: "/docs/toc-demo" },
     ],
   },
   {
