@@ -10,14 +10,11 @@ export const Hero = () => {
       {/* Base Grid Background - Very Low Opacity */}
       <div className="absolute inset-0 grid-bg-hero" />
       
-      {/* Black Color Masking from Top - Very Subtle */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/8 via-black/2 to-transparent dark:from-black/12 dark:via-black/3" />
+      {/* Light mode: Very subtle top fade, Dark mode: More pronounced */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/1 to-transparent dark:from-black/60 dark:via-black/10 dark:to-transparent" />
       
-      {/* Additional Top Fade */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-transparent dark:from-black/70 dark:via-black/15" />
-      
-      {/* Subtle color overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/3 via-transparent to-purple-50/3 dark:from-blue-950/1 dark:via-transparent dark:to-purple-950/1" />
+      {/* Light mode: Subtle color overlay, Dark mode: Enhanced overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/5 via-transparent to-purple-50/5 dark:from-blue-950/2 dark:via-transparent dark:to-purple-950/2" />
       
       <div className="relative z-10 container mx-auto px-4 py-20">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
