@@ -23,4 +23,10 @@ export const navigation: NavigationItem[] = [
       { label: "Classic Tabs", href: "/docs/tabs-classic" },
     ],
   },
+  {
+    label : "Accordion",
+    children: [
+      { label: "Accordion", href: "/docs/accordion" },
+    ],
+  }
 ];
