@@ -1,10 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-// A typed utility for combining class names. In a real project, you'd use a library like `tailwind-merge`.
-const cn = (...inputs: (string | undefined | null | false)[]): string => {
-  return inputs.filter(Boolean).join(' ');
-}
+import { cn } from "@/lib/utils";
 
 // SVG component for the loading spinner.
 const Loader2: React.FC<{ className?: string }> = ({ className }) => (
@@ -34,43 +31,17 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant?: ButtonVariant;
   size?: ButtonSize;
   loading?: boolean;
+  iconLeft?: React.ReactNode;
+  iconRight?: React.ReactNode;
 }
-
-// Helper function to get the correct classes.
-const getButtonClasses = ({ variant = 'default', size = 'default' }: Pick<ButtonProps, 'variant' | 'size'>) => {
-    const baseClasses = "relative inline-flex items-center justify-center rounded-md text-sm font-medium transition-transform duration-75 focus:outline-none disabled:opacity-50 disabled:pointer-events-none overflow-hidden active:scale-[0.97]";
-
-    const variantClasses = {
-        default: "bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
-        destructive: "bg-red-500 text-white hover:bg-red-600 dark:bg-red-600 dark:text-white dark:hover:bg-red-700",
-        outline: "border border-slate-200 bg-transparent hover:bg-slate-100 text-slate-900 dark:border-slate-800 dark:hover:bg-slate-800 dark:text-slate-50",
-        secondary: "bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-700",
-        ghost: "hover:bg-slate-100 text-slate-900 dark:hover:bg-slate-800 dark:text-slate-50",
-        link: "text-slate-900 underline-offset-4 hover:underline dark:text-slate-50",
-    };
-
-    const sizeClasses = {
-        default: "h-10 py-2 px-4",
-        sm: "h-9 px-3 rounded-md",
-        lg: "h-11 px-8 rounded-md",
-    };
-
-    return cn(baseClasses, variantClasses[variant], sizeClasses[size]);
-};
-
-
-
-interface Ripple {
-  x: number;
-  y: number;
-  size: number;
-  id: number;
-}
-
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, children, loading, onClick, ...props }, ref) => {
+  ({ className, variant = 'default', size = 'default', children, loading, onClick, iconLeft, iconRight, ...props }, ref) => {
     const [ripples, setRipples] = useState<Ripple[]>([]);
+    
+    // Check if this is an icon-only button
+    const iconOnly = !Boolean(children) && Boolean(iconLeft || iconRight);
+    
     useEffect(() => {
         const styleId = 'ripple-animation-style';
         if (document.getElementById(styleId)) return;
@@ -120,9 +91,32 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       ? 'bg-white/30 dark:bg-slate-900/20' 
       : 'bg-slate-900/10 dark:bg-white/10';
 
+    // Define base, variant, and size classes directly here
+    const baseClasses = "relative inline-flex items-center justify-center rounded-md text-sm font-medium transition-transform duration-75 focus:outline-none disabled:opacity-50 disabled:pointer-events-none overflow-hidden active:scale-[0.97]";
+
+    const variantClasses = {
+        default: "bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
+        destructive: "bg-red-500 text-white hover:bg-red-600 dark:bg-red-600 dark:text-white dark:hover:bg-red-700",
+        outline: "border border-slate-200 bg-transparent hover:bg-slate-100 text-slate-900 dark:border-slate-800 dark:hover:bg-slate-800 dark:text-slate-50",
+        secondary: "bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-700",
+        ghost: "hover:bg-slate-100 text-slate-900 dark:hover:bg-slate-800 dark:text-slate-50",
+        link: "text-slate-900 underline-offset-4 hover:underline dark:text-slate-50",
+    };
+
+    const sizeClasses = {
+        default: iconOnly ? "h-10 w-10 p-0" : "h-10 py-2 px-4",
+        sm: iconOnly ? "h-9 w-9 p-0" : "h-9 px-3 rounded-md",
+        lg: iconOnly ? "h-11 w-11 p-0" : "h-11 px-8 rounded-md",
+    };
+
     return (
       <button
-        className={cn(getButtonClasses({ variant, size }), className)}
+        className={cn(
+          baseClasses,
+          variantClasses[variant],
+          sizeClasses[size],
+          className
+        )}
         onClick={createRipple}
         disabled={loading}
         ref={ref}
@@ -130,7 +124,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         <span className="relative z-10 flex items-center gap-2">
             {loading && <Loader2 className="h-4 w-4" />}
+            {!loading && iconLeft && (
+              <span className="flex items-center justify-center">
+                {iconLeft}
+              </span>
+            )}
             {children}
+            {!loading && iconRight && (
+              <span className="flex items-center justify-center">
+                {iconRight}
+              </span>
+            )}
         </span>
         
         {!loading && (
@@ -153,6 +157,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
+
+interface Ripple {
+  x: number;
+  y: number;
+  size: number;
+  id: number;
+}
+
 Button.displayName = "Button";
 
 export default Button
