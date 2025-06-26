@@ -14,16 +14,8 @@ import TabsViewClassic from "./tabs-view-classic.tsx";
 import TabsViewFancy from "./tabs-view-fancy.tsx"
 
 
-# 🎛️ Tabs Component
-
-A minimalistic and animated tab component built with **React**, **Tailwind CSS**, and powered by **Framer Motion** for smooth transitions.
-
-
----
-
-
-# 🧪 Tabs View: Minimal
-Simple, modern tab layout with elegant transitions.
+# 💎 Tabs View: Fancy
+Vibrant and animated design perfect for modern interfaces.
 
 
 <Tabs defaultValue="preview" className="">
@@ -32,13 +24,12 @@ Simple, modern tab layout with elegant transitions.
     <TabsTrigger value="code">Code</TabsTrigger>
   </TabsList>
   <TabsContent value="preview">
-    <ComponentRenderer component={<TabsView />} />
+    <ComponentRenderer component={<TabsViewFancy />} />
   </TabsContent>
   <TabsContent value="code">
-    <CodeBlock filePath="src/app/docs/tabs/tabs-view.tsx" />
+    <CodeBlock filePath="src/app/docs/tabs/tabs-view-fancy.tsx" />
   </TabsContent>
 </Tabs>
-
 
 # Installation
 
@@ -48,14 +39,10 @@ Simple, modern tab layout with elegant transitions.
     <TabsTrigger value="manual">Manual</TabsTrigger>
   </TabsList>
   <TabsContent value="cli">
-    <Cli command={`add tabs.json`} />
+    <Cli command={`add tabs-classic.json`} />
   </TabsContent>
 
   <TabsContent value="manual">
-    <CodeBlock filePath="src/components/core/tabs.tsx" />
+    <CodeBlock filePath="src/app/docs/tabs/tabs-view-fancy.tsx" />
   </TabsContent>
 </Tabs>
-
-
-
-

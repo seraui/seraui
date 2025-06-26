@@ -18,13 +18,11 @@ export const navigation: NavigationItem[] = [
     ],
   },
   {
-    label: "Components",
+    label: "Tabs",
     children: [
       { label: "Tabs", href: "/docs/tabs" },
-      { label: "Loading Bar", href: "/docs/loading-bar" },
-      { label: "Loading Link", href: "/docs/loading-link" },
-      { label: "Table", href: "/docs/table" },
-      { label: "Code Block", href: "/docs/code-block" },
+      { label: "Fancy Tabs", href: "/docs/tabs-fancy" },
+      { label: "Classic Tabs", href: "/docs/tabs-classic" },
     ],
-  }
+  },
 ];
