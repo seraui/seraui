@@ -39,4 +39,14 @@ export const components: ComponentType[] = [
     path: "../app/docs/tabs-fancy",
     dependencies: [],
   },
+  {
+    
+      name: "button",
+      title: "Button",
+      description:
+        "A minimalistic tab component designed with React and Tailwind CSS.",
+      path: "../app/docs/button",
+      dependencies: [],
+    
+  }
 ];

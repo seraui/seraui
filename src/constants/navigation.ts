@@ -16,6 +16,12 @@ export const navigation: NavigationItem[] = [
     ],
   },
   {
+    label : "Button",
+    children : [
+     { label : "Button" , href : "/docs/button"}
+    ]
+   },
+  {
     label: "Tabs",
     children: [
       { label: "Tabs", href: "/docs/tabs" },

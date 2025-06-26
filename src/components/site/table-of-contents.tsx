@@ -23,27 +23,6 @@ export const TableOfContents: React.FC = () => {
             {/* Main timeline line */}
             <div className="absolute left-2 top-0 bottom-0 w-px bg-zinc-200 dark:bg-zinc-700" />
 
-            {/* Secondary timeline lines for nested headings */}
-            {toc.map((item, index) => {
-              if (item.level > 1) {
-                const indentLevel = item.level - 1;
-                const leftOffset = indentLevel * 16;
-
-                return (
-                  <div
-                    key={`line-${item.id}`}
-                    className="absolute w-px bg-zinc-200 dark:bg-zinc-700 opacity-50"
-                    style={{
-                      left: `${8 + leftOffset}px`,
-                      top: `${index * 48}px`, // Approximate spacing
-                      height: '48px'
-                    }}
-                  />
-                );
-              }
-              return null;
-            })}
-
             <div className="space-y-3">
               {toc.map((item) => {
                 const isActive = item.id === activeId;
