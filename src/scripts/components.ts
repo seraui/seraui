@@ -24,35 +24,19 @@ export const components: ComponentType[] = [
     dependencies: [],
   },
   {
-    name: "loading-bar",
-    title: "Loading Bar",
+    name: "tabs-classic",
+    title: "Tabs Classic",
     description:
-      "A YouTube-style loading bar component with smooth animations.",
-    path: "../components/ui/loading-bar.tsx",
+      "A minimalistic tab component designed with React and Tailwind CSS.",
+    path: "../app/docs/tabs-classic",
     dependencies: [],
   },
   {
-    name: "loading-link",
-    title: "Loading Link",
+    name: "tabs-fancy",
+    title: "Tabs Fancy",
     description:
-      "A link component that shows loading state with progress indication.",
-    path: "../components/ui/loading-link.tsx",
-    dependencies: ["loading-bar"],
-  },
-  {
-    name: "table",
-    title: "Table",
-    description:
-      "A flexible table component with multiple variants and styling options.",
-    path: "../components/ui/table.tsx",
-    dependencies: [],
-  },
-  {
-    name: "code-block",
-    title: "Code Block",
-    description:
-      "A syntax-highlighted code block component with copy functionality.",
-    path: "../components/ui/code-block.tsx",
+      "A minimalistic tab component designed with React and Tailwind CSS.",
+    path: "../app/docs/tabs-fancy",
     dependencies: [],
   },
 ];
