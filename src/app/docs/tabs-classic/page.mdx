@@ -14,8 +14,8 @@ import TabsViewClassic from "./tabs-view-classic.tsx";
 
 
 # 🎨 Tabs View: Classic
-Classic design with a structured and familiar layout.
 
+The **Classic Tabs** component provides a timeless and functional design, offering a structured and familiar layout that users intuitively understand. Its clean lines and clear separation of content make it a reliable choice for any application where clarity and usability are
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -31,7 +31,9 @@ Classic design with a structured and familiar layout.
 </Tabs>
 
 
-# Installation
+# 🚀 Installation
+Once installed, import the component and use it within your pages. The component encapsulates a set of pre-defined tabs and content for demonstration.
+
 
 <Tabs defaultValue="cli" className="">
   <TabsList>
@@ -46,3 +48,21 @@ Classic design with a structured and familiar layout.
     <CodeBlock filePath="src/app/docs/tabs-classic/tabs-view-classic.tsx" />
   </TabsContent>
 </Tabs>
+
+
+
+## 💻 Usage
+
+Once installed, import the component and use it within your pages. The component encapsulates a set of pre-defined tabs and content for demonstration.
+
+```tsx
+import { TabsViewClassic } from "@/components/ui/tabs-view-classic"; // Adjust the import path as needed
+
+export default function SettingsPage() {
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold mb-6">Account Settings</h1>
+      <TabsViewClassic />
+    </div>
+  );
+}
