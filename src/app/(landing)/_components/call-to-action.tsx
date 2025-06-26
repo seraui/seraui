@@ -18,7 +18,7 @@ export const CallToAction = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
             <div className="relative bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden">
               <Cli
-                command={`add "https://berlix.vercel.app/registry/text-reveal.json"`}
+                command={`add "https://seraui.seraprogrammer.com/registry/button.json"`}
               />
             </div>
           </div>
