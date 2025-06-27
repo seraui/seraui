@@ -26,7 +26,7 @@ export const navigation: NavigationItem[] = [
     label: "Tabs",
     children: [
       { label: "Tabs", href: "/docs/tabs" },
-      { label: "Fancy Tabs", href: "/docs/tabs-fancy", badge: "New" },
+      { label: "Fancy Tabs", href: "/docs/tabs-fancy"},
       { label: "Classic Tabs", href: "/docs/tabs-classic" },
     ],
   },
@@ -37,9 +37,9 @@ export const navigation: NavigationItem[] = [
     ],
   },
   {
-    label : "Card",
+    label : "Form",
     children: [
-      { label: "Card", href: "/docs/card" },
+      { label: "Card", href: "/docs/card" , badge: "New"},
     ],
   }
 ];
