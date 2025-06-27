@@ -31,6 +31,12 @@
       "filename": "tabs.json",
       "path": "/registry/tabs.json",
       "size": 3691
+    },
+    {
+      "name": "card",
+      "filename": "card.json",
+      "path": "/registry/card.json",
+      "size": 3691
     }
   ]
 }
