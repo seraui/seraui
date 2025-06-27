@@ -1,0 +1,36 @@
+{
+  "lastUpdated": "2025-06-27T07:08:46.119Z",
+  "totalFiles": 5,
+  "files": [
+    {
+      "name": "accordion",
+      "filename": "accordion.json",
+      "path": "/registry/accordion.json",
+      "size": 3875
+    },
+    {
+      "name": "button",
+      "filename": "button.json",
+      "path": "/registry/button.json",
+      "size": 6487
+    },
+    {
+      "name": "tabs-classic",
+      "filename": "tabs-classic.json",
+      "path": "/registry/tabs-classic.json",
+      "size": 5689
+    },
+    {
+      "name": "tabs-fancy",
+      "filename": "tabs-fancy.json",
+      "path": "/registry/tabs-fancy.json",
+      "size": 6530
+    },
+    {
+      "name": "tabs",
+      "filename": "tabs.json",
+      "path": "/registry/tabs.json",
+      "size": 3691
+    }
+  ]
+}

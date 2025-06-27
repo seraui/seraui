@@ -35,5 +35,11 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "Accordion", href: "/docs/accordion" },
     ],
+  },
+  {
+    label : "Card",
+    children: [
+      { label: "Card", href: "/docs/card" },
+    ],
   }
 ];
