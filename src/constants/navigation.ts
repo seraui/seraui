@@ -1,6 +1,7 @@
 type NavigationChild = {
   label: string;
   href: string;
+  badge?: string; // Optional badge like "New" or "Updated"
 };
 type NavigationItem = {
   label: string;
@@ -12,20 +13,20 @@ export const navigation: NavigationItem[] = [
     label: "Get Started",
     children: [
       { label: "Introduction", href: "/docs" },
-      { label: "Installation", href: "/docs/installation" },
+      { label: "Installation", href: "/docs/installation", badge: "Updated" },
     ],
   },
   {
     label : "Button",
     children : [
-     { label : "Button" , href : "/docs/button"}
+     { label : "Button" , href : "/docs/button", badge: "New"}
     ]
    },
   {
     label: "Tabs",
     children: [
       { label: "Tabs", href: "/docs/tabs" },
-      { label: "Fancy Tabs", href: "/docs/tabs-fancy" },
+      { label: "Fancy Tabs", href: "/docs/tabs-fancy", badge: "New" },
       { label: "Classic Tabs", href: "/docs/tabs-classic" },
     ],
   },

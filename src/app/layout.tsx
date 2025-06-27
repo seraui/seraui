@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import { geistMono, geistSans } from "@/assets/fonts";
+import { geistMono } from "@/assets/fonts";
 import { Analytics } from "@vercel/analytics/next";
 import { LoadingProvider } from "@/components/ui";
 import { PackageManagerProvider } from "@/contexts/package-manager-context";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Sera UI - Modern React Component Library | Tailwind CSS & Framer Motion",
@@ -386,7 +393,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         <meta
           name="google-site-verification"
@@ -467,7 +474,7 @@ export default function RootLayout({
               "logo": "https://seraui.seraprogrammer.com/logo.svg",
               "description": "Modern React component library for developers",
               "sameAs": [
-                "https://github.com/sera-ui",
+                "https://github.com/seraprogrammer/sera-ui",
                 "https://twitter.com/sera_ui",
                 "https://discord.gg/sera-ui"
               ]
@@ -476,7 +483,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.className} ${geistMono.variable} antialiased min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100`}
+        className={`${inter.className} ${geistMono.variable} antialiased min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100`}
       >
         <Analytics />
         <ThemeProvider attribute="class" defaultTheme="dark">

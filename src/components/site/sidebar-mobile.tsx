@@ -21,7 +21,8 @@ const transformNavigation = () => {
     href: section.children[0]?.href || "#",
     children: section.children.map(child => ({
       label: child.label,
-      href: child.href
+      href: child.href,
+      badge: child.badge
     }))
   }));
 };
@@ -67,12 +68,17 @@ const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean, onClose: () => vo
             <span className="w-1 h-1 rounded-full bg-zinc-400 dark:bg-zinc-500 mr-2"></span>
           )}
           {item.label}
+          {item.badge && (
+            <span className={cn(
+              "text-xs font-medium px-2 py-0.5 rounded-full ml-1.5",
+              item.badge === "New" ? "bg-green-100 text-green-700 dark:bg-green-950/60 dark:text-green-400" : 
+              item.badge === "Updated" ? "bg-orange-100 text-orange-700 dark:bg-orange-950/60 dark:text-orange-400" :
+              "bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-400"
+            )}>
+              {item.badge}
+            </span>
+          )}
         </span>
-        {item.badge && (
-          <span className="text-xs font-medium text-blue-500">
-            {item.badge}
-          </span>
-        )}
       </div>
       
       {item.children && isOpen && (
@@ -90,19 +96,31 @@ const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean, onClose: () => vo
                 {isChildActive && (
                   <span className="absolute left-[-5px] top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-blue-500 rounded-full" />
                 )}
-                <LoadingLink
-                  href={child.href}
-                  onClick={onClose}
-                  className={cn(
-                    "block py-1.5 text-sm",
-                    isChildActive
-                      ? "text-blue-600 dark:text-blue-400 font-medium" 
-                      : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
+                <div className="flex items-center">
+                  <LoadingLink
+                    href={child.href}
+                    onClick={onClose}
+                    className={cn(
+                      "block py-1.5 text-sm",
+                      isChildActive
+                        ? "text-blue-600 dark:text-blue-400 font-medium" 
+                        : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
+                    )}
+                    aria-current={isChildActive ? "page" : undefined}
+                  >
+                    {child.label}
+                  </LoadingLink>
+                  {child.badge && (
+                    <span className={cn(
+                      "text-xs font-medium px-2 py-0.5 rounded-full ml-1.5",
+                      child.badge === "New" ? "bg-green-100 text-green-700 dark:bg-green-950/60 dark:text-green-400" : 
+                      child.badge === "Updated" ? "bg-orange-100 text-orange-700 dark:bg-orange-950/60 dark:text-orange-400" :
+                      "bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-400"
+                    )}>
+                      {child.badge}
+                    </span>
                   )}
-                  aria-current={isChildActive ? "page" : undefined}
-                >
-                  {child.label}
-                </LoadingLink>
+                </div>
               </li>
             );
           })}
@@ -118,7 +136,7 @@ export const SidebarMobile = ({ onClose }: { onClose: () => void }) => {
       <ScrollArea className="h-full w-full">
         <div className="py-6 px-4">
           <h2 className="text-sm font-medium uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-6">
-            Documentation
+            <span className="sm:text-sm opacity-80 dark:opacity-60">Documentation</span>
           </h2>
           
           <nav role="navigation" aria-label="Documentation navigation">
