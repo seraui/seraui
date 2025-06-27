@@ -135,10 +135,6 @@ export const SidebarMobile = ({ onClose }: { onClose: () => void }) => {
     <aside className="w-full h-[calc(100%-60px)] sticky top-[60px] border-t border-zinc-100 dark:border-zinc-800">
       <ScrollArea className="h-full w-full">
         <div className="py-6 px-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-6">
-            <span className="sm:text-sm opacity-80 dark:opacity-60">Documentation</span>
-          </h2>
-          
           <nav role="navigation" aria-label="Documentation navigation">
             <ul className="space-y-3">
               {menuData.map((item, index) => (
