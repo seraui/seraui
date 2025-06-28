@@ -23,6 +23,12 @@ export const navigation: NavigationItem[] = [
     ]
    },
   {
+    label : "Input",
+    children : [
+      { label : "Search" , href : "/docs/search", badge: "New"}
+    ]
+  },
+  {
     label: "Tabs",
     children: [
       { label: "Tabs", href: "/docs/tabs" },
@@ -39,7 +45,10 @@ export const navigation: NavigationItem[] = [
   {
     label : "Form",
     children: [
+      { label: "Login", href: "/docs/login" , badge: "New"},
       { label: "Card", href: "/docs/card" , badge: "New"},
+      { label: "Two Step", href: "/docs/twostep" , badge: "New"},
+      { label: "Amazon Gift Card", href: "/docs/amazongift" , badge: "New"},
     ],
   }
 ];

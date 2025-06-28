@@ -48,5 +48,41 @@ export const components: ComponentType[] = [
       path: "../app/docs/button",
       dependencies: [],
     
-  }
+  },
+  {
+    name: "amazongift",
+    title: "Amazon Gift",
+    description:
+      "A minimalistic tab component designed with React and Tailwind CSS.",
+    path: "../app/docs/amazongift",
+    dependencies: [],
+  },
+  {
+    name : "login",
+    title : "Login",
+    description : "A minimalistic login component designed with React and Tailwind CSS.",
+    path : "../app/docs/login",
+    dependencies : [],
+  },
+  {
+    name : "twostep",
+    title : "Two Step",
+    description : "A minimalistic two step component designed with React and Tailwind CSS.",
+    path : "../app/docs/twostep",
+    dependencies : [],
+  },
+  {
+    name : "card",
+    title : "Card",
+    description : "A minimalistic card component designed with React and Tailwind CSS.",
+    path : "../app/docs/card",
+    dependencies : [],
+  },
+  {
+    name : "search",
+    title : "Search",
+    description : "A minimalistic search component designed with React and Tailwind CSS.",
+    path : "../app/docs/search",
+    dependencies : [],
+  },
 ];

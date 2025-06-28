@@ -37,6 +37,24 @@
       "filename": "card.json",
       "path": "/registry/card.json",
       "size": 3691
+    },
+    {
+      "name": "login",
+      "filename": "login.json",
+      "path": "/registry/login.json",
+      "size": 3691
+    },
+    {
+      "name": "twostep",
+      "filename": "twostep.json",
+      "path": "/registry/twostep.json",
+      "size": 3691
+    },
+    {
+      "name": "search",
+      "filename": "search.json",
+      "path": "/registry/search.json",
+      "size": 3691
     }
   ]
 }
