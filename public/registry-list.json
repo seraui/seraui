@@ -55,6 +55,12 @@
       "filename": "search.json",
       "path": "/registry/search.json",
       "size": 3691
+    },
+    {
+      "name": "prompt",
+      "filename": "prompt.json",
+      "path": "/registry/prompt.json",
+      "size": 3691
     }
   ]
 }

@@ -25,7 +25,8 @@ export const navigation: NavigationItem[] = [
   {
     label : "Input",
     children : [
-      { label : "Search" , href : "/docs/search", badge: "New"}
+      { label : "Search" , href : "/docs/search", badge: "New"},
+      { label : "Prompt" , href : "/docs/prompt", badge: "New"}
     ]
   },
   {
