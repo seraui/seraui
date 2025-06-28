@@ -2,14 +2,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 // Icons for the component
-import { Plus, Zap, ChevronDown, Mic, ArrowUp, Image as ImageIcon, Box, FileText, Brain } from 'lucide-react';
+import { Plus, ChevronDown, Mic, ArrowUp, Image as ImageIcon, Box, FileText, Brain } from 'lucide-react';
 
 const PromptComponent = () => {
   const [prompt, setPrompt] = useState('');
 
   // State to manage the visibility of popups and dropdowns
   const [isAddPopupOpen, setAddPopupOpen] = useState(false);
-  const [isInspirationOpen, setInspirationOpen] = useState(false);
   const [isModelOpen, setModelOpen] = useState(false);
 
   // State for the selected model
@@ -18,7 +17,6 @@ const PromptComponent = () => {
 
   // Refs for the popups to detect outside clicks
   const addPopupRef = useRef<HTMLDivElement>(null);
-  const inspirationRef = useRef<HTMLDivElement>(null);
   const modelRef = useRef<HTMLDivElement>(null);
   
   // Effect to handle clicks outside of the popups/dropdowns
@@ -26,9 +24,6 @@ const PromptComponent = () => {
     const handleClickOutside = (event: MouseEvent) => {
       if (addPopupRef.current && !addPopupRef.current.contains(event.target as Node)) {
         setAddPopupOpen(false);
-      }
-      if (inspirationRef.current && !inspirationRef.current.contains(event.target as Node)) {
-        setInspirationOpen(false);
       }
       if (modelRef.current && !modelRef.current.contains(event.target as Node)) {
         setModelOpen(false);
@@ -61,8 +56,6 @@ const PromptComponent = () => {
     { icon: <Box size={20} className="text-gray-500 dark:text-gray-400" />, text: "Add 3D objects" },
     { icon: <FileText size={20} className="text-gray-500 dark:text-gray-400" />, text: "Add files (docs, txt...)" },
   ];
-
-  const inspirationItems = ["Explore Styles", "Get Random Idea", "Community Gallery"];
 
   return (
     <div className="w-full max-w-2xl p-4">
@@ -99,33 +92,13 @@ const PromptComponent = () => {
                 </div>
               )}
             </div>
-
-            {/* Inspiration Button and Dropdown */}
-            <div className="relative" ref={inspirationRef}>
-              <button onClick={() => setInspirationOpen(!isInspirationOpen)} className="flex items-center justify-center h-12 px-5 bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900/30 dark:to-emerald-800/30 hover:from-green-100 hover:to-emerald-200 dark:hover:from-green-800/40 dark:hover:to-emerald-700/40 text-gray-800 dark:text-gray-200 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl border border-green-200/50 dark:border-green-700/30">
-                <Zap size={18} className="text-green-600 dark:text-green-400" />
-                <span className="font-semibold ml-3">Inspiration</span>
-                <ChevronDown size={16} className="ml-2" />
-              </button>
-              {isInspirationOpen && (
-                 <div className="absolute bottom-full left-0 mb-3 w-64 bg-white/95 backdrop-blur-xl dark:bg-gray-900/95 rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 z-10">
-                  <ul>
-                    {inspirationItems.map((item, index) => (
-                       <li key={index} className="p-4 hover:bg-gray-50/80 dark:hover:bg-gray-800/80 cursor-pointer font-medium text-gray-700 dark:text-gray-200 rounded-xl transition-colors duration-200 first:rounded-t-2xl last:rounded-b-2xl">
-                         {item}
-                       </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
             
             {/* Model Selection Button and Dropdown */}
             <div className="relative" ref={modelRef}>
-              <button onClick={() => setModelOpen(!isModelOpen)} className="flex items-center justify-center h-12 px-5 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-800/30 hover:from-blue-100 hover:to-indigo-200 dark:hover:from-blue-800/40 dark:hover:to-indigo-700/40 text-gray-800 dark:text-gray-200 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl border border-blue-200/50 dark:border-blue-700/30">
+              <button onClick={() => setModelOpen(!isModelOpen)} className="flex items-center justify-center h-12 px-4 lg:px-5 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-800/30 hover:from-blue-100 hover:to-indigo-200 dark:hover:from-blue-800/40 dark:hover:to-indigo-700/40 text-gray-800 dark:text-gray-200 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl border border-blue-200/50 dark:border-blue-700/30">
                 <Brain size={18} className="text-blue-600 dark:text-blue-400" />
-                <span className="font-semibold ml-3">{selectedModel}</span>
-                <ChevronDown size={16} className="ml-2" />
+                <span className="font-semibold ml-2 hidden lg:block">{selectedModel}</span>
+                <ChevronDown size={16} className="ml-2 hidden lg:block" />
               </button>
                {isModelOpen && (
                  <div className="absolute bottom-full left-0 mb-3 w-64 bg-white/95 backdrop-blur-xl dark:bg-gray-900/95 rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 z-10">
