@@ -488,7 +488,17 @@ export default function RootLayout({
         <Analytics />
         <ThemeProvider attribute="class" defaultTheme="dark">
           <PackageManagerProvider>
-            <LoadingProvider>
+            <LoadingProvider
+              smartDetection={true}
+              minLoadingThreshold={300}
+              performanceThreshold={500}
+              loadingBarProps={{
+                height: 3,
+                smartDetection: true,
+                minLoadingTime: 300,
+                maxLoadingTime: 8000,
+              }}
+            >
               {children}
             </LoadingProvider>
           </PackageManagerProvider>

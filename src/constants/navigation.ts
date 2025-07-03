@@ -19,7 +19,8 @@ export const navigation: NavigationItem[] = [
   {
     label : "Button",
     children : [
-     { label : "Button" , href : "/docs/button", badge: "New"}
+     { label : "Button" , href : "/docs/button", badge: "New"},
+     { label : "Dropdown" , href : "/docs/dropdown", badge: "New"}
     ]
    },
   {

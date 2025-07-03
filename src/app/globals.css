@@ -226,3 +226,224 @@ html.dark .shiki span {
   --grid-line-color-hero: rgba(229,231,235,0.025);
 }
 
+/* Custom range input styling for the gradient generator */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-track {
+  background: #e5e7eb;
+  height: 8px;
+  border-radius: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #3b82f6;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #2563eb;
+  transform: scale(1.1);
+}
+
+input[type="range"]::-moz-range-track {
+  background: #e5e7eb;
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: #3b82f6;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  background: #2563eb;
+}
+
+/* Ensure proper focus states */
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Enhanced slider styles for color palette */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-track {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  height: 12px;
+  border-radius: 6px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.slider::-moz-range-track {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  height: 12px;
+  border-radius: 6px;
+  border: none;
+}
+
+.slider::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+/* Dark mode slider adjustments */
+.dark .slider::-webkit-slider-thumb {
+  background: #1f2937;
+  border: 3px solid #60a5fa;
+}
+
+.dark .slider::-moz-range-thumb {
+  background: #1f2937;
+  border: 3px solid #60a5fa;
+}
+
+/* Loading Bar Fixes */
+.loading-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999 !important; /* Ensure it's above everything */
+  pointer-events: none; /* Don't interfere with clicks */
+  height: 3px; /* Consistent height */
+}
+
+.loading-bar {
+  height: 100%;
+  background: linear-gradient(90deg,
+    rgb(16 185 129) 0%,
+    rgb(34 197 94) 30%,
+    rgb(74 222 128) 50%,
+    rgb(34 197 94) 70%,
+    rgb(16 185 129) 100%);
+  box-shadow:
+    0 0 15px rgb(34 197 94 / 0.4),
+    0 0 30px rgb(34 197 94 / 0.2),
+    inset 0 1px 0 rgb(255 255 255 / 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: loading-shimmer 1.5s infinite ease-in-out;
+}
+
+@keyframes loading-shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Ensure loading bar is visible above all elements */
+.loading-bar-container * {
+  z-index: inherit !important;
+}
+
+/* Mobile optimizations for loading bar */
+@media (max-width: 768px) {
+  .loading-bar-container {
+    height: 3px; /* Slightly thicker on mobile for better visibility */
+  }
+}
+
+/* Ensure loading bar works with backdrop-blur elements */
+.loading-bar-container {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Fix for potential transform issues */
+.loading-bar {
+  transform: translateZ(0); /* Force hardware acceleration */
+  will-change: width; /* Optimize for width changes */
+}
+
+/* Ensure proper stacking context */
+body {
+  position: relative;
+  z-index: 0;
+}
+
+/* Loading bar should be above sticky headers */
+.sticky {
+  z-index: 9998 !important;
+}
+
+/* Override any conflicting z-index from other components */
+[class*="z-"] {
+  z-index: auto !important;
+}
+
+.loading-bar-container {
+  z-index: 9999 !important;
+}
+
