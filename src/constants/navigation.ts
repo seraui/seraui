@@ -31,17 +31,26 @@ export const navigation: NavigationItem[] = [
     ]
   },
   {
+    label : "TEXT",
+    children : [
+      { label : "Fuzzy", href : "/docs/fuzzy", badge: "New"},
+    ]
+  },
+  {
     label: "Tabs",
     children: [
       { label: "Tabs", href: "/docs/tabs" },
       { label: "Fancy Tabs", href: "/docs/tabs-fancy"},
       { label: "Classic Tabs", href: "/docs/tabs-classic" },
+      { label: "Dock", href: "/docs/dock", badge: "New"}
     ],
   },
   {
     label : "Accordion",
     children: [
       { label: "Accordion", href: "/docs/accordion" },
+      { label: "Fancy Accordion", href: "/docs/accordion-last" },
+      
     ],
   },
   {
