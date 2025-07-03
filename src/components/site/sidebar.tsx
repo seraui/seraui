@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { ScrollArea } from "@/components/site/scroll-area";
 import { navigation } from "@/constants/navigation";
 import { cn } from "@/lib/utils";
-import { LoadingLink } from "@/components/ui";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
@@ -97,18 +97,18 @@ const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean }> = ({ item, isNe
                   <span className="absolute left-[-5px] top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-blue-500 rounded-full" />
                 )}
                 <div className="flex items-center">
-                  <LoadingLink
+                  <Link
                     href={child.href}
                     className={cn(
                       "block py-1.5 text-sm",
                       isChildActive
-                        ? "text-blue-600 dark:text-blue-400 font-medium" 
+                        ? "text-blue-600 dark:text-blue-400 font-medium"
                         : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
                     )}
                     aria-current={isChildActive ? "page" : undefined}
                   >
                     {child.label}
-                  </LoadingLink>
+                  </Link>
                   {child.badge && (
                     <span className={cn(
                       "text-xs font-medium px-2 py-0.5 rounded-full ml-1.5",
@@ -143,13 +143,12 @@ const Sidebar = () => {
           </nav>
           
           <div className="mt-8 pt-4 border-t border-zinc-100 dark:border-zinc-800">
-            <LoadingLink 
-              href="/docs" 
+            <Link
+              href="/docs"
               className="block py-2 text-sm text-blue-600 dark:text-blue-400"
-              showLoading={false}
             >
               Getting Started Guide
-            </LoadingLink>
+            </Link>
           </div>
         </div>
       </ScrollArea>

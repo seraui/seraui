@@ -3,7 +3,6 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { geistMono } from "@/assets/fonts";
 import { Analytics } from "@vercel/analytics/next";
-import { LoadingProvider } from "@/components/ui";
 import { PackageManagerProvider } from "@/contexts/package-manager-context";
 import { Inter } from "next/font/google";
 
@@ -488,19 +487,7 @@ export default function RootLayout({
         <Analytics />
         <ThemeProvider attribute="class" defaultTheme="dark">
           <PackageManagerProvider>
-            <LoadingProvider
-              smartDetection={true}
-              minLoadingThreshold={300}
-              performanceThreshold={500}
-              loadingBarProps={{
-                height: 3,
-                smartDetection: true,
-                minLoadingTime: 300,
-                maxLoadingTime: 8000,
-              }}
-            >
-              {children}
-            </LoadingProvider>
+            {children}
           </PackageManagerProvider>
         </ThemeProvider>
       </body>

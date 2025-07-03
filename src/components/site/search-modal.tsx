@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Search, Command, FileText, Home, Settings } from "lucide-react";
 import { getAllSearchableItems, searchItems, SearchableItem } from "@/lib/search-registry";
-import { LoadingLink } from "@/components/ui";
+import Link from "next/link";
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -142,7 +142,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
               {filteredItems.length > 0 ? (
                 <div className="py-2">
                   {filteredItems.map((item, index) => (
-                    <LoadingLink
+                    <Link
                       key={item.id}
                       href={item.href}
                       onClick={onClose}
@@ -166,7 +166,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
                       <div className="flex-shrink-0 text-xs text-zinc-400 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-sm px-2 py-1 rounded border border-white/20 dark:border-zinc-700/50">
                         {item.category}
                       </div>
-                    </LoadingLink>
+                    </Link>
                   ))}
                 </div>
               ) : (

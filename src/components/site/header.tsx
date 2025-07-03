@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { ThemeSwitcher } from "./theme";
 import Link from "next/link";
-import { LoadingLink } from "@/components/ui";
 import { GitHubIcon } from "@/assets/icons/github";
 
 import { AnimatePresence, motion } from "motion/react";
@@ -83,32 +82,32 @@ const Header = () => {
                 </button>
               }
 
-              <LoadingLink href="/" className="flex items-center gap-2">
+              <Link href="/" className="flex items-center gap-2">
                 <Logo className="size-6 fill-rose-500" />
                 <span className="font-semibold text-lg text-zinc-900 dark:text-zinc-100">
                   Sera&nbsp;UI
                 </span>
-              </LoadingLink>
+              </Link>
             </div>
             <nav className=" hidden md:flex items-center gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-              <LoadingLink
+              <Link
                 className="hover:text-zinc-900 dark:hover:text-zinc-50"
                 href="/docs"
               >
                 Docs
-              </LoadingLink>
-              <LoadingLink
+              </Link>
+              <Link
                 className="hover:text-zinc-900 dark:hover:text-zinc-50"
                 href="/docs/tabs"
               >
                 Components
-              </LoadingLink>
-              <LoadingLink
+              </Link>
+              <Link
                 className="hover:text-zinc-900 dark:hover:text-zinc-50"
                 href="/tools"
               >
                 Tools
-              </LoadingLink>
+              </Link>
             </nav>
           </div>
           <nav className="flex items-center space-x-3">
