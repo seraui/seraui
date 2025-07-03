@@ -16,11 +16,6 @@ export const LoadingDemo: React.FC<LoadingDemoProps> = ({ className = "" }) => {
     threshold: 300,
     autoDetect: true,
   });
-  
-  const componentLoading = useComponentLoading("LoadingDemo", {
-    minDuration: 200,
-    threshold: 150,
-  });
 
   const [demoResults, setDemoResults] = useState<string[]>([]);
 
@@ -199,7 +194,7 @@ export const LoadingDemo: React.FC<LoadingDemoProps> = ({ className = "" }) => {
 
         {/* Instructions */}
         <div className="text-xs text-zinc-500 dark:text-zinc-400 space-y-1">
-          <p>• <strong>Fast operations</strong> (&lt;300ms) typically won't show the loading bar</p>
+          <p>• <strong>Fast operations</strong> (&lt;300ms) typically won&apos;t show the loading bar</p>
           <p>• <strong>Medium/Slow operations</strong> will show the loading bar</p>
           <p>• <strong>Adaptive operations</strong> decide based on your historical performance</p>
           <p>• The system learns from your usage patterns to optimize the experience</p>

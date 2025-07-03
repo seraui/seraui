@@ -15,7 +15,6 @@ interface LoadingBarProps {
 
 export const LoadingBar: React.FC<LoadingBarProps> = ({
   isLoading,
-  height = 3,
   duration = 0.6,
   minLoadingTime = 300, // Show for at least 300ms
   maxLoadingTime = 8000, // Auto-complete after 8 seconds
@@ -24,7 +23,6 @@ export const LoadingBar: React.FC<LoadingBarProps> = ({
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [loadingStartTime, setLoadingStartTime] = useState<number | null>(null);
-  const [actualLoadingTime, setActualLoadingTime] = useState(0);
 
   // Smart progress calculation based on actual loading time
   const calculateSmartProgress = useCallback((elapsedTime: number) => {
@@ -55,7 +53,6 @@ export const LoadingBar: React.FC<LoadingBarProps> = ({
         // Smart progress animation based on real-time elapsed time
         const updateProgress = () => {
           const elapsedTime = Date.now() - startTime;
-          setActualLoadingTime(elapsedTime);
 
           const smartProgress = calculateSmartProgress(elapsedTime);
           setProgress(smartProgress);
@@ -69,6 +66,7 @@ export const LoadingBar: React.FC<LoadingBarProps> = ({
         animationFrame = requestAnimationFrame(updateProgress);
       } else {
         // Original YouTube-style progress for fallback
+        const intervals: NodeJS.Timeout[] = [];
         intervals.push(setTimeout(() => setProgress(30), 100));
         intervals.push(setTimeout(() => setProgress(50), 300));
         intervals.push(setTimeout(() => setProgress(70), 600));
@@ -110,7 +108,6 @@ export const LoadingBar: React.FC<LoadingBarProps> = ({
           setProgress(0);
           setIsVisible(false);
           setLoadingStartTime(null);
-          setActualLoadingTime(0);
         }, 400);
         return () => clearTimeout(timeout);
       } else {
@@ -118,10 +115,9 @@ export const LoadingBar: React.FC<LoadingBarProps> = ({
         setProgress(0);
         setIsVisible(false);
         setLoadingStartTime(null);
-        setActualLoadingTime(0);
       }
     }
-  }, [isLoading, minLoadingTime, maxLoadingTime, smartDetection, loadingStartTime, calculateSmartProgress]);
+  }, [isLoading, minLoadingTime, maxLoadingTime, smartDetection, loadingStartTime, calculateSmartProgress, isVisible]);
 
   return (
     <div className="loading-bar-container">

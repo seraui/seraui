@@ -93,12 +93,12 @@ export const useSmartLoading = (options: SmartLoadingOptions = {}) => {
   }, [minDuration, setLoading]);
 
   // Async operation wrapper with smart loading
-  const withSmartLoading = useCallback(async <T>(
+  const withSmartLoading = useCallback(async <T,>(
     operation: () => Promise<T>,
     customOptions?: Partial<SmartLoadingOptions>
   ): Promise<T> => {
     const opts = { ...options, ...customOptions };
-    
+
     try {
       await startSmartLoading();
       const result = await operation();
@@ -109,7 +109,7 @@ export const useSmartLoading = (options: SmartLoadingOptions = {}) => {
   }, [startSmartLoading, stopSmartLoading, options]);
 
   // Performance-based loading for sync operations
-  const withPerformanceLoading = useCallback(<T>(
+  const withPerformanceLoading = useCallback(<T,>(
     operation: () => T,
     expectedDuration?: number
   ): T => {
