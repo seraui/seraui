@@ -48,6 +48,7 @@ export const LoadingBar: React.FC<LoadingBarProps> = ({
 
       let animationFrame: number;
       let intervals: NodeJS.Timeout[] = [];
+      
 
       if (smartDetection) {
         // Smart progress animation based on real-time elapsed time

@@ -10,6 +10,7 @@ interface LoadingContextType {
   startLoading: () => void;
   stopLoading: () => void;
   loadingMetrics: LoadingMetrics;
+  updateMetrics: (loadTime: number) => void;
 }
 
 interface LoadingMetrics {
@@ -229,6 +230,11 @@ export const LoadingProvider: React.FC<LoadingProviderProps> = ({
     startLoading,
     stopLoading,
     loadingMetrics,
+    updateMetrics: (loadTime: number) => handleMetricsUpdate({
+      ...loadingMetrics,
+      lastLoadTime: loadTime,
+      shouldShowLoading: loadTime > minLoadingThreshold
+    })
   };
 
   // Enhanced loading bar props with smart defaults

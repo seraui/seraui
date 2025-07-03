@@ -25,7 +25,14 @@ export const useSmartLoading = (options: SmartLoadingOptions = {}) => {
     autoDetect = true,
   } = options;
 
-  const { setLoading, loadingMetrics } = useLoading();
+  const { setLoading, loadingMetrics: rawLoadingMetrics } = useLoading();
+  // Provide a fallback in case loadingMetrics is ever undefined
+  const loadingMetrics = rawLoadingMetrics ?? {
+    averageLoadTime: 0,
+    lastLoadTime: 0,
+    loadCount: 0,
+    shouldShowLoading: false,
+  };
   const [loadingState, setLoadingState] = useState<LoadingState>({
     isLoading: false,
     startTime: null,
@@ -64,9 +71,9 @@ export const useSmartLoading = (options: SmartLoadingOptions = {}) => {
     loadingTimeoutRef.current = setTimeout(() => {
       stopSmartLoading();
     }, maxDuration);
-  }, [autoDetect, loadingMetrics, threshold, setLoading, maxDuration]);
+  }, [autoDetect, loadingMetrics, threshold, setLoading, maxDuration]  // Stop loading with minimum duration guarantee
+    );
 
-  // Smart loading stop - ensures minimum duration is met
   const stopSmartLoading = useCallback(() => {
     const endTime = Date.now();
     const startTime = performanceStartRef.current || endTime;
@@ -186,7 +193,13 @@ export const useComponentLoading = (
 
 // Hook for route-level loading detection
 export const useRouteLoading = (routeName?: string) => {
-  const { loadingMetrics } = useLoading();
+  const { loadingMetrics: rawLoadingMetrics } = useLoading();
+  const loadingMetrics = rawLoadingMetrics ?? {
+    averageLoadTime: 0,
+    lastLoadTime: 0,
+    loadCount: 0,
+    shouldShowLoading: false,
+  };
   const [routePerformance, setRoutePerformance] = useState({
     currentRoute: routeName || 'unknown',
     loadTime: 0,
