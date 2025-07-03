@@ -47,7 +47,7 @@ export const LoadingBar: React.FC<LoadingBarProps> = ({
       setIsVisible(true);
 
       let animationFrame: number;
-      let intervals: NodeJS.Timeout[] = [];
+      const intervals: NodeJS.Timeout[] = [];
       
 
       if (smartDetection) {
