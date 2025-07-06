@@ -61,6 +61,36 @@
       "filename": "prompt.json",
       "path": "/registry/prompt.json",
       "size": 3691
+    },
+    {
+      "name": "password",
+      "filename": "password.json",
+      "path": "/registry/password.json",
+      "size": 3691
+    },
+    {
+      "name": "strongPassword",
+      "filename": "strongPassword.json",
+      "path": "/registry/strongPassword.json",
+      "size": 3691
+    },
+    {
+      "name": "fuzzy",
+      "filename": "fuzzy.json",
+      "path": "/registry/fuzzy.json",
+      "size": 3691
+    },
+    {
+      "name": "dock",
+      "filename": "dock.json",
+      "path": "/registry/dock.json",
+      "size": 3691
+    },
+    {
+      "name": "amazongift",
+      "filename": "amazongift.json",
+      "path": "/registry/amazongift.json",
+      "size": 3691
     }
   ]
 }

@@ -19,15 +19,16 @@ export const navigation: NavigationItem[] = [
   {
     label : "Button",
     children : [
-     { label : "Button" , href : "/docs/button", badge: "New"},
+     { label : "Button" , href : "/docs/button"},
      { label : "Dropdown" , href : "/docs/dropdown", badge: "New"}
     ]
    },
   {
     label : "Input",
     children : [
-      { label : "Search" , href : "/docs/search", badge: "New"},
-      { label : "Prompt" , href : "/docs/prompt", badge: "New"}
+      { label : "Search" , href : "/docs/search"},
+      { label : "Prompt" , href : "/docs/prompt"},
+      { label : "Password" , href : "/docs/password", badge: "New"}
     ]
   },
   {
