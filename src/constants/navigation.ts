@@ -62,10 +62,4 @@ export const navigation: NavigationItem[] = [
       { label: "Amazon Gift Card", href: "/docs/amazongift" , badge: "New"},
     ],
   },
-  {
-    label : "Components",
-    children: [
-      { label: "Features Section", href: "/docs/features" , badge: "New"},
-    ],
-  },
 ];
