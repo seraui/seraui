@@ -46,7 +46,7 @@ const validationRules = [
 
 // A single validation item component
 const ValidationItem = ({ isValid, text }: { isValid: boolean, text: string }) => (
-  <li className={`flex items-center transition-colors duration-300 ${isValid ? 'text-green-500 dark:text-green-400' : 'text-gray-500 dark:text-gray-400'}`}>
+  <li className={`flex items-center transition-colors duration-300 text-sm ${isValid ? 'text-green-600 dark:text-green-400' : 'text-muted-foreground'}`}>
     {isValid ? <CheckIcon className="h-4 w-4 mr-2" /> : <XIcon className="h-4 w-4 mr-2" />}
     <span>{text}</span>
   </li>
@@ -97,11 +97,11 @@ const StrongPasswordInput = () => {
   };
 
   return (
-    <div className="w-full max-w-sm font-sans">
-      <div className="mb-6">
+    <div className="w-full max-w-sm space-y-4">
+      <div className="space-y-2">
         <label
           htmlFor="password"
-          className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         >
           Password
         </label>
@@ -111,29 +111,29 @@ const StrongPasswordInput = () => {
             type={showPassword ? 'text' : 'password'}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            className="w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+            placeholder="Create a strong password"
+            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pr-10"
           />
           <button
             type="button"
             onClick={togglePasswordVisibility}
-            className="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+            className="absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Toggle password visibility"
           >
             {showPassword ? (
-              <EyeOffIcon className="h-5 w-5" />
+              <EyeOffIcon className="h-4 w-4" />
             ) : (
-              <EyeIcon className="h-5 w-5" />
+              <EyeIcon className="h-4 w-4" />
             )}
           </button>
         </div>
       </div>
 
       {/* Validation Criteria Section */}
-      <div className="mt-4">
-        <div className="flex justify-between items-center mb-2">
-            <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300">Must contain:</h3>
-            {isPristine && <p className="text-sm text-gray-500 dark:text-gray-400">Enter a password</p>}
+      <div className="space-y-3">
+        <div className="flex justify-between items-center">
+            <h3 className="text-sm font-medium">Password requirements:</h3>
+            {isPristine && <p className="text-xs text-muted-foreground">Enter a password to check</p>}
         </div>
         <ul className="space-y-2">
             {validationRules.map(rule => (

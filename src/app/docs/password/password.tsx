@@ -52,11 +52,10 @@ const PasswordInput = () => {
   };
 
   return (
-    <div className="w-full max-w-sm font-sans">
-      {/* Label added back as requested */}
+    <div className="w-full max-w-sm space-y-2">
       <label
         htmlFor="password"
-        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
       >
         Password
       </label>
@@ -66,20 +65,19 @@ const PasswordInput = () => {
           type={showPassword ? 'text' : 'password'}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          // The transition classes have been removed for an instant focus effect
-          className="w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+          placeholder="Enter your password"
+          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pr-10"
         />
         <button
           type="button"
           onClick={togglePasswordVisibility}
-          className="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+          className="absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground hover:text-foreground transition-colors"
           aria-label="Toggle password visibility"
         >
           {showPassword ? (
-            <EyeOffIcon className="h-5 w-5" />
+            <EyeOffIcon className="h-4 w-4" />
           ) : (
-            <EyeIcon className="h-5 w-5" />
+            <EyeIcon className="h-4 w-4" />
           )}
         </button>
       </div>
