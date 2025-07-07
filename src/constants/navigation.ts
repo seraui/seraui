@@ -66,7 +66,7 @@ export const navigation: NavigationItem[] = [
   {
     label : "Pattern",
     children: [
-      { label: "Pattern", href: "/docs/pattern" , badge: "New"},
+      { label: "Grid background", href: "/docs/pattern" , badge: "New"},
     ],
   },
 ];
