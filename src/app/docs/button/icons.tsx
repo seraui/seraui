@@ -28,6 +28,51 @@ export const FacebookIcon = () => (
   </svg>
 );
 
+export const EmailIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+  </svg>
+);
+
+export const XIcon2 = () => (
+  <svg width="20" height="16" viewBox="0 0 300 271" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z"/>
+  </svg>
+);
+
+export const AppleIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 1195 1195" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1006.933 812.8c-32 153.6-115.2 211.2-147.2 249.6-32 25.6-121.6 25.6-153.6 6.4-38.4-25.6-134.4-25.6-166.4 0-44.8 32-115.2 19.2-128 12.8-256-179.2-352-716.8 12.8-774.4 64-12.8 134.4 32 134.4 32 51.2 25.6 70.4 12.8 115.2-6.4 96-44.8 243.2-44.8 313.6 76.8-147.2 96-153.6 294.4 19.2 403.2zM802.133 64c12.8 70.4-64 224-204.8 230.4-12.8-38.4 32-217.6 204.8-230.4z"/>
+  </svg>
+);
+
+export const MicrosoftIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M96 96H247V247H96" fill="#f24f23"/>
+    <path d="M265 96V247H416V96" fill="#7eba03"/>
+    <path d="M96 265H247V416H96" fill="#3ca4ef"/>
+    <path d="M265 265H416V416H265" fill="#f9ba00"/>
+  </svg>
+);
+
+export const SlackIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g strokeLinecap="round" strokeWidth="78">
+      <path stroke="#36c5f0" d="m110 207h97m0-97h.1v-.1"/>
+      <path stroke="#2eb67d" d="m305 110v97m97 0v.1h.1"/>
+      <path stroke="#ecb22e" d="m402 305h-97m0 97h-.1v.1"/>
+      <path stroke="#e01e5a" d="M110 305h.1v.1m97 0v97"/>
+    </g>
+  </svg>
+);
+
+export const LinkedInIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M26.111,3H5.889c-1.595,0-2.889,1.293-2.889,2.889V26.111c0,1.595,1.293,2.889,2.889,2.889H26.111c1.595,0,2.889-1.293,2.889-2.889V5.889c0-1.595-1.293-2.889-2.889-2.889ZM10.861,25.389h-3.877V12.87h3.877v12.519Zm-1.957-14.158c-1.267,0-2.293-1.034-2.293-2.31s1.026-2.31,2.293-2.31,2.292,1.034,2.292,2.31-1.026,2.31-2.292,2.31Zm16.485,14.158h-3.858v-6.571c0-1.802-.685-2.809-2.111-2.809-1.551,0-2.362,1.048-2.362,2.809v6.571h-3.718V12.87h3.718v1.686s1.118-2.069,3.775-2.069,4.556,1.621,4.556,4.975v7.926Z" fillRule="evenodd"/>
+  </svg>
+);
+
 // Action Icons
 export const DownloadIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
