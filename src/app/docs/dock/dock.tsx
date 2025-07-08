@@ -10,11 +10,7 @@ import {
 } from "framer-motion";
 import { useTheme } from "next-themes";
 
-// --- Utility Function ---
-// A simple helper for conditional class names, similar to `clsx`.
-const cn = (...classes: (string | boolean | undefined)[]) => {
-  return classes.filter(Boolean).join(' ');
-};
+
 
 
 // --- SVG Icon Components ---

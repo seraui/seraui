@@ -8,10 +8,19 @@
 import fs from "fs";
 import path from "path";
 
+// Define the component type for generation
+interface ComponentData {
+  name: string;
+  title: string;
+  description: string;
+  path: string;
+  dependencies: string[];
+}
+
 // Function to automatically generate components from docs directory
 function generateComponentsFromDocs() {
   const docsPath = path.join(__dirname, "../app/docs");
-  const components: any[] = [];
+  const components: ComponentData[] = [];
 
   // Add the core tabs component manually since it's in a different location
   components.push({

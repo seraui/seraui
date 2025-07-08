@@ -46,7 +46,7 @@ fs.watch(docsPath, { recursive: false }, (eventType, filename) => {
         console.log(`📂 New component directory detected: ${filename}`);
         setTimeout(buildRegistry, 1000); // Debounce
       }
-    } catch (error) {
+    } catch {
       // Directory was deleted
       console.log(`🗑️  Component directory removed: ${filename}`);
       setTimeout(buildRegistry, 1000); // Debounce
