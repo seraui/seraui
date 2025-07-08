@@ -11,7 +11,7 @@ if (!fs.existsSync(registryPath)) {
 
 console.log(`Building component registry...`);
 for (const component of components) {
-  let files: Array<{
+  const files: Array<{
     path: string;
     content: string;
     type: RegistryType;

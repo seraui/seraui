@@ -33,7 +33,7 @@ function getNavigationItems(): SearchableItem[] {
 // Function to generate searchable items from components registry
 function getComponentItems(): SearchableItem[] {
   try {
-    const componentItems = components.map((component) => ({
+    return components.map((component) => ({
       id: `component-${component.name}`,
       title: component.title || component.name,
       description: component.description || `${component.name} component`,
@@ -45,9 +45,6 @@ function getComponentItems(): SearchableItem[] {
         ...(component.description?.toLowerCase().split(" ") || [])
       ].filter(Boolean)
     }));
-
-    console.log(`🔍 Search Registry: Loaded ${componentItems.length} components`);
-    return componentItems;
   } catch (error) {
     console.warn("Error loading components for search:", error);
     return [];

@@ -27,12 +27,7 @@ const getItemIcon = (item: SearchableItem) => {
 export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [allItems] = useState(() => {
-    const items = getAllSearchableItems();
-    console.log(`🔍 Search Modal: Loaded ${items.length} total items`);
-    console.log(`🔍 Components: ${items.filter(item => item.category === 'Components').length}`);
-    return items;
-  });
+  const [allItems] = useState(() => getAllSearchableItems());
   const [filteredItems, setFilteredItems] = useState<SearchableItem[]>([]);
   
   const inputRef = useRef<HTMLInputElement>(null);
