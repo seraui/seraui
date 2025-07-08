@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-06-27T07:08:46.119Z",
-  "totalFiles": 5,
+  "lastUpdated": "2025-08-27T07:10:12.122Z",
+  "totalFiles": 17,
   "files": [
     {
       "name": "accordion",
@@ -90,6 +90,12 @@
       "name": "amazongift",
       "filename": "amazongift.json",
       "path": "/registry/amazongift.json",
+      "size": 3691
+    },
+    {
+      "name": "flipwords",
+      "filename": "flipwords.json",
+      "path": "/registry/flipwords.json",
       "size": 3691
     }
   ]

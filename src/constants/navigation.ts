@@ -34,7 +34,8 @@ export const navigation: NavigationItem[] = [
   {
     label : "TEXT",
     children : [
-      { label : "Fuzzy", href : "/docs/fuzzy", badge: "New"},
+      { label : "Fuzzy", href : "/docs/fuzzy"},
+      { label : "Flip Words", href : "/docs/flipwords", badge: "New"}
     ]
   },
   {
@@ -66,7 +67,7 @@ export const navigation: NavigationItem[] = [
   {
     label : "Pattern",
     children: [
-      { label: "Grid background", href: "/docs/pattern" , badge: "New"},
+      { label: "Patterns Collection", href: "/docs/pattern" , badge: "New"},
     ],
   },
 ];

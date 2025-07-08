@@ -27,7 +27,12 @@ const getItemIcon = (item: SearchableItem) => {
 export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [allItems] = useState(() => getAllSearchableItems());
+  const [allItems] = useState(() => {
+    const items = getAllSearchableItems();
+    console.log(`🔍 Search Modal: Loaded ${items.length} total items`);
+    console.log(`🔍 Components: ${items.filter(item => item.category === 'Components').length}`);
+    return items;
+  });
   const [filteredItems, setFilteredItems] = useState<SearchableItem[]>([]);
   
   const inputRef = useRef<HTMLInputElement>(null);
@@ -37,9 +42,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
   useEffect(() => {
     if (query.trim()) {
       const results = searchItems(query, allItems);
-      setFilteredItems(results.slice(0, 8)); // Limit to 8 results
+      setFilteredItems(results); // Show all search results
     } else {
-      setFilteredItems(allItems.slice(0, 8)); // Show first 8 items when no query
+      // Show all components when no query, grouped by category
+      const componentItems = allItems.filter(item => item.category === 'Components');
+      const otherItems = allItems.filter(item => item.category !== 'Components');
+      setFilteredItems([...componentItems, ...otherItems]); // Show all items, components first
     }
     setSelectedIndex(0);
   }, [query, allItems]);
@@ -130,7 +138,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
                 onChange={(e) => setQuery(e.target.value)}
                 className="flex-1 bg-transparent text-zinc-900 dark:text-zinc-100 placeholder-zinc-500 outline-none text-lg"
               />
-              <div className="flex items-center gap-1 text-xs text-zinc-500">
+              <div className="flex items-center gap-2 text-xs text-zinc-500">
+                <span className="px-2 py-1 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-sm rounded text-zinc-600 dark:text-zinc-400 border border-white/20 dark:border-zinc-700/50">
+                  {filteredItems.length} results
+                </span>
                 <kbd className="px-2 py-1 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-sm rounded text-zinc-600 dark:text-zinc-400 border border-white/20 dark:border-zinc-700/50">
                   <Command className="w-3 h-3 inline mr-1" />K
                 </kbd>
@@ -138,7 +149,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
             </div>
 
             {/* Results */}
-            <div className="max-h-96 overflow-y-auto bg-white/30 dark:bg-black/30 backdrop-blur-sm">
+            <div className="max-h-[500px] overflow-y-auto bg-white/30 dark:bg-black/30 backdrop-blur-sm">
               {filteredItems.length > 0 ? (
                 <div className="py-2">
                   {filteredItems.map((item, index) => (

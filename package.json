@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:registry": "tsx ./src/scripts/build-registry.ts"
+    "build:registry": "tsx ./src/scripts/auto-generate-components.ts && tsx ./src/scripts/build-registry.ts",
+    "generate:components": "tsx ./src/scripts/auto-generate-components.ts",
+    "watch:components": "tsx ./src/scripts/watch-components.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
