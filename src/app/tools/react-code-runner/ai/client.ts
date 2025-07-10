@@ -1,4 +1,4 @@
-import type { ChatMessage, ChatCompletionParams, Model, ClientOptions } from '../types';
+import type { ChatCompletionParams, Model, ClientOptions } from '../types';
 
 export class Client {
   protected baseUrl: string;
@@ -104,9 +104,9 @@ export class Client {
           let data = await response.json();
           data = data.data || data;
           
-          return data.map((model: any) => ({
-            id: this.swapAliases[model.name] || model.name || model.id,
-            name: model.name || model.id,
+          return data.map((model: { name?: string; id?: string; type?: string }) => ({
+            id: (model.name && this.swapAliases[model.name]) || model.name || model.id || '',
+            name: model.name || model.id || '',
             type: model.type || 'chat'
           }));
         } catch (error) {

@@ -33,10 +33,10 @@ export interface EditorConfig {
 }
 
 export interface LibraryScope {
-  React: any;
-  motion: any;
-  AnimatePresence: any;
-  [key: string]: any;
+  React: typeof import('react');
+  motion: typeof import('framer-motion').motion;
+  AnimatePresence: typeof import('framer-motion').AnimatePresence;
+  [key: string]: unknown;
 }
 
 // AI-related interfaces

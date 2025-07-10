@@ -1,10 +1,11 @@
+import * as React from 'react';
 import * as LucideIcons from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { LibraryScope } from './types';
 
 // Create the scope object for react-live
 export const createLibraryScope = (): LibraryScope => ({
-  React: require('react'),
+  React,
   motion,
   AnimatePresence,
   // All Lucide icons available directly
@@ -12,7 +13,7 @@ export const createLibraryScope = (): LibraryScope => ({
 });
 
 // Configure Monaco Editor for better JSX support
-export const configureMonacoEditor = (monaco: any) => {
+export const configureMonacoEditor = (monaco: typeof import('monaco-editor')) => {
   // Configure JavaScript language to support JSX
   monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
     target: monaco.languages.typescript.ScriptTarget.Latest,

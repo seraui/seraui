@@ -1,54 +1,58 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export const useFullscreen = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const toggleFullscreen = () => {
-    setIsFullscreen(!isFullscreen);
+  const toggleFullscreen = useCallback(() => {
+    setIsFullscreen(prev => {
+      const newIsFullscreen = !prev;
 
-    if (!isFullscreen) {
-      // Hide other page elements when entering fullscreen
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
+      if (newIsFullscreen) {
+        // Hide other page elements when entering fullscreen
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
 
-      // Hide common page elements
-      const elementsToHide = [
-        'header', 'nav', 'footer', 'aside',
-        '[role="banner"]', '[role="navigation"]', '[role="contentinfo"]',
-        '.header', '.navbar', '.nav', '.footer', '.sidebar'
-      ];
+        // Hide common page elements
+        const elementsToHide = [
+          'header', 'nav', 'footer', 'aside',
+          '[role="banner"]', '[role="navigation"]', '[role="contentinfo"]',
+          '.header', '.navbar', '.nav', '.footer', '.sidebar'
+        ];
 
-      elementsToHide.forEach(selector => {
-        const elements = document.querySelectorAll(selector);
-        elements.forEach(element => {
+        elementsToHide.forEach(selector => {
+          const elements = document.querySelectorAll(selector);
+          elements.forEach(element => {
+            const htmlElement = element as HTMLElement;
+            htmlElement.dataset.originalDisplay = htmlElement.style.display || '';
+            htmlElement.style.display = 'none';
+          });
+        });
+
+        // Hide main content except our React Code Runner
+        const mainElements = document.querySelectorAll('main > *:not([class*="react-code-runner"])');
+        mainElements.forEach(element => {
           const htmlElement = element as HTMLElement;
           htmlElement.dataset.originalDisplay = htmlElement.style.display || '';
           htmlElement.style.display = 'none';
         });
-      });
 
-      // Hide main content except our React Code Runner
-      const mainElements = document.querySelectorAll('main > *:not([class*="react-code-runner"])');
-      mainElements.forEach(element => {
-        const htmlElement = element as HTMLElement;
-        htmlElement.dataset.originalDisplay = htmlElement.style.display || '';
-        htmlElement.style.display = 'none';
-      });
+      } else {
+        // Restore other page elements when exiting fullscreen
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
 
-    } else {
-      // Restore other page elements when exiting fullscreen
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+        // Restore all hidden elements
+        const hiddenElements = document.querySelectorAll('[data-original-display]');
+        hiddenElements.forEach(element => {
+          const htmlElement = element as HTMLElement;
+          htmlElement.style.display = htmlElement.dataset.originalDisplay || '';
+          delete htmlElement.dataset.originalDisplay;
+        });
+      }
 
-      // Restore all hidden elements
-      const hiddenElements = document.querySelectorAll('[data-original-display]');
-      hiddenElements.forEach(element => {
-        const htmlElement = element as HTMLElement;
-        htmlElement.style.display = htmlElement.dataset.originalDisplay || '';
-        delete htmlElement.dataset.originalDisplay;
-      });
-    }
-  };
+      return newIsFullscreen;
+    });
+  }, []);
 
   // Handle escape key and cleanup
   useEffect(() => {
@@ -77,7 +81,7 @@ export const useFullscreen = () => {
         });
       }
     };
-  }, [isFullscreen]);
+  }, [isFullscreen, toggleFullscreen]);
 
   return {
     isFullscreen,

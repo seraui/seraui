@@ -87,7 +87,7 @@ export class CodeGenerator {
         const wrappedCode = `function App() {\n  return (\n    ${generatedCode}\n  );\n}`;
         try {
           return this.validateAndFixCode(wrappedCode);
-        } catch (e) {
+        } catch {
           // Continue to next attempt
         }
       } else if (generatedCode.includes('return')) {
@@ -95,7 +95,7 @@ export class CodeGenerator {
         const wrappedCode = `function App() {\n  ${generatedCode}\n}`;
         try {
           return this.validateAndFixCode(wrappedCode);
-        } catch (e) {
+        } catch {
           // Continue to next attempt
         }
       }
@@ -108,7 +108,7 @@ export class CodeGenerator {
       const wrappedCode = `function App() {\n  return (\n    ${jsxContent}\n  );\n}`;
       try {
         return this.validateAndFixCode(wrappedCode);
-      } catch (e) {
+      } catch {
         // Continue to error
       }
     }
@@ -256,7 +256,7 @@ Generate clean, modern, and functional React components that work immediately in
       });
 
       if (response.choices && response.choices[0] && response.choices[0].message) {
-        let generatedCode = response.choices[0].message.content;
+        const generatedCode = response.choices[0].message.content;
 
         return this.extractAndValidateCode(generatedCode);
       } else {
@@ -343,7 +343,7 @@ Generate clean, modern, and functional React components that work immediately in
       });
 
       if (response.choices && response.choices[0] && response.choices[0].message) {
-        let generatedCode = response.choices[0].message.content;
+        const generatedCode = response.choices[0].message.content;
 
         return this.extractAndValidateCode(generatedCode);
       } else {

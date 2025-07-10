@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { Copy, RotateCcw, MessageSquare } from 'lucide-react';
+import { Copy, RotateCcw } from 'lucide-react';
 import Button from '@/app/docs/button/button';
 import { EDITOR_CONFIG, DEFAULT_CODE } from '../constants';
 import { configureMonacoEditor, copyToClipboard } from '../utils';
