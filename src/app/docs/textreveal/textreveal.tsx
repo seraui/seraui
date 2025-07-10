@@ -27,12 +27,7 @@ export default function TextReveal() {
     visible: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)", 
-      transition: {
-        duration: 0.8,
-        ease: "easeInOut", 
-        type: "tween", 
-      },
+      filter: "blur(0px)",
     },
   };
 
@@ -48,7 +43,11 @@ export default function TextReveal() {
         {words.map((word, index) => (
           <motion.span
             key={index}
-            variants={childVariants as any}
+            variants={childVariants}
+            transition={{
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
             style={{ marginRight: "12px", marginTop: "10px" }} // Adjust spacing for paragraph
           >
             {word}
