@@ -49,9 +49,11 @@ const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean, onClose: () => vo
         className={cn(
           "flex items-center justify-between py-2 text-sm transition-colors cursor-pointer",
           isNested ? "pl-6" : "font-medium",
-          (isActive || hasActiveChild) 
-            ? "text-zinc-900 dark:text-white" 
-            : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
+          (isActive || hasActiveChild)
+            ? "text-zinc-900 dark:text-white"
+            : isNested
+              ? "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
+              : "text-zinc-500 dark:text-white/80 hover:text-zinc-900 dark:hover:text-white/90"
         )}
       >
         <span className="flex items-center gap-2">

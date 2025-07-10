@@ -1,8 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Header from '@/components/site/header';
 import GradientGenerator from "./gradientgenerator";
+import TsxToJsxCompiler from "./tsx-to-jsx-compiler";
 
 // Define available tools
 const tools = [
@@ -13,10 +15,26 @@ const tools = [
     icon: '🎨',
     component: GradientGenerator
   },
+  {
+    id: 'tsx-to-jsx-compiler',
+    name: 'TSX to JSX Compiler',
+    description: 'Convert TypeScript React components to pure JavaScript',
+    icon: '🔄',
+    component: TsxToJsxCompiler
+  },
 ];
 
 export default function ToolsPage() {
   const [selectedTool, setSelectedTool] = useState<string | null>(null);
+  const searchParams = useSearchParams();
+
+  // Check for URL parameters on component mount
+  useEffect(() => {
+    const toolParam = searchParams.get('tool');
+    if (toolParam && tools.find(tool => tool.id === toolParam)) {
+      setSelectedTool(toolParam);
+    }
+  }, [searchParams]);
 
   const selectedToolData = tools.find(tool => tool.id === selectedTool);
   const ToolComponent = selectedToolData?.component;

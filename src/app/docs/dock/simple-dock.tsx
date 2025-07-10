@@ -8,11 +8,8 @@ import {
   useTransform,
   MotionValue
 } from "framer-motion";
-import { useTheme } from "next-themes";
-
 
 // --- SVG Icon Components ---
-// No changes were made to the icon components. They are included for completeness.
 const HomeIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
 );
@@ -22,27 +19,16 @@ const EditIcon = ({ className }: { className?: string }) => (
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35.0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35.0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
 );
-const LinkedinIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
+const SettingsIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" /><circle cx="12" cy="12" r="3" /></svg>
 );
-const XIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+const UserIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
 );
-const MailIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-);
-const MoonIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg>
-);
-const SunIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg>
-);
-
 
 // --- DockIcon Component ---
-// Renders a single icon that magnifies on mouse proximity.
 interface DockIconProps {
-  mouseX?: MotionValue<number>; // mouseX is optional as it's injected by the parent Dock.
+  mouseX?: MotionValue<number>;
   href: string;
   children: React.ReactNode;
   onClick?: () => void;
@@ -50,7 +36,7 @@ interface DockIconProps {
 
 const DockIcon: React.FC<DockIconProps> = ({ mouseX, href, children, onClick }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const defaultMouseX = useMotionValue(Infinity); // Fallback for when mouseX is not available.
+  const defaultMouseX = useMotionValue(Infinity);
 
   // Constants for the animation
   const iconSize = 36;
@@ -94,26 +80,21 @@ const DockIcon: React.FC<DockIconProps> = ({ mouseX, href, children, onClick }) 
   );
 };
 
-
-// --- Dock Component ---
-// The main container that tracks the mouse and holds the icons.
+// --- Simple Dock Component ---
 interface DockProps {
   children: React.ReactNode;
 }
 
-const Dock: React.FC<DockProps> = ({ children }) => {
+const SimpleDock: React.FC<DockProps> = ({ children }) => {
   const mouseX = useMotionValue(Infinity);
 
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className="flex h-[58px] items-center gap-2 rounded-2xl bg-white/80 dark:bg-black/50 px-2 border border-black/10 dark:border-white/10 backdrop-blur-lg"
+      className="flex h-[58px] items-center gap-2 rounded-lg bg-gray-100 dark:bg-gray-800 px-3 border border-gray-200 dark:border-gray-700"
     >
       {React.Children.map(children, (child) => {
-        // FIX: Check if the child is a valid React element and if its type is DockIcon.
-        // This prevents passing the `mouseX` prop to other elements like the separator `div`,
-        // which was causing the React warning.
         if (React.isValidElement(child) && child.type === DockIcon) {
           return React.cloneElement(child as React.ReactElement<DockIconProps>, {
             ...child.props as DockIconProps,
@@ -126,44 +107,27 @@ const Dock: React.FC<DockProps> = ({ children }) => {
   );
 };
 
-
 // --- Main App Component ---
-const DockApp: React.FC = () => {
-  const { theme, setTheme } = useTheme();
-
+const SimpleDockApp: React.FC = () => {
   const icons = [
     { name: 'Home', component: HomeIcon, href: '#' },
     { name: 'Edit', component: EditIcon, href: '#' },
     { name: 'GitHub', component: GithubIcon, href: '#' },
-    { name: 'LinkedIn', component: LinkedinIcon, href: '#' },
-    { name: 'X', component: XIcon, href: '#' },
-    { name: 'Mail', component: MailIcon, href: '#' },
+    { name: 'Settings', component: SettingsIcon, href: '#' },
+    { name: 'User', component: UserIcon, href: '#' },
   ];
-
-  const isDark = theme === "dark";
-  const toggleTheme = () => {
-    setTheme(isDark ? "light" : "dark");
-  };
 
   return (
     <div className="flex flex-col items-center justify-end bg-zinc-50 dark:bg-black font-sans">
-      <Dock>
+      <SimpleDock>
         {icons.map((icon) => (
           <DockIcon key={icon.name} href={icon.href}>
-            <icon.component className="h-full w-full p-2 text-zinc-700 dark:text-zinc-300" />
+            <icon.component className="h-full w-full p-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors" />
           </DockIcon>
         ))}
-        <div className="w-px h-full bg-black/10 dark:bg-white/10 mx-2 self-center" style={{height: '35px'}}></div>
-        <DockIcon href="#" onClick={toggleTheme}>
-          {isDark ? (
-            <SunIcon className="h-full w-full p-2 text-zinc-700 dark:text-zinc-300" />
-          ) : (
-            <MoonIcon className="h-full w-full p-2 text-zinc-700 dark:text-zinc-300" />
-          )}
-        </DockIcon>
-      </Dock>
+      </SimpleDock>
     </div>
   );
 };
 
-export default DockApp;
+export default SimpleDockApp;

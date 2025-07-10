@@ -124,7 +124,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
           >
             {/* Search Input */}
             <div className="flex items-center gap-3 px-4 py-4 border-b border-white/20 dark:border-zinc-800/50 bg-white/50 dark:bg-black/50 backdrop-blur-sm">
-              <Search className="w-5 h-5 text-zinc-400" />
+              <Search className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />
               <input
                 ref={inputRef}
                 type="text"
@@ -158,7 +158,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
                           : ""
                       }`}
                     >
-                      <div className="flex-shrink-0 text-zinc-500">
+                      <div className="flex-shrink-0 text-zinc-600 dark:text-zinc-500">
                         {getItemIcon(item)}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -176,7 +176,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
                   ))}
                 </div>
               ) : (
-                <div className="py-8 text-center text-zinc-500">
+                <div className="py-8 text-center text-zinc-600 dark:text-zinc-500">
                   <Search className="w-8 h-8 mx-auto mb-2 opacity-50" />
                   <p>No results found for &quot;{query}&quot;</p>
                 </div>

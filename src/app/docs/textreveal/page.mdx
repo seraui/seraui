@@ -1,0 +1,225 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { VitePressTable } from "@/components/ui/vitepress-table";
+import TextReveal from "./textreveal"
+
+# Text Reveal Animation
+
+A beautiful text reveal animation component that creates a smooth, word-by-word reveal effect with blur and fade transitions. Perfect for hero sections, quotes, and attention-grabbing text content.
+
+## Preview
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TextReveal />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/textreveal/textreveal.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Features
+
+- ✨ **Smooth Animation**: Word-by-word reveal with staggered timing
+- 🌫️ **Blur Effect**: Elegant blur-to-clear transition for each word
+- 🎯 **Customizable**: Easy to modify timing, text, and styling
+- � **Responsive**: Works perfectly on all screen sizes
+- ⚡ **Performance**: Optimized with Framer Motion for smooth 60fps animations
+- 🎨 **Flexible**: Supports any text content and styling
+
+## Installation
+
+You can add this component to your project using the CLI or by manually copying the code.
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add textreveal.json`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/textreveal/textreveal.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Dependencies
+
+This component requires `framer-motion` for animations. Install it if you haven't already:
+
+```bash
+npm install framer-motion
+```
+
+## Basic Usage
+
+Import and use the TextReveal component in your React application:
+
+```tsx
+import { motion } from "framer-motion";
+import TextReveal from "./textreveal";
+
+export default function App() {
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <TextReveal />
+    </div>
+  );
+}
+```
+
+## Customization
+
+### Custom Text Content
+
+You can easily customize the text content by modifying the `textToAnimate` variable:
+
+```tsx
+const textToAnimate = "Your custom message goes here. Make it inspiring and memorable.";
+```
+
+### Animation Timing
+
+Adjust the animation timing by modifying these values:
+
+```tsx
+// Container animation timing
+const containerVariants = {
+  visible: (i = 1) => ({
+    transition: {
+      staggerChildren: 0.1,    // Time between each word
+      delayChildren: 0.04 * i  // Initial delay
+    },
+  }),
+};
+
+// Individual word animation
+const childVariants = {
+  visible: {
+    transition: {
+      duration: 0.8,        // Animation duration per word
+      ease: "easeInOut",    // Easing function
+    },
+  },
+};
+```
+
+### Styling Options
+
+Customize the appearance by modifying the className and styles:
+
+```tsx
+// Main container styling
+<motion.div
+  className="text-4xl font-bold text-center text-blue-600 max-w-4xl"
+  // ... other props
+>
+
+// Individual word spacing
+<motion.span
+  style={{
+    marginRight: "16px",  // Horizontal spacing
+    marginTop: "12px"     // Vertical spacing for wrapping
+  }}
+>
+```
+
+## Advanced Examples
+
+### Hero Section Implementation
+
+```tsx
+export function HeroSection() {
+  return (
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 to-blue-900">
+      <div className="text-center px-4">
+        <h1 className="text-white mb-8">
+          <TextReveal />
+        </h1>
+        <button className="mt-8 px-8 py-3 bg-white text-purple-900 rounded-lg font-semibold">
+          Get Started
+        </button>
+      </div>
+    </section>
+  );
+}
+```
+
+### Quote Display
+
+```tsx
+export function InspirationalQuote() {
+  return (
+    <div className="max-w-4xl mx-auto py-16 px-4">
+      <blockquote className="text-center">
+        <TextReveal />
+        <footer className="mt-8 text-gray-600">
+          — Anonymous
+        </footer>
+      </blockquote>
+    </div>
+  );
+}
+```
+
+## Animation Properties
+
+<VitePressTable
+  headers={["Property", "Type", "Default", "Description"]}
+  rows={[
+    ["staggerChildren", "number", "0.1", "Delay between each word animation"],
+    ["delayChildren", "number", "0.04", "Initial delay before animations start"],
+    ["duration", "number", "0.8", "Duration of each word's animation"],
+    ["ease", "string", "easeInOut", "Easing function for smooth transitions"],
+    ["blur", "string", "10px → 0px", "Blur effect transition"],
+    ["y", "number", "20 → 0", "Vertical movement distance"]
+  ]}
+/>
+
+## Browser Support
+
+This component works in all modern browsers that support:
+- CSS `filter: blur()`
+- CSS Flexbox
+- ES6+ JavaScript features
+- Framer Motion (React 16.8+)
+
+## Performance Tips
+
+- The component automatically optimizes animations for 60fps
+- Uses `transform` and `filter` properties for hardware acceleration
+- Minimal DOM manipulation for smooth performance
+- Consider using `will-change: transform` for very long text content
+
+## Accessibility
+
+The component maintains accessibility by:
+- Preserving text content for screen readers
+- Not interfering with keyboard navigation
+- Maintaining semantic HTML structure
+- Supporting reduced motion preferences (can be enhanced with `prefers-reduced-motion`)
+
+## Troubleshooting
+
+**Animation not working?**
+- Ensure `framer-motion` is properly installed
+- Check that the component is wrapped in a client component (`'use client'`)
+- Verify CSS classes are available in your styling system
+
+**Performance issues?**
+- Reduce the number of words for very long text
+- Adjust `staggerChildren` timing for faster reveals
+- Consider using `transform3d` for better GPU acceleration

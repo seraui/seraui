@@ -7,7 +7,14 @@ import {
   TabsTrigger,
   TabsContent,
 } from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
 import TwoStep from "./twostep.tsx"
+
+# Two-Step Verification
+
+A secure and user-friendly two-step verification component with a 5-digit code input interface. Features automatic focus management, paste support, and elegant Mac-style design with dark mode compatibility.
+
+## Preview
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -22,7 +29,8 @@ import TwoStep from "./twostep.tsx"
   </TabsContent>
 </Tabs>
 
-# 🚀 Installation
+## Installation
+
 You can add this component to your project using the CLI or by manually copying the code.
 
 <Tabs defaultValue="cli" className="">
@@ -38,3 +46,123 @@ You can add this component to your project using the CLI or by manually copying 
     <CodeBlock filePath="src/app/docs/twostep/twostep.tsx" />
   </TabsContent>
 </Tabs>
+
+
+## Basic Usage
+
+After installation, import and use the component in your React application:
+
+```tsx
+import TwoStep from './twostep';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <TwoStep />
+    </div>
+  );
+}
+```
+
+## Component Structure
+
+The two-step verification component consists of several key elements:
+
+### 1. Mac-Style Card Design
+- Clean white/dark card with rounded corners and shadow
+- Mac-style window controls (red, yellow, green dots)
+- Responsive padding and layout
+
+### 2. Logo Display
+- Customizable logo with glow effect
+- Fallback placeholder if image fails to load
+- Responsive sizing for different screen sizes
+
+### 3. Input Fields
+- 5 individual input fields for verification code
+- Auto-focus progression as user types
+- Numeric-only input validation
+- Visual focus states and hover effects
+
+### 4. Smart Interactions
+- **Auto-advance**: Moves to next field when digit is entered
+- **Backspace navigation**: Returns to previous field when backspacing on empty field
+- **Paste handling**: Intelligently distributes pasted codes across fields
+- **Focus management**: Automatically focuses first field on mount
+
+## Customization
+
+### Styling
+
+The component uses Tailwind CSS classes and can be customized by modifying the className properties:
+
+```tsx
+// Custom card styling
+<div className="bg-white dark:bg-[#161B22] border border-gray-200 dark:border-gray-800 p-6 sm:p-8 rounded-2xl shadow-2xl">
+
+// Custom input styling
+<input className="w-12 h-14 sm:w-14 sm:h-16 text-center text-2xl font-semibold bg-gray-50 dark:bg-[#0D1117]" />
+```
+
+### Logo Customization
+
+Replace the default logo by modifying the image source:
+
+```tsx
+<img
+  src="your-logo-url-here"
+  alt="Your Logo"
+  className="w-32 h-32 object-cover rounded-lg drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+/>
+```
+
+### Phone Number Display
+
+Customize the masked phone number display:
+
+```tsx
+<p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">
+  We've sent a 5 digit code to **********{yourPhoneNumber.slice(-3)}
+</p>
+```
+
+## Advanced Features
+
+### Code Validation
+
+Add validation logic to handle the complete verification code:
+
+```tsx
+const handleCodeComplete = (completeCode: string) => {
+  if (completeCode.length === 5) {
+    // Validate the code
+    verifyCode(completeCode);
+  }
+};
+
+// Monitor code state changes
+useEffect(() => {
+  const completeCode = code.join('');
+  if (completeCode.length === 5) {
+    handleCodeComplete(completeCode);
+  }
+}, [code]);
+```
+
+### Resend Functionality
+
+Implement the resend code functionality:
+
+```tsx
+const handleResendCode = async () => {
+  try {
+    await resendVerificationCode();
+    // Reset the input fields
+    setCode(new Array(5).fill(''));
+    // Focus first input
+    inputRefs.current[0]?.focus();
+  } catch (error) {
+    console.error('Failed to resend code:', error);
+  }
+};
+```

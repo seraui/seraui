@@ -9,6 +9,12 @@ import {
 } from "@/components/site/tabs.tsx";
 import Fuzzy from "./fuzzy.tsx"
 
+# Fuzzy Text
+
+A dynamic text component that creates an animated fuzzy/glitch effect using HTML5 Canvas. Perfect for creating eye-catching headings, hero text, and interactive typography with customizable intensity and hover effects.
+
+## Preview
+
 <Tabs defaultValue="preview" className="">
   <TabsList>
     <TabsTrigger value="preview">Preview</TabsTrigger>
@@ -22,7 +28,8 @@ import Fuzzy from "./fuzzy.tsx"
   </TabsContent>
 </Tabs>
 
-# 🚀 Installation
+## Installation
+
 You can add this component to your project using the CLI or by manually copying the code.
 
 <Tabs defaultValue="cli" className="">
@@ -38,3 +45,234 @@ You can add this component to your project using the CLI or by manually copying 
     <CodeBlock filePath="src/app/docs/fuzzy/fuzzy.tsx" />
   </TabsContent>
 </Tabs>
+
+## Basic Usage
+
+After installation, import and use the component in your React application:
+
+```tsx
+import { FuzzyText } from './fuzzy';
+
+function App() {
+  return (
+    <div className="flex items-center justify-center min-h-screen">
+      <FuzzyText>
+        HELLO WORLD
+      </FuzzyText>
+    </div>
+  );
+}
+```
+
+## Examples
+
+### Default Fuzzy Text
+
+The simplest implementation with default settings:
+
+```tsx
+<FuzzyText>
+  FUZZY TEXT
+</FuzzyText>
+```
+
+### Custom Styling
+
+Customize the appearance with different fonts, colors, and sizes:
+
+```tsx
+<FuzzyText
+  fontSize="4rem"
+  fontWeight={700}
+  fontFamily="Arial, sans-serif"
+  color="#ff6b6b"
+>
+  CUSTOM STYLE
+</FuzzyText>
+```
+
+### Responsive Typography
+
+Use CSS clamp() for responsive text that scales with viewport:
+
+```tsx
+<FuzzyText
+  fontSize="clamp(2rem, 8vw, 8rem)"
+  fontWeight={900}
+  color="#00ff99"
+>
+  RESPONSIVE
+</FuzzyText>
+```
+
+### Disabled Hover Effect
+
+Create a static fuzzy effect without hover interactions:
+
+```tsx
+<FuzzyText
+  enableHover={false}
+  baseIntensity={0.3}
+>
+  STATIC FUZZY
+</FuzzyText>
+```
+
+### High Intensity Effect
+
+Create a more dramatic glitch effect:
+
+```tsx
+<FuzzyText
+  baseIntensity={0.4}
+  hoverIntensity={0.8}
+  color="#ff0080"
+>
+  INTENSE GLITCH
+</FuzzyText>
+```
+
+## API Reference
+
+### FuzzyText
+
+The main fuzzy text component that renders animated text with a glitch effect.
+
+<table border="1" cellspacing="0" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>children</code></td>
+      <td><code>ReactNode</code></td>
+      <td>-</td>
+      <td>The text content to display with fuzzy effect</td>
+    </tr>
+    <tr>
+      <td><code>fontSize</code></td>
+      <td><code>string | number</code></td>
+      <td><code>"clamp(2rem, 10vw, 10rem)"</code></td>
+      <td>Font size as CSS value or number (px). Supports responsive units</td>
+    </tr>
+    <tr>
+      <td><code>fontWeight</code></td>
+      <td><code>number</code></td>
+      <td><code>900</code></td>
+      <td>Font weight from 100 to 900</td>
+    </tr>
+    <tr>
+      <td><code>fontFamily</code></td>
+      <td><code>string</code></td>
+      <td><code>"inherit"</code></td>
+      <td>Font family. Use "inherit" to inherit from parent element</td>
+    </tr>
+    <tr>
+      <td><code>color</code></td>
+      <td><code>string</code></td>
+      <td><code>"#fff"</code></td>
+      <td>Text color as any valid CSS color value</td>
+    </tr>
+    <tr>
+      <td><code>enableHover</code></td>
+      <td><code>boolean</code></td>
+      <td><code>true</code></td>
+      <td>Whether to enable hover/touch interactions</td>
+    </tr>
+    <tr>
+      <td><code>baseIntensity</code></td>
+      <td><code>number</code></td>
+      <td><code>0.18</code></td>
+      <td>Base fuzzy effect intensity (0-1). Higher values = more distortion</td>
+    </tr>
+    <tr>
+      <td><code>hoverIntensity</code></td>
+      <td><code>number</code></td>
+      <td><code>0.5</code></td>
+      <td>Fuzzy effect intensity on hover (0-1). Higher values = more distortion</td>
+    </tr>
+  </tbody>
+</table>
+
+## How It Works
+
+The FuzzyText component uses advanced Canvas techniques to create its unique effect:
+
+### 1. **Offscreen Rendering**
+- Text is first rendered to an offscreen canvas for optimal performance
+- This pre-rendered text serves as the source for the animation
+
+### 2. **Slice-based Animation**
+- The text is divided into horizontal slices (1px height each)
+- Each slice is randomly displaced horizontally to create the fuzzy effect
+- The displacement intensity varies based on hover state and configuration
+
+### 3. **Performance Optimization**
+- Uses `requestAnimationFrame` for smooth 60fps animations
+- Automatic cleanup prevents memory leaks
+- Font loading detection ensures accurate text measurement
+
+### 4. **Responsive Design**
+- Supports CSS clamp() and viewport units for responsive typography
+- Automatic canvas resizing based on text dimensions
+- Touch event support for mobile devices
+
+## Best Practices
+
+### Performance Tips
+
+- **Limit instances**: Avoid using many FuzzyText components simultaneously as each runs its own animation loop
+- **Static text**: For non-interactive text, set `enableHover={false}` to reduce event listeners
+- **Reasonable intensity**: Keep intensity values between 0-1 for best visual results
+
+### Styling Recommendations
+
+- **High contrast**: Use bright colors on dark backgrounds for maximum impact
+- **Bold fonts**: Heavy font weights (700-900) work best with the fuzzy effect
+- **Short text**: Works best with single words or short phrases rather than long sentences
+
+### Accessibility Considerations
+
+- **Screen readers**: The component maintains text content for accessibility tools
+- **Motion sensitivity**: Consider providing a reduced motion option for users with vestibular disorders
+- **Color contrast**: Ensure sufficient contrast for readability even with the effect
+
+## Use Cases
+
+Perfect for:
+
+- **Hero sections**: Eye-catching headings and titles
+- **Gaming interfaces**: Cyberpunk and sci-fi themed applications
+- **Creative portfolios**: Artistic and experimental designs
+- **Loading states**: Dynamic text during loading processes
+- **Interactive demos**: Showcasing modern web capabilities
+- **Brand elements**: Unique typography for tech companies
+
+## Browser Support
+
+- **Modern browsers**: Chrome 51+, Firefox 49+, Safari 10+, Edge 79+
+- **Canvas support**: Requires HTML5 Canvas API
+- **Performance**: Best performance on hardware-accelerated browsers
+- **Mobile**: Full support on iOS Safari and Android Chrome
+
+## Troubleshooting
+
+### Common Issues
+
+**Text appears blurry or pixelated:**
+- Ensure the canvas has proper pixel density for high-DPI displays
+- Check that font loading is complete before rendering
+
+**Performance issues:**
+- Reduce the number of simultaneous FuzzyText instances
+- Lower the intensity values for less demanding animations
+- Consider using `enableHover={false}` for static effects
+
+**Font not loading:**
+- The component waits for `document.fonts.ready` but custom fonts should be preloaded
+- Use font-display: swap in your CSS for better loading experience

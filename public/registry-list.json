@@ -1,6 +1,6 @@
 {
   "lastUpdated": "2025-08-27T07:10:12.122Z",
-  "totalFiles": 17,
+  "totalFiles": 18,
   "files": [
     {
       "name": "accordion",
@@ -96,6 +96,12 @@
       "name": "flipwords",
       "filename": "flipwords.json",
       "path": "/registry/flipwords.json",
+      "size": 3691
+    },
+    {
+      "name": "textreveal",
+      "filename": "textreveal.json",
+      "path": "/registry/textreveal.json",
       "size": 3691
     }
   ]

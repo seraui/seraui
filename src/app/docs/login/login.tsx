@@ -1,8 +1,6 @@
-import React from 'react';
 
-// --- SVG Icon Components ---
-// Using functional components for SVG icons for better reusability and clarity.
-// The AppleIcon has been updated as per your request.
+'use client'
+import React, { useState } from 'react';
 
 const UserIcon = () => (
   <svg
@@ -15,10 +13,48 @@ const UserIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="h-8 w-8 text-zinc-400 dark:text-zinc-400"
+    className="h-5 w-5 text-zinc-600 dark:text-zinc-400"
   >
     <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
     <circle cx="12" cy="7" r="4" />
+  </svg>
+);
+
+const EyeIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-4 w-4 text-zinc-500 dark:text-zinc-400"
+  >
+    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+    <circle cx="12" cy="12" r="3" />
+  </svg>
+);
+
+const EyeOffIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-4 w-4 text-zinc-500 dark:text-zinc-400"
+  >
+    <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" />
+    <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" />
+    <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" />
+    <line x1="2" x2="22" y1="2" y2="22" />
   </svg>
 );
 
@@ -67,83 +103,107 @@ const XIcon = () => (
 
 // --- Main App Component ---
 export default function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     // Main container with a custom background pattern and flexbox for centering. This setup is inherently responsive.
     <div className="relative w-full flex items-center justify-center font-sans overflow-hidden p-4 bg-zinc-50 dark:bg-zinc-950">
 
-      {/* Login Card. max-w-md ensures it doesn't get too wide on large screens, while w-full ensures it shrinks on small screens. */}
-      <div className="relative w-full max-w-md p-8 sm:p-10 space-y-6 bg-white/80 dark:bg-zinc-900/60 backdrop-blur-xl rounded-2xl border border-zinc-200/50 dark:border-white/10 shadow-xl dark:shadow-2xl shadow-black/5 dark:shadow-black">
-        
-        {/* Header section with icon and title */}
-        <div className="text-center space-y-4">
-          <div className="inline-flex p-3 bg-zinc-100/80 dark:bg-zinc-800/80 rounded-full border border-zinc-200/50 dark:border-white/10">
+      {/* Login Card - More compact and shadcn-like */}
+      <div className="relative w-full max-w-sm p-6 space-y-6 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 shadow-lg">
+
+        {/* Header section with icon and title - More compact */}
+        <div className="text-center space-y-3">
+          <div className="inline-flex p-2 bg-zinc-100 dark:bg-zinc-800 rounded-md">
             <UserIcon />
           </div>
-          <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">Welcome back</h1>
+          <div>
+            <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-white">Welcome back</h1>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">Enter your credentials to sign in</p>
+          </div>
         </div>
 
-        {/* Social login buttons. The grid is responsive by default and will stack on very small screens if needed, but grid-cols-3 is robust. */}
-        <div className="grid grid-cols-3 gap-3">
-          {/* Icons are mapped to create buttons. Apple icon is correctly positioned first. */}
+        {/* Social login buttons - More compact shadcn style */}
+        <div className="grid grid-cols-3 gap-2">
           {[{ icon: <AppleIcon /> }, { icon: <GoogleIcon /> }, { icon: <XIcon /> }].map((item, index) => (
             <button
               key={index}
-              className="flex items-center justify-center p-3 rounded-lg bg-zinc-100/80 dark:bg-zinc-800/80 border border-zinc-200/50 dark:border-white/10 shadow-[inset_0_1px_0_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] hover:bg-zinc-200/80 dark:hover:bg-zinc-700/80 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-500/50 dark:focus:ring-white/50"
+              className="flex items-center justify-center h-9 px-3 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-300"
             >
               {item.icon}
             </button>
           ))}
         </div>
 
-        {/* OR Divider */}
-        <div className="flex items-center gap-4">
-          <div className="h-px flex-grow bg-zinc-300 dark:bg-zinc-700"></div>
-          <span className="text-zinc-500 dark:text-zinc-400 text-sm">OR</span>
-          <div className="h-px flex-grow bg-zinc-300 dark:bg-zinc-700"></div>
+        {/* OR Divider - More subtle */}
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <span className="w-full border-t border-zinc-200 dark:border-zinc-800" />
+          </div>
+          <div className="relative flex justify-center text-xs uppercase">
+            <span className="bg-white dark:bg-zinc-900 px-2 text-zinc-500 dark:text-zinc-400">
+              Or continue with
+            </span>
+          </div>
         </div>
-        
-        {/* Form */}
+
+        {/* Form - Shadcn style */}
         <form className="space-y-4">
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-400 mb-2">
-              Email Address
+          <div className="space-y-2">
+            <label htmlFor="email" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-zinc-900 dark:text-zinc-50">
+              Email
             </label>
             <input
               type="email"
               id="email"
-              placeholder="Enter your email"
-              className="w-full p-3 rounded-lg bg-zinc-100/80 dark:bg-zinc-800/80 border border-zinc-200/50 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-500 dark:placeholder-zinc-500 shadow-[inset_0_1px_0_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] focus:outline-none focus:ring-2 focus:ring-zinc-500/50 dark:focus:ring-white/50 focus:border-transparent transition-all"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="name@example.com"
+              className="flex h-9 w-full rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-3 py-5 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-300 disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-zinc-700 dark:text-zinc-400 mb-2">
+          <div className="space-y-2">
+            <label htmlFor="password" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-zinc-900 dark:text-zinc-50">
               Password
             </label>
-            <input
-              type="password"
-              id="password"
-              placeholder="••••••••"
-              className="w-full p-3 rounded-lg bg-zinc-100/80 dark:bg-zinc-800/80 border border-zinc-200/50 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-500 dark:placeholder-zinc-500 shadow-[inset_0_1px_0_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] focus:outline-none focus:ring-2 focus:ring-zinc-500/50 dark:focus:ring-white/50 focus:border-transparent transition-all"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
+                className="flex h-9 w-full rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-3 py-5 pr-10 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-300 disabled:cursor-not-allowed disabled:opacity-50"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+              >
+                {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+              </button>
+            </div>
           </div>
           <button
             type="submit"
-            className="w-full p-3 mt-2 rounded-lg bg-zinc-900 dark:bg-zinc-800/80 border border-zinc-200/50 dark:border-white/10 text-white dark:text-white font-semibold shadow-[inset_0_1px_0_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] hover:bg-zinc-800 dark:hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-zinc-900 focus:ring-zinc-500/50 dark:focus:ring-white/50"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-300 disabled:pointer-events-none disabled:opacity-50 bg-zinc-900 text-zinc-50 shadow hover:bg-zinc-900/90 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-50/90 h-9 px-4 py-2 w-full"
           >
             Sign In
           </button>
         </form>
 
-        {/* Footer links */}
-        <div className="text-center text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
-          <p>
-            Don&apos;t have an account yet?{' '}
-            <a href="#" className="font-medium text-zinc-900 dark:text-white hover:underline">
-              Sign Up
+        {/* Footer links - More compact */}
+        <div className="text-center space-y-2">
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+            Don&apos;t have an account?{' '}
+            <a href="#" className="font-medium text-zinc-900 dark:text-zinc-50 underline underline-offset-4 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors">
+              Sign up
             </a>
           </p>
-          <a href="#" className="font-medium text-zinc-900 dark:text-white hover:underline">
-            Forgot your password
+          <a href="#" className="text-sm font-medium text-zinc-900 dark:text-zinc-50 underline underline-offset-4 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors">
+            Forgot your password?
           </a>
         </div>
 

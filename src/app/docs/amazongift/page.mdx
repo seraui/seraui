@@ -7,7 +7,15 @@ import {
   TabsTrigger,
   TabsContent,
 } from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
 import AmazonGiftCard from "./amazongift.tsx"
+
+# Amazon Gift Card
+
+A beautifully designed gift card component with realistic scratch-off effect, frosted glass styling, and interactive elements. Perfect for promotional campaigns, reward systems, and e-commerce applications.
+
+
+## Preview
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -22,7 +30,8 @@ import AmazonGiftCard from "./amazongift.tsx"
   </TabsContent>
 </Tabs>
 
-# 🚀 Installation
+## Installation
+
 You can add this component to your project using the CLI or by manually copying the code.
 
 <Tabs defaultValue="cli" className="">
@@ -38,3 +47,180 @@ You can add this component to your project using the CLI or by manually copying 
     <CodeBlock filePath="src/app/docs/amazongift/amazongift.tsx" />
   </TabsContent>
 </Tabs>
+
+## Basic Usage
+
+After installation, import and use the component in your React application:
+
+```tsx
+import AmazonGiftCard from './amazongift';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
+      <AmazonGiftCard />
+    </div>
+  );
+}
+```
+
+## Component Structure
+
+The Amazon Gift Card component consists of several key visual elements:
+
+### 1. Card Container
+- Rounded card with shadow and border
+- Responsive padding and max-width constraints
+- Dark mode compatible background colors
+
+### 2. Decorative Punch Hole
+- Top-centered punch hole detail for authenticity
+- Custom clip-path for realistic shape
+- Subtle border and background styling
+
+### 3. Header Section
+- Gift card title and description
+- Centered layout with proper typography
+- Responsive text sizing
+
+### 4. Frosted Glass Section
+- Backdrop-blur effect for modern appearance
+- Contains gift card value and code input
+- Subtle border and shadow effects
+
+### 5. Scratch-Off Effect
+- Interactive peeling sticker illusion
+- Chevron pattern background
+- 3D shadow effects for depth
+- Angled clip-path for realistic peel
+
+### 6. CTA Button
+- Purple gradient with glow effect
+- Hover state transitions
+- Full-width responsive design
+
+## Customization
+
+### Gift Card Value
+
+Modify the gift card amount and currency:
+
+```tsx
+<div className="flex justify-between items-center text-gray-900 dark:text-white mb-4">
+  <span className="font-medium">Amazon.com</span>
+  <span className="font-bold text-lg">$50</span> {/* Change amount */}
+</div>
+```
+
+### Brand Customization
+
+Update the brand name and styling:
+
+```tsx
+<h1 className="text-gray-900 dark:text-white text-2xl font-bold">
+  Your Brand $100 Gift Card
+</h1>
+
+<div className="flex justify-between items-center text-gray-900 dark:text-white mb-4">
+  <span className="font-medium">YourBrand.com</span>
+  <span className="font-bold text-lg">$100</span>
+</div>
+```
+
+### Color Scheme
+
+Customize the purple theme colors:
+
+```tsx
+// Button styling
+<button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
+
+// Glow effect
+style={{
+  boxShadow: '0 0 25px rgba(59, 130, 246, 0.5), 0 5px 15px -5px rgba(59, 130, 246, 0.4)',
+}}
+
+// Focus ring
+className="focus-within:ring-blue-500/50 dark:focus-within:ring-blue-400/50"
+```
+
+### Coupon Code Placeholder
+
+Update the default coupon code format:
+
+```tsx
+<input
+  placeholder="GIFT-2024-XMAS" // Custom format
+  className="font-mono text-xl tracking-[0.3em]"
+/>
+```
+
+## Advanced Features
+
+### Dynamic Gift Card Values
+
+Create dynamic gift cards with different values:
+
+```tsx
+const GiftCardWithValue = ({ amount, currency = '$' }) => {
+  return (
+    <div className="flex justify-between items-center">
+      <span className="font-medium">Amazon.com</span>
+      <span className="font-bold text-lg">{currency}{amount}</span>
+    </div>
+  );
+};
+```
+
+### Code Generation
+
+Implement automatic coupon code generation:
+
+```tsx
+const generateCouponCode = () => {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const segments = [];
+
+  for (let i = 0; i < 3; i++) {
+    let segment = '';
+    for (let j = 0; j < 4; j++) {
+      segment += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    segments.push(segment);
+  }
+
+  return segments.join('-');
+};
+
+// Usage
+const [couponCode, setCouponCode] = useState(generateCouponCode());
+```
+
+### Claim Functionality
+
+Add claim handling with validation:
+
+```tsx
+const handleClaimCoupon = async () => {
+  if (!couponCode.trim()) {
+    alert('Please enter a valid coupon code');
+    return;
+  }
+
+  try {
+    const response = await fetch('/api/claim-coupon', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: couponCode })
+    });
+
+    if (response.ok) {
+      alert('Coupon claimed successfully!');
+    } else {
+      alert('Invalid or expired coupon code');
+    }
+  } catch (error) {
+    alert('Failed to claim coupon. Please try again.');
+  }
+};
+```

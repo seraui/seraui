@@ -193,6 +193,37 @@ html.dark .shiki span {
     scrollbar-width: thin;
   }
 
+  /* VitePress-style table styling */
+  .vitepress-table table {
+    @apply w-full border-collapse;
+  }
+
+  .vitepress-table th {
+    @apply px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100;
+    @apply border-b border-r border-gray-200 dark:border-gray-700;
+  }
+
+  .vitepress-table th:last-child {
+    @apply border-r-0;
+  }
+
+  .vitepress-table td {
+    @apply px-4 py-3 text-sm text-gray-700 dark:text-gray-300;
+    @apply border-b border-r border-gray-100 dark:border-gray-800;
+  }
+
+  .vitepress-table td:last-child {
+    @apply border-r-0;
+  }
+
+  .vitepress-table tr:hover {
+    @apply bg-gray-50 dark:bg-gray-800/30;
+  }
+
+  .vitepress-table code {
+    @apply font-mono text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-gray-800 dark:text-gray-200;
+  }
+
 }
 
 @theme {

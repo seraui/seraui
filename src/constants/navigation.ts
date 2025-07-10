@@ -10,7 +10,7 @@ type NavigationItem = {
 
 export const navigation: NavigationItem[] = [
   {
-    label: "Get Started",
+    label: "Getting Started",
     children: [
       { label: "Introduction", href: "/docs" },
       { label: "Installation", href: "/docs/installation", badge: "Updated" },
@@ -35,7 +35,9 @@ export const navigation: NavigationItem[] = [
     label : "TEXT",
     children : [
       { label : "Fuzzy", href : "/docs/fuzzy"},
-      { label : "Flip Words", href : "/docs/flipwords", badge: "New"}
+      { label : "Flip Words", href : "/docs/flipwords", badge: "New"},
+      { label : "Text Reveal", href : "/docs/textreveal"},
+      { label : "Decrypting", href : "/docs/decrypting"}
     ]
   },
   {
@@ -58,10 +60,11 @@ export const navigation: NavigationItem[] = [
   {
     label : "Form",
     children: [
-      { label: "Login", href: "/docs/login" , badge: "New"},
-      { label: "Card", href: "/docs/card" , badge: "New"},
-      { label: "Two Step", href: "/docs/twostep" , badge: "New"},
-      { label: "Amazon Gift Card", href: "/docs/amazongift" , badge: "New"},
+      { label: "Pricing", href: "/docs/pricing" , badge: "New" },
+      { label: "Login", href: "/docs/login"},
+      { label: "Card", href: "/docs/card"},
+      { label: "Two Step", href: "/docs/twostep"},
+      { label: "Amazon Gift Card", href: "/docs/amazongift"},
     ],
   },
   {

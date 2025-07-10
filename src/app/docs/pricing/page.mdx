@@ -1,0 +1,36 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { VitePressTable } from "@/components/ui/vitepress-table";
+import { HideTOC } from "@/components/site/hide-toc";
+import PricingSection from "./pricing";
+
+<HideTOC />
+
+# 💸 Pricing Section Component
+
+A sleek and responsive pricing section built for modern websites. This component is ideal for showcasing plans, pricing tiers, or service packages in a clean and user-friendly layout.
+
+
+## 👁️ Live Preview & Code
+
+<Tabs defaultValue="preview" className="mt-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<PricingSection />} />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/pricing/pricing.tsx" />
+  </TabsContent>
+</Tabs>

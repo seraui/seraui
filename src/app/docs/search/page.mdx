@@ -7,7 +7,25 @@ import {
   TabsTrigger,
   TabsContent,
 } from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
 import Search from "./search.tsx"
+
+# Search Component
+
+A beautiful and interactive search component with gradient borders, keyboard shortcuts, and recent search functionality. Perfect for command palettes, global search interfaces, and application navigation.
+
+## Features
+
+- **Keyboard Shortcuts**: Built-in Ctrl+K (Cmd+K on Mac) support for quick access
+- **Recent Searches**: Displays and manages recent search history with clear functionality
+- **Gradient Border**: Eye-catching gradient border with glow effects
+- **Dark Mode**: Full support for light and dark themes
+- **Responsive Design**: Adapts to different screen sizes and layouts
+- **Real-time Filtering**: Instant search results as you type
+- **Accessible**: Proper focus management and keyboard navigation
+- **Customizable Icons**: Includes custom SVG icons for popular services
+
+## Basic Example
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -22,8 +40,66 @@ import Search from "./search.tsx"
   </TabsContent>
 </Tabs>
 
-# 🚀 Installation
-You can add this component to your project using the CLI or by manually copying the code.
+## Usage
+
+After installing the component, you can use it in your React application:
+
+```tsx
+import Search from './search';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <Search />
+    </div>
+  );
+}
+```
+
+## Keyboard Shortcuts
+
+The search component includes built-in keyboard shortcuts for enhanced user experience:
+
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl+K` / `Cmd+K` | Focus the search input |
+| `Escape` | Clear search input (when focused) |
+| `Enter` | Select highlighted search result |
+
+## Customization
+
+### Search Data Structure
+
+The component uses a predefined data structure for search items:
+
+```tsx
+interface SearchItemType {
+  id: number;
+  name: string;
+  icon: React.ReactNode;
+  notification: string;
+  color: string;
+}
+```
+
+### Custom Search Items
+
+You can customize the search items by modifying the `recentSearches` array:
+
+```tsx
+const customSearches: SearchItemType[] = [
+  {
+    id: 1,
+    name: 'Custom App',
+    icon: <CustomIcon />,
+    notification: '5 Updates',
+    color: '#FF6B6B'
+  },
+  // Add more items...
+];
+```
+
+# Installation
 
 <Tabs defaultValue="cli" className="">
   <TabsList>
@@ -38,3 +114,72 @@ You can add this component to your project using the CLI or by manually copying 
     <CodeBlock filePath="src/app/docs/search/search.tsx" />
   </TabsContent>
 </Tabs>
+
+## Dependencies
+
+This component requires the following dependencies:
+
+```bash
+npm install lucide-react
+```
+
+## Component Props
+
+<PropsTable
+  props={[
+    {
+      name: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to apply to the search container",
+      required: false,
+    },
+    {
+      name: "placeholder",
+      type: "string",
+      default: "Search the app..",
+      description: "Placeholder text for the search input",
+      required: false,
+    },
+    {
+      name: "onSearch",
+      type: "(term: string) => void",
+      default: "undefined",
+      description: "Callback function called when search term changes",
+      required: false,
+    },
+    {
+      name: "onItemSelect",
+      type: "(item: SearchItemType) => void",
+      default: "undefined",
+      description: "Callback function called when a search item is selected",
+      required: false,
+    },
+  ]}
+/>
+
+## Styling
+
+The component uses Tailwind CSS classes and includes:
+
+- **Gradient borders** with purple, orange, and pink colors
+- **Backdrop blur** effects for a modern glass-morphism look
+- **Hover animations** with scale transforms
+- **Shadow effects** that respond to theme changes
+- **Responsive spacing** that adapts to screen sizes
+
+## Browser Support
+
+- ✅ Chrome (latest)
+- ✅ Firefox (latest)
+- ✅ Safari (latest)
+- ✅ Edge (latest)
+
+## Accessibility
+
+The search component follows accessibility best practices:
+
+- **Keyboard Navigation**: Full keyboard support with proper focus management
+- **ARIA Labels**: Appropriate ARIA attributes for screen readers
+- **Focus Indicators**: Clear visual focus indicators
+- **Semantic HTML**: Uses proper HTML elements for better accessibility

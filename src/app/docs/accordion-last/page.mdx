@@ -9,6 +9,12 @@ import {
 } from "@/components/site/tabs.tsx";
 import AccordionLast from "./accordion-last.tsx"
 
+# Accordion Last
+A minimalistic accordion component with last item styling designed with React and Tailwind CSS.
+
+## Preview
+
+
 <Tabs defaultValue="preview" className="">
   <TabsList>
     <TabsTrigger value="preview">Preview</TabsTrigger>
@@ -38,3 +44,19 @@ You can add this component to your project using the CLI or by manually copying 
     <CodeBlock filePath="src/app/docs/accordion-last/accordion-last.tsx" />
   </TabsContent>
 </Tabs>
+
+# 🛠️ Usage
+
+After installation, import and use the accordion component in your React application:
+
+```tsx
+import AccordionLast from './accordion-last';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
+      <AccordionLast />
+    </div>
+  );
+}
+```

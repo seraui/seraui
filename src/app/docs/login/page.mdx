@@ -7,8 +7,14 @@ import {
   TabsTrigger,
   TabsContent,
 } from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
 import Login from "./login.tsx"
 
+# Login
+
+A modern, responsive login component with social authentication options, password visibility toggle, and elegant shadcn-inspired design. Perfect for authentication flows with a professional, polished appearance.
+
+## Preview
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -19,11 +25,13 @@ import Login from "./login.tsx"
     <ComponentRenderer component={<Login />} />
   </TabsContent>
   <TabsContent value="code">
-    <CodeBlock filePath="src/app/docs/twostep/twostep.tsx" />
+    <CodeBlock filePath="src/app/docs/login/login.tsx" />
   </TabsContent>
 </Tabs>
 
-# 🚀 Installation
+
+## Installation
+
 You can add this component to your project using the CLI or by manually copying the code.
 
 <Tabs defaultValue="cli" className="">
@@ -39,3 +47,188 @@ You can add this component to your project using the CLI or by manually copying 
     <CodeBlock filePath="src/app/docs/login/login.tsx" />
   </TabsContent>
 </Tabs>
+
+## Basic Usage
+
+After installation, import and use the component in your React application:
+
+```tsx
+import Login from './login';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <Login />
+    </div>
+  );
+}
+```
+
+## Component Structure
+
+The login component consists of several key elements:
+
+### 1. Header Section
+- **User Icon**: Visual indicator for the login form
+- **Welcome Message**: "Welcome back" title with descriptive subtitle
+- **Compact Design**: Clean, centered layout with proper spacing
+
+### 2. Social Authentication
+- **Apple Login**: Native Apple ID integration button
+- **Google Login**: Google OAuth button with official branding
+- **X (Twitter) Login**: X Corp authentication option
+- **Grid Layout**: Three-column responsive button layout
+
+### 3. Form Fields
+- **Email Input**: Validated email field with proper labeling
+- **Password Input**: Secure password field with visibility toggle
+- **Interactive Toggle**: Eye/eye-off icon to show/hide password
+- **Form Validation**: Built-in input validation and error handling
+
+### 4. Action Buttons
+- **Sign In Button**: Primary action button with hover states
+- **Sign Up Link**: Registration redirect with proper styling
+- **Forgot Password**: Password recovery link option
+
+## Customization
+
+### Styling
+
+The component uses Tailwind CSS classes and can be easily customized:
+
+```tsx
+// Custom background and container styling
+<div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+  <Login />
+</div>
+```
+
+### Social Providers
+
+You can modify the social authentication options by editing the social buttons array:
+
+```tsx
+// Add or remove social providers
+const socialProviders = [
+  { icon: <AppleIcon />, name: 'Apple', onClick: handleAppleLogin },
+  { icon: <GoogleIcon />, name: 'Google', onClick: handleGoogleLogin },
+  { icon: <GitHubIcon />, name: 'GitHub', onClick: handleGitHubLogin },
+];
+```
+
+### Form Handling
+
+Integrate with your authentication system:
+
+```tsx
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    await signIn(email, password);
+    // Handle successful login
+  } catch (error) {
+    // Handle login error
+  }
+};
+```
+
+## Props & API
+
+The Login component accepts the following optional props for customization:
+
+<PropsTable
+  props={[
+    {
+      name: "onSubmit",
+      type: "(email: string, password: string) => void",
+      default: "undefined",
+      description: "Callback function called when the form is submitted",
+      required: false
+    },
+    {
+      name: "onSocialLogin",
+      type: "(provider: string) => void",
+      default: "undefined",
+      description: "Callback function for social authentication buttons",
+      required: false
+    },
+    {
+      name: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the container",
+      required: false
+    },
+    {
+      name: "showSocialLogin",
+      type: "boolean",
+      default: "true",
+      description: "Whether to display social authentication options",
+      required: false
+    },
+    {
+      name: "title",
+      type: "string",
+      default: "Welcome back",
+      description: "Custom title text for the login form",
+      required: false
+    },
+    {
+      name: "subtitle",
+      type: "string",
+      default: "Enter your credentials to sign in",
+      description: "Custom subtitle text below the title",
+      required: false
+    }
+  ]}
+/>
+
+## Advanced Examples
+
+### Custom Form Handling
+
+```tsx
+import Login from './login';
+
+function AuthPage() {
+  const handleLogin = async (email, password) => {
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      if (response.ok) {
+        // Redirect to dashboard
+        window.location.href = '/dashboard';
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
+  };
+
+  const handleSocialAuth = (provider) => {
+    window.location.href = `/api/auth/${provider}`;
+  };
+
+  return (
+    <Login
+      onSubmit={handleLogin}
+      onSocialLogin={handleSocialAuth}
+    />
+  );
+}
+```
+
+### Without Social Authentication
+
+```tsx
+<Login
+  showSocialLogin={false}
+  title="Admin Login"
+  subtitle="Access your admin dashboard"
+/>
+```
+
+---

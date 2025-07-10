@@ -7,8 +7,18 @@ import {
   TabsTrigger,
   TabsContent,
 } from "@/components/site/tabs.tsx";
-import Dock from "./dock.tsx"   
+import { PropsTable } from "@/components/site/props-table.tsx";
+import Dock from "./dock.tsx"
+import SimpleDock from "./simple-dock.tsx"
+import ColorfulDock from "./colorful-dock.tsx"
+import MinimalDock from "./minimal-dock.tsx"
+import FloatingDock from "./floating-dock.tsx"
 
+# Dock
+
+A macOS-style dock component with smooth magnification animations and glassmorphism effects. Perfect for navigation bars, quick access toolbars, and application launchers with an elegant, interactive design.
+
+## Preview
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -23,8 +33,8 @@ import Dock from "./dock.tsx"
   </TabsContent>
 </Tabs>
 
-# 🚀 Installation
-You can add this component to your project using the CLI or by manually copying the code.
+
+## Installation
 
 <Tabs defaultValue="cli" className="">
   <TabsList>
@@ -39,3 +49,408 @@ You can add this component to your project using the CLI or by manually copying 
     <CodeBlock filePath="src/app/docs/dock/dock.tsx" />
   </TabsContent>
 </Tabs>
+
+
+## Features
+
+- **Magnification Effect**: Icons smoothly scale up when the mouse approaches, mimicking macOS dock behavior
+- **Glassmorphism Design**: Beautiful backdrop blur effects with semi-transparent backgrounds
+- **Dark Mode Support**: Seamlessly adapts to light and dark themes with proper contrast
+- **Smooth Animations**: Powered by Framer Motion with spring physics for natural movement
+- **Customizable Icons**: Support for any React component or SVG icons
+- **Multiple Styles**: Various dock styles including simple, colorful, minimal, floating, and authentic macOS designs
+- **Responsive Layout**: Adapts to different screen sizes while maintaining functionality
+- **Accessibility Ready**: Proper ARIA attributes and keyboard navigation support
+
+
+## Usage
+
+After installing the component, import it into your page or component file. The dock consists of a main `Dock` container and individual `DockIcon` components.
+
+```tsx
+import { Dock, DockIcon } from './dock';
+import { HomeIcon, EditIcon, GithubIcon } from './icons';
+
+export default function MyDock() {
+  return (
+    <Dock>
+      <DockIcon href="/home">
+        <HomeIcon className="h-full w-full p-2 text-zinc-700 dark:text-zinc-300" />
+      </DockIcon>
+      <DockIcon href="/edit">
+        <EditIcon className="h-full w-full p-2 text-zinc-700 dark:text-zinc-300" />
+      </DockIcon>
+      <DockIcon href="https://github.com">
+        <GithubIcon className="h-full w-full p-2 text-zinc-700 dark:text-zinc-300" />
+      </DockIcon>
+    </Dock>
+  );
+}
+```
+
+## Dock Variations
+
+### Simple Dock
+
+A clean, minimal dock with basic navigation icons and subtle styling.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<SimpleDock />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/dock/simple-dock.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Colorful Dock
+
+A vibrant dock with gradient backgrounds and colorful icons for a more playful design.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<ColorfulDock />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/dock/colorful-dock.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Minimal Dock
+
+An ultra-minimal dock with no background, perfect for clean interfaces.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<MinimalDock />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/dock/minimal-dock.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Floating Dock
+
+A floating dock with enhanced shadow effects and rounded corners.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<FloatingDock />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/dock/floating-dock.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Basic Usage Examples
+
+### Simple Implementation
+
+```tsx
+<Dock>
+  <DockIcon href="/dashboard">
+    <DashboardIcon className="h-full w-full p-2" />
+  </DockIcon>
+  <DockIcon href="/settings">
+    <SettingsIcon className="h-full w-full p-2" />
+  </DockIcon>
+  <DockIcon href="/profile">
+    <UserIcon className="h-full w-full p-2" />
+  </DockIcon>
+</Dock>
+```
+
+### With Separator
+
+```tsx
+<Dock>
+  <DockIcon href="/home">
+    <HomeIcon className="h-full w-full p-2" />
+  </DockIcon>
+  <DockIcon href="/projects">
+    <FolderIcon className="h-full w-full p-2" />
+  </DockIcon>
+
+  {/* Separator */}
+  <div className="w-px h-full bg-black/10 dark:bg-white/10 mx-2 self-center" style={{height: '35px'}} />
+
+  <DockIcon href="/settings">
+    <SettingsIcon className="h-full w-full p-2" />
+  </DockIcon>
+</Dock>
+```
+
+### With Click Handlers
+
+```tsx
+<Dock>
+  <DockIcon href="#" onClick={() => console.log('Home clicked')}>
+    <HomeIcon className="h-full w-full p-2" />
+  </DockIcon>
+  <DockIcon href="#" onClick={() => alert('Action triggered!')}>
+    <ActionIcon className="h-full w-full p-2" />
+  </DockIcon>
+</Dock>
+```
+
+## API Reference
+
+### Dock Component
+
+<PropsTable
+  props={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description: "DockIcon components and separators to display in the dock",
+      required: true,
+    },
+  ]}
+/>
+
+### DockIcon Component
+
+<PropsTable
+  props={[
+    {
+      name: "href",
+      type: "string",
+      description: "URL or path for the icon link",
+      required: true,
+    },
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description: "Icon component or element to display",
+      required: true,
+    },
+    {
+      name: "onClick",
+      type: "() => void",
+      description: "Optional click handler function",
+      required: false,
+    },
+    {
+      name: "mouseX",
+      type: "MotionValue<number>",
+      description: "Internal prop for mouse tracking (automatically injected)",
+      required: false,
+    },
+  ]}
+/>
+
+## Animation Properties
+
+| Property | Value | Description |
+|----------|-------|-------------|
+| **Icon Size** | 36px | Default size of dock icons |
+| **Magnification** | 60px | Maximum size when magnified |
+| **Distance** | 140px | Mouse proximity distance for magnification |
+| **Spring Config** | mass: 0.1, stiffness: 150, damping: 12 | Animation spring physics |
+
+### Visual Effects
+- **Backdrop Blur**: 16px blur effect with `backdrop-blur-lg` class
+- **Glassmorphism**: Semi-transparent backgrounds (white/80% in light, black/50% in dark)
+- **Border Styling**: Subtle borders with 10% opacity for depth
+- **Rounded Corners**: 16px border radius for modern appearance
+
+## Customization
+
+### Styling the Dock Container
+
+You can customize the dock's appearance by modifying the classes in the `Dock` component:
+
+```tsx
+// Custom gradient dock
+<motion.div className="flex h-[58px] items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 px-2 border border-blue-300/30 backdrop-blur-lg">
+
+// Solid color dock
+<motion.div className="flex h-[58px] items-center gap-2 rounded-2xl bg-gray-900 dark:bg-gray-100 px-2 border border-gray-700 dark:border-gray-300">
+
+// Minimal transparent dock
+<motion.div className="flex h-[58px] items-center gap-2 px-2">
+```
+
+### Icon Styling
+
+Style your icons with consistent classes for best results:
+
+```tsx
+<DockIcon href="/home">
+  <HomeIcon className="h-full w-full p-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors" />
+</DockIcon>
+```
+
+### Theme Integration
+
+The component automatically adapts to your theme system using CSS classes:
+
+```tsx
+import { useState } from "react";
+
+const [isDark, setIsDark] = useState(false);
+
+// Theme toggle icon
+<DockIcon href="#" onClick={() => setIsDark(!isDark)}>
+  {isDark ? (
+    <SunIcon className="h-full w-full p-2" />
+  ) : (
+    <MoonIcon className="h-full w-full p-2" />
+  )}
+</DockIcon>
+```
+
+### Color Variations
+
+Create different color schemes for your dock:
+
+```tsx
+// Blue theme dock
+<motion.div className="flex h-[58px] items-center gap-2 rounded-2xl bg-blue-500/20 dark:bg-blue-900/50 px-2 border border-blue-300/30 dark:border-blue-700/30 backdrop-blur-lg">
+
+// Green theme dock
+<motion.div className="flex h-[58px] items-center gap-2 rounded-2xl bg-green-500/20 dark:bg-green-900/50 px-2 border border-green-300/30 dark:border-green-700/30 backdrop-blur-lg">
+
+// Purple theme dock
+<motion.div className="flex h-[58px] items-center gap-2 rounded-2xl bg-purple-500/20 dark:bg-purple-900/50 px-2 border border-purple-300/30 dark:border-purple-700/30 backdrop-blur-lg">
+```
+
+## Accessibility
+
+The dock component follows accessibility best practices:
+
+- **Keyboard Navigation**: All dock icons are focusable and can be activated with Enter or Space
+- **Screen Reader Support**: Proper semantic HTML with meaningful link text
+- **ARIA Labels**: Use `aria-label` or `title` attributes for better screen reader experience
+- **Focus Management**: Clear focus indicators for keyboard users
+- **Color Contrast**: Ensure sufficient contrast ratios for text and icons
+
+```tsx
+<DockIcon href="/home" aria-label="Navigate to home page">
+  <HomeIcon className="h-full w-full p-2" />
+</DockIcon>
+```
+
+## Use Cases
+
+### Application Launcher
+Perfect for creating desktop-style application launchers:
+
+```tsx
+<Dock>
+  <DockIcon href="/finder">
+    <FinderIcon className="h-full w-full p-2" />
+  </DockIcon>
+  <DockIcon href="/safari">
+    <SafariIcon className="h-full w-full p-2" />
+  </DockIcon>
+  <DockIcon href="/mail">
+    <MailIcon className="h-full w-full p-2" />
+  </DockIcon>
+</Dock>
+```
+
+### Navigation Bar
+Use as a primary navigation component:
+
+```tsx
+<Dock>
+  <DockIcon href="/dashboard">
+    <DashboardIcon className="h-full w-full p-2" />
+  </DockIcon>
+  <DockIcon href="/projects">
+    <ProjectsIcon className="h-full w-full p-2" />
+  </DockIcon>
+  <DockIcon href="/team">
+    <TeamIcon className="h-full w-full p-2" />
+  </DockIcon>
+</Dock>
+```
+
+### Quick Actions Toolbar
+Ideal for frequently used actions:
+
+```tsx
+<Dock>
+  <DockIcon href="#" onClick={handleSave}>
+    <SaveIcon className="h-full w-full p-2" />
+  </DockIcon>
+  <DockIcon href="#" onClick={handleUndo}>
+    <UndoIcon className="h-full w-full p-2" />
+  </DockIcon>
+  <DockIcon href="#" onClick={handleRedo}>
+    <RedoIcon className="h-full w-full p-2" />
+  </DockIcon>
+</Dock>
+```
+
+### macOS-Style Desktop
+Perfect for creating desktop environments or OS interfaces:
+
+```tsx
+<Dock>
+  <DockIcon href="#">
+    <img src="https://macosicons.com/api/icons/finder/preview/512" alt="Finder" className="w-full h-full rounded-2xl" />
+  </DockIcon>
+  <DockIcon href="#">
+    <img src="https://macosicons.com/api/icons/safari/preview/512" alt="Safari" className="w-full h-full rounded-2xl" />
+  </DockIcon>
+  <DockIcon href="#">
+    <img src="https://macosicons.com/api/icons/mail/preview/512" alt="Mail" className="w-full h-full rounded-2xl" />
+  </DockIcon>
+</Dock>
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**Magnification not working**: Ensure Framer Motion is properly installed and the `mouseX` prop is being passed correctly to `DockIcon` components.
+
+**Icons not displaying**: Check that your icon components are properly imported and have the correct className props.
+
+**Performance issues**: If you have many icons, consider optimizing by reducing the number of animated elements or adjusting spring physics values.
+
+**Theme not switching**: Verify that your theme provider is properly configured and the dark/light mode classes are applied correctly.
+
+### Performance Optimization
+
+For better performance with many dock icons:
+
+```tsx
+// Reduce spring stiffness for smoother animation
+const width = useSpring(widthSync, { mass: 0.2, stiffness: 100, damping: 15 });
+
+// Optimize distance calculation
+const iconDistance = 100; // Smaller distance for less computation
+```
+
+### Browser Compatibility
+
+The dock component works in all modern browsers that support:
+- CSS backdrop-filter (for glassmorphism effects)
+- Framer Motion animations
+- CSS transforms and transitions
+
+For older browsers, consider providing fallbacks:
+
+```tsx
+// Fallback for browsers without backdrop-filter support
+className="bg-white/80 dark:bg-black/50 [backdrop-filter:blur(16px)] supports-[backdrop-filter]:bg-white/60"
+```

@@ -12,6 +12,11 @@ import { Table, StatusBadge } from "@/components/ui/table";
 
 import CardView from "./card-view";
 
+# Card Component
+
+A beautifully designed, responsive card component perfect for login forms, user authentication, and content containers. Features modern styling with dark mode support, form validation, and social authentication options.
+
+## Preview
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -26,8 +31,7 @@ import CardView from "./card-view";
   </TabsContent>
 </Tabs>
 
-# 🚀 Installation
-You can add this component to your project using the CLI or by manually copying the code.
+## Installation
 
 <Tabs defaultValue="cli" className="">
   <TabsList>
@@ -42,3 +46,163 @@ You can add this component to your project using the CLI or by manually copying 
     <CodeBlock filePath="src/app/docs/card/card.tsx" />
   </TabsContent>
 </Tabs>
+
+
+
+## Basic Usage
+
+After installation, import and use the card component in your React application:
+
+```tsx
+import Card from './card';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
+      <Card />
+    </div>
+  );
+}
+```
+
+## Component Structure
+
+The card component includes several key elements:
+
+### 1. Card Container
+- Responsive width with maximum constraints
+- Modern styling with borders and shadows
+- Dark mode color adaptation
+- Rounded corners for a polished look
+
+### 2. Header Section
+- **Title**: Clear, prominent heading
+- **Sign Up Link**: Secondary action for new users
+- **Description**: Helpful context text for users
+
+### 3. Form Elements
+- **Email Input**: Properly labeled with placeholder text
+- **Password Input**: Secure input with forgot password link
+- **Form Validation**: Built-in styling for focus and error states
+
+### 4. Action Buttons
+- **Primary Login**: Main call-to-action button
+- **Social Authentication**: Google sign-in with branded icon
+- **Responsive Design**: Full-width buttons on mobile
+
+## Customization
+
+### Styling
+
+The card component uses Tailwind CSS classes for styling. You can customize the appearance by modifying the classes:
+
+```tsx
+// Custom card styling
+<div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+  {/* Card content */}
+</div>
+```
+
+### Colors
+
+Customize the color scheme to match your brand:
+
+```tsx
+// Custom color scheme
+<div className="bg-blue-50 dark:bg-blue-900 border-blue-200 dark:border-blue-700">
+  {/* Content with blue theme */}
+</div>
+```
+
+### Form Fields
+
+Add or modify form fields as needed:
+
+```tsx
+// Additional form fields
+<div>
+  <label htmlFor="username" className="block text-sm font-medium mb-1">
+    Username
+  </label>
+  <input
+    id="username"
+    type="text"
+    placeholder="Enter your username"
+    className="w-full px-3 py-2 rounded-md border focus:ring-2 focus:ring-blue-500"
+  />
+</div>
+```
+
+## Accessibility
+
+The card component follows accessibility best practices:
+
+- **Semantic HTML**: Proper form structure with labels and inputs
+- **ARIA Labels**: Screen reader friendly element descriptions
+- **Keyboard Navigation**: Full keyboard support for all interactive elements
+- **Focus Management**: Clear focus indicators and logical tab order
+- **Color Contrast**: WCAG compliant color combinations in both themes
+
+## Dark Mode Support
+
+The component automatically adapts to your application's theme:
+
+```tsx
+// Dark mode classes are automatically applied
+<div className="bg-white dark:bg-[#202020] text-black dark:text-white">
+  {/* Content adapts to theme */}
+</div>
+```
+
+## Integration Examples
+
+### With Form Libraries
+
+Integrate with popular form libraries like React Hook Form:
+
+```tsx
+import { useForm } from 'react-hook-form';
+import Card from './card';
+
+function LoginForm() {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {/* Modified card with form integration */}
+    </form>
+  );
+}
+```
+
+### With Authentication
+
+Connect to authentication providers:
+
+```tsx
+import { signIn } from 'next-auth/react';
+import Card from './card';
+
+function AuthCard() {
+  const handleGoogleSignIn = () => {
+    signIn('google');
+  };
+
+  return (
+    <Card onGoogleSignIn={handleGoogleSignIn} />
+  );
+}
+```
+
+## Best Practices
+
+1. **Responsive Design**: Always test the card on different screen sizes
+2. **Form Validation**: Implement proper client and server-side validation
+3. **Loading States**: Add loading indicators for form submissions
+4. **Error Handling**: Display clear error messages for failed attempts
+5. **Security**: Use HTTPS and proper authentication flows
+6. **Performance**: Optimize images and minimize bundle size
