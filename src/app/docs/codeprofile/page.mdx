@@ -1,0 +1,158 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import CodeProfile from "./codeprofile.tsx"
+
+# Developer profile
+
+A beautifully designed code window component that displays developer profile information in a realistic code editor interface. Features syntax highlighting, line numbers, window controls, and a dark theme with gradient effects perfect for portfolios and developer showcases.
+
+## Preview
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<CodeProfile />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/codeprofile/codeprofile.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Basic Usage
+
+After installation, import and use the component in your React application:
+
+```tsx
+import CodeProfile from './codeprofile';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
+      <CodeProfile />
+    </div>
+  );
+}
+```
+
+## Customization
+
+### Modifying Developer Data
+
+You can easily customize the developer information by modifying the `coderData` object in the component:
+
+```tsx
+const coderData = {
+  name: 'Your Name',
+  role: 'Your Role',
+  seniority: 'Your Level',
+  location: 'Your Location',
+  skills: [
+    'React', 'Next.js', 'TypeScript', 'Node.js',
+    // Add your skills here
+  ],
+};
+```
+
+### Styling Customization
+
+The component uses Tailwind CSS classes for styling. You can customize:
+
+#### Window Header Colors
+```tsx
+// Modify the window control buttons
+<div className="h-3 w-3 rounded-full bg-red-500"></div>
+<div className="h-3 w-3 rounded-full bg-orange-400"></div>
+<div className="h-3 w-3 rounded-full bg-green-400"></div>
+```
+
+#### Background Gradients
+```tsx
+// Customize the main gradient
+<div className="bg-gradient-to-r from-[#000000] to-[#0a0d37]">
+
+// Modify the top border gradient
+<div className="bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
+```
+
+#### Syntax Highlighting Colors
+```tsx
+// Keywords (const, let, var)
+<span className="text-pink-400">const</span>
+
+// Variables and properties
+<span className="text-violet-400">coder</span>
+
+// Strings
+<span className="text-green-400">{coderData.name}</span>
+
+// Arrays and skills
+<span className="text-cyan-400">{skill}</span>
+```
+
+## Component Structure
+
+The CodeProfile component consists of several key parts:
+
+1. **Window Header**: Contains the traffic light buttons and file name
+2. **Code Content**: The main area with syntax-highlighted code
+3. **Line Numbers**: Optional numbered lines for authenticity
+4. **Background Effects**: Subtle blur effects for visual appeal
+5. **Window Footer**: Status bar with file information
+
+## Advanced Customization
+
+### Adding Animation
+
+You can enhance the component with animations:
+
+```tsx
+// Add fade-in animation
+<div className="animate-fade-in">
+  <CoderProfileCard />
+</div>
+
+// Add typing animation for skills
+{coderData.skills.map((skill, index) => (
+  <span
+    key={skill}
+    className="animate-pulse"
+    style={{ animationDelay: `${index * 100}ms` }}
+  >
+    {skill}
+  </span>
+))}
+```
+
+### Multiple Profiles
+
+Create multiple profile variants:
+
+```tsx
+const profiles = [
+  {
+    name: 'Frontend Developer',
+    skills: ['React', 'Vue', 'Angular'],
+  },
+  {
+    name: 'Backend Developer',
+    skills: ['Node.js', 'Python', 'Go'],
+  },
+];
+
+// Render different profiles
+{profiles.map((profile, index) => (
+  <CodeProfile key={index} data={profile} />
+))}
+```

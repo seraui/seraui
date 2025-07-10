@@ -30,6 +30,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^4.12.0",
+    "react-live": "^4.1.8",
     "react-responsive": "^10.0.1",
     "remark-gfm": "^4.0.1",
     "simplex-noise": "^4.0.3",

@@ -70,7 +70,8 @@ export const navigation: NavigationItem[] = [
   {
     label : "Pattern",
     children: [
-      { label: "Patterns Collection", href: "/docs/pattern" , badge: "New"},
+      { label: "Patterns Collection", href: "/docs/pattern"},
+      { label: "Code Profile", href: "/docs/codeprofile" , badge: "New"}
     ],
   },
 ];

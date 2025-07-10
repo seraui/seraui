@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import Header from '@/components/site/header';
 import GradientGenerator from "./gradientgenerator";
 import TsxToJsxCompiler from "./tsx-to-jsx-compiler";
+import ReactCodeRunner from "./react-code-runner";
 
 // Define available tools
 const tools = [
@@ -21,6 +22,13 @@ const tools = [
     description: 'Convert TypeScript React components to pure JavaScript',
     icon: '🔄',
     component: TsxToJsxCompiler
+  },
+  {
+    id: 'react-code-runner',
+    name: 'React Code Runner',
+    description: 'Live React code editor with real-time preview',
+    icon: '⚛️',
+    component: ReactCodeRunner
   },
 ];
 

@@ -8,7 +8,6 @@ import {
   useTransform,
   MotionValue
 } from "framer-motion";
-import { useTheme } from "next-themes";
 
 
 // --- SVG Icon Components ---
@@ -31,12 +30,7 @@ const XIcon = ({ className }: { className?: string }) => (
 const MailIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
 );
-const MoonIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg>
-);
-const SunIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg>
-);
+
 
 
 // --- DockIcon Component ---
@@ -129,8 +123,6 @@ const Dock: React.FC<DockProps> = ({ children }) => {
 
 // --- Main App Component ---
 const DockApp: React.FC = () => {
-  const { theme, setTheme } = useTheme();
-
   const icons = [
     { name: 'Home', component: HomeIcon, href: '#' },
     { name: 'Edit', component: EditIcon, href: '#' },
@@ -140,11 +132,6 @@ const DockApp: React.FC = () => {
     { name: 'Mail', component: MailIcon, href: '#' },
   ];
 
-  const isDark = theme === "dark";
-  const toggleTheme = () => {
-    setTheme(isDark ? "light" : "dark");
-  };
-
   return (
     <div className="flex flex-col items-center justify-end bg-zinc-50 dark:bg-black font-sans">
       <Dock>
@@ -153,14 +140,7 @@ const DockApp: React.FC = () => {
             <icon.component className="h-full w-full p-2 text-zinc-700 dark:text-zinc-300" />
           </DockIcon>
         ))}
-        <div className="w-px h-full bg-black/10 dark:bg-white/10 mx-2 self-center" style={{height: '35px'}}></div>
-        <DockIcon href="#" onClick={toggleTheme}>
-          {isDark ? (
-            <SunIcon className="h-full w-full p-2 text-zinc-700 dark:text-zinc-300" />
-          ) : (
-            <MoonIcon className="h-full w-full p-2 text-zinc-700 dark:text-zinc-300" />
-          )}
-        </DockIcon>
+
       </Dock>
     </div>
   );
