@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Copy, Download, Play, AlertCircle } from 'lucide-react';
 import Button from '@/app/docs/button/button';
@@ -26,6 +26,23 @@ const TsxToJsxCompiler = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  // Handle compilation with useCallback to avoid dependency issues
+  const handleCompile = useCallback(async (inputCode?: string) => {
+    setIsLoading(true);
+    setError('');
+
+    try {
+      const codeToCompile = inputCode || tsxInput;
+      const result = convertTsxToJsx(codeToCompile);
+      setJsxOutput(result);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An unknown error occurred');
+      setJsxOutput('');
+    } finally {
+      setIsLoading(false);
+    }
+  }, [tsxInput]);
+
   // Check for URL parameters on component mount
   useEffect(() => {
     const codeParam = searchParams.get('code');
@@ -41,9 +58,7 @@ const TsxToJsxCompiler = () => {
         console.error('Error decoding URL parameter:', error);
       }
     }
-  }, [searchParams]);
-
-
+  }, [searchParams, handleCompile]);
 
   // Most powerful TSX to JSX converter ever created
   const convertTsxToJsx = (tsxCode: string) => {
@@ -124,7 +139,7 @@ const TsxToJsxCompiler = () => {
         result = result.replace(/export\s+type\s+[^;]+;/g, '');
 
         // Remove interface declarations with proper brace matching
-        let interfaceRegex = /interface\s+\w+(?:\s*<[^>]*>)?\s*(?:extends\s+[^{]+)?\s*\{/g;
+        const interfaceRegex = /interface\s+\w+(?:\s*<[^>]*>)?\s*(?:extends\s+[^{]+)?\s*\{/g;
         let match;
         while ((match = interfaceRegex.exec(result)) !== null) {
           const startIndex = match.index;
@@ -140,7 +155,7 @@ const TsxToJsxCompiler = () => {
         result = result.replace(/type\s+\w+(?:\s*<[^>]*>)?\s*=\s*[^;]+;/g, '');
 
         // Remove enum declarations with proper brace matching
-        let enumRegex = /enum\s+\w+\s*\{/g;
+        const enumRegex = /enum\s+\w+\s*\{/g;
         while ((match = enumRegex.exec(result)) !== null) {
           const startIndex = match.index;
           const braceIndex = result.indexOf('{', startIndex);
@@ -152,7 +167,7 @@ const TsxToJsxCompiler = () => {
         }
 
         // Remove namespace declarations
-        let namespaceRegex = /namespace\s+\w+\s*\{/g;
+        const namespaceRegex = /namespace\s+\w+\s*\{/g;
         while ((match = namespaceRegex.exec(result)) !== null) {
           const startIndex = match.index;
           const braceIndex = result.indexOf('{', startIndex);
@@ -323,24 +338,8 @@ const TsxToJsxCompiler = () => {
       jsxCode = jsxCode.replace(/,\s*\}/g, '}'); // Remove trailing commas in objects
 
       return jsxCode;
-    } catch (err: any) {
-      throw new Error(`Conversion failed: ${err.message}`);
-    }
-  };
-
-  const handleCompile = async (inputCode?: string) => {
-    setIsLoading(true);
-    setError('');
-
-    try {
-      const codeToCompile = inputCode || tsxInput;
-      const result = convertTsxToJsx(codeToCompile);
-      setJsxOutput(result);
-    } catch (err: any) {
-      setError(err.message);
-      setJsxOutput('');
-    } finally {
-      setIsLoading(false);
+    } catch (err: unknown) {
+      throw new Error(`Conversion failed: ${err instanceof Error ? err.message : 'Unknown error'}`);
     }
   };
 
