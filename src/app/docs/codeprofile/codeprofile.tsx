@@ -69,27 +69,27 @@ const CoderProfileCard = () => {
             </div>
             <div className="pl-6">
               <span className="text-zinc-800 dark:text-white">name:</span>
-              <span className="text-zinc-600 dark:text-gray-400">'</span>
+              <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
               <span className="text-green-600 dark:text-green-400">{coderData.name}</span>
-              <span className="text-zinc-600 dark:text-gray-400">',</span>
+              <span className="text-zinc-600 dark:text-gray-400">&#39;,</span>
             </div>
             <div className="pl-6">
               <span className="text-zinc-800 dark:text-white">role:</span>
-              <span className="text-zinc-600 dark:text-gray-400">'</span>
+              <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
               <span className="text-green-600 dark:text-green-400">{coderData.role}</span>
-              <span className="text-zinc-600 dark:text-gray-400">',</span>
+              <span className="text-zinc-600 dark:text-gray-400">&#39;,</span>
             </div>
             <div className="pl-6">
               <span className="text-zinc-800 dark:text-white">seniority:</span>
-              <span className="text-zinc-600 dark:text-gray-400">'</span>
+              <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
               <span className="text-green-600 dark:text-green-400">{coderData.seniority}</span>
-              <span className="text-zinc-600 dark:text-gray-400">',</span>
+              <span className="text-zinc-600 dark:text-gray-400">&#39;,</span>
             </div>
             <div className="pl-6">
               <span className="text-zinc-800 dark:text-white">location:</span>
-              <span className="text-zinc-600 dark:text-gray-400">'</span>
+              <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
               <span className="text-green-600 dark:text-green-400">{coderData.location}</span>
-              <span className="text-zinc-600 dark:text-gray-400">',</span>
+              <span className="text-zinc-600 dark:text-gray-400">&#39;,</span>
             </div>
             <div className="pl-6">
               <span className="text-zinc-800 dark:text-white">skills:</span>
@@ -97,9 +97,9 @@ const CoderProfileCard = () => {
               <div className="pl-6 flex flex-wrap">
                 {coderData.skills.map((skill, index) => (
                   <span key={skill} className="mr-1">
-                    <span className="text-zinc-600 dark:text-gray-400">'</span>
+                    <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
                     <span className="text-cyan-600 dark:text-cyan-400">{skill}</span>
-                    <span className="text-zinc-600 dark:text-gray-400">'</span>
+                    <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
                     {index < coderData.skills.length - 1 && <span className="text-zinc-600 dark:text-gray-400">, </span>}
                   </span>
                 ))}
