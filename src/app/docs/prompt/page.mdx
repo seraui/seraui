@@ -8,12 +8,30 @@ import {
   TabsContent,
 } from "@/components/site/tabs.tsx";
 import Prompt from "./prompt.tsx"
+import VercelV0Chat from "./v0.tsx"
 
-# AI Prompt Input Component
+# Chatbot UI
+A chatbot UI component with a sleek design and modern features. Features a clean and minimalistic design with a modern glassmorphism effect, dark mode compatibility, and a seamless transition between messages. Perfect for creating engaging and interactive user experiences.
 
-A sophisticated, modern prompt input interface designed for AI applications. Features a sleek design with model selection, file attachments, voice input, and responsive controls.
 
-## Preview
+# Vercel v0 Chat
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<VercelV0Chat />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/prompt/prompt.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Basic Prompt Input
+A basic prompt input component with model selection and file attachment.
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -28,32 +46,7 @@ A sophisticated, modern prompt input interface designed for AI applications. Fea
   </TabsContent>
 </Tabs>
 
-## Features
 
-- **🎨 Modern Design**: Glassmorphism effects with backdrop blur and gradient styling
-- **🤖 Model Selection**: Dropdown to choose between different AI models
-- **📎 File Attachments**: Support for photos, videos, 3D objects, and documents
-- **🎤 Voice Input**: Microphone button for voice-to-text functionality
-- **📱 Responsive**: Fully responsive design that works on all screen sizes
-- **🌙 Dark Mode**: Built-in support for light and dark themes
-- **✨ Interactive**: Hover effects, smooth transitions, and visual feedback
-- **♿ Accessible**: Keyboard navigation and screen reader support
-
-## Installation
-
-<Tabs defaultValue="cli" className="">
-  <TabsList>
-    <TabsTrigger value="cli">CLI</TabsTrigger>
-    <TabsTrigger value="manual">Manual</TabsTrigger>
-  </TabsList>
-  <TabsContent value="cli">
-    <Cli command={`add prompt.json`} />
-  </TabsContent>
-
-  <TabsContent value="manual">
-    <CodeBlock filePath="src/app/docs/prompt/prompt.tsx" />
-  </TabsContent>
-</Tabs>
 
 ## Basic Usage
 
@@ -71,182 +64,3 @@ function App() {
 }
 ```
 
-## Component Structure
-
-The prompt component consists of several key elements:
-
-### 1. Text Input Area
-- Auto-resizing textarea for prompt input
-- Placeholder text guidance
-- Transparent background with focus states
-
-### 2. Control Panel
-- **Add Button**: Opens attachment menu for files, images, and 3D objects
-- **Model Selector**: Dropdown to choose AI model (Brainwave 2.5, Creative Fusion, Visionary AI 3.0)
-- **Voice Input**: Microphone button for speech-to-text
-- **Submit Button**: Sends the prompt (disabled when empty)
-
-### 3. Interactive Menus
-- **Attachment Menu**: Photos/videos, 3D objects, documents
-- **Model Menu**: Available AI models with selection
-
-## Customization
-
-### Styling
-
-The component uses Tailwind CSS classes and can be easily customized:
-
-```tsx
-// Custom styling example
-<div className="bg-white/80 backdrop-blur-xl dark:bg-black/90 rounded-3xl">
-  {/* Component content */}
-</div>
-```
-
-### Models Configuration
-
-Customize the available AI models:
-
-```tsx
-const models = [
-  'GPT-4 Turbo',
-  'Claude 3 Opus',
-  'Gemini Pro',
-  'Custom Model'
-];
-```
-
-### Attachment Types
-
-Modify the attachment menu items:
-
-```tsx
-const addMenuItems = [
-  { icon: <ImageIcon size={20} />, text: "Add images" },
-  { icon: <FileText size={20} />, text: "Add documents" },
-  { icon: <Code size={20} />, text: "Add code files" },
-];
-```
-
-## API Reference
-
-### Props
-
-<table border="1" cellspacing="0" cellpadding="8">
-  <thead>
-    <tr>
-      <th>Prop</th>
-      <th>Type</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>className</code></td>
-      <td><code>string</code></td>
-      <td><code>""</code></td>
-      <td>Additional CSS classes for the container</td>
-    </tr>
-    <tr>
-      <td><code>placeholder</code></td>
-      <td><code>string</code></td>
-      <td><code>"Describe your 3D object or scene..."</code></td>
-      <td>Placeholder text for the input area</td>
-    </tr>
-    <tr>
-      <td><code>onSubmit</code></td>
-      <td><code>(prompt: string, model: string) => void</code></td>
-      <td><code>console.log</code></td>
-      <td>Callback function when prompt is submitted</td>
-    </tr>
-    <tr>
-      <td><code>models</code></td>
-      <td><code>string[]</code></td>
-      <td><code>['Brainwave 2.5', 'Creative Fusion', 'Visionary AI 3.0']</code></td>
-      <td>Available AI models for selection</td>
-    </tr>
-    <tr>
-      <td><code>defaultModel</code></td>
-      <td><code>string</code></td>
-      <td><code>'Brainwave 2.5'</code></td>
-      <td>Initially selected model</td>
-    </tr>
-  </tbody>
-</table>
-
-### State Management
-
-The component manages several internal states:
-
-- **`prompt`**: Current text input value
-- **`selectedModel`**: Currently selected AI model
-- **`isAddPopupOpen`**: Controls attachment menu visibility
-- **`isModelOpen`**: Controls model selection dropdown visibility
-
-### Event Handlers
-
-- **`handleModelSelect(model: string)`**: Updates selected model and closes dropdown
-- **`handleUpload()`**: Processes prompt submission with validation
-- **`handleClickOutside`**: Closes open menus when clicking outside
-
-## Usage Guidelines
-
-### Best Practices
-
-- **Clear Prompts**: Encourage users to write descriptive, specific prompts
-- **Model Selection**: Provide guidance on which model to use for different tasks
-- **File Attachments**: Implement proper file validation and upload handling
-- **Error Handling**: Add user-friendly error messages for failed submissions
-- **Loading States**: Show progress indicators during processing
-
-### Accessibility
-
-The component includes accessibility features:
-
-- **Keyboard Navigation**: Tab through controls, Enter to submit
-- **Screen Reader Support**: Proper ARIA labels and descriptions
-- **Focus Management**: Clear focus indicators and logical tab order
-- **Color Contrast**: High contrast ratios for text and backgrounds
-
-### Integration Examples
-
-#### With File Upload
-
-```tsx
-const handleFileUpload = (files: FileList) => {
-  // Process uploaded files
-  console.log('Files uploaded:', files);
-};
-
-// Add file input handling to attachment menu
-```
-
-#### With Voice Recognition
-
-```tsx
-const handleVoiceInput = () => {
-  if ('webkitSpeechRecognition' in window) {
-    const recognition = new webkitSpeechRecognition();
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      setPrompt(transcript);
-    };
-    recognition.start();
-  }
-};
-```
-
-#### With Custom Validation
-
-```tsx
-const validatePrompt = (text: string) => {
-  if (text.length < 10) {
-    return 'Prompt must be at least 10 characters long';
-  }
-  if (text.length > 1000) {
-    return 'Prompt must be less than 1000 characters';
-  }
-  return null;
-};
-```

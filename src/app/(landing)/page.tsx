@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Header from "@/components/site/header";
 import { Hero } from "./_components/hero";
 import { Footer } from "./_components/footer";
+import A0 from "./_components/a0";
 
 export const metadata: Metadata = {
   title: "Sera UI - Modern React Component Library",
@@ -25,6 +26,7 @@ const page = () => {
     <main className="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 min-h-screen">
       <Header />
       <Hero />
+      <A0 />
       
       <div className="w-full bg-zinc-50 dark:bg-zinc-950">
         <div className="relative">

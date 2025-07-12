@@ -171,9 +171,6 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
 const PricingSection: React.FC = () => {
   return (
     <section id="pricing" className="relative py-16 sm:py-24 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950" />
-
       {/* Subtle pattern overlay */}
       <div className="absolute inset-0 opacity-30 dark:opacity-20">
         <div

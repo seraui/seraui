@@ -10,6 +10,8 @@ import {
 import { VitePressTable } from "@/components/ui/vitepress-table";
 import { HideTOC } from "@/components/site/hide-toc";
 import PricingSection from "./pricing";
+import Pricing2 from "./pricing2";
+import SimplePricing from "./pricing3";
 
 <HideTOC />
 
@@ -18,7 +20,7 @@ import PricingSection from "./pricing";
 A sleek and responsive pricing section built for modern websites. This component is ideal for showcasing plans, pricing tiers, or service packages in a clean and user-friendly layout.
 
 
-## 👁️ Live Preview & Code
+## Basic Pricing Section
 
 <Tabs defaultValue="preview" className="mt-6">
   <TabsList>
@@ -27,10 +29,48 @@ A sleek and responsive pricing section built for modern websites. This component
   </TabsList>
 
   <TabsContent value="preview">
-    <ComponentRenderer component={<PricingSection />} />
+    <ComponentRenderer component={<PricingSection />} componentName="pricing" />
   </TabsContent>
 
   <TabsContent value="code">
     <CodeBlock filePath="src/app/docs/pricing/pricing.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Pricing with Tabs
+A pricing section with tabs to switch between monthly and yearly plans.
+
+<Tabs defaultValue="preview" className="mt-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Pricing2 />} componentName="pricing2" />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/pricing/pricing2.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Performant Pricing Section
+Perfect for large numbers of plans or complex pricing structures.
+
+<Tabs defaultValue="preview" className="mt-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<SimplePricing />} componentName="SimplePricing" />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/pricing/pricing3.tsx" />
   </TabsContent>
 </Tabs>

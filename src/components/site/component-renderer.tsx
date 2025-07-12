@@ -1,18 +1,20 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { RotateCw, Expand } from "lucide-react";
+import { RotateCw, Expand, ExternalLink } from "lucide-react";
 import { cloneElement, useState, useRef } from "react";
 
 type ComponentPreviewProps = {
   component: React.ReactElement;
   reTrigger?: boolean;
   className?: string;
+  componentName?: string;
 };
 
 export function ComponentRenderer({
   component,
   className,
   reTrigger = false,
+  componentName,
 }: ComponentPreviewProps) {
   const [key, setKey] = useState(Date.now());
   const [isFullPage, setIsFullPage] = useState(false);
@@ -26,6 +28,14 @@ export function ComponentRenderer({
     setIsFullPage(!isFullPage);
   };
 
+  const handleNewPage = () => {
+    if (componentName) {
+      // Create a URL for the standalone component view
+      const standaloneUrl = `/standalone/${componentName}`;
+      window.open(standaloneUrl, '_blank');
+    }
+  };
+
 
 
   return (
@@ -37,6 +47,16 @@ export function ComponentRenderer({
         className
       )}
     >
+      {componentName && (
+        <button
+          onClick={handleNewPage}
+          className="absolute top-3 right-12 z-20 p-1 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+          aria-label="Open in new page"
+          type="button"
+        >
+          <ExternalLink size={20} className="text-zinc-700 dark:text-zinc-300" />
+        </button>
+      )}
       <button
         onClick={handleFullPage}
         className="absolute top-3 right-4 z-20 p-1 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
@@ -46,7 +66,7 @@ export function ComponentRenderer({
         <Expand size={20} className="text-zinc-700 dark:text-zinc-300" />
       </button>
       {reTrigger && (
-        <div className="absolute top-3 right-12">
+        <div className={`absolute top-3 ${componentName ? 'right-20' : 'right-12'}`}>
           <button
             onClick={changeKey}
             className="cursor-pointer p-1 flex items-center gap-3 opacity-0 transition-opacity group-hover:opacity-100 text-zinc-700 dark:text-zinc-300"

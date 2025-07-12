@@ -4,7 +4,8 @@ import { FaGithub, FaLinkedin, FaDiscord, FaFacebook } from "react-icons/fa";
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 backdrop-blur px-6 py-6 mt-16 text-sm">
+    
+    <footer className="sticky bottom-0 z-50 border-t border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 backdrop-blur px-6 py-6 text-sm">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="text-zinc-500 dark:text-zinc-400 text-center md:text-left">
           © {new Date().getFullYear()} Sera UI ·{" "}
@@ -15,8 +16,7 @@ export const Footer = () => {
             Docs
           </Link>
         </div>
-
-        <div className="flex items-center gap-4 text-xl text-zinc-500 dark:text-zinc-400">
+    <div className="flex items-center gap-4 text-xl text-zinc-500 dark:text-zinc-400">
           <a
             href="https://github.com/seraprogrammer"
             target="_blank"
