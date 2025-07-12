@@ -1,16 +1,15 @@
-'use client';
 
 import { notFound } from 'next/navigation';
 import { ComponentRegistry } from './component-registry';
 
 interface StandalonePageProps {
-  params: {
+  params: Promise<{
     component: string;
-  };
+  }>;
 }
 
-export default function StandalonePage({ params }: StandalonePageProps) {
-  const { component: componentName } = params;
+export default async function StandalonePage({ params }: StandalonePageProps) {
+  const { component: componentName } = await params;
 
   // Get the component from the registry
   const ComponentToRender = ComponentRegistry[componentName];
