@@ -36,7 +36,7 @@ const useAutoResizeTextarea = ({ minHeight, maxHeight }: { minHeight?: number; m
   // Adjust height on initial render and when value changes
   useEffect(() => {
     adjustHeight();
-  }, []); // Run once on mount
+  }, [adjustHeight]); // Include adjustHeight in dependencies
 
   return { textareaRef, adjustHeight };
 };
@@ -107,7 +107,7 @@ interface ButtonProps {
 }
 
 const Button = ({ children, className, type = 'button', onClick, variant = 'default', disabled = false }: ButtonProps) => {
-  let baseClasses = 'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50';
+  const baseClasses = 'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50';
   let variantClasses = '';
 
   switch (variant) {
@@ -222,7 +222,7 @@ export function VercelV0Chat() {
       }
       clearInterval(cursorInterval);
     };
-  }, []); // Empty dependency array to run only once
+  }, [placeholderTexts]); // Include placeholderTexts in dependencies
 
   const handleSend = () => {
     if (value.trim()) {
@@ -249,15 +249,7 @@ export function VercelV0Chat() {
     <div className={classNames(
       "mx-auto flex w-full max-w-4xl flex-col items-center space-y-4 p-4 py-24 sm:space-y-8 font-sans",
     )}>
-      {/* Tailwind CSS CDN for Inter font */}
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-      <style>
-        {`
-          body {
-            font-family: 'Inter', sans-serif;
-          }
-        `}
-      </style>
+      {/* Note: For production, add Inter font to _document.js or use a proper font loading strategy */}
 
       <h1 className="text-center text-2xl font-bold sm:text-4xl text-gray-900 dark:text-white">
         What can I help you ship?

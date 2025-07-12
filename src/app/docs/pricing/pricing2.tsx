@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 // Helper component for animating numbers with a "smokey" effect
 interface AnimatedPriceProps {
@@ -153,7 +153,7 @@ const Pricing2 = () => {
               Simple, Transparent Pricing
             </h1>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Choose the plan that's right for you. No hidden fees, no surprises.
+              Choose the plan that&apos;s right for you. No hidden fees, no surprises.
             </p>
           </div>
 
