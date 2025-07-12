@@ -231,7 +231,7 @@ const IconGrid = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const particlesRef = useRef<Particle[]>([]);
 
-    const outerIcons: OuterIcon[] = [
+    const outerIcons = useMemo((): OuterIcon[] => [
         { id: 1, component: <SparkleIcon /> },
         { id: 2, component: <FigmaIcon /> },
         { id: 3, component: <CoralIcon /> },
@@ -241,14 +241,14 @@ const IconGrid = () => {
         { id: 7, component: <FlowerIcon /> },
         { id: 8, component: <PerplexityIcon /> },
         { id: 9, component: <DiscordIcon /> },
-    ];
+    ], []);
 
     const radius = 160;
     const svgSize = 400;
     const svgCenter = svgSize / 2;
     const numIcons = outerIcons.length;
 
-    const getIconPosition = (index: number): IconPosition => {
+    const getIconPosition = useCallback((index: number): IconPosition => {
         const angle = (-90 + index * (360 / numIcons)) * (Math.PI / 180);
         return {
             transformX: radius * Math.cos(angle),
@@ -256,7 +256,7 @@ const IconGrid = () => {
             svgX: svgCenter + radius * Math.cos(angle),
             svgY: svgCenter + radius * Math.sin(angle),
         };
-    };
+    }, [numIcons, radius, svgCenter]);
 
     // Animation loop for particles
     useEffect(() => {
