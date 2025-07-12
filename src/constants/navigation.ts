@@ -23,6 +23,12 @@ export const navigation: NavigationItem[] = [
      { label : "Dropdown" , href : "/docs/dropdown", badge: "New"}
     ]
    },
+   {
+    label : "Badge",
+    children : [
+      { label : "Badge" , href : "/docs/badge"}
+    ]
+  },
   {
     label : "Input",
     children : [
@@ -43,10 +49,12 @@ export const navigation: NavigationItem[] = [
   {
     label: "Tabs",
     children: [
+      { label: "Dock Tabs", href: "/docs/doctabs" },
+      { label: "Carousel", href: "/docs/carousel" , badge: "New"},
       { label: "Tabs", href: "/docs/tabs" },
       { label: "Fancy Tabs", href: "/docs/tabs-fancy"},
       { label: "Classic Tabs", href: "/docs/tabs-classic" },
-      { label: "Dock", href: "/docs/dock", badge: "New"}
+      { label: "Dock", href: "/docs/dock"}
     ],
   },
   {
@@ -58,7 +66,7 @@ export const navigation: NavigationItem[] = [
     ],
   },
   {
-    label : "Form",
+    label : "Form & Cards",
     children: [
       { label: "Pricing", href: "/docs/pricing" , badge: "New" },
       { label: "Login", href: "/docs/login"},
@@ -66,6 +74,13 @@ export const navigation: NavigationItem[] = [
       { label: "Two Step", href: "/docs/twostep"},
       { label: "Amazon Gift Card", href: "/docs/amazongift"},
     ],
+  },
+  {
+    label : "Websites Blocks",
+    children : [
+      { label : "Navbar" , href : "/docs/navbar"},
+      { label : "Nexus Orb" , href : "/docs/integrations"}
+    ]
   },
   {
     label : "Pattern",

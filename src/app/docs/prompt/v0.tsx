@@ -1,5 +1,5 @@
 "use client"
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 
 // Utility function to join class names (replaces `cn`)
 const classNames = (...classes: (string | undefined | null | false)[]): string => {
@@ -10,7 +10,7 @@ const classNames = (...classes: (string | undefined | null | false)[]): string =
 const useAutoResizeTextarea = ({ minHeight, maxHeight }: { minHeight?: number; maxHeight?: number }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const adjustHeight = (forceShrink = false) => {
+  const adjustHeight = useCallback((forceShrink = false) => {
     if (textareaRef.current) {
       // Temporarily set height to auto to calculate scrollHeight correctly
       textareaRef.current.style.height = 'auto';
@@ -31,7 +31,7 @@ const useAutoResizeTextarea = ({ minHeight, maxHeight }: { minHeight?: number; m
 
       textareaRef.current.style.height = `${newHeight}px`;
     }
-  };
+  }, [minHeight, maxHeight]);
 
   // Adjust height on initial render and when value changes
   useEffect(() => {
@@ -147,13 +147,13 @@ export function VercelV0Chat() {
   });
 
   // Placeholder animation state
-  const placeholderTexts = [
+  const placeholderTexts = useMemo(() => [
     "Ask v0 a question...",
     "Generate a component...",
     "Create a new page...",
     "Design a landing page...",
     "Build a full stack app..."
-  ];
+  ], []);
 
   const [displayedPlaceholder, setDisplayedPlaceholder] = useState('');
   const [showCursor, setShowCursor] = useState(true); // For blinking cursor
