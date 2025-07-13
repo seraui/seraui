@@ -1,0 +1,50 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { HideTOC } from "@/components/site/hide-toc";
+import Footer from "./footer";
+import Footer2 from "./footer2";
+
+<HideTOC />
+
+# Footer
+The footer component is a simple footer component that is used to display a footer on the page.
+
+## footer - Modern
+The modern footer is a modern footer component that is used to display a footer on the page.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Footer />} componentName="footer" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/footer/footer.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## footer - Minimal
+ The minimal footer is a simple footer component that is used to display a footer on the page.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Footer2 />} componentName="footer2" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/footer/footer2.tsx" />
+  </TabsContent>
+</Tabs>

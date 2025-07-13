@@ -26,6 +26,9 @@ import Carousel from '@/app/docs/carousel/carousel';
 import CustomAccordion from '@/app/docs/accordion/customAccordion';
 import Testimonial from '@/app/docs/testimonial/testimonial';
 import Testimonial2 from '@/app/docs/testimonial/testimonial2';
+import Footer from '@/app/docs/footer/footer';
+import Footer2 from '@/app/docs/footer/footer2';
+import ToastView from '@/app/docs/toast/toast-view';
 
 // Component registry mapping component names to their view components
 export const ComponentRegistry: Record<string, React.ComponentType> = {
@@ -56,4 +59,7 @@ export const ComponentRegistry: Record<string, React.ComponentType> = {
   'customAccordion': CustomAccordion,
   'testimonial': Testimonial,
   'testimonial2': Testimonial2,
-};
+  'footer': Footer,
+  'footer2': Footer2,
+  'toast': ToastView,
+  };

@@ -24,9 +24,10 @@ export const navigation: NavigationItem[] = [
     ]
    },
    {
-    label : "Badge",
+    label : "Badge & Toast",
     children : [
-      { label : "Badge" , href : "/docs/badge"}
+      { label : "Badge" , href : "/docs/badge"},
+      { label : "Toast" , href : "/docs/toast" , badge: "New"}
     ]
   },
   {
@@ -82,6 +83,7 @@ export const navigation: NavigationItem[] = [
       { label : "Header" , href : "/docs/navbar"},
       { label: "Pricing", href: "/docs/pricing" , badge: "New" },
       { label: "Testimonial", href: "/docs/testimonial" , badge: "New"},
+      { label: "Footer", href: "/docs/footer" , badge: "New"},
       
     ]
   },
