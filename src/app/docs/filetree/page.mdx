@@ -1,0 +1,52 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import { Table, StatusBadge } from "@/components/ui/table";
+import FileTree from "./filetree.tsx"
+import FileTree2 from "./filetree2.tsx"
+
+# File Tree
+A customizable and interactive file tree component with a built-in ripple effect.
+
+
+## Advanced Example
+ A more advanced file tree example with a built-in ripple effect.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<FileTree />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/filetree/filetree.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Basic Example
+ A minimal file tree example with basic menu items.
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<FileTree2 />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/filetree/filetree2.tsx" />
+  </TabsContent>
+</Tabs>
+

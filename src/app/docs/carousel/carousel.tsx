@@ -80,7 +80,7 @@ const cardData: CardData[] = [
 
 
 // --- Main Carousel Component ---
-export default function App() {
+export default function Carousel() {
   const [activeIndex, setActiveIndex] = useState(Math.floor(cardData.length / 2));
   const [isPaused, setIsPaused] = useState(false);
   const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);

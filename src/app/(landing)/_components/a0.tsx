@@ -195,20 +195,20 @@ export default function A0() {
     // Main container with responsive background and padding
     <div className="w-full flex items-center justify-center p-4 sm:p-6 lg:p-8 font-sans">
       {/* Grid container for the cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-7xl">
         {/* Mapping over the card data to render each card */}
         {cardData.map((card, index) => (
           <div
             key={index}
-            className="bg-white/80 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 flex flex-col items-start text-left backdrop-blur-sm transition-colors duration-200"
+            className="bg-white/80 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 flex flex-col items-start text-left backdrop-blur-sm transition-colors duration-200"
           >
             {/* Icon and Title container */}
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
               {card.icon}
-              <h3 className="text-gray-900 dark:text-white text-lg font-semibold">{card.title}</h3>
+              <h3 className="text-gray-900 dark:text-white text-base sm:text-lg font-semibold">{card.title}</h3>
             </div>
             {/* Description text */}
-            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm leading-relaxed">
               {card.description}
             </p>
           </div>

@@ -24,6 +24,8 @@ import TabsFancyView from '@/app/docs/tabs-fancy/tabs-view-fancy';
 import TextReveal from '@/app/docs/textreveal/textreveal';
 import Carousel from '@/app/docs/carousel/carousel';
 import CustomAccordion from '@/app/docs/accordion/customAccordion';
+import Testimonial from '@/app/docs/testimonial/testimonial';
+import Testimonial2 from '@/app/docs/testimonial/testimonial2';
 
 // Component registry mapping component names to their view components
 export const ComponentRegistry: Record<string, React.ComponentType> = {
@@ -52,4 +54,6 @@ export const ComponentRegistry: Record<string, React.ComponentType> = {
   'textreveal': TextReveal,
   'carousel': Carousel,
   'customAccordion': CustomAccordion,
+  'testimonial': Testimonial,
+  'testimonial2': Testimonial2,
 };

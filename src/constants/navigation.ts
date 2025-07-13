@@ -54,7 +54,9 @@ export const navigation: NavigationItem[] = [
       { label: "Tabs", href: "/docs/tabs" },
       { label: "Fancy Tabs", href: "/docs/tabs-fancy"},
       { label: "Classic Tabs", href: "/docs/tabs-classic" },
-      { label: "Dock", href: "/docs/dock"}
+      { label: "Dock", href: "/docs/dock"},
+      { label: "File Tree", href: "/docs/filetree" , badge: "New"},
+      { label: "Copy Button", href: "/docs/copybutton" , badge: "New"}
     ],
   },
   {
@@ -68,7 +70,6 @@ export const navigation: NavigationItem[] = [
   {
     label : "Form & Cards",
     children: [
-      { label: "Pricing", href: "/docs/pricing" , badge: "New" },
       { label: "Login", href: "/docs/login"},
       { label: "Card", href: "/docs/card"},
       { label: "Two Step", href: "/docs/twostep"},
@@ -78,15 +79,19 @@ export const navigation: NavigationItem[] = [
   {
     label : "Websites Blocks",
     children : [
-      { label : "Navbar" , href : "/docs/navbar"},
-      { label : "Nexus Orb" , href : "/docs/integrations"}
+      { label : "Header" , href : "/docs/navbar"},
+      { label: "Pricing", href: "/docs/pricing" , badge: "New" },
+      { label: "Testimonial", href: "/docs/testimonial" , badge: "New"},
+      
     ]
   },
   {
     label : "Pattern",
     children: [
       { label: "Patterns Collection", href: "/docs/pattern"},
-      { label: "Code Profile", href: "/docs/codeprofile" , badge: "New"}
+      { label: "Code Profile", href: "/docs/codeprofile" , badge: "New"},
+      { label : "Orbiting Circles" , href : "/docs/integrations"},
+      { label : "Network" , href : "/docs/network" , badge: "New"}
     ],
   },
 ];

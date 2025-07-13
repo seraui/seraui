@@ -19,14 +19,14 @@ export const Hero = () => {
       {/* Light mode: Subtle color overlay, Dark mode: Enhanced overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/5 via-transparent to-purple-50/5 dark:from-blue-950/2 dark:via-transparent dark:to-purple-950/2" />
       
-      <div className="relative z-10 container mx-auto px-4 py-24">
+      <div className="relative z-10 container mx-auto px-4 py-16 sm:py-20 md:py-24">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
-          {/* Badge */}
+          {/* Badge - smaller on mobile */}
           <motion.div
             initial={{ y: 30, opacity: 0, scale: 0.9 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative inline-flex items-center px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-blue-500/20 dark:border-purple-500/30 mb-10 backdrop-blur-md shadow-lg shadow-blue-500/10 dark:shadow-purple-500/20"
+            className="relative inline-flex items-center px-3 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-blue-500/20 dark:border-purple-500/30 mb-6 sm:mb-10 backdrop-blur-md shadow-lg shadow-blue-500/10 dark:shadow-purple-500/20"
           >
             <BorderBeam
               size={45}
@@ -35,17 +35,17 @@ export const Hero = () => {
               colorTo="#8b5cf6"
               className="rounded-full"
             />
-            <span className="text-sm font-semibold text-blue-700 dark:text-purple-300 tracking-wide">
+            <span className="text-xs sm:text-sm font-semibold text-blue-700 dark:text-purple-300 tracking-wide">
               ✨ Now with enhanced components
             </span>
           </motion.div>
 
-          {/* Main Heading */}
+          {/* Main Heading - better mobile scaling */}
           <motion.h1
             initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
             animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="font-bold text-4xl md:text-4xl lg:text-7xl tracking-tight leading-[1.1] mb-6"
+            className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-[1.1] mb-4 sm:mb-6"
           >
             <span className="block">
              
@@ -67,22 +67,22 @@ export const Hero = () => {
             </span>
           </motion.h1>
 
-          {/* Subtitle */}
+          {/* Subtitle - better mobile spacing */}
           <motion.p
             initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
             animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeInOut" }}
-            className="text-base md:text-lg font-medium text-zinc-600 dark:text-zinc-400 mb-12 max-w-2xl leading-relaxed"
+            className="text-sm sm:text-base md:text-lg font-medium text-zinc-600 dark:text-zinc-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed px-2 sm:px-0"
           >
             Effortlessly copy and paste stunning, responsive components—no need to worry about styling or animations. Build quickly and launch faster.
           </motion.p>
 
-          {/* Action Buttons */}
+          {/* Action Buttons - better mobile layout */}
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeInOut" }}
-            className="flex flex-col sm:flex-row gap-4 items-center justify-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center w-full sm:w-auto"
           >
             <Link href="/docs">
               <Button
