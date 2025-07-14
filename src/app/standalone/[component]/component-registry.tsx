@@ -60,8 +60,8 @@ import Header2 from '@/app/docs/navbar/header2';
 import Network from '@/app/docs/network/network';
 import Shimmer from '@/app/docs/shimmer/shimmer';
 import DocTabs from '@/app/docs/doctabs/doctabs';
-import DocTabsGradient from '@/app/docs/doctabs/doctabs-gradient';
-import DocTabsVertical from '@/app/docs/doctabs/doctabs-vertical';
+import { GradientTabsDemo } from '@/app/docs/doctabs/doctabs-gradient';
+import { VerticalTabsDemo } from '@/app/docs/doctabs/doctabs-vertical';
 import NexusOrb from '@/app/docs/integrations/nexusorb';
 import NexusOrbSup from '@/app/docs/integrations/nexusorbsup';
 import Spider from '@/app/docs/integrations/spider';
@@ -136,8 +136,8 @@ export const ComponentRegistry: Record<string, React.ComponentType> = {
   'network': Network,
   'shimmer': Shimmer,
   'doc-tabs': DocTabs,
-  'doc-tabs-gradient': DocTabsGradient,
-  'doc-tabs-vertical': DocTabsVertical,
+  'doc-tabs-gradient': GradientTabsDemo,
+  'doc-tabs-vertical': VerticalTabsDemo,
   'nexus-orb': NexusOrb,
   'nexus-orb-sup': NexusOrbSup,
   'spider': Spider,

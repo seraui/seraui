@@ -5,6 +5,7 @@ import { geistMono } from "@/assets/fonts";
 import { Analytics } from "@vercel/analytics/next";
 import { PackageManagerProvider } from "@/contexts/package-manager-context";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -395,7 +396,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCJ7NVNQ62"></script>
       <head>
         <meta
           name="google-site-verification"
@@ -488,6 +488,18 @@ export default function RootLayout({
         className={`${inter.className} ${geistMono.variable} antialiased min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100`}
       >
         <Analytics />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-KCJ7NVNQ62"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-KCJ7NVNQ62');
+          `}
+        </Script>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <PackageManagerProvider>
             {children}
