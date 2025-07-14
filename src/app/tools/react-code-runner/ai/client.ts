@@ -1,5 +1,23 @@
 import type { ChatCompletionParams, Model, ClientOptions } from '../types';
 
+// Additional interfaces for image generation
+interface ImageGenerationParams {
+  model?: string;
+  prompt?: string;
+  size?: string;
+  width?: string;
+  height?: string;
+  nologo?: boolean;
+  referrer?: string;
+  [key: string]: unknown;
+}
+
+interface ImageGenerationRequestOptions {
+  headers: Record<string, string>;
+  method?: string;
+  body?: string;
+}
+
 /**
  * Manages a list of CORS proxies with failover capabilities.
  */
@@ -108,8 +126,9 @@ export class Client {
         }
 
         return response;
-      } catch (error: any) {
-        console.warn(`CORS proxy attempt ${attempt + 1}/${maxAttempts} failed for ${targetUrl}:`, error.message);
+      } catch (error: unknown) {
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        console.warn(`CORS proxy attempt ${attempt + 1}/${maxAttempts} failed for ${targetUrl}:`, errorMessage);
         this.proxyManager.rotateProxy();
       }
     }
@@ -182,7 +201,7 @@ export class Client {
 
   get images() {
     return {
-      generate: async (params: any) => {
+      generate: async (params: ImageGenerationParams) => {
         let modelId = params.model || this.defaultImageModel;
         if (this.modelAliases[modelId]) {
           modelId = this.modelAliases[modelId];
@@ -197,7 +216,7 @@ export class Client {
     };
   }
 
-  async _defaultImageGeneration(params: any, requestOptions: any) {
+  async _defaultImageGeneration(params: ImageGenerationParams, requestOptions: ImageGenerationRequestOptions) {
     params = { ...params };
     let prompt = params.prompt ? params.prompt : '';
     prompt = encodeURIComponent(prompt).replaceAll('%20', '+');
@@ -212,7 +231,12 @@ export class Client {
       delete params.size;
     }
 
-    const encodedParams = new URLSearchParams(params);
+    const encodedParams = new URLSearchParams();
+    Object.entries(params).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        encodedParams.append(key, String(value));
+      }
+    });
     let url = this.imageEndpoint.replace('{prompt}', prompt);
     url += '?' + encodedParams.toString();
 
@@ -225,7 +249,7 @@ export class Client {
     return { data: [{ url: response.url }] };
   }
 
-  async _regularImageGeneration(params: any, requestOptions: any) {
+  async _regularImageGeneration(params: ImageGenerationParams, requestOptions: ImageGenerationRequestOptions) {
     const response = await fetch(this.imageEndpoint, {
       method: 'POST',
       body: JSON.stringify(params),

@@ -386,6 +386,8 @@ export const metadata: Metadata = {
   },
 };
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -393,6 +395,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCJ7NVNQ62"></script>
       <head>
         <meta
           name="google-site-verification"
