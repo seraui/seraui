@@ -11,12 +11,17 @@ import { HideTOC } from "@/components/site/hide-toc";
 import HeaderComponent from "./navbar.tsx";
 import Header from "./header.tsx";
 import Header2 from "./header2.tsx";
+import Header3 from "./header3.tsx";
 
 <HideTOC />
 
+# Navigation Components
 
-# Navbar
-A modern, responsive navbar component with a clean design and smooth animations.
+A comprehensive collection of modern, responsive navigation components designed for web applications. These navbar components feature clean designs, smooth animations, mobile-first responsive layouts, and accessibility-focused implementations.
+
+## Basic Navbar
+
+A simple, clean navigation bar with essential navigation links and a centered logo design.
 
 
 <Tabs defaultValue="preview" className="">
@@ -32,8 +37,11 @@ A modern, responsive navbar component with a clean design and smooth animations.
   </TabsContent>
 </Tabs>
 
-# Navbar with Header
-A modern, responsive navbar component with a clean design and smooth animations.
+---
+
+## Professional Header
+
+A sophisticated navigation header with enhanced styling, perfect for business and professional websites.
 
 
 <Tabs defaultValue="preview" className="">
@@ -50,10 +58,11 @@ A modern, responsive navbar component with a clean design and smooth animations.
 </Tabs>
 
 
-# Navbar with Header 
-A modern, responsive navbar component with a clean design and smooth animations.
+---
 
+## Advanced Navigation
 
+An advanced navigation component with enhanced features, perfect for complex applications and dashboards.
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -61,9 +70,31 @@ A modern, responsive navbar component with a clean design and smooth animations.
     <TabsTrigger value="code">Code</TabsTrigger>
   </TabsList>
   <TabsContent value="preview">
-    <ComponentRenderer component={<Header2 />} /> 
+    <ComponentRenderer component={<Header2 />} />
   </TabsContent>
   <TabsContent value="code">
     <CodeBlock filePath="src/app/docs/navbar/header2.tsx" />
   </TabsContent>
 </Tabs>
+
+---
+
+## Premium Header
+
+A premium navigation header with full-featured mobile menu, dark mode support, and polished animations. Ideal for modern web applications.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Header3 />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/navbar/header3.tsx" />
+  </TabsContent>
+</Tabs>
+
+---
+

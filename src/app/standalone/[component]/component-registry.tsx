@@ -65,6 +65,9 @@ import { VerticalTabsDemo } from '@/app/docs/doctabs/doctabs-vertical';
 import NexusOrb from '@/app/docs/integrations/nexusorb';
 import NexusOrbSup from '@/app/docs/integrations/nexusorbsup';
 import Spider from '@/app/docs/integrations/spider';
+import HeroSection from '@/app/docs/hero/hero';
+import Hero2 from '@/app/docs/hero/hero2';
+
 
 // Component registry mapping component names to their view components
 export const ComponentRegistry: Record<string, React.ComponentType> = {
@@ -141,4 +144,6 @@ export const ComponentRegistry: Record<string, React.ComponentType> = {
   'nexus-orb': NexusOrb,
   'nexus-orb-sup': NexusOrbSup,
   'spider': Spider,
+  'hero': HeroSection,
+  'hero-2': Hero2,
   };

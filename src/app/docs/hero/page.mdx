@@ -1,0 +1,48 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { HideTOC } from "@/components/site/hide-toc";
+import Hero from "./hero.tsx"
+import Hero2 from "./hero2.tsx"
+
+<HideTOC />
+
+# Hero Section with Mobile Navigation
+
+A complete hero section component featuring a responsive navigation header with mobile menu overlay and a centered hero content area. Perfect for landing pages and marketing websites.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Hero />} componentName="hero" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/hero/hero.tsx" />
+  </TabsContent>
+</Tabs>
+
+# Modern Hero with Gradient Background
+
+An elegant hero section with decorative gradient backgrounds, pill-style navigation, and modern typography. Features a clean design with subtle animations and professional styling.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Hero2 />} componentName="hero-2" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/hero/hero2.tsx" />
+  </TabsContent>
+</Tabs>

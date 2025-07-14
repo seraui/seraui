@@ -29,7 +29,6 @@
     "motion": "^12.11.3",
     "next": "15.3.2",
     "next-themes": "^0.4.6",
-    "nextjs-google-analytics": "^2.3.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^4.12.0",

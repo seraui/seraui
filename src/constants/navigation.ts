@@ -84,16 +84,18 @@ export const navigation: NavigationItem[] = [
   {
     label : "Websites Blocks",
     children : [
+      { label : "Hero" , href : "/docs/hero"},
       { label : "Header" , href : "/docs/navbar"},
       { label: "Pricing", href: "/docs/pricing" , badge: "New" },
       { label: "Testimonial", href: "/docs/testimonial" , badge: "New"},
       { label: "Footer", href: "/docs/footer" , badge: "New"},
       { label: "Forgot Password", href: "/docs/forgotpassword" , badge: "New"},
+      { label: "Team Member", href: "/docs/teammember" , badge: "New"},
       
     ]
   },
   {
-    label : "Pattern",
+    label : "Components",
     children: [
       {label : "marquee" , href : "/docs/marquee"},
       { label: "Patterns Collection", href: "/docs/pattern"},
