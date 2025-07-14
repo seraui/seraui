@@ -1,0 +1,53 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import GradientView from "./gradient-view"
+
+
+
+# Neon Gradient Card
+
+The `Gradient` component wraps any content with a beautiful, animated neon gradient border. It's perfect for highlighting cards, callouts, or any UI element that needs to stand out.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<GradientView />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/gradient/gradient.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import Gradient from "./gradient";
+
+<Gradient>
+  <div className="bg-slate-900 rounded-lg p-8 w-full max-w-md">
+    <div className="text-center">
+      <span className="pointer-events-none z-10 h-full whitespace-pre-wrap bg-gradient-to-br from-[#ff2975] from-35% to-[#00FFF1] bg-clip-text text-center text-6xl font-bold leading-none tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
+        Neon Gradient Card
+      </span>
+    </div>
+  </div>
+</Gradient>
+```
+
+## Use Cases
+
+- **Feature Cards:** Make important features pop on your landing page.
+- **Callouts:** Draw attention to special offers or announcements.
+- **Profile Highlights:** Showcase user profiles or achievements.
+- **Custom Buttons:** Wrap buttons for a glowing effect.
+

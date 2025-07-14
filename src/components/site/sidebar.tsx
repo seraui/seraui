@@ -137,7 +137,7 @@ const Sidebar = () => {
       <ScrollArea className="h-full w-full">
         <div className="py-6 px-4">
           <nav role="navigation" aria-label="Documentation navigation">
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               {menuData.map((item, index) => (
                 <MenuItem key={index} item={item} />
               ))}

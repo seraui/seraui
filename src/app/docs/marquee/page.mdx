@@ -1,0 +1,100 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import MarqueeView from "./marquee-view"
+
+
+# 🏁 Marquee Component
+
+> **Effortlessly create eye-catching, animated marquees for your site.**
+
+---
+
+## ✨ Features
+- Smooth, customizable scrolling text or content
+- Supports any React node (not just text!)
+- Adjustable speed, direction, and pause on hover
+- Perfect for announcements, tickers, or creative UI
+
+---
+
+## 🚀 Live Demo
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<MarqueeView />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/marquee/marquee.tsx" />
+  </TabsContent>
+</Tabs>
+
+---
+
+## 📦 Usage
+
+### 1. Install
+<Cli command="npm install your-marquee-package" />
+
+### 2. Import & Use
+
+<CodeBlock code={`import { Marquee } from 'your-marquee-package';
+
+<Marquee speed={50} pauseOnHover>
+  <span>🚀 Welcome to the Marquee demo! 🎉</span>
+</Marquee>
+`} language="tsx" />
+
+---
+
+<div className="overflow-x-auto mt-6">
+  <table className="min-w-full text-left text-sm border border-gray-700 bg-[#0F172B] text-white">
+    <thead className="bg-gray-800 text-white">
+      <tr>
+        <th className="px-4 py-3 border-b border-gray-700">Prop</th>
+        <th className="px-4 py-3 border-b border-gray-700">Type</th>
+        <th className="px-4 py-3 border-b border-gray-700">Default</th>
+        <th className="px-4 py-3 border-b border-gray-700">Description</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-gray-700">
+      <tr>
+        <td className="px-4 py-2">speed</td>
+        <td className="px-4 py-2">number</td>
+        <td className="px-4 py-2">50</td>
+        <td className="px-4 py-2">Scrolling speed</td>
+      </tr>
+      <tr>
+        <td className="px-4 py-2">direction</td>
+        <td className="px-4 py-2">'left' | 'right'</td>
+        <td className="px-4 py-2">'left'</td>
+        <td className="px-4 py-2">Scroll direction</td>
+      </tr>
+      <tr>
+        <td className="px-4 py-2">pauseOnHover</td>
+        <td className="px-4 py-2">boolean</td>
+        <td className="px-4 py-2">false</td>
+        <td className="px-4 py-2">Pause animation on mouse hover</td>
+      </tr>
+      <tr>
+        <td className="px-4 py-2">children</td>
+        <td className="px-4 py-2">ReactNode</td>
+        <td className="px-4 py-2">—</td>
+        <td className="px-4 py-2">Content to scroll</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+> 💡 **Tip:** Combine with icons, links, or any React elements for creative effects!

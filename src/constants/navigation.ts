@@ -20,7 +20,9 @@ export const navigation: NavigationItem[] = [
     label : "Button",
     children : [
      { label : "Button" , href : "/docs/button"},
-     { label : "Dropdown" , href : "/docs/dropdown", badge: "New"}
+     { label : "Dropdown" , href : "/docs/dropdown", badge: "New"},
+     { label : "Shimmer Button" , href : "/docs/shimmer", badge: "New"},
+
     ]
    },
    {
@@ -75,6 +77,8 @@ export const navigation: NavigationItem[] = [
       { label: "Card", href: "/docs/card"},
       { label: "Two Step", href: "/docs/twostep"},
       { label: "Amazon Gift Card", href: "/docs/amazongift"},
+      { label : "Magic Card" , href : "/docs/magic"},
+      { label : "Gradient" , href : "/docs/gradient" , badge : "New"}
     ],
   },
   {
@@ -84,16 +88,18 @@ export const navigation: NavigationItem[] = [
       { label: "Pricing", href: "/docs/pricing" , badge: "New" },
       { label: "Testimonial", href: "/docs/testimonial" , badge: "New"},
       { label: "Footer", href: "/docs/footer" , badge: "New"},
+      { label: "Forgot Password", href: "/docs/forgotpassword" , badge: "New"},
       
     ]
   },
   {
     label : "Pattern",
     children: [
+      {label : "marquee" , href : "/docs/marquee"},
       { label: "Patterns Collection", href: "/docs/pattern"},
       { label: "Code Profile", href: "/docs/codeprofile" , badge: "New"},
       { label : "Orbiting Circles" , href : "/docs/integrations"},
-      { label : "Network" , href : "/docs/network" , badge: "New"}
+      { label : "Network" , href : "/docs/network" , badge: "New"},
     ],
   },
 ];
