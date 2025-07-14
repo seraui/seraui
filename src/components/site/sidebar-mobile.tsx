@@ -44,10 +44,10 @@ const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean, onClose: () => vo
 
   return (
     <li>
-      <div 
+      <div
         onClick={handleClick}
         className={cn(
-          "flex items-center justify-between py-2 text-sm transition-colors cursor-pointer",
+          "flex items-center justify-between py-1 text-sm transition-colors cursor-pointer",
           isNested ? "pl-6" : "font-medium",
           (isActive || hasActiveChild)
             ? "text-zinc-900 dark:text-white"
@@ -85,8 +85,8 @@ const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean, onClose: () => vo
       
       {item.children && isOpen && (
         <ul className={cn(
-          "mt-1 space-y-1",
-          isNested ? "pl-2" : "ml-4 border-l border-zinc-100 dark:border-zinc-800 mt-1 relative"
+          "mt-0.5 space-y-0.5",
+          isNested ? "pl-2" : "ml-4 border-l border-zinc-100 dark:border-zinc-800 mt-0.5 relative"
         )}>
           {item.children.map((child, index) => {
             const isChildActive = pathName === child.href;
@@ -94,7 +94,7 @@ const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean, onClose: () => vo
             return isNested ? (
               <MenuItem key={index} item={child} isNested onClose={onClose} />
             ) : (
-              <li key={child.href} className="relative py-0.5 pl-4">
+              <li key={child.href} className="relative py-0 pl-4">
                 {isChildActive && (
                   <span className="absolute left-[-5px] top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-blue-500 rounded-full" />
                 )}
@@ -103,7 +103,7 @@ const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean, onClose: () => vo
                     href={child.href}
                     onClick={onClose}
                     className={cn(
-                      "block py-1.5 text-sm",
+                      "block py-1 text-sm",
                       isChildActive
                         ? "text-blue-600 dark:text-blue-400 font-medium"
                         : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
@@ -138,17 +138,17 @@ export const SidebarMobile = ({ onClose }: { onClose: () => void }) => {
       <ScrollArea className="h-full w-full">
         <div className="py-6 px-4">
           <nav role="navigation" aria-label="Documentation navigation">
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               {menuData.map((item, index) => (
                 <MenuItem key={index} item={item} onClose={onClose} />
               ))}
             </ul>
           </nav>
           
-          <div className="mt-8 pt-4 border-t border-zinc-100 dark:border-zinc-800">
+          <div className="mt-6 pt-3 border-t border-zinc-100 dark:border-zinc-800">
             <Link
               href="/docs"
-              className="block py-2 text-sm text-blue-600 dark:text-blue-400"
+              className="block py-1.5 text-sm text-blue-600 dark:text-blue-400"
               onClick={onClose}
             >
               Getting Started Guide

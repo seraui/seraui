@@ -61,7 +61,10 @@ export interface Model {
 
 export interface ClientOptions {
   baseUrl?: string;
+  apiEndpoint?: string;
+  imageEndpoint?: string;
   defaultModel?: string;
+  defaultImageModel?: string;
   apiKey?: string;
   referrer?: string;
   extraHeaders?: Record<string, string>;

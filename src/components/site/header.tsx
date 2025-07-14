@@ -52,9 +52,14 @@ const Header = () => {
         <div className="w-full px-6 py-4 flex items-center justify-between border-b border-gray-200 dark:border-zinc-800">
           <Link href="/" className="flex items-center gap-2">
             <Logo className="size-6 fill-rose-500" />
-            <span className="font-semibold text-lg text-zinc-900 dark:text-zinc-100">
-              Sera&nbsp;UI
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-lg text-zinc-900 dark:text-zinc-100">
+                Sera&nbsp;UI
+              </span>
+              <span className="px-2 py-0.5 text-xs font-medium bg-white/20 dark:bg-white/10 backdrop-blur-sm border border-white/30 dark:border-white/20 rounded-full text-zinc-700 dark:text-zinc-300">
+                1.0
+              </span>
+            </div>
           </Link>
 
           <button
@@ -84,9 +89,14 @@ const Header = () => {
 
               <Link href="/" className="flex items-center gap-2">
                 <Logo className="size-6 fill-rose-500" />
-                <span className="font-semibold text-lg text-zinc-900 dark:text-zinc-100">
-                  Sera&nbsp;UI
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-lg text-zinc-900 dark:text-zinc-100">
+                    Sera&nbsp;UI
+                  </span>
+                  <span className="px-2 py-0.5 text-xs font-medium bg-white/20 dark:bg-white/10 backdrop-blur-sm border border-white/30 dark:border-white/20 rounded-full text-zinc-700 dark:text-zinc-300">
+                    1.0
+                  </span>
+                </div>
               </Link>
             </div>
             <nav className=" hidden md:flex items-center gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">

@@ -1,5 +1,48 @@
 import type { ChatCompletionParams, Model, ClientOptions } from '../types';
 
+/**
+ * Manages a list of CORS proxies with failover capabilities.
+ */
+class CorsProxyManager {
+  public proxies: string[];
+  private currentIndex: number;
+
+  constructor(proxies: string[] = [
+    'https://corsproxy.io/?',
+    'https://api.allorigins.win/raw?url=',
+    'https://cloudflare-cors-anywhere.queakchannel42.workers.dev/?',
+    'https://proxy.cors.sh/',
+    'https://cors-anywhere.herokuapp.com/',
+    'https://thingproxy.freeboard.io/fetch/',
+    'https://cors.bridged.cc/',
+    'https://cors-proxy.htmldriven.com/?url=',
+    'https://yacdn.org/proxy/',
+    'https://api.codetabs.com/v1/proxy?quest=',
+  ]) {
+    if (!Array.isArray(proxies) || proxies.length === 0) {
+      throw new Error('CorsProxyManager requires a non-empty array of proxy URLs.');
+    }
+    this.proxies = proxies;
+    this.currentIndex = 0;
+  }
+
+  /**
+   * Gets the full proxied URL for the current proxy.
+   */
+  getProxiedUrl(targetUrl: string): string {
+    const proxy = this.proxies[this.currentIndex];
+    return proxy + encodeURIComponent(targetUrl);
+  }
+
+  /**
+   * Rotates to the next proxy in the list.
+   */
+  rotateProxy(): void {
+    this.currentIndex = (this.currentIndex + 1) % this.proxies.length;
+    console.warn(`Rotated to next CORS proxy: ${this.proxies[this.currentIndex]}`);
+  }
+}
+
 export class Client {
   protected baseUrl: string;
   protected apiEndpoint: string;
@@ -9,52 +52,69 @@ export class Client {
   protected modelAliases: Record<string, string>;
   protected swapAliases: Record<string, string>;
   protected referrer?: string;
+  protected proxyManager: CorsProxyManager;
+  protected _models: Model[] = [];
   public defaultModel: string;
+  public defaultImageModel: string;
 
   constructor(options: ClientOptions = {}) {
-    this.defaultModel = options.defaultModel || 'deepseek-r1';
-    
-    if (options.baseUrl) {
-      this.baseUrl = options.baseUrl;
-      this.apiEndpoint = `${this.baseUrl}/chat/completions`;
-      this.imageEndpoint = `${this.baseUrl}/images/generations`;
-    } else {
-      this.baseUrl = 'https://text.pollinations.ai';
-      this.apiEndpoint = `${this.baseUrl}/openai`;
-      this.imageEndpoint = `https://image.pollinations.ai/prompt/{prompt}`;
-      this.referrer = options.referrer || 'https://g4f.dev';
+    if (!options.baseUrl && !options.apiEndpoint && !options.apiKey) {
+      if (typeof localStorage !== 'undefined' && localStorage.getItem("Azure-api_key")) {
+        options.apiKey = localStorage.getItem("Azure-api_key") || undefined;
+      } else {
+        throw new Error('Client requires at least baseUrl, apiEndpoint, or apiKey to be set.');
+      }
     }
-    
+
+    this.proxyManager = new CorsProxyManager();
+    this.baseUrl = options.baseUrl || 'https://host.g4f.dev/api/Azure';
+    this.apiEndpoint = options.apiEndpoint || `${this.baseUrl}/chat/completions`;
+    this.imageEndpoint = options.imageEndpoint || `${this.baseUrl}/images/generations`;
+    this.defaultModel = options.defaultModel || 'deepseek-r1';
+    this.defaultImageModel = options.defaultImageModel || 'flux';
     this.apiKey = options.apiKey;
+    this.referrer = options.referrer;
+
     this.extraHeaders = {
       'Content-Type': 'application/json',
       ...(this.apiKey ? { 'Authorization': `Bearer ${this.apiKey}` } : {}),
       ...(options.extraHeaders || {})
     };
-    
-    this.modelAliases = options.modelAliases || (!options.baseUrl ? {
-      "deepseek-v3": "deepseek",
-      "deepseek-r1": "deepseek-reasoning",
-      "grok-3-mini-high": "grok",
-      "llama-4-scout": "llamascout",
-      "mistral-small-3.1": "mistral",
-      "gpt-4.1-mini": "openai",
-      "gpt-4o-audio": "openai-audio",
-      "gpt-4.1-nano": "openai-fast",
-      "gpt-4.1": "openai-large",
-      "o3": "openai-reasoning",
-      "gpt-4o-mini": "openai-roblox",
-      "phi-4": "phi",
-      "qwen2.5-coder": "qwen-coder",
-      "gpt-4o-mini-search": "searchgpt",
-      "gpt-image": "gptimage",
-      "sdxl-turbo": "turbo",
-    } : {});
-    
+
+    this.modelAliases = options.modelAliases || {};
     this.swapAliases = {};
     Object.keys(this.modelAliases).forEach(key => {
       this.swapAliases[this.modelAliases[key]] = key;
     });
+  }
+
+  async _fetchWithProxyRotation(targetUrl: string, requestConfig: RequestInit = {}): Promise<Response> {
+    const maxAttempts = this.proxyManager.proxies.length;
+
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+      const proxiedUrl = this.proxyManager.getProxiedUrl(targetUrl);
+
+      try {
+        const response = await fetch(proxiedUrl, requestConfig);
+        if (!response.ok) {
+          throw new Error(`Proxy fetch failed with status ${response.status}`);
+        }
+
+        const contentType = response.headers.get('Content-Type');
+        if (contentType && !contentType.includes('application/json') &&
+            !contentType.includes('text/event-stream') &&
+            !contentType.includes('text/plain')) {
+          throw new Error(`Expected JSON or streaming response, got ${contentType}`);
+        }
+
+        return response;
+      } catch (error: any) {
+        console.warn(`CORS proxy attempt ${attempt + 1}/${maxAttempts} failed for ${targetUrl}:`, error.message);
+        this.proxyManager.rotateProxy();
+      }
+    }
+
+    throw new Error(`All CORS proxy attempts failed for ${targetUrl}.`);
   }
 
   get chat() {
@@ -74,7 +134,10 @@ export class Client {
           
           const requestOptions = {
             method: 'POST',
-            headers: this.extraHeaders,
+            headers: {
+              ...this.extraHeaders,
+              ...(params.stream ? { 'Accept': 'text/event-stream' } : {})
+            },
             body: JSON.stringify(bodyParams)
           };
 
@@ -117,6 +180,67 @@ export class Client {
     };
   }
 
+  get images() {
+    return {
+      generate: async (params: any) => {
+        let modelId = params.model || this.defaultImageModel;
+        if (this.modelAliases[modelId]) {
+          modelId = this.modelAliases[modelId];
+        }
+        params.model = modelId;
+
+        if (this.imageEndpoint.includes('{prompt}')) {
+          return this._defaultImageGeneration(params, { headers: this.extraHeaders });
+        }
+        return this._regularImageGeneration(params, { headers: this.extraHeaders });
+      }
+    };
+  }
+
+  async _defaultImageGeneration(params: any, requestOptions: any) {
+    params = { ...params };
+    let prompt = params.prompt ? params.prompt : '';
+    prompt = encodeURIComponent(prompt).replaceAll('%20', '+');
+    delete params.prompt;
+
+    if (params.nologo === undefined) params.nologo = true;
+    if (this.referrer) params.referrer = this.referrer;
+
+    if (params.size) {
+      params.width = params.size.split('x')[0];
+      params.height = params.size.split('x')[1];
+      delete params.size;
+    }
+
+    const encodedParams = new URLSearchParams(params);
+    let url = this.imageEndpoint.replace('{prompt}', prompt);
+    url += '?' + encodedParams.toString();
+
+    const response = await fetch(url, requestOptions);
+
+    if (!response.ok) {
+      throw new Error(`Image generation request failed with status ${response.status}`);
+    }
+
+    return { data: [{ url: response.url }] };
+  }
+
+  async _regularImageGeneration(params: any, requestOptions: any) {
+    const response = await fetch(this.imageEndpoint, {
+      method: 'POST',
+      body: JSON.stringify(params),
+      ...requestOptions
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.text();
+      console.error("Image generation failed. Server response:", errorBody);
+      throw new Error(`Image generation request failed with status ${response.status}`);
+    }
+
+    return await response.json();
+  }
+
   protected async _regularCompletion(apiEndpoint: string, requestOptions: RequestInit) {
     const response = await fetch(apiEndpoint, requestOptions);
 
@@ -129,7 +253,7 @@ export class Client {
 
   protected async *_streamCompletion(apiEndpoint: string, requestOptions: RequestInit) {
     const response = await fetch(apiEndpoint, requestOptions);
-    
+
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
     }
@@ -239,7 +363,36 @@ export class HuggingFace extends Client {
 export const createClient = (provider: string, options: ClientOptions = {}) => {
   switch (provider) {
     case 'pollinations':
-      return new Client({ defaultModel: 'deepseek-r1', ...options });
+      return new Client({
+        baseUrl: 'https://text.pollinations.ai',
+        apiEndpoint: 'https://text.pollinations.ai/openai',
+        imageEndpoint: 'https://image.pollinations.ai/prompt/{prompt}',
+        defaultModel: 'gpt-4o-mini',
+        defaultImageModel: 'flux',
+        referrer: 'https://g4f.dev',
+        modelAliases: {
+          "gpt-4o-mini": "openai",
+          "gpt-4.1-nano": "openai-fast",
+          "gpt-4.1": "openai-large",
+          "o4-mini": "openai-reasoning",
+          "command-r-plus": "command-r",
+          "gemini-2.5-flash": "gemini",
+          "gemini-2.0-flash-thinking": "gemini-thinking",
+          "qwen-2.5-coder-32b": "qwen-coder",
+          "llama-3.3-70b": "llama",
+          "llama-4-scout": "llamascout",
+          "mistral-small-3.1-24b": "mistral",
+          "deepseek-r1": "deepseek-reasoning",
+          "phi-4": "phi",
+          "deepseek-v3": "deepseek",
+          "grok-3-mini-high": "grok",
+          "gpt-4o-audio": "openai-audio",
+          "sdxl-turbo": "turbo",
+          "gpt-image": "gptimage",
+          "flux-kontext": "kontext",
+        },
+        ...options
+      });
     case 'deepinfra':
       return new DeepInfra(options);
     case 'huggingface':

@@ -66,7 +66,7 @@ const icons = [
 
 export default function MarqueeView() {
   return (
-    <div className="py-8 px-2 rounded-2xl shadow-2xl overflow-hidden">
+    <div className="py-8 px-2 rounded-2xl shadow-2xl dark:shadow-gray-800/50 overflow-hidden bg-white dark:bg-black">
       <Marquee speed={70} className="[--gap:2rem]" pauseOnHover={true}>
         <div className="flex gap-1">
           {icons.map((icon, idx) => (
@@ -74,17 +74,17 @@ export default function MarqueeView() {
               key={idx}
               className="w-36 min-w-fit h-fit flex flex-col items-center justify-center transition-all duration-500 m-3 sm:m-5 rounded-lg group relative hover:scale-[1.15] cursor-pointer"
             >
-              <div className="h-full w-full rounded-lg border border-[#1f223c] bg-[#11152c] shadow-none shadow-gray-50 group-hover:border-violet-500 transition-all duration-500">
+              <div className="h-full w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 shadow-sm dark:shadow-gray-900/50 group-hover:border-violet-500 dark:group-hover:border-violet-400 transition-all duration-500">
                 <div className="flex -translate-y-[1px] justify-center">
                   <div className="w-3/4">
-                    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 to-transparent"></div>
+                    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 dark:via-violet-400 to-transparent"></div>
                   </div>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-3 p-6">
                   <div className="h-8 sm:h-10 flex items-center justify-center">
                     <span className="h-full w-auto rounded-lg flex items-center justify-center">{icon.svg}</span>
                   </div>
-                  <p className="text-white text-sm sm:text-lg">{icon.label}</p>
+                  <p className="text-gray-800 dark:text-gray-200 text-sm sm:text-lg font-medium">{icon.label}</p>
                 </div>
               </div>
             </div>
