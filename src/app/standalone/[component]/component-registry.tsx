@@ -67,6 +67,10 @@ import NexusOrbSup from '@/app/docs/integrations/nexusorbsup';
 import Spider from '@/app/docs/integrations/spider';
 import HeroSection from '@/app/docs/hero/hero';
 import Hero2 from '@/app/docs/hero/hero2';
+import CoderProfileCard from "@/app/docs/portfolio/portfolio"
+import Portfolio2Page from "@/app/docs/portfolio/portfolio2"
+import Portfolio3Page from "@/app/docs/portfolio/portfolio3"
+
 
 
 // Component registry mapping component names to their view components
@@ -146,4 +150,7 @@ export const ComponentRegistry: Record<string, React.ComponentType> = {
   'spider': Spider,
   'hero': HeroSection,
   'hero-2': Hero2,
+  'CoderProfileCard': CoderProfileCard,
+  'Portfolio2Page': Portfolio2Page,
+  'Portfolio3Page': Portfolio3Page
   };

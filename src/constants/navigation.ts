@@ -29,6 +29,7 @@ export const navigation: NavigationItem[] = [
     label : "Badge & Toast",
     children : [
       { label : "Badge" , href : "/docs/badge"},
+      { label : "Animated Badge" , href : "/docs/animatedbadge" , badge: "New"},
       { label : "Toast" , href : "/docs/toast" , badge: "New"}
     ]
   },
@@ -36,7 +37,7 @@ export const navigation: NavigationItem[] = [
     label : "Input",
     children : [
       { label : "Search" , href : "/docs/search"},
-      { label : "Prompt" , href : "/docs/prompt"},
+      { label : "Prompt" , href : "/docs/prompt" , badge: "Updated"},
       { label : "Password" , href : "/docs/password", badge: "New"}
     ]
   },
@@ -83,6 +84,12 @@ export const navigation: NavigationItem[] = [
     ],
   },
   {
+    label : "Grid",
+    children : [
+      { label : "Masonary Grid" , href : "/docs/masonary"},
+    ]
+  },
+  {
     label : "Websites Blocks",
     children : [
       { label : "Hero" , href : "/docs/hero"},
@@ -101,6 +108,7 @@ export const navigation: NavigationItem[] = [
       { label: "Patterns Collection", href: "/docs/pattern"},
       {label : "marquee" , href : "/docs/marquee"},
       { label: "Code Profile", href: "/docs/codeprofile" , badge: "New"},
+      { label: "Portfolio", href: "/docs/portfolio" , badge: "New"},
       { label : "Orbiting Circles" , href : "/docs/integrations"},
       { label : "Network" , href : "/docs/network" , badge: "New"},
     ],
