@@ -230,29 +230,32 @@ export default function PatternCraftInterface() {
 
   const handleCopy = async (pattern: PatternData) => {
     try {
-      // Fetch the actual file content
-      const response = await fetch(`/api/get-file-content?path=${encodeURIComponent(pattern.filePath)}`);
-      let codeContent: string;
-
-      if (response.ok) {
-        const data = await response.json();
-        codeContent = data.content;
-      } else {
-        // Fallback to a template if file reading fails
-        codeContent = `// ${pattern.name} Pattern
-// File: ${pattern.filePath}
+      // Generate a template code for the pattern
+      const codeContent = `// ${pattern.name} Pattern
 // Copy this component to your project
 
 'use client'
 export default function ${pattern.name.replace(/\s+/g, '')}() {
-  // Pattern implementation here
   return (
-    <div className="min-h-screen w-full">
-      {/* Pattern content */}
+    <div className="min-h-screen w-full relative flex items-center justify-center">
+      {/* ${pattern.name} Pattern Background */}
+      <div className="absolute inset-0 z-0">
+        {/* Add your pattern styles here */}
+      </div>
+
+      {/* Centered Content */}
+      <h1 className="relative z-10 text-slate-800 dark:text-white text-4xl font-bold text-center">
+        ${pattern.name}
+      </h1>
     </div>
   );
-}`;
-      }
+}
+
+// Usage:
+// 1. Copy this component to your project
+// 2. Customize the pattern styles in the background div
+// 3. Replace the content with your own components
+// 4. File location: ${pattern.filePath}`;
 
       await navigator.clipboard.writeText(codeContent);
       setCopiedId(pattern.id);
@@ -260,7 +263,9 @@ export default function ${pattern.name.replace(/\s+/g, '')}() {
     } catch (error) {
       console.error('Failed to copy:', error);
       // Fallback copy
-      const fallbackContent = `// ${pattern.name} Pattern - Please check ${pattern.filePath} for the actual implementation`;
+      const fallbackContent = `// ${pattern.name} Pattern - Template
+// Check the pattern preview for visual reference
+// File: ${pattern.filePath}`;
       await navigator.clipboard.writeText(fallbackContent);
       setCopiedId(pattern.id);
       setTimeout(() => setCopiedId(null), 2000);

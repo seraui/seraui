@@ -101,9 +101,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, navItems }) => (
 
 
 // --- HEADER SECTION (IMPROVED) --- //
-const Header: React.FC = () => {
+const HeaderSection: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('Features'); 
+  const [activeLink] = useState('Features');
   const navItems = ['About', 'Features', 'Blog', 'Pricing', 'Contact'];
 
   return (
@@ -155,7 +155,7 @@ const Hero: React.FC = () => (
         Qupe Finance
       </span>
       <h1 className="mt-6 text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight">
-        You've never made a website this <span className="text-orange-500">fast before</span>
+        You&apos;ve never made a website this <span className="text-orange-500">fast before</span>
       </h1>
       <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-300">
         Gain financial acumen using our expert tools and insights to efficiently manage your money and enhance personal wealth.
@@ -187,10 +187,12 @@ export default function Hero2() {
       </div>
 
       {/* The Header and Hero components have their own z-index which places them above the gradients. */}
-      <Header />
+      <HeaderSection />
       <main>
         <Hero />
       </main>
     </div>
   );
 }
+
+
