@@ -35,7 +35,7 @@ const HeroSection: React.FC = () => {
 
         {/* Text Content */}
         <h1 className="text-3xl md:text-4xl text-black dark:text-white leading-tight">
-          Hi there! I'm <span className="font-bold">Rose</span>, a <span className="font-bold">front-end developer</span>, skilled at crafting dynamic and user-friendly websites and applications. My focus is{' '}
+          Hi there! I&apos;m <span className="font-bold">Rose</span>, a <span className="font-bold">front-end developer</span>, skilled at crafting dynamic and user-friendly websites and applications. My focus is{' '}
           <span className="underline decoration-solid underline-offset-4">
             React (NextJs)
           </span>.

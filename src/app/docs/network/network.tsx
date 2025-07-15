@@ -29,7 +29,7 @@ interface AvatarPositions {
 function NetworkVisualization() {
   // State to track container dimensions
   const [containerSize, setContainerSize] = useState({ width: 700, height: 700 });
-  const [isMobile, setIsMobile] = useState(false);
+  // Removed unused isMobile state
 
   // Responsive dimensions based on screen size
   const dimensions = useMemo(() => {
@@ -57,9 +57,7 @@ function NetworkVisualization() {
     const updateSize = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
-      const isMobileDevice = width < 768;
-      
-      setIsMobile(isMobileDevice);
+      // Removed unused isMobile logic
       
       // Calculate available space (accounting for padding and margins)
       const maxWidth = Math.min(width - 32, 700); // 32px for padding
@@ -156,7 +154,7 @@ function NetworkVisualization() {
     // Add the center image's position
     positions['center'] = { cx: dimensions.centerX, cy: dimensions.centerY } as Position;
     return positions;
-  }, [dimensions, outerRingAvatars, innerRingAvatars]);
+  }, [dimensions, outerRingAvatars, innerRingAvatars, getAvatarAbsolutePosition]);
 
   // Get all possible connection points (avatar IDs and 'center')
   const allConnectionPoints: (number | 'center')[] = [...avatars.map(a => a.id), 'center'];
@@ -193,7 +191,7 @@ function NetworkVisualization() {
 
     // Cleanup interval on component unmount
     return () => clearInterval(interval);
-  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
+  }, [allConnectionPoints]); // Include allConnectionPoints dependency
 
   // Helper function to check if an ID is part of the current active connection
   const isCurrentlyConnected = (id: number | 'center'): boolean => {
@@ -329,7 +327,7 @@ function NetworkVisualization() {
         </svg>
 
         {/* Render outer ring avatars */}
-        {outerRingAvatars.map((avatar, index) => {
+        {outerRingAvatars.map((avatar) => {
           const { cx, cy } = allAvatarPositions[avatar.id]; // Use pre-calculated positions
           // Check if this avatar is currently involved in a connection
           const isActive = isCurrentlyConnected(avatar.id);
@@ -394,7 +392,7 @@ function NetworkVisualization() {
         })}
 
         {/* Render inner ring avatars */}
-        {innerRingAvatars.map((avatar, index) => {
+        {innerRingAvatars.map((avatar) => {
           const { cx, cy } = allAvatarPositions[avatar.id]; // Use pre-calculated positions
           // Check if this avatar is currently involved in a connection
           const isActive = isCurrentlyConnected(avatar.id);

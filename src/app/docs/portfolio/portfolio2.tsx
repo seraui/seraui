@@ -50,7 +50,7 @@ const Portfolio2 = () => {
               A passionate Web Designer creating modern, responsive, and user-friendly websites.
             </p>
             <button className="mt-8 bg-black dark:bg-white text-white dark:text-black font-bold py-3 px-10 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
-              Let's Talk
+              Let&apos;s Talk
             </button>
           </div>
 

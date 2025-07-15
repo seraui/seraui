@@ -16,7 +16,7 @@ const ParticleText: React.FC<ParticleTextProps> = ({
   particleColor = "#3b82f6"
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const particlesRef = useRef<HTMLDivElement[]>([]);
+  // Removed unused particlesRef
 
   useEffect(() => {
     const container = containerRef.current;
