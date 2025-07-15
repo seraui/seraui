@@ -172,7 +172,7 @@ const Header = () => {
               <LinkedinIcon className="h-4 w-4 fill-zinc-950 dark:fill-zinc-50" />
             </Link>
             <Link
-              href="https://github.com/seraprogrammer"
+              href="https://github.com/seraui/seraui"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center h-9 w-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200"

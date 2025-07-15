@@ -41,8 +41,9 @@ export const navigation: NavigationItem[] = [
     ]
   },
   {
-    label : "TEXT",
+    label : "Text",
     children : [
+      { label : "Text Animation" , href : "/docs/text"},
       { label : "Fuzzy", href : "/docs/fuzzy"},
       { label : "Flip Words", href : "/docs/flipwords", badge: "New"},
       { label : "Text Reveal", href : "/docs/textreveal"},

@@ -10,6 +10,7 @@ import {
 import { HideTOC } from "@/components/site/hide-toc";
 import Hero from "./hero.tsx"
 import Hero2 from "./hero2.tsx"
+import Hero3 from "./hero3.tsx"
 
 <HideTOC />
 
@@ -46,3 +47,21 @@ An elegant hero section with decorative gradient backgrounds, pill-style navigat
     <CodeBlock filePath="src/app/docs/hero/hero2.tsx" />
   </TabsContent>
 </Tabs>
+
+# Minimalist Black & White Hero
+
+A clean, minimalist hero section with a classic black and white design. Features simple navigation, clear typography, and essential elements only. Perfect for professional and corporate websites.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Hero3 />} componentName="hero-3" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/hero/hero3.tsx" />
+  </TabsContent>
+</Tabs>
+
