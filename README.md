@@ -32,22 +32,22 @@ Our CLI will guide you through the process of adding components to your project.
 
 **npm**
 ```bash
-npx shadcn@latest add "[https://seraui.seraprogrammer.com/registry/button.json](https://seraui.seraprogrammer.com/registry/button.json)"
+npx shadcn@latest add "https://seraui.seraprogrammer.com/registry/button.json"
 ```
 
 **pnpm**
 ```bash
-pnpm dlx shadcn@latest add "[https://seraui.seraprogrammer.com/registry/button.json](https://seraui.seraprogrammer.com/registry/button.json)"
+pnpm dlx shadcn@latest add "https://seraui.seraprogrammer.com/registry/button.json"
 ```
 
 **yarn**
 ```bash
-yarn dlx shadcn@latest add "[https://seraui.seraprogrammer.com/registry/button.json](https://seraui.seraprogrammer.com/registry/button.json)"
+yarn dlx shadcn@latest add "https://seraui.seraprogrammer.com/registry/button.json"
 ```
 
 **bun**
 ```bash
-bunx shadcn@latest add "[https://seraui.seraprogrammer.com/registry/button.json](https://seraui.seraprogrammer.com/registry/button.json)"
+bunx shadcn@latest add "https://seraui.seraprogrammer.com/registry/button.json"
 ```
 
 ### Manual Installation
