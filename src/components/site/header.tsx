@@ -6,7 +6,7 @@ import { GitHubIcon } from "@/assets/icons/github";
 
 import { AnimatePresence, motion } from "motion/react";
 import { SidebarMobile } from "./sidebar-mobile";
-import { X, LinkedinIcon } from "lucide-react";
+import { X, LinkedinIcon, BookOpen, Wrench, MessageCircle } from "lucide-react";
 import { Logo } from "@/assets/icons/logo";
 import { SearchModal } from "./search-modal";
 
@@ -101,29 +101,26 @@ const Header = () => {
             </div>
             <nav className=" hidden md:flex items-center gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
               <Link
-                className="hover:text-zinc-900 dark:hover:text-zinc-50"
+                className="flex items-center gap-2 hover:text-zinc-900 dark:hover:text-zinc-50"
                 href="/docs"
               >
+                <BookOpen className="h-4 w-4" />
                 Docs
               </Link>
               <Link
-                className="hover:text-zinc-900 dark:hover:text-zinc-50"
-                href="/docs/tabs"
-              >
-                Components
-              </Link>
-              <Link
-                className="hover:text-zinc-900 dark:hover:text-zinc-50"
+                className="flex items-center gap-2 hover:text-zinc-900 dark:hover:text-zinc-50"
                 href="/tools"
               >
+                <Wrench className="h-4 w-4" />
                 Tools
               </Link>
               <Link
-                className="hover:text-zinc-900 dark:hover:text-zinc-50"
+                className="flex items-center gap-2 hover:text-zinc-900 dark:hover:text-zinc-50"
                 href="https://ai.seraprogrammer.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <MessageCircle className="h-4 w-4" />
                 Sera Chat
               </Link>
             </nav>

@@ -8,6 +8,7 @@ import {
   TabsContent,
 } from "@/components/site/tabs.tsx";
 import MarqueeView from "./marquee-view"
+import MarqueeTextView from "./marqueeText"
 
 
 # 🏁 Marquee Component
@@ -27,7 +28,21 @@ import MarqueeView from "./marquee-view"
   </TabsContent>
 </Tabs>
 
+# Marquee Text loop
+> **Effortlessly create eye-catching, animated marquees for your site.**
 
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<MarqueeTextView />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/marquee/marqueeText.tsx" />
+  </TabsContent>
+</Tabs>
 
 ---
 
@@ -37,25 +52,6 @@ import MarqueeView from "./marquee-view"
 - Adjustable speed, direction, and pause on hover
 - Perfect for announcements, tickers, or creative UI
 
----
-
-
-
----
-
-## 📦 Usage
-
-### 1. Install
-<Cli command="npm install your-marquee-package" />
-
-### 2. Import & Use
-
-<CodeBlock code={`import { Marquee } from 'your-marquee-package';
-
-<Marquee speed={50} pauseOnHover>
-  <span>🚀 Welcome to the Marquee demo! 🎉</span>
-</Marquee>
-`} language="tsx" />
 
 ---
 
