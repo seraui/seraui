@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Header from '@/components/site/header';
 import GradientGenerator from "./gradientgenerator";
-import TsxToJsxCompiler from "./tsx-to-jsx-compiler";
+
 import ReactCodeRunner from "./react-code-runner";
 
 // Define available tools
@@ -16,13 +16,7 @@ const tools = [
     icon: '🎨',
     component: GradientGenerator
   },
-  {
-    id: 'tsx-to-jsx-compiler',
-    name: 'TSX to JSX Compiler',
-    description: 'Convert TypeScript React components to pure JavaScript',
-    icon: '🔄',
-    component: TsxToJsxCompiler
-  },
+
   {
     id: 'react-code-runner',
     name: 'React Code Runner',
