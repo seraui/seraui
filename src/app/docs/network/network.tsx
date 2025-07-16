@@ -132,18 +132,18 @@ function NetworkVisualization() {
   // State to hold the active connections
   const [activeConnections, setActiveConnections] = useState<Connection[]>([]);
 
-  // Function to calculate the absolute center position of an avatar
-  // relative to the top-left of the container.
-  const getAvatarAbsolutePosition = (index: number, total: number, radius: number, startAngleOffset: number = 0): Position => {
-    const angle = startAngleOffset + (index / total) * 2 * Math.PI; // Angle in radians, with offset
-    const x = radius * Math.cos(angle);
-    const y = radius * Math.sin(angle);
-    // Add center coordinates to center the coordinates within the container
-    return { cx: dimensions.centerX + x, cy: dimensions.centerY + y };
-  };
-
   // Pre-calculate all avatar positions and store them in a map for easy lookup
   const allAvatarPositions: AvatarPositions = useMemo(() => {
+    // Function to calculate the absolute center position of an avatar
+    // relative to the top-left of the container.
+    const getAvatarAbsolutePosition = (index: number, total: number, radius: number, startAngleOffset: number = 0): Position => {
+      const angle = startAngleOffset + (index / total) * 2 * Math.PI; // Angle in radians, with offset
+      const x = radius * Math.cos(angle);
+      const y = radius * Math.sin(angle);
+      // Add center coordinates to center the coordinates within the container
+      return { cx: dimensions.centerX + x, cy: dimensions.centerY + y };
+    };
+
     const positions: AvatarPositions = {};
     outerRingAvatars.forEach((avatar, index) => {
       positions[avatar.id] = getAvatarAbsolutePosition(index, outerRingAvatars.length, dimensions.outerRadius, Math.PI / 2);
@@ -154,10 +154,13 @@ function NetworkVisualization() {
     // Add the center image's position
     positions['center'] = { cx: dimensions.centerX, cy: dimensions.centerY } as Position;
     return positions;
-  }, [dimensions, outerRingAvatars, innerRingAvatars, getAvatarAbsolutePosition]);
+  }, [dimensions, outerRingAvatars, innerRingAvatars]);
 
   // Get all possible connection points (avatar IDs and 'center')
-  const allConnectionPoints: (number | 'center')[] = [...avatars.map(a => a.id), 'center'];
+  const allConnectionPoints: (number | 'center')[] = useMemo(() =>
+    [...avatars.map(a => a.id), 'center'],
+    [avatars]
+  );
 
   // Helper function to get a random element from an array
   const getRandomElement = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];

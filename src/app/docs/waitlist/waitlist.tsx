@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, ArrowRight, CheckCircle, Loader2 } from 'lucide-react';
+import { ArrowRight, CheckCircle, Loader2 } from 'lucide-react';
 
 interface WaitlistProps {
   className?: string;
@@ -50,10 +50,10 @@ export default function Waitlist({ className = '' }: WaitlistProps) {
           </motion.div>
           <div className="space-y-2">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-50">
-              You're all set!
+              You&apos;re all set!
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-              We'll notify you when we launch. Thanks for your interest!
+              We&apos;ll notify you when we launch. Thanks for your interest!
             </p>
           </div>
           <motion.button

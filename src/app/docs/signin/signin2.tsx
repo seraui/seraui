@@ -112,23 +112,14 @@ const Signin2: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [fullName, setFullName] = useState<string>('');
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   const cardRef = useRef<HTMLDivElement>(null);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (cardRef.current) {
-      const rect = cardRef.current.getBoundingClientRect();
-      setMousePosition({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
-    }
-  };
+
 
   return (
     <>
@@ -137,9 +128,6 @@ const Signin2: React.FC = () => {
           {/* Main Card with shadcn/ui styling */}
           <div
             ref={cardRef}
-            onMouseMove={handleMouseMove}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
             className="relative bg-white dark:bg-black border border-border rounded-lg p-6 shadow-sm transition-all duration-200 hover:shadow-md"
           >
             {/* Header */}
