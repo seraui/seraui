@@ -109,14 +109,14 @@ export default function Login() {
 
   return (
     // Main container with a custom background pattern and flexbox for centering. This setup is inherently responsive.
-    <div className="relative w-full flex items-center justify-center font-sans overflow-hidden p-4 bg-zinc-50 dark:bg-zinc-950">
+    <div className="relative w-full flex items-center justify-center font-sans overflow-hidden">
 
       {/* Login Card - More compact and shadcn-like */}
-      <div className="relative w-full max-w-sm p-6 space-y-6 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 shadow-lg">
+      <div className="relative w-full max-w-sm p-6 space-y-6 bg-white dark:bg-black rounded-lg border border-zinc-200 dark:border-zinc-800 shadow-lg dark:shadow-zinc-900/50">
 
         {/* Header section with icon and title - More compact */}
         <div className="text-center space-y-3">
-          <div className="inline-flex p-2 bg-zinc-100 dark:bg-zinc-800 rounded-md">
+          <div className="inline-flex p-2 bg-zinc-100 dark:bg-zinc-900 rounded-md border border-zinc-200 dark:border-zinc-800">
             <UserIcon />
           </div>
           <div>
@@ -130,7 +130,7 @@ export default function Login() {
           {[{ icon: <AppleIcon /> }, { icon: <GoogleIcon /> }, { icon: <XIcon /> }].map((item, index) => (
             <button
               key={index}
-              className="flex items-center justify-center h-9 px-3 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-300"
+              className="flex items-center justify-center h-9 px-3 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-300"
             >
               {item.icon}
             </button>

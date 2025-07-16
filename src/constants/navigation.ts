@@ -75,7 +75,9 @@ export const navigation: NavigationItem[] = [
   {
     label : "Form & Cards",
     children: [
-      { label: "Login", href: "/docs/login"},
+      { label: "Login", href: "/docs/login", badge: "Updated"},
+      { label: "Sign In", href: "/docs/signin", badge: "New"},
+      { label: "Waitlist", href: "/docs/waitlist", badge: "New"},
       { label: "Card", href: "/docs/card"},
       { label: "Two Step", href: "/docs/twostep"},
       { label: "Amazon Gift Card", href: "/docs/amazongift"},

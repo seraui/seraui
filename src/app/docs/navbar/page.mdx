@@ -12,6 +12,7 @@ import HeaderComponent from "./navbar.tsx";
 import Header from "./header.tsx";
 import Header2 from "./header2.tsx";
 import Header3 from "./header3.tsx";
+import Header4 from "./header4.tsx";
 
 <HideTOC />
 
@@ -98,3 +99,18 @@ A premium navigation header with full-featured mobile menu, dark mode support, a
 
 ---
 
+# Standalone Navigation Header
+A standalone navigation header component with a static logged-in view, perfect for internal applications and dashboards.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Header4 />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/navbar/header4.tsx" />
+  </TabsContent>
+</Tabs>
