@@ -16,7 +16,7 @@ interface MenuItem {
 }
 
 // Transform the existing navigation data to match our new MenuItem interface
-const transformNavigation = () => {
+const transformNavigation = (): MenuItem[] => {
   return navigation.map(section => ({
     label: section.label,
     href: section.children[0]?.href || "#",
@@ -24,7 +24,8 @@ const transformNavigation = () => {
       label: child.label,
       href: child.href,
       badge: child.badge,
-      badges: (child as any).badges
+      // The navigation data doesn't have badges array, only badge
+      badges: undefined
     }))
   }));
 };
