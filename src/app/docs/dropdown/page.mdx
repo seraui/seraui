@@ -1,0 +1,290 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import { Table, StatusBadge } from "@/components/ui/table";
+
+import Dropdown from "./dropdown.tsx"
+import SimpleDropdown from "./simple-dropdown.tsx"
+import UserProfileDropdown from "./user-profile-dropdown.tsx"
+import NotificationDropdown from "./notification-dropdown.tsx"
+
+# Dropdown Menu
+
+A flexible and accessible dropdown menu component with customizable triggers, items, and styling. Perfect for navigation menus, user profiles, settings panels, and action lists.
+
+## Features
+
+- **Accessible**: Built with proper ARIA attributes and keyboard navigation support
+- **Customizable**: Flexible trigger and content options with full styling control
+- **Click Outside**: Automatically closes when clicking outside the dropdown
+- **Responsive**: Adapts to different screen sizes and positions
+- **Dark Mode**: Full support for light and dark themes
+- **Animations**: Smooth fade-in and zoom animations
+
+## Basic Example
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Dropdown />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/dropdown/dropdown.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Simple Dropdown
+
+A minimal dropdown example with basic menu items.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<SimpleDropdown />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/dropdown/simple-dropdown.tsx" />
+  </TabsContent>
+</Tabs>
+
+## User Profile Dropdown
+
+A comprehensive user profile dropdown with avatar, user info, and account actions.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<UserProfileDropdown />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/dropdown/user-profile-dropdown.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Notification Dropdown
+
+A notification center dropdown with badges and action items.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<NotificationDropdown />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/dropdown/notification-dropdown.tsx" />
+  </TabsContent>
+</Tabs>
+
+# Installation
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add dropdown.json`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/dropdown/dropdown.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Basic Usage
+
+Here's how to use the dropdown component in your project:
+
+```tsx
+import React from 'react';
+import { DropdownMenu, DropdownMenuItem, DropdownMenuSeparator } from './dropdown';
+
+function MyComponent() {
+  return (
+    <DropdownMenu
+      trigger={
+        <button className="px-4 py-2 bg-blue-500 text-white rounded">
+          Open Menu
+        </button>
+      }
+    >
+      <DropdownMenuItem onClick={() => console.log('Item 1')}>
+        Item 1
+      </DropdownMenuItem>
+      <DropdownMenuItem onClick={() => console.log('Item 2')}>
+        Item 2
+      </DropdownMenuItem>
+      <DropdownMenuSeparator />
+      <DropdownMenuItem onClick={() => console.log('Item 3')}>
+        Item 3
+      </DropdownMenuItem>
+    </DropdownMenu>
+  );
+}
+```
+
+## API Reference
+
+### DropdownMenu
+
+The main dropdown container component.
+
+<table border="1" cellspacing="0" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>children</code></td>
+      <td><code>ReactNode</code></td>
+      <td>-</td>
+      <td>The dropdown menu items and content</td>
+    </tr>
+    <tr>
+      <td><code>trigger</code></td>
+      <td><code>ReactNode</code></td>
+      <td>-</td>
+      <td>The element that triggers the dropdown when clicked</td>
+    </tr>
+  </tbody>
+</table>
+
+### DropdownMenuItem
+
+Individual menu item component.
+
+<table border="1" cellspacing="0" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>children</code></td>
+      <td><code>ReactNode</code></td>
+      <td>-</td>
+      <td>The content of the menu item</td>
+    </tr>
+    <tr>
+      <td><code>onClick</code></td>
+      <td><code>() =&gt; void</code></td>
+      <td>-</td>
+      <td>Function called when the item is clicked</td>
+    </tr>
+    <tr>
+      <td><code>active</code></td>
+      <td><code>boolean</code></td>
+      <td><code>false</code></td>
+      <td>Whether the item should appear in an active/highlighted state</td>
+    </tr>
+  </tbody>
+</table>
+
+### DropdownMenuSeparator
+
+A visual separator between menu items.
+
+<table border="1" cellspacing="0" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>No props required</td>
+    </tr>
+  </tbody>
+</table>
+
+## Usage Guidelines
+
+### Best Practices
+
+- **Clear Triggers**: Use descriptive button text or recognizable icons for dropdown triggers
+- **Logical Grouping**: Group related items together and use separators to create visual sections
+- **Consistent Styling**: Maintain consistent styling across all dropdown instances in your application
+- **Keyboard Navigation**: The component supports keyboard navigation out of the box
+- **Mobile Friendly**: Ensure dropdown content is appropriately sized for mobile devices
+
+### Accessibility
+
+The dropdown component includes several accessibility features:
+
+- **ARIA Attributes**: Proper `role`, `aria-orientation`, and `aria-expanded` attributes
+- **Keyboard Support**: Navigate with arrow keys, close with Escape
+- **Focus Management**: Proper focus handling when opening and closing
+- **Screen Reader Support**: Semantic markup for assistive technologies
+
+### Common Patterns
+
+#### Navigation Menu
+Use dropdowns for secondary navigation items or sub-menus.
+
+#### User Account Menu
+Perfect for user profile actions, settings, and sign-out functionality.
+
+#### Action Menus
+Ideal for context-sensitive actions like edit, delete, share, etc.
+
+#### Filter/Sort Options
+Great for providing filtering and sorting options in data tables or lists.
+
+## Styling Customization
+
+The dropdown uses Tailwind CSS classes and can be easily customized:
+
+```tsx
+// Custom dropdown with different styling
+<DropdownMenu
+  trigger={
+    <button className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full">
+      Custom Trigger
+    </button>
+  }
+>
+  {/* Menu items */}
+</DropdownMenu>
+```
+
+The dropdown menu container uses these default classes:
+- `origin-top-right absolute right-0 mt-2 w-64 rounded-2xl shadow-xl`
+- `bg-white dark:bg-zinc-900`
+- `ring-1 ring-black ring-opacity-5`
+- `animate-in fade-in-0 zoom-in-95`
+
+You can override these by modifying the component's CSS classes directly.

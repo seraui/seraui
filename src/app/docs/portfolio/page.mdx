@@ -1,0 +1,75 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { VitePressTable } from "@/components/ui/vitepress-table";
+import { HideTOC } from "@/components/site/hide-toc";
+import Portfolio from "./portfolio.tsx"
+import Portfolio2Page from "./portfolio2.tsx"
+import Portfolio3Page from "./portfolio3.tsx"
+
+
+<HideTOC />
+
+# Portfolio Hero section
+A collection of beautifully designed portfolio hero sections with advanced features and smooth animations. Perfect for showcasing images, portfolios, and interactive content.
+
+# Portfolio 
+A beautifully designed portfolio hero section with advanced features and smooth animations. Perfect for showcasing images, portfolios, and interactive content.
+
+<Tabs defaultValue="preview" className="mt-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Portfolio />} componentName="CoderProfileCard" />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/portfolio/portfolio.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+# Portfolio 2
+A beautifully designed portfolio hero section with advanced features and smooth animations. Perfect for showcasing images, portfolios, and interactive content.
+
+<Tabs defaultValue="preview" className="mt-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Portfolio2Page />} componentName="Portfolio2Page" />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/portfolio/portfolio2.tsx" />
+  </TabsContent>
+</Tabs>
+
+# Portfolio 3
+A beautifully designed portfolio hero section with advanced features and smooth animations. Perfect for showcasing images, portfolios, and interactive content.
+
+<Tabs defaultValue="preview" className="mt-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Portfolio3Page />} componentName="Portfolio3Page" />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/portfolio/portfolio3.tsx" />
+  </TabsContent>
+</Tabs>

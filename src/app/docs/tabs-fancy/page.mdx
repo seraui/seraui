@@ -1,0 +1,64 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import TabsViewFancy from "./tabs-view-fancy.tsx"
+
+
+# 💎 Tabs View: Fancy
+
+This **Fancy Tabs** component offers a vibrant and animated design perfect for modern user interfaces. It leverages smooth transitions and a sleek aesthetic to create an engaging user experience. Ideal for dashboards, portfolios, or any application where a touch of style can elevate the content.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TabsViewFancy />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/tabs-fancy/tabs-view-fancy.tsx" />
+  </TabsContent>
+</Tabs>
+
+# 🚀 Installation
+You can add this component to your project using the CLI or by manually copying the code.
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add tabs-fancy.json`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/tabs-fancy/tabs-view-fancy.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+
+# 💻 Usage
+
+After installation, you can import and use the `TabsViewFancy` component in your application.
+
+```tsx
+import { TabsViewFancy } from "@/components/ui/tabs-view-fancy"; // Adjust the import path as needed
+
+export default function MyPage() {
+  return (
+    <div className="p-8">
+      <h1 className="text-2xl font-bold mb-4">My Awesome Feature</h1>
+      <TabsViewFancy />
+    </div>
+  );
+}
+```

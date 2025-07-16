@@ -1,0 +1,380 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+
+import PasswordInput from "./password.tsx"
+import StrongPasswordInput from "./strongPassword.tsx"
+
+# Password Input Components
+
+Secure and user-friendly password input components with visibility toggle and optional strength validation. Perfect for authentication forms, registration pages, and any application requiring password input.
+
+## Basic Password Input
+
+A simple password input with visibility toggle functionality.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<PasswordInput />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/password/password.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Key Features
+- **Toggle Visibility**: Click the eye icon to show/hide password
+- **Clean Design**: Minimal and professional appearance
+- **Accessibility**: Proper labeling and keyboard support
+- **Responsive**: Adapts to container width
+
+---
+
+## Strong Password Input
+
+An enhanced password input with real-time validation and strength requirements.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<StrongPasswordInput />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/password/strongPassword.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Validation Rules
+- **Minimum Length**: At least 8 characters
+- **Numbers**: At least 1 numeric digit
+- **Lowercase**: At least 1 lowercase letter
+- **Uppercase**: At least 1 uppercase letter
+- **Special Characters**: At least 1 special character
+
+### Visual Indicators
+- ✅ **Green checkmark**: Requirement met
+- ❌ **Red X**: Requirement not met
+- **Real-time feedback**: Updates as you type
+- **Color-coded text**: Green for valid, muted for invalid
+
+---
+
+# Installation
+
+You can add these components to your project using the CLI or by manually copying the code.
+
+## Basic Password Input
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add password.json`} />
+  </TabsContent>
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/password/password.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Strong Password Input
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add strongPassword.json`} />
+  </TabsContent>
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/password/strongPassword.tsx" />
+  </TabsContent>
+</Tabs>
+
+---
+
+# Usage Examples
+
+## Basic Implementation
+
+After installation, import and use the components in your React application:
+
+```tsx
+import PasswordInput from './components/password-input';
+import StrongPasswordInput from './components/strong-password-input';
+
+function LoginForm() {
+  return (
+    <form className="space-y-4">
+      <PasswordInput />
+      <button type="submit">Sign In</button>
+    </form>
+  );
+}
+
+function RegistrationForm() {
+  return (
+    <form className="space-y-4">
+      <StrongPasswordInput />
+      <button type="submit">Create Account</button>
+    </form>
+  );
+}
+```
+
+## Custom Styling
+
+Both components accept standard input props and can be customized:
+
+```tsx
+<PasswordInput
+  placeholder="Enter your password"
+  className="custom-input-class"
+  disabled={isLoading}
+/>
+
+<StrongPasswordInput
+  placeholder="Create a secure password"
+  autoComplete="new-password"
+/>
+```
+
+## Form Integration
+
+Perfect for use with form libraries like React Hook Form:
+
+```tsx
+import { useForm } from 'react-hook-form';
+
+function SignUpForm() {
+  const { register, handleSubmit, watch } = useForm();
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="space-y-4">
+        <input
+          {...register("email")}
+          type="email"
+          placeholder="Email"
+        />
+        <StrongPasswordInput
+          {...register("password")}
+          placeholder="Password"
+        />
+        <button type="submit">Sign Up</button>
+      </div>
+    </form>
+  );
+}
+```
+
+---
+
+# Component Props
+
+## PasswordInput Props
+
+<table border="1" cellspacing="0" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>placeholder</code></td>
+      <td><code>string</code></td>
+      <td><code>"Enter your password"</code></td>
+      <td>Placeholder text for the input field.</td>
+    </tr>
+    <tr>
+      <td><code>className</code></td>
+      <td><code>string</code></td>
+      <td><code>""</code></td>
+      <td>Additional CSS classes for the input container.</td>
+    </tr>
+    <tr>
+      <td><code>disabled</code></td>
+      <td><code>boolean</code></td>
+      <td><code>false</code></td>
+      <td>Whether the input is disabled.</td>
+    </tr>
+    <tr>
+      <td><code>...inputProps</code></td>
+      <td><code>React.InputHTMLAttributes</code></td>
+      <td></td>
+      <td>Any other standard input attributes (e.g., <code>onChange</code>, <code>onFocus</code>, <code>autoComplete</code>).</td>
+    </tr>
+  </tbody>
+</table>
+
+## StrongPasswordInput Props
+
+<table border="1" cellspacing="0" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>placeholder</code></td>
+      <td><code>string</code></td>
+      <td><code>"Create a strong password"</code></td>
+      <td>Placeholder text for the input field.</td>
+    </tr>
+    <tr>
+      <td><code>className</code></td>
+      <td><code>string</code></td>
+      <td><code>""</code></td>
+      <td>Additional CSS classes for the input container.</td>
+    </tr>
+    <tr>
+      <td><code>disabled</code></td>
+      <td><code>boolean</code></td>
+      <td><code>false</code></td>
+      <td>Whether the input is disabled.</td>
+    </tr>
+    <tr>
+      <td><code>...inputProps</code></td>
+      <td><code>React.InputHTMLAttributes</code></td>
+      <td></td>
+      <td>Any other standard input attributes (e.g., <code>onChange</code>, <code>onFocus</code>, <code>autoComplete</code>).</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+# Accessibility Features
+
+Both password components are built with accessibility in mind:
+
+## Keyboard Navigation
+- **Tab Navigation**: Navigate between input and toggle button using Tab key
+- **Enter/Space**: Activate the visibility toggle button
+- **Screen Reader Support**: Proper ARIA labels and descriptions
+
+## ARIA Attributes
+- `aria-label="Toggle password visibility"` on the toggle button
+- Proper labeling for password requirements in Strong Password variant
+- Semantic HTML structure for better screen reader compatibility
+
+## Visual Indicators
+- **High Contrast**: Clear visual distinction between states
+- **Color Independence**: Information conveyed through icons, not just color
+- **Focus States**: Visible focus indicators for keyboard users
+
+---
+
+# Customization
+
+## Styling Customization
+
+The components use Tailwind CSS classes that can be easily customized:
+
+```tsx
+// Custom input styling
+<PasswordInput
+  className="border-blue-500 focus:ring-blue-500"
+  placeholder="Custom styled password"
+/>
+
+// Custom validation colors
+<StrongPasswordInput
+  className="border-purple-500 focus:ring-purple-500"
+/>
+```
+
+## Validation Rules Customization
+
+For the Strong Password component, you can modify the validation rules in the source code:
+
+```tsx
+const validationRules = [
+  { id: 'length', text: 'At least 12 characters', regex: /.{12,}/ },
+  { id: 'number', text: 'At least 2 numbers', regex: /\d.*\d/ },
+  // Add custom rules as needed
+];
+```
+
+## Icon Customization
+
+Replace the default eye icons with your preferred icons:
+
+```tsx
+// Replace EyeIcon and EyeOffIcon components with your custom icons
+const CustomEyeIcon = ({ className }) => (
+  <YourCustomIcon className={className} />
+);
+```
+
+---
+
+# Best Practices
+
+## Security Considerations
+- **Never log passwords**: Avoid logging password values in development or production
+- **Use HTTPS**: Always transmit passwords over secure connections
+- **Implement rate limiting**: Protect against brute force attacks
+- **Hash passwords**: Use proper password hashing on the server side
+
+## UX Recommendations
+- **Clear requirements**: Use the Strong Password variant for registration forms
+- **Progressive disclosure**: Show validation only after user starts typing
+- **Helpful feedback**: Provide clear, actionable validation messages
+- **Consistent placement**: Keep password fields in expected locations
+
+## Form Integration
+- **Proper autocomplete**: Use `autoComplete="current-password"` for login, `autoComplete="new-password"` for registration
+- **Validation timing**: Validate on blur or after user stops typing, not on every keystroke
+- **Error handling**: Provide clear error messages for failed validation
+
+---
+
+# Use Cases
+
+## Login Forms
+Use the basic `PasswordInput` for simple, clean login interfaces:
+- Minimal visual clutter
+- Quick password entry
+- Standard visibility toggle
+
+## Registration Forms
+Use `StrongPasswordInput` for account creation:
+- Guides users to create secure passwords
+- Real-time validation feedback
+- Reduces password-related support issues
+
+## Password Change Forms
+Use `StrongPasswordInput` when users update their passwords:
+- Ensures new passwords meet security requirements
+- Helps users understand password policies
+- Improves overall account security
+
+## Admin Interfaces
+Both components work well in admin dashboards:
+- Professional appearance
+- Consistent with modern UI patterns
+- Accessible for all users

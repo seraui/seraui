@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "title": "Button",
+  "description": "A minimalistic button component designed with React and Tailwind CSS.",
+  "author": "Nazmul Hossain",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "button.tsx",
+      "content": "import Button from \"./button\"\r\nconst ButtonView = () => {\r\n    return (\r\n      <div className=\"flex w-full flex-col items-center justify-center gap-8\">\r\n          {/* Basic Variants */}\r\n          <div className=\"flex flex-col gap-4\">\r\n            <div className=\"flex flex-wrap items-center justify-center gap-4\">\r\n                <Button variant=\"default\">Default</Button>\r\n                <Button variant=\"destructive\">Destructive</Button>\r\n                <Button variant=\"outline\">Outline</Button>\r\n                <Button variant=\"secondary\">Secondary</Button>\r\n                <Button variant=\"ghost\">Ghost</Button>\r\n                <Button variant=\"link\">Link</Button>\r\n            </div>\r\n          </div>\r\n\r\n          {/* Sizes and Loading */}\r\n          <div className=\"flex flex-col gap-4\">\r\n            <div className=\"flex flex-wrap items-center justify-center gap-4\">\r\n                <Button variant=\"default\" size=\"sm\">Small</Button>\r\n                <Button variant=\"default\" size=\"lg\">Large</Button>\r\n                <Button variant=\"default\" loading>Loading</Button>\r\n                <Button variant=\"outline\" loading>Loading</Button>\r\n            </div>\r\n          </div>\r\n      </div>\r\n    );\r\n  }\r\n  \r\n  export default ButtonView;\r\n  ",
+      "type": "registry:ui"
+    }
+  ]
+}

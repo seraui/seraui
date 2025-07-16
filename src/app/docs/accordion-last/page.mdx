@@ -1,0 +1,62 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import AccordionLast from "./accordion-last.tsx"
+
+# Accordion Last
+A minimalistic accordion component with last item styling designed with React and Tailwind CSS.
+
+## Preview
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<AccordionLast />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/accordion-last/accordion-last.tsx" />
+  </TabsContent>
+</Tabs>
+
+# 🚀 Installation
+You can add this component to your project using the CLI or by manually copying the code.
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add accordion-last.json`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/accordion-last/accordion-last.tsx" />
+  </TabsContent>
+</Tabs>
+
+# 🛠️ Usage
+
+After installation, import and use the accordion component in your React application:
+
+```tsx
+import AccordionLast from './accordion-last';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
+      <AccordionLast />
+    </div>
+  );
+}
+```

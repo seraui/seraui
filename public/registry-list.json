@@ -1,0 +1,108 @@
+{
+  "lastUpdated": "2025-08-27T07:10:12.122Z",
+  "totalFiles": 18,
+  "files": [
+    {
+      "name": "accordion",
+      "filename": "accordion.json",
+      "path": "/registry/accordion.json",
+      "size": 3875
+    },
+    {
+      "name": "button",
+      "filename": "button.json",
+      "path": "/registry/button.json",
+      "size": 6487
+    },
+    {
+      "name": "tabs-classic",
+      "filename": "tabs-classic.json",
+      "path": "/registry/tabs-classic.json",
+      "size": 5689
+    },
+    {
+      "name": "tabs-fancy",
+      "filename": "tabs-fancy.json",
+      "path": "/registry/tabs-fancy.json",
+      "size": 6530
+    },
+    {
+      "name": "tabs",
+      "filename": "tabs.json",
+      "path": "/registry/tabs.json",
+      "size": 3691
+    },
+    {
+      "name": "card",
+      "filename": "card.json",
+      "path": "/registry/card.json",
+      "size": 3691
+    },
+    {
+      "name": "login",
+      "filename": "login.json",
+      "path": "/registry/login.json",
+      "size": 3691
+    },
+    {
+      "name": "twostep",
+      "filename": "twostep.json",
+      "path": "/registry/twostep.json",
+      "size": 3691
+    },
+    {
+      "name": "search",
+      "filename": "search.json",
+      "path": "/registry/search.json",
+      "size": 3691
+    },
+    {
+      "name": "prompt",
+      "filename": "prompt.json",
+      "path": "/registry/prompt.json",
+      "size": 3691
+    },
+    {
+      "name": "password",
+      "filename": "password.json",
+      "path": "/registry/password.json",
+      "size": 3691
+    },
+    {
+      "name": "strongPassword",
+      "filename": "strongPassword.json",
+      "path": "/registry/strongPassword.json",
+      "size": 3691
+    },
+    {
+      "name": "fuzzy",
+      "filename": "fuzzy.json",
+      "path": "/registry/fuzzy.json",
+      "size": 3691
+    },
+    {
+      "name": "dock",
+      "filename": "dock.json",
+      "path": "/registry/dock.json",
+      "size": 3691
+    },
+    {
+      "name": "amazongift",
+      "filename": "amazongift.json",
+      "path": "/registry/amazongift.json",
+      "size": 3691
+    },
+    {
+      "name": "flipwords",
+      "filename": "flipwords.json",
+      "path": "/registry/flipwords.json",
+      "size": 3691
+    },
+    {
+      "name": "textreveal",
+      "filename": "textreveal.json",
+      "path": "/registry/textreveal.json",
+      "size": 3691
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { HideTOC } from "@/components/site/hide-toc";
+import HeaderComponent from "./navbar.tsx";
+import Header from "./header.tsx";
+import Header2 from "./header2.tsx";
+import Header3 from "./header3.tsx";
+import Header4 from "./header4.tsx";
+
+<HideTOC />
+
+# Navigation Components
+
+A comprehensive collection of modern, responsive navigation components designed for web applications. These navbar components feature clean designs, smooth animations, mobile-first responsive layouts, and accessibility-focused implementations.
+
+## Basic Navbar
+
+A simple, clean navigation bar with essential navigation links and a centered logo design.
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<HeaderComponent />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/navbar/navbar.tsx" />
+  </TabsContent>
+</Tabs>
+
+---
+
+## Professional Header
+
+A sophisticated navigation header with enhanced styling, perfect for business and professional websites.
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Header />} /> 
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/navbar/header.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+---
+
+## Advanced Navigation
+
+An advanced navigation component with enhanced features, perfect for complex applications and dashboards.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Header2 />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/navbar/header2.tsx" />
+  </TabsContent>
+</Tabs>
+
+---
+
+## Premium Header
+
+A premium navigation header with full-featured mobile menu, dark mode support, and polished animations. Ideal for modern web applications.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Header3 />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/navbar/header3.tsx" />
+  </TabsContent>
+</Tabs>
+
+---
+
+# Standalone Navigation Header
+A standalone navigation header component with a static logged-in view, perfect for internal applications and dashboards.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Header4 />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/navbar/header4.tsx" />
+  </TabsContent>
+</Tabs>

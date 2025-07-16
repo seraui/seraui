@@ -1,0 +1,215 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+
+import FlipwordsView from "./flipwords-view.tsx"
+
+# FlipWords
+
+A dynamic text animation component that smoothly transitions between different words with elegant spring animations and blur effects. Perfect for creating engaging hero sections and dynamic content displays.
+
+## Preview
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<FlipwordsView />} componentName="flipwords" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/flipwords/flipwords.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Features
+
+- **Smooth Animations**: Powered by Framer Motion with spring physics for natural movement
+- **Character-by-Character Animation**: Each letter animates individually for a sophisticated effect
+- **Customizable Timing**: Adjustable duration between word transitions
+- **Blur Effects**: Elegant blur transitions during word changes
+- **TypeScript Support**: Fully typed for better development experience
+- **Responsive Design**: Works seamlessly across all screen sizes
+- **Dark Mode Compatible**: Adapts to light and dark themes
+
+## Installation
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add flipwords.json`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/flipwords/flipwords.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+After installing the component, import it into your page or component file. The `FlipWords` component requires a `words` array and accepts optional `duration` and `className` props.
+
+```tsx
+import { FlipWords } from './flipwords';
+
+export default function MyComponent() {
+  return (
+    <div className="text-4xl font-bold">
+      I love{" "}
+      <FlipWords
+        words={["creating", "building", "designing", "crafting"]}
+        duration={3000}
+        className="text-blue-600"
+      />
+      {" "}amazing experiences
+    </div>
+  );
+}
+```
+
+## Examples
+
+### Basic Usage
+
+```tsx
+<FlipWords words={["React", "Next.js", "TypeScript", "Tailwind"]} />
+```
+
+### Custom Duration
+
+```tsx
+<FlipWords
+  words={["fast", "smooth", "elegant", "responsive"]}
+  duration={2000}
+/>
+```
+
+### Styled with Custom Classes
+
+```tsx
+<FlipWords
+  words={["beautiful", "modern", "sleek", "professional"]}
+  className="text-purple-600 dark:text-purple-400 font-semibold"
+  duration={4000}
+/>
+```
+
+## API Reference
+
+<PropsTable
+  props={[
+    {
+      name: "words",
+      type: "string[]",
+      description: "Array of words to cycle through in the animation",
+      required: true,
+    },
+    {
+      name: "duration",
+      type: "number",
+      default: "3000",
+      description: "Duration in milliseconds between word transitions",
+      required: false,
+    },
+    {
+      name: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes to apply to the component",
+      required: false,
+    },
+  ]}
+/>
+
+## Animation Details
+
+The FlipWords component uses sophisticated animation techniques:
+
+### Entry Animation
+- **Opacity**: Fades in from 0 to 1
+- **Y Position**: Slides up from 10px offset
+- **Spring Physics**: Uses stiffness: 150, damping: 15, mass: 0.8
+
+### Exit Animation
+- **Opacity**: Fades out to 0
+- **Position**: Moves up (-40px) and right (40px)
+- **Scale**: Scales up to 2x size
+- **Blur**: Applies 8px blur effect
+- **Spring Physics**: Uses stiffness: 200, damping: 20
+
+### Character Animation
+- **Individual Letters**: Each character animates independently
+- **Staggered Timing**: Letters appear with 0.05s delay between each
+- **Word Staggering**: Multiple words have 0.3s delay between them
+- **Blur to Focus**: Characters start blurred and sharpen on entry
+
+## Customization
+
+### Styling
+
+The component accepts a `className` prop for custom styling:
+
+```tsx
+<FlipWords
+  words={["custom", "styled", "beautiful"]}
+  className="text-6xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+/>
+```
+
+### Animation Timing
+
+Adjust the `duration` prop to control how long each word is displayed:
+
+```tsx
+// Fast transitions (1.5 seconds)
+<FlipWords words={["quick", "fast", "rapid"]} duration={1500} />
+
+// Slow transitions (5 seconds)
+<FlipWords words={["slow", "steady", "deliberate"]} duration={5000} />
+```
+
+## Dependencies
+
+This component requires the following dependencies:
+
+- **framer-motion**: For smooth animations and transitions
+- **react**: React 18 or higher
+- **clsx** or **tailwind-merge**: For conditional class names (via utils)
+
+## Best Practices
+
+1. **Word Length**: Keep words relatively similar in length for better visual consistency
+2. **Duration**: Use 2-4 seconds for optimal readability
+3. **Context**: Works best in hero sections, headings, and call-to-action areas
+4. **Accessibility**: Consider users with motion sensitivity - provide reduced motion alternatives
+5. **Performance**: Limit to 3-6 words for optimal performance
+
+## Troubleshooting
+
+### Common Issues
+
+**Animation not working**: Ensure Framer Motion is properly installed and imported.
+
+**Layout shifts**: Use consistent word lengths or set a fixed width container.
+
+**Performance issues**: Reduce the number of words or increase duration for better performance.
+
+## Browser Support
+
+- Chrome 60+
+- Firefox 55+
+- Safari 12+
+- Edge 79+
+
+The component gracefully degrades in older browsers by showing static text without animations.

@@ -1,0 +1,50 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { HideTOC } from "@/components/site/hide-toc";
+import Testimonial from "./testimonial";
+import Testimonial2 from "./testimonial2";
+
+<HideTOC />
+
+# Testimonial
+
+A testimonial component that displays a list of testimonials with avatars and names.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Testimonial />} componentName="testimonial" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/testimonial/testimonial.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+
+
+# Testimonial Modern
+A testimonial component that displays a list of testimonials with avatars and names. This is a modern version of the testimonial component.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Testimonial2 />} componentName="testimonial2" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/testimonial/testimonial2.tsx" />
+  </TabsContent>
+</Tabs>

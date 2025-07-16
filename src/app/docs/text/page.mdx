@@ -1,0 +1,255 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import SlideInView from "./slideIn.tsx"
+import ScaleInView from "./scalein.tsx"
+import BouncyView from "./bouncy.tsx"
+import BlurInView from "./blurin.tsx"
+import WavyView from "./wavy.tsx"
+import TexturedMaskView from "./texturedmask.tsx"
+import StaggeredPopInView from "./staggeredpopin.tsx"
+import ShinyView from "./shiny.tsx"
+import GradientView from "./gradient.tsx"
+import GlitchView from "./glitch.tsx"
+import MorphingView from "./morphing.tsx"
+import TypewriterView from "./typewriter.tsx"
+import ParticleView from "./particle.tsx"
+
+# Text Animation Components
+
+A collection of beautiful text animation components built with Framer Motion and React. These components provide various entrance effects, continuous animations, and interactive text displays perfect for modern web applications.
+
+## Slide In Text
+
+A smooth character-by-character slide-in animation that reveals text from left to right with a subtle staggered delay. Perfect for hero sections and attention-grabbing headlines.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<SlideInView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/slideIn.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+
+## Scale In Text
+
+An elegant scaling animation that grows each character from zero to full size with a smooth easing effect. Creates a dynamic entrance that draws attention to important text content.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<ScaleInView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/scalein.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Bouncy Text
+
+A playful bouncing animation that adds personality to your text with spring physics. Each character bounces into view with a natural, elastic motion that's perfect for fun and engaging interfaces.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<BouncyView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/bouncy.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Blur In Text
+
+A sophisticated blur-to-focus animation that gradually sharpens each character as it appears. Creates a cinematic effect that's perfect for premium and professional interfaces.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<BlurInView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/blurin.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Wavy Text
+
+A continuous wave animation that creates a flowing, rhythmic motion across the text. Uses smooth spring physics to create an organic, mesmerizing effect that's perfect for creative and artistic applications.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<WavyView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/wavy.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Textured Mask Text
+
+An advanced masking animation that reveals text through dynamic texture patterns. Creates a unique visual effect that combines typography with artistic masking techniques for standout presentations.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TexturedMaskView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/texturedmask.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Staggered Pop In Text
+
+A dynamic pop-in animation with staggered timing that creates a cascading reveal effect. Each character pops into view with a slight delay, building momentum and creating visual rhythm.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<StaggeredPopInView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/staggeredpopin.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Shiny Text
+
+A lustrous shimmer effect that sweeps across the text, creating a metallic or glossy appearance. Perfect for premium branding and luxury interfaces that need to convey elegance and sophistication.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<ShinyView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/shiny.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Gradient Text
+
+A vibrant animated gradient that flows through the text, creating dynamic color transitions. Ideal for modern interfaces that want to showcase creativity and energy with smooth color animations.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<GradientView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/gradient.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Glitch Text
+
+A cyberpunk-inspired glitch effect with customizable speed, shadows, and hover interactions. Features RGB color separation and digital distortion effects perfect for gaming, tech, and futuristic interfaces.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<GlitchView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/glitch.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Morphing Text
+
+An advanced 3D morphing animation that seamlessly transitions between different words with blur, scale, and rotation effects. Perfect for showcasing multiple concepts or creating dynamic hero sections with rotating messages.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<MorphingView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/morphing.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Typewriter Text
+
+A classic typewriter effect with realistic typing speed, character-by-character reveal, and optional delete/rewrite functionality. Features a blinking cursor and customizable typing speeds for authentic retro computing aesthetics.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TypewriterView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/typewriter.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Particle Text
+
+An interactive particle system that surrounds text with floating, animated particles. Features customizable particle count, colors, and physics-based movement patterns that create an immersive, magical atmosphere around your typography.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<ParticleView />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text/particle.tsx" />
+  </TabsContent>
+</Tabs>
+

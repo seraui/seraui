@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "title": "Tabs",
+  "description": "A minimalistic tab component designed with React and Tailwind CSS.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "tabs.tsx",
+      "content": "'use client';\r\n\r\nimport { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\n\r\nexport type TabItem = {\r\n  id: string | number;\r\n  name: string;\r\n  content: string;\r\n};\r\n\r\nexport interface TabsProps {\r\n  items?: TabItem[];\r\n  className?: string;\r\n}\r\n\r\nexport default function Tabs({ items = [], className = '' }: TabsProps) {\r\n  const [activeTab, setActiveTab] = useState<string | number>(items[0]?.id ?? 1);\r\n\r\n  const tabVariants = {\r\n    hidden: { opacity: 0, y: 10 },\r\n    visible: { opacity: 1, y: 0 },\r\n    exit: { opacity: 0, y: -10 }\r\n  };\r\n\r\n  const indicatorVariants = {\r\n    hidden: { scaleX: 0 },\r\n    visible: { scaleX: 1 }\r\n  };\r\n\r\n  const contentVariants = {\r\n    hidden: { opacity: 0 },\r\n    visible: { opacity: 1 },\r\n    exit: { opacity: 0 }\r\n  };\r\n\r\n  return (\r\n    <motion.div \r\n      initial=\"hidden\"\r\n      animate=\"visible\"\r\n      variants={tabVariants}\r\n      className={`bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-100/50 dark:border-gray-800/50 overflow-hidden w-full max-w-2xl ${className}`}\r\n    >\r\n      {/* Tabs Header */}\r\n      <div className='flex border-b border-gray-100/60 dark:border-gray-800/60 bg-gray-50/50 dark:bg-gray-950/50 backdrop-blur-sm'>\r\n        {items.map((tab) => (\r\n          <motion.button\r\n            key={tab.id}\r\n            onClick={() => setActiveTab(tab.id)}\r\n            className={`relative px-6 py-4 text-sm font-medium transition-all duration-300 ease-out ${\r\n              activeTab === tab.id\r\n                ? 'text-slate-800 dark:text-slate-200'\r\n                : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'\r\n            }`}\r\n            whileHover={{ scale: 1.02 }}\r\n            whileTap={{ scale: 0.98 }}\r\n            aria-selected={activeTab === tab.id}\r\n            role='tab'\r\n          >\r\n            <span className='relative z-10'>{tab.name}</span>\r\n            {activeTab === tab.id && (\r\n              <motion.div\r\n                layoutId=\"activeTab\"\r\n                className='absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-slate-600 to-slate-800 dark:from-slate-400 dark:to-slate-600'\r\n                initial=\"hidden\"\r\n                animate=\"visible\"\r\n                variants={indicatorVariants}\r\n                transition={{ duration: 0.3, ease: \"easeOut\" }}\r\n              />\r\n            )}\r\n          </motion.button>\r\n        ))}\r\n      </div>\r\n\r\n      {/* Content Area */}\r\n      <div className='relative overflow-hidden'>\r\n        <AnimatePresence mode=\"wait\">\r\n          <motion.div\r\n            key={activeTab}\r\n            role='tabpanel'\r\n            className='p-8 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm text-slate-700 dark:text-slate-300'\r\n            variants={contentVariants}\r\n            initial=\"hidden\"\r\n            animate=\"visible\"\r\n            exit=\"exit\"\r\n            transition={{ duration: 0.2, ease: \"easeInOut\" }}\r\n          >\r\n            {items.find((tab) => tab.id === activeTab)?.content || items[0]?.content}\r\n          </motion.div>\r\n        </AnimatePresence>\r\n      </div>\r\n    </motion.div>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}
