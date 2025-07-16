@@ -107,8 +107,8 @@ export const navigation: NavigationItem[] = [
   {
     label : "Components",
     children: [
-      { label: "Patterns Collection", href: "/docs/pattern"},
-      {label : "marquee" , href : "/docs/marquee"},
+      { label: "Patterns Collection", href: "/docs/pattern" , badge: "Tool"},
+      { label : "marquee" , href : "/docs/marquee"},
       { label: "Code Profile", href: "/docs/codeprofile" , badge: "New"},
       { label: "Portfolio", href: "/docs/portfolio" , badge: "New"},
       { label : "Orbiting Circles" , href : "/docs/integrations"},

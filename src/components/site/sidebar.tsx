@@ -11,6 +11,7 @@ interface MenuItem {
   label: string;
   href: string;
   badge?: string;
+  badges?: string[];
   children?: MenuItem[];
 }
 
@@ -22,12 +23,31 @@ const transformNavigation = () => {
     children: section.children.map(child => ({
       label: child.label,
       href: child.href,
-      badge: child.badge
+      badge: child.badge,
+      badges: (child as any).badges
     }))
   }));
 };
 
 const menuData = transformNavigation();
+
+// Helper function to get badge styling
+const getBadgeStyle = (badge: string) => {
+  switch (badge) {
+    case "New":
+      return "bg-green-100 text-green-700 dark:bg-green-950/60 dark:text-green-400";
+    case "Updated":
+      return "bg-orange-100 text-orange-700 dark:bg-orange-950/60 dark:text-orange-400";
+    case "Tool":
+      return "bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-400 border border-blue-200 dark:border-blue-800";
+    case "Premium":
+      return "bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-700 dark:from-purple-950/60 dark:to-indigo-950/60 dark:text-purple-400 border border-purple-200 dark:border-purple-800/50";
+    case "Pro":
+      return "bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-black font-bold shadow-lg shadow-amber-500/25 border border-amber-300 dark:from-amber-500 dark:via-yellow-400 dark:to-amber-500 dark:text-black dark:shadow-amber-400/30 dark:border-amber-400";
+    default:
+      return "bg-gray-100 text-gray-700 dark:bg-gray-950/60 dark:text-gray-400";
+  }
+};
 
 const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean }> = ({ item, isNested = false }) => {
   const pathName = usePathname();
@@ -73,13 +93,19 @@ const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean }> = ({ item, isNe
           {item.badge && (
             <span className={cn(
               "text-xs font-medium px-2 py-0.5 rounded-full ml-1.5",
-              item.badge === "New" ? "bg-green-100 text-green-700 dark:bg-green-950/60 dark:text-green-400" : 
-              item.badge === "Updated" ? "bg-orange-100 text-orange-700 dark:bg-orange-950/60 dark:text-orange-400" :
-              "bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-400"
+              getBadgeStyle(item.badge)
             )}>
               {item.badge}
             </span>
           )}
+          {item.badges && item.badges.map((badge, index) => (
+            <span key={index} className={cn(
+              "text-xs font-medium px-2 py-0.5 rounded-full ml-1",
+              getBadgeStyle(badge)
+            )}>
+              {badge}
+            </span>
+          ))}
         </span>
       </div>
       
@@ -114,13 +140,19 @@ const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean }> = ({ item, isNe
                   {child.badge && (
                     <span className={cn(
                       "text-xs font-medium px-2 py-0.5 rounded-full ml-1.5",
-                      child.badge === "New" ? "bg-green-100 text-green-700 dark:bg-green-950/60 dark:text-green-400" : 
-                      child.badge === "Updated" ? "bg-orange-100 text-orange-700 dark:bg-orange-950/60 dark:text-orange-400" :
-                      "bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-400"
+                      getBadgeStyle(child.badge)
                     )}>
                       {child.badge}
                     </span>
                   )}
+                  {child.badges && child.badges.map((badge, index) => (
+                    <span key={index} className={cn(
+                      "text-xs font-medium px-2 py-0.5 rounded-full ml-1",
+                      getBadgeStyle(badge)
+                    )}>
+                      {badge}
+                    </span>
+                  ))}
                 </div>
               </li>
             );
