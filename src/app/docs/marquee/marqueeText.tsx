@@ -97,7 +97,7 @@ const LinearLoop: FC<LinearLoopProps> = ({
 
     let frame: number;
     const step = () => {
-      tspansRef.current.forEach((t, index) => {
+      tspansRef.current.forEach((t) => {
         if (!t) return;
         let x = parseFloat(t.getAttribute("x") || "0");
 

@@ -96,7 +96,7 @@ function NetworkVisualization() {
   ];
 
   // Avatar data array with diverse images. Positions will be calculated dynamically.
-  const avatars: Avatar[] = [
+  const avatars: Avatar[] = useMemo(() => [
     { id: 1, name: "Nazmul Hossain", image: newImageLinks[0], ring: "outer" },
     { id: 2, name: "Maya", image: newImageLinks[1], ring: "outer" },
     { id: 3, name: "Jordan", image: newImageLinks[2], ring: "outer" },
@@ -123,7 +123,7 @@ function NetworkVisualization() {
     { id: 22, name: "Blair", image: newImageLinks[3 % newImageLinks.length], ring: "inner" },
     { id: 23, name: "Jordan S.", image: newImageLinks[4 % newImageLinks.length], ring: "outer" },
     { id: 24, name: "Casey M.", image: newImageLinks[5 % newImageLinks.length], ring: "inner" },
-  ];
+  ], [newImageLinks]);
 
   // Separate avatars into inner and outer rings for distinct positioning
   const outerRingAvatars = avatars.filter(a => a.ring === 'outer');
