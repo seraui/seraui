@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { ScrollArea } from "@/components/site/scroll-area";
 import { navigation } from "@/constants/navigation";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LoadingLink } from "@/components/ui/loading-link";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
 interface MenuItem {
@@ -99,7 +99,7 @@ const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean }> = ({ item, isNe
                   <span className="absolute left-[-5px] top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-blue-500 rounded-full" />
                 )}
                 <div className="flex items-center">
-                  <Link
+                  <LoadingLink
                     href={child.href}
                     className={cn(
                       "block py-1 text-sm",
@@ -108,9 +108,10 @@ const MenuItem: React.FC<{ item: MenuItem, isNested?: boolean }> = ({ item, isNe
                         : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
                     )}
                     aria-current={isChildActive ? "page" : undefined}
+                    loadingId={`sidebar-${child.href}`}
                   >
                     {child.label}
-                  </Link>
+                  </LoadingLink>
                   {child.badge && (
                     <span className={cn(
                       "text-xs font-medium px-2 py-0.5 rounded-full ml-1.5",
@@ -145,12 +146,13 @@ const Sidebar = () => {
           </nav>
           
           <div className="mt-6 pt-3 border-t border-zinc-100 dark:border-zinc-800">
-            <Link
+            <LoadingLink
               href="/docs"
               className="block py-1.5 text-sm text-blue-600 dark:text-blue-400"
+              loadingId="sidebar-getting-started"
             >
               Getting Started Guide
-            </Link>
+            </LoadingLink>
           </div>
         </div>
       </ScrollArea>

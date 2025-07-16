@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { RotateCw, Expand, ExternalLink } from "lucide-react";
 import { cloneElement, useState, useRef } from "react";
+import { useComponentLoading } from "@/hooks/use-component-loading";
 
 type ComponentPreviewProps = {
   component: React.ReactElement;
@@ -20,19 +21,60 @@ export function ComponentRenderer({
   const [isFullPage, setIsFullPage] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const changeKey = () => {
+  const { startComponentLoading, finishComponentLoading } = useComponentLoading({
+    loadingId: `component-${componentName || 'preview'}`,
+    minLoadingTime: 400,
+    simulateProgress: true,
+  });
+
+  const changeKey = async () => {
+    const cleanup = startComponentLoading(`reload-${componentName || 'preview'}`);
+
+    // Start loading
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    // Change the key to re-render component
     setKey(Date.now());
+
+    // Wait for component to re-render
+    await new Promise(resolve => setTimeout(resolve, 300));
+
+    // Finish loading
+    await finishComponentLoading();
+    cleanup();
   };
 
-  const handleFullPage = () => {
+  const handleFullPage = async () => {
+    const cleanup = startComponentLoading(`fullpage-${componentName || 'preview'}`);
+
+    // Start loading
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    // Toggle fullpage mode
     setIsFullPage(!isFullPage);
+
+    // Wait for layout change
+    await new Promise(resolve => setTimeout(resolve, 200));
+
+    // Finish loading
+    await finishComponentLoading();
+    cleanup();
   };
 
-  const handleNewPage = () => {
+  const handleNewPage = async () => {
     if (componentName) {
+      const cleanup = startComponentLoading(`newpage-${componentName}`);
+
+      // Start loading
+      await new Promise(resolve => setTimeout(resolve, 100));
+
       // Create a URL for the standalone component view
       const standaloneUrl = `/standalone/${componentName}`;
       window.open(standaloneUrl, '_blank');
+
+      // Finish loading
+      await finishComponentLoading();
+      cleanup();
     }
   };
 

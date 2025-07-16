@@ -4,6 +4,8 @@ import { ThemeProvider } from "next-themes";
 import { geistMono } from "@/assets/fonts";
 import { Analytics } from "@vercel/analytics/next";
 import { PackageManagerProvider } from "@/contexts/package-manager-context";
+import { LoadingBarProvider } from "@/contexts/loading-bar-context";
+import { TopLoadingBar } from "@/components/ui/top-loading-bar";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 
@@ -501,9 +503,12 @@ export default function RootLayout({
           `}
         </Script>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <PackageManagerProvider>
-            {children}
-          </PackageManagerProvider>
+          <LoadingBarProvider>
+            <TopLoadingBar />
+            <PackageManagerProvider>
+              {children}
+            </PackageManagerProvider>
+          </LoadingBarProvider>
         </ThemeProvider>
       </body>
     </html>

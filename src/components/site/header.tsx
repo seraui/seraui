@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { ThemeSwitcher } from "./theme";
 import Link from "next/link";
+import { LoadingLink } from "@/components/ui/loading-link";
 import { GitHubIcon } from "@/assets/icons/github";
 
 import { AnimatePresence, motion } from "motion/react";
@@ -100,20 +101,22 @@ const Header = () => {
               </Link>
             </div>
             <nav className=" hidden md:flex items-center gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-              <Link
+              <LoadingLink
                 className="flex items-center gap-2 hover:text-zinc-900 dark:hover:text-zinc-50"
                 href="/docs"
+                loadingId="header-docs"
               >
                 <BookOpen className="h-4 w-4" />
                 Docs
-              </Link>
-              <Link
+              </LoadingLink>
+              <LoadingLink
                 className="flex items-center gap-2 hover:text-zinc-900 dark:hover:text-zinc-50"
                 href="/tools"
+                loadingId="header-tools"
               >
                 <Wrench className="h-4 w-4" />
                 Tools
-              </Link>
+              </LoadingLink>
               <Link
                 className="flex items-center gap-2 hover:text-zinc-900 dark:hover:text-zinc-50"
                 href="https://ai.seraprogrammer.com/"
