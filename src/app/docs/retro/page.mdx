@@ -1,0 +1,29 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import RetroButtonView from "./retro-view.tsx"
+
+
+# Retro Button
+A collection of retro-styled button components with hard shadows, vibrant colors, and smooth hover animations. Perfect for modern applications with a nostalgic twist.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<RetroButtonView />}/>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/retro/retro.tsx" />
+  </TabsContent>
+</Tabs>
+
+
