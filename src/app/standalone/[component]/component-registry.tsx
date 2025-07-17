@@ -70,6 +70,8 @@ import Hero2 from '@/app/docs/hero/hero2';
 import CoderProfileCard from "@/app/docs/portfolio/portfolio"
 import Portfolio2Page from "@/app/docs/portfolio/portfolio2"
 import Portfolio3Page from "@/app/docs/portfolio/portfolio3"
+import NftMarketplace from '@/app/docs/nftmarketplace/nftmarketplace';
+
 
 
 
@@ -152,5 +154,6 @@ export const ComponentRegistry: Record<string, React.ComponentType> = {
   'hero-2': Hero2,
   'CoderProfileCard': CoderProfileCard,
   'Portfolio2Page': Portfolio2Page,
-  'Portfolio3Page': Portfolio3Page
+  'Portfolio3Page': Portfolio3Page,
+  'NftMarketplace': NftMarketplace
   };

@@ -13,12 +13,29 @@ import Header from "./header.tsx";
 import Header2 from "./header2.tsx";
 import Header3 from "./header3.tsx";
 import Header4 from "./header4.tsx";
+import MenuBar from "./animatedmenu.tsx"
 
 <HideTOC />
 
 # Navigation Components
 
 A comprehensive collection of modern, responsive navigation components designed for web applications. These navbar components feature clean designs, smooth animations, mobile-first responsive layouts, and accessibility-focused implementations.
+
+# Animated Menu
+ A unique and interactive navigation menu with animated icons and gradients.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<MenuBar />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/navbar/animatedmenu.tsx" />
+  </TabsContent>
+</Tabs>
 
 ## Basic Navbar
 
