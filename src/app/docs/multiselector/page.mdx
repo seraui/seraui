@@ -1,0 +1,83 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import MultiSelectPage from "./multiselector1.tsx"
+import TagMultiSelectPage from "./multiselector2.tsx"
+import SkillMultiSelectPage from "./multiselector3.tsx"
+import CategoryMultiSelectPage from "./multiselector4.tsx"
+
+# Multi-Select Components
+
+A collection of versatile multi-select components with different use cases and styling approaches.
+
+## Framework Multi-Select
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<MultiSelectPage />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/multiselector/multiselector1.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Tag Multi-Select
+
+A colorful tag-based multi-select with technology tags and color coding.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TagMultiSelectPage />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/multiselector/multiselector2.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Skills Multi-Select
+
+A skills-based multi-select with proficiency levels and categories.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<SkillMultiSelectPage />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/multiselector/multiselector3.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Category Multi-Select
+
+A category-based multi-select with icons, descriptions, and item counts.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<CategoryMultiSelectPage />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/multiselector/multiselector4.tsx" />
+  </TabsContent>
+</Tabs>
