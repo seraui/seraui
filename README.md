@@ -3,6 +3,7 @@
 > ⚠️ **Note**  
 > Hello everyone, give it a ⭐ star — I will release this as open source on GitHub very soon!
 
+<img width="1638" height="958" alt="Screenshot 2025-07-18 050214" src="https://github.com/user-attachments/assets/ef7fe2e7-e085-4cfb-bbed-7f2e53c9bee6" />
 
 **Beautifully designed components you can copy and paste into your apps. Accessible. Customizable. Open Source.**
 
