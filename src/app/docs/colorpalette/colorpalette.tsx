@@ -38,35 +38,25 @@ interface IconProps {
 
 
 
-interface CardProps {
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
-  [key: string]: any;
 }
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
   variant?: 'primary' | 'outline' | 'destructive';
   size?: 'md' | 'icon';
-  onClick?: () => void;
-  [key: string]: any;
 }
 
-interface InputProps {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
-  type?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  [key: string]: any;
 }
 
-interface SelectProps {
+interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   children: React.ReactNode;
   className?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  [key: string]: any;
 }
 
 interface BadgeProps {
@@ -176,7 +166,7 @@ const DialogTrigger: React.FC<DialogProps> = ({ children }) => {
     const context = useContext(DialogContext);
     if (!context) throw new Error("DialogTrigger must be used within a Dialog");
     const { setIsOpen } = context;
-    return React.cloneElement(children as React.ReactElement<any>, {
+    return React.cloneElement(children as React.ReactElement<React.HTMLAttributes<HTMLElement>>, {
         onClick: () => setIsOpen(true)
     });
 }
@@ -215,7 +205,7 @@ const ColorPaletteGenerator: React.FC = () => {
             const baseColorObj = tinycolor(color);
             if (!baseColorObj.isValid()) throw new Error('Invalid color');
 
-            let colors: any[] = [];
+            let colors: tinycolor.Instance[] = [];
             switch (mode) {
                 case 'shades':
                     colors = Array.from({ length: 10 }, (_, i) => baseColorObj.clone().lighten(i * 5).desaturate(i*2)).reverse();
@@ -228,7 +218,7 @@ const ColorPaletteGenerator: React.FC = () => {
                     break;
                 case 'triadic':
                     const triadic = baseColorObj.triad();
-                    colors = triadic.flatMap((c: any) => tinycolor(c).analogous(4).slice(0, 4)).slice(0,10);
+                    colors = triadic.flatMap((c: tinycolor.Instance) => tinycolor(c).analogous(4).slice(0, 4)).slice(0,10);
                     break;
                 case 'analogous':
                     colors = baseColorObj.analogous(10);
@@ -237,7 +227,7 @@ const ColorPaletteGenerator: React.FC = () => {
                     colors = Array.from({ length: 10 }, (_, i) => baseColorObj.clone().darken(i * 5));
             }
 
-            const newPalette: ColorShade[] = colors.slice(0, 10).map((c: any, index: number) => {
+            const newPalette: ColorShade[] = colors.slice(0, 10).map((c: tinycolor.Instance, index: number) => {
                 const weights = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
                 return {
                     hex: c.toHexString().toUpperCase(),
@@ -249,7 +239,7 @@ const ColorPaletteGenerator: React.FC = () => {
                 };
             });
             setPalette(newPalette);
-        } catch (error) {
+        } catch {
             toast({
                 title: "Invalid Color",
                 description: "Please enter a valid color format.",
