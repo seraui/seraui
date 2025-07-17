@@ -100,6 +100,7 @@ export const navigation: NavigationItem[] = [
       { label : "Gradient" , href : "/docs/gradient" , badge : "New"},
       { label : "Spotlight Card" , href : "/docs/spotlightcard" , badge : "New"},
       { label : "Multi Select" , href : "/docs/multiselector" , badge : "New"},
+      { label : "NFT Marketplace" , href : "/docs/nftmarketplace" , badge : "New"}
     ],
   },
   {

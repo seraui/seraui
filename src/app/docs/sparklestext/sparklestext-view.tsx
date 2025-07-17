@@ -21,7 +21,7 @@ export default function SparklesTextView(): React.JSX.Element {
                 <div className="p-8 rounded-lg bg-gray-100/80 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-lg dark:shadow-gray-900/50 transition-all duration-300">
                     <SparklesText
                         as="h1"
-                        className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white tracking-tight transition-colors duration-300"
+                        className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white tracking-tight transition-colors duration-300 mask-l-from-0%"
                         sparkleCount={15}
                         sparkleSize={18}
                         colors={{ first: '#fde047', second: '#f97316' }}
