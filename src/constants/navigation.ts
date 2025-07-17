@@ -94,7 +94,8 @@ export const navigation: NavigationItem[] = [
       { label: "Two Step", href: "/docs/twostep"},
       { label: "Amazon Gift Card", href: "/docs/amazongift"},
       { label : "Magic Card" , href : "/docs/magic"},
-      { label : "Gradient" , href : "/docs/gradient" , badge : "New"}
+      { label : "Gradient" , href : "/docs/gradient" , badge : "New"},
+      { label : "Spotlight Card" , href : "/docs/spotlightcard" , badge : "New"}
     ],
   },
   {
