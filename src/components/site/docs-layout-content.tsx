@@ -10,7 +10,7 @@ export function DocsLayoutContent({ children }: { children: ReactNode }) {
   const { showTOC } = useTOC();
 
   return (
-    <div className="w-full flex-col bg-white dark:bg-neutral-950 text-neutral-800 dark:text-white relative">
+    <div className="w-full flex-col bg-white dark:bg-black text-neutral-800 dark:text-white relative">
       <Header />
       <div className="mx-auto max-w-[1536px] flex flex-1 md:space-x-16">
         <Sidebar />

@@ -62,7 +62,8 @@ export const navigation: NavigationItem[] = [
       { label : "Flip Words", href : "/docs/flipwords", badge: "New"},
       { label : "Text Reveal", href : "/docs/textreveal"},
       { label : "Decrypting", href : "/docs/decrypting"},
-      { label : "Aurora Text", href : "/docs/aurora", badge: "New"}
+      { label : "Aurora Text", href : "/docs/aurora", badge: "New"},
+      { label : "Sparkles Text", href : "/docs/sparklestext", badge: "New"}
     ]
   },
   {

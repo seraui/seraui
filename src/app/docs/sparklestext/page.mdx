@@ -1,0 +1,51 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import SparklesTextView from "./sparklestext-view.tsx"
+
+# Sparkles Text
+A sparkling text component that creates a glittering effect with customizable sparkle count, size, and colors. Perfect for creating eye-catching, animated text for your applications.
+
+## Preview
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<SparklesTextView />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/sparklestext/sparklestext.tsx" />
+  </TabsContent>
+</Tabs>
+
+# Usage
+```tsx
+import SparklesText from './sparklestext';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
+      <SparklesText
+        as="h1"
+        className="text-5xl md:text-7xl font-bold text-white tracking-tight"
+        sparkleCount={15}
+        sparkleSize={18}
+        colors={{ first: '#fde047', second: '#f97316' }}
+      >
+        Starship
+      </SparklesText>
+    </div>
+  );
+}
+```

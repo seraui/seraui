@@ -42,7 +42,7 @@ export function ComponentRenderer({
     <div
       ref={containerRef}
       className={cn(
-        "group flex w-full items-center justify-center rounded-lg p-4 relative not-prose grid-bg bg-zinc-50 dark:bg-zinc-950",
+        "group flex w-full items-center justify-center rounded-lg p-4 relative not-prose grid-bg bg-white dark:bg-black",
         isFullPage ? "fixed inset-0 top-16 z-50 min-h-screen rounded-none overflow-auto" : "min-h-[350px]",
         className
       )}
