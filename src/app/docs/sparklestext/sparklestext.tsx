@@ -142,6 +142,8 @@ const SparkleInstance: FC<SparkleInstanceProps> = React.memo(({ size, color, sty
     );
 });
 
+SparkleInstance.displayName = 'SparkleInstance';
+
 /**
  * SparklesWrapper Component
  * Consumes the sparkles context and renders the SparkleInstance components.
@@ -167,6 +169,8 @@ const SparklesWrapper: FC = React.memo(() => {
         </>
     );
 });
+
+SparklesWrapper.displayName = 'SparklesWrapper';
 
 /**
  * SparklesText Component

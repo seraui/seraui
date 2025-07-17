@@ -23,12 +23,7 @@ const ALL_TAGS: Tag[] = [
   { id: 10, name: 'GraphQL', value: 'graphql', color: 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200' },
 ];
 
-// Icon for the dropdown chevron (lucide-react style)
-const ChevronDownIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-        <path d="m6 9 6 6 6-6"/>
-    </svg>
-);
+
 
 // Icon for the close button on tags (lucide-react style)
 const XIcon = () => (
