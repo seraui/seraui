@@ -16,6 +16,18 @@ export const navigation: NavigationItem[] = [
       { label: "Installation", href: "/docs/installation", badge: "Updated" },
     ],
   },
+    {
+    label : "Components",
+    children: [
+      { label: "Loaders", href: "/docs/loaders" , badge: "Tool"},
+      { label: "Patterns Collection", href: "/docs/pattern" , badge: "Tool"},
+      { label : "marquee" , href : "/docs/marquee"},
+      { label: "Code Profile", href: "/docs/codeprofile" , badge: "New"},
+      { label: "Portfolio", href: "/docs/portfolio" , badge: "New"},
+      { label : "Orbiting Circles" , href : "/docs/integrations"},
+      { label : "Network" , href : "/docs/network" , badge: "New"},
+    ],
+  },
   {
     label : "Button",
     children : [
@@ -103,16 +115,5 @@ export const navigation: NavigationItem[] = [
       { label: "Team Member", href: "/docs/teammember" , badge: "New"},
       
     ]
-  },
-  {
-    label : "Components",
-    children: [
-      { label: "Patterns Collection", href: "/docs/pattern" , badge: "Tool"},
-      { label : "marquee" , href : "/docs/marquee"},
-      { label: "Code Profile", href: "/docs/codeprofile" , badge: "New"},
-      { label: "Portfolio", href: "/docs/portfolio" , badge: "New"},
-      { label : "Orbiting Circles" , href : "/docs/integrations"},
-      { label : "Network" , href : "/docs/network" , badge: "New"},
-    ],
   },
 ];
