@@ -1,6 +1,6 @@
 # Sera UI
 
-> ⚠️ **Warning**  
+> ⚠️ **Note**  
 > Hello everyone, give it a ⭐ star — I will release this as open source on GitHub very soon!
 
 
