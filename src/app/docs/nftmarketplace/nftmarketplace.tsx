@@ -186,7 +186,7 @@ const NftMarketplace: React.FC = () => {
     <div className="relative p-4 sm:p-6 lg:p-8 overflow-hidden">
       {/* Google Font Import */}
       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+        {`@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');`}
       </style>
 
       <div className="relative z-10 w-full max-w-[1600px] mx-auto">
