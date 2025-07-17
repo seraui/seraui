@@ -1,5 +1,9 @@
 # Sera UI
 
+> ⚠️ **Warning**  
+> Hello everyone, give it a ⭐ star — I will release this as open source on GitHub very soon!
+
+
 **Beautifully designed components you can copy and paste into your apps. Accessible. Customizable. Open Source.**
 
 Sera UI is a reusable component library for React, Next.js, and other JSX-based libraries. Currently, we support `React` and `Next.js` only. Our goal is to create next-level UI with minimal code, optimal performance, and a modern feel.
