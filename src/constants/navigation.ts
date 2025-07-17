@@ -21,6 +21,7 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "Loaders", href: "/docs/loaders" , badge: "Tool"},
       { label: "Patterns Collection", href: "/docs/pattern" , badge: "Tool"},
+      { label: "Color Palette", href: "/docs/colorpalette" , badge: "Tool"},
       { label : "marquee" , href : "/docs/marquee"},
       { label: "Code Profile", href: "/docs/codeprofile" , badge: "New"},
       { label: "Portfolio", href: "/docs/portfolio" , badge: "New"},

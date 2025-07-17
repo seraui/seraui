@@ -40,7 +40,8 @@
     "react-responsive": "^10.0.1",
     "remark-gfm": "^4.0.1",
     "simplex-noise": "^4.0.3",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -52,6 +53,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/tinycolor2": "^1.4.6",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "prettier": "^3.6.2",
