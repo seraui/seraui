@@ -7,12 +7,14 @@ Sitemap: https://seraui.seraprogrammer.com/sitemap.xml
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Allow all major search engines
+# Allow all major search engines with specific optimizations
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0.5
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
@@ -26,15 +28,75 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-# Disallow admin and private areas (if any)
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Disallow admin and private areas
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
 Disallow: /_next/
 Disallow: /static/
+Disallow: /.well-known/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /package*.json
+Disallow: /tsconfig*.json
+Disallow: /*.log
 
-# Allow important directories
+# Allow important directories for better indexing
 Allow: /docs/
 Allow: /components/
 Allow: /examples/
-Allow: /templates/ 
+Allow: /templates/
+Allow: /tools/
+Allow: /standalone/
+Allow: /public/
+Allow: /images/
+Allow: /registry/
+
+# Block AI training crawlers (2025 best practice)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Allow specific AI crawlers for documentation (optional)
+User-agent: Googlebot-AI
+Allow: /docs/
+Disallow: /
+
+# Host directive for better crawling
+Host: seraui.seraprogrammer.com 
