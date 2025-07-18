@@ -9,6 +9,27 @@ import {
 } from "@/components/site/tabs.tsx";
 import MarqueeView from "./marquee-view"
 import MarqueeTextView from "./marqueeText"
+import Logomarquee from "./logomarquee"
+
+# Logomarquee
+A beautiful logomarquee component with smooth animations and customizable logos. Perfect for creating a dynamic and engaging header for your website.
+
+---
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Logomarquee />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/marquee/logomarquee.tsx" />
+  </TabsContent>
+</Tabs>
+
 
 
 # 🏁 Marquee Component
