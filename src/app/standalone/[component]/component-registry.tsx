@@ -71,6 +71,7 @@ import CoderProfileCard from "@/app/docs/portfolio/portfolio"
 import Portfolio2Page from "@/app/docs/portfolio/portfolio2"
 import Portfolio3Page from "@/app/docs/portfolio/portfolio3"
 import NftMarketplace from '@/app/docs/nftmarketplace/nftmarketplace';
+import ImageCarousel from '@/app/docs/carousel/imagecarousel';
 
 
 
@@ -155,5 +156,6 @@ export const ComponentRegistry: Record<string, React.ComponentType> = {
   'CoderProfileCard': CoderProfileCard,
   'Portfolio2Page': Portfolio2Page,
   'Portfolio3Page': Portfolio3Page,
-  'NftMarketplace': NftMarketplace
+  'NftMarketplace': NftMarketplace,
+  'ImageCarousel': ImageCarousel,
   };

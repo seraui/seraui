@@ -10,6 +10,7 @@ import {
 import { PropsTable } from "@/components/site/props-table.tsx";
 import Carousel from "./carousel.tsx"
 import EnhancedCarousel from "./enhanced-carousel.tsx"
+import ImageCarousel from "./imagecarousel.tsx"
 
 # Carousel Components
 
@@ -58,6 +59,22 @@ An advanced carousel component with additional features including:
   </TabsContent>
   <TabsContent value="code">
     <CodeBlock filePath="src/app/docs/carousel/enhanced-carousel.tsx" />
+  </TabsContent>
+</Tabs>
+
+# Image Carousel
+A simple image carousel component that displays images in a clean and modern interface. Features smooth animations, drag interactions, and autoplay functionality.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<ImageCarousel />} componentName="ImageCarousel" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/carousel/imagecarousel.tsx" />
   </TabsContent>
 </Tabs>
 
