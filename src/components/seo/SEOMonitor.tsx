@@ -34,7 +34,7 @@ export function SEOMonitor() {
         largestContentfulPaint: 0,
         cumulativeLayoutShift: 0,
         firstInputDelay: 0,
-        timeToInteractive: navigation.domInteractive - navigation.navigationStart
+        timeToInteractive: navigation.domInteractive - navigation.fetchStart
       }
 
       // Collect LCP
@@ -49,8 +49,9 @@ export function SEOMonitor() {
       let clsValue = 0
       new PerformanceObserver((entryList) => {
         for (const entry of entryList.getEntries()) {
-          if (!(entry as any).hadRecentInput) {
-            clsValue += (entry as any).value
+          const clsEntry = entry as PerformanceEntry & { hadRecentInput?: boolean; value?: number }
+          if (!clsEntry.hadRecentInput && clsEntry.value) {
+            clsValue += clsEntry.value
           }
         }
         newMetrics.cumulativeLayoutShift = clsValue
@@ -60,9 +61,12 @@ export function SEOMonitor() {
       // Collect FID
       new PerformanceObserver((entryList) => {
         for (const entry of entryList.getEntries()) {
-          const fid = (entry as any).processingStart - entry.startTime
-          newMetrics.firstInputDelay = fid
-          setMetrics({...newMetrics})
+          const fidEntry = entry as PerformanceEntry & { processingStart?: number }
+          if (fidEntry.processingStart) {
+            const fid = fidEntry.processingStart - entry.startTime
+            newMetrics.firstInputDelay = fid
+            setMetrics({...newMetrics})
+          }
         }
       }).observe({ entryTypes: ['first-input'] })
 

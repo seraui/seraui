@@ -1,7 +1,5 @@
-import { Metadata } from 'next'
 import ComponentSEO from '@/components/seo/ComponentSEO'
 import Breadcrumb from '@/components/seo/Breadcrumb'
-import { generateComponentMetadata } from '@/lib/seo'
 
 interface ComponentTemplateProps {
   componentName: string

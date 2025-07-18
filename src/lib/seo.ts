@@ -26,8 +26,6 @@ export function generateMetadata(config: SEOConfig): Metadata {
     nofollow = false,
     ogImage = '/og-image.png',
     twitterImage,
-    publishedTime,
-    modifiedTime,
     authors = ['Sera UI Team'],
     category = 'technology',
     tags = []
@@ -72,10 +70,6 @@ export function generateMetadata(config: SEOConfig): Metadata {
       siteName: 'Sera UI',
       locale: 'en_US',
       type: 'website',
-      publishedTime,
-      modifiedTime,
-      authors: authors,
-      tags: tags,
       images: [
         {
           url: ogImage,
@@ -183,7 +177,7 @@ export function generateArticleMetadata(
 }
 
 // Generate JSON-LD structured data
-export function generateStructuredData(type: 'component' | 'article' | 'faq' | 'howto', data: any) {
+export function generateStructuredData(type: 'component' | 'article' | 'faq' | 'howto', data: Record<string, unknown>) {
   const baseUrl = 'https://seraui.seraprogrammer.com'
   
   switch (type) {

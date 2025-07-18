@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server'
 // Image sitemap for better image SEO
 export async function GET() {
   const baseUrl = 'https://seraui.seraprogrammer.com'
-  const currentDate = new Date().toISOString()
 
   // Component images and screenshots
   const componentImages = [

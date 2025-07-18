@@ -1,4 +1,3 @@
-import { generateComponentMetadata } from '@/lib/seo'
 import { componentSchema, breadcrumbSchema } from '@/lib/schema'
 
 interface ComponentSEOProps {
@@ -13,7 +12,6 @@ export function ComponentSEO({
   componentName, 
   description, 
   category = 'UI Components',
-  examples = [],
   relatedComponents = []
 }: ComponentSEOProps) {
   const breadcrumbs = [

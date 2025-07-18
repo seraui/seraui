@@ -85,7 +85,8 @@ function trackWebVitals() {
   new PerformanceObserver((entryList) => {
     for (const entry of entryList.getEntries()) {
       if (entry.entryType === 'first-input') {
-        const fid = entry.processingStart - entry.startTime
+        const fidEntry = entry as PerformanceEntry & { processingStart: number }
+        const fid = fidEntry.processingStart - entry.startTime
         window.gtag('event', 'web_vitals', {
           metric_name: 'FID',
           metric_value: Math.round(fid),
@@ -99,8 +100,9 @@ function trackWebVitals() {
   let clsValue = 0
   new PerformanceObserver((entryList) => {
     for (const entry of entryList.getEntries()) {
-      if (!entry.hadRecentInput) {
-        clsValue += entry.value
+      const clsEntry = entry as PerformanceEntry & { hadRecentInput?: boolean; value: number }
+      if (!clsEntry.hadRecentInput) {
+        clsValue += clsEntry.value
       }
     }
     window.gtag('event', 'web_vitals', {
@@ -117,7 +119,7 @@ declare global {
     gtag: (
       command: 'config' | 'event',
       targetId: string,
-      config?: Record<string, any>
+      config?: Record<string, unknown>
     ) => void
   }
 }

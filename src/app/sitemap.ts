@@ -59,14 +59,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: component === 'button' || component === 'card' || component === 'tabs' ? 0.8 : 0.7,
     }))
 
-  // Category pages (if they exist)
-  const categoryPages = Object.keys(componentCategories).map(category => ({
-    url: `${baseUrl}/docs/category/${category.toLowerCase().replace(/\s+/g, '-')}`,
-    lastModified: currentDate,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }))
-
   // Tools and utilities
   const toolPages = [
     {
@@ -74,16 +66,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
-    }
-  ]
-
-  // Blog/Article pages (if you add them later)
-  const blogPages = [
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
     }
   ]
 
