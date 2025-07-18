@@ -1,5 +1,5 @@
 # Sera UI
-
+<a href="https://www.producthunt.com/products/sera-ui?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-sera&#0045;ui" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=994756&theme=light&t=1752876970839" alt="Sera&#0032;UI - Modern&#0032;react&#0032;component&#0032;library | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 > ⚠️ **Note**  
 > Hello everyone, give it a ⭐ star — I will release this as open source on GitHub very soon!
 
