@@ -10,6 +10,74 @@ import { X, LinkedinIcon, BookOpen, Wrench, MessageCircle } from "lucide-react";
 import { Logo } from "@/assets/icons/logo";
 import { SearchModal } from "./search-modal";
 
+// GitHub Star Badge Component
+const GitHubStarBadge = ({ repo }: { repo: string }) => {
+  const [stars, setStars] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchStars = async () => {
+      try {
+        console.log('Fetching stars for repo:', repo);
+        const response = await fetch(`https://api.github.com/repos/${repo}`);
+        console.log('Response status:', response.status);
+        if (response.ok) {
+          const data = await response.json();
+          console.log('Star count:', data.stargazers_count);
+          setStars(data.stargazers_count);
+        } else {
+          console.error('Failed to fetch stars, status:', response.status);
+          setStars(0); // Set to 0 if API fails
+        }
+      } catch (error) {
+        console.error('Failed to fetch GitHub stars:', error);
+        setStars(0); // Set to 0 if there's an error
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStars();
+  }, [repo]);
+
+  const formatStars = (count: number) => {
+    if (count >= 1000) {
+      return `${(count / 1000).toFixed(1)}k`;
+    }
+    return count.toString();
+  };
+
+  if (loading) {
+    return (
+      <Link
+        href="https://github.com/seraui/seraui"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 px-3 h-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200"
+        aria-label="GitHub"
+      >
+        <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400 animate-pulse">...</span>
+        <GitHubIcon className="h-4 w-4 fill-zinc-950 dark:fill-zinc-50" />
+      </Link>
+    );
+  }
+
+  return (
+    <Link
+      href="https://github.com/seraui/seraui"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 px-3 h-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200"
+      aria-label="GitHub"
+    >
+      <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
+        {stars !== null ? formatStars(stars) : 'N/A'}
+      </span>
+      <GitHubIcon className="h-4 w-4 fill-zinc-950 dark:fill-zinc-50" />
+    </Link>
+  );
+};
+
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -168,15 +236,7 @@ const Header = () => {
             >
               <LinkedinIcon className="h-4 w-4 fill-zinc-950 dark:fill-zinc-50" />
             </Link>
-            <Link
-              href="https://github.com/seraui/seraui"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center h-9 w-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200"
-              aria-label="GitHub"
-            >
-              <GitHubIcon className="h-4 w-4 fill-zinc-950 dark:fill-zinc-50" />
-            </Link>
+            <GitHubStarBadge repo="seraui/seraui" />
             <ThemeSwitcher />
           </nav>
         </header>

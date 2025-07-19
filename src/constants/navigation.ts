@@ -96,7 +96,7 @@ export const navigation: NavigationItem[] = [
   {
     label : "Form & Cards",
     children: [
-      { label: "Login", href: "/docs/login"},
+      { label: "Login", href: "/docs/login" , badge: "Updated"},
       { label: "Sign In", href: "/docs/signin"},
       { label: "Waitlist", href: "/docs/waitlist"},
       { label: "Card", href: "/docs/card"},

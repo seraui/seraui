@@ -12,6 +12,7 @@ import Login from "./login.tsx"
 import Login2 from "./login2.tsx"
 import Login3 from "./login3.tsx"
 import Login4 from "./login4.tsx"
+import Login5 from "./login5.tsx"
 
 # Login
 
@@ -98,6 +99,20 @@ A split-screen login design with branding section and form. Features a beautiful
   </TabsContent>
 </Tabs>
 
+# login 5
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Login5 />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/login/login5.tsx" />
+  </TabsContent>
+</Tabs>
 
 
 
