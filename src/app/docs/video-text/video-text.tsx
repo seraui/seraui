@@ -186,7 +186,7 @@ export function VideoText({
 // -----------------------------------------------------------------------------
 export default function Videotext() {
   return (
-    <main className="bg-black text-white flex items-center justify-center w-screen h-[400px] overflow-hidden">
+    <main className="text-white flex items-center justify-center w-screen h-[400px] overflow-hidden">
       <div className="w-full h-1/2 max-w-4xl">
         <VideoText 
           src="https://ls29t3z55w.ufs.sh/f/JEKFIJDsOBct0vrmLYJRG8BKHmvZQkWJ9ElIVcNfzPg63Mbo"

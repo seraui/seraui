@@ -1,0 +1,211 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import Tickerview from "./ticker-view"
+import NumberTicker from "./ticker"
+
+# Number Ticker
+A smooth animated number counter component that animates from 0 to any target value with customizable formatting and styling.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Tickerview />} reTrigger={true}/>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/ticker/ticker.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Usage
+
+```tsx
+import NumberTicker from "./ticker"
+
+export default function Example() {
+  return (
+    <NumberTicker
+      value={100}
+      duration={2500}
+      className="text-4xl font-bold"
+      prefix="$"
+      decimalPlaces={2}
+    />
+  )
+}
+```
+
+## Props
+
+<div className="overflow-x-auto">
+  <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+    <thead className="bg-gray-50 dark:bg-gray-800">
+      <tr>
+        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+          Prop
+        </th>
+        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+          Type
+        </th>
+        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+          Default
+        </th>
+        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+          Description
+        </th>
+      </tr>
+    </thead>
+    <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+      <tr>
+        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+          value
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          number
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          -
+        </td>
+        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+          The target number to animate to
+        </td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+          duration
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          number
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          2000
+        </td>
+        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+          Animation duration in milliseconds
+        </td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+          delay
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          number
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          0
+        </td>
+        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+          Delay before animation starts in milliseconds
+        </td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+          decimalPlaces
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          number
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          0
+        </td>
+        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+          Number of decimal places to display
+        </td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+          prefix
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          string
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          ""
+        </td>
+        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+          Text to display before the number (e.g., "$", "€")
+        </td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+          suffix
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          string
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          ""
+        </td>
+        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+          Text to display after the number (e.g., "%", "+", "K")
+        </td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+          className
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          string
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          ""
+        </td>
+        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+          Additional CSS classes for styling
+        </td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+          onComplete
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          function
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+          -
+        </td>
+        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+          Callback function called when animation completes
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## Examples
+
+### Basic Counter
+```tsx
+<NumberTicker value={42} />
+```
+
+### Currency Display
+```tsx
+<NumberTicker 
+  value={1234.56} 
+  prefix="$" 
+  decimalPlaces={2}
+  className="text-2xl font-bold text-green-600"
+/>
+```
+
+### Percentage with Callback
+```tsx
+<NumberTicker 
+  value={95.5} 
+  suffix="%" 
+  decimalPlaces={1}
+  duration={3000}
+  onComplete={() => console.log('Animation complete!')}
+/>
+```
