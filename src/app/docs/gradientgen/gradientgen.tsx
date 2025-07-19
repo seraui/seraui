@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useCallback, useRef, useEffect } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { Plus, ArrowRightLeft, Copy, Check } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import clsx from 'clsx';
@@ -334,7 +334,7 @@ function CodeOutput({ type, angle, colorStops, gradientCss, isDark }: CodeOutput
             await navigator.clipboard.writeText(codeToDisplay);
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
-        } catch (err) {
+        } catch {
             // Fallback for older browsers
             const textArea = document.createElement('textarea');
             textArea.value = codeToDisplay;

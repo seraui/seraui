@@ -26,7 +26,7 @@ const NumberTicker: React.FC<NumberTickerProps> = ({
 
     useEffect(() => {
         let animationId: number;
-        let timeoutId: number;
+        const timeoutId: number = window.setTimeout(startAnimation, delay);
 
         const startAnimation = () => {
             const startTime = performance.now();
@@ -52,7 +52,7 @@ const NumberTicker: React.FC<NumberTickerProps> = ({
             animationId = requestAnimationFrame(animate);
         };
 
-        timeoutId = window.setTimeout(startAnimation, delay);
+
 
         return () => {
             if (animationId) cancelAnimationFrame(animationId);

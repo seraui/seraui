@@ -46,7 +46,6 @@ export function VideoText({
   fontFamily = "sans-serif",
   as: Component = "div",
   letterSpacing,
-  lineHeight,
   textTransform = "none",
   onVideoLoad,
   onVideoError,
