@@ -86,7 +86,7 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "Accordion", href: "/docs/accordion" },
       { label: "Fancy Accordion", href: "/docs/accordion-last" },
-      
+      {label : "Gradient Accordion" , href : "/docs/gradient-accordion" , badge: "New"}
     ],
   },
   {
