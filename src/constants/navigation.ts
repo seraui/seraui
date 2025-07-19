@@ -28,6 +28,7 @@ export const navigation: NavigationItem[] = [
       { label: "Portfolio", href: "/docs/portfolio" , badge: "New"},
       { label : "Orbiting Circles" , href : "/docs/integrations"},
       { label : "Network" , href : "/docs/network" , badge: "New"},
+      { label : "Video Text" , href : "/docs/video-text" , badge: "New"}
     ],
   },
   {

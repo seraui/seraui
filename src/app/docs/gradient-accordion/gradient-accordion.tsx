@@ -17,7 +17,7 @@ export default function GradientAccordion() {
   // Data for the FAQ section
   const faqData: FAQItem[] = [
     {
-      question: "Is it legal to download photos from Instagram using SSSInstagram?",
+      question: "Is it legal to download photos from Instagram using ..?",
       answer: "Yes, it is generally legal to download photos from Instagram for personal use. However, you should respect copyright and privacy. Do not use downloaded content for commercial purposes without permission from the owner."
     },
     {
@@ -29,7 +29,7 @@ export default function GradientAccordion() {
       answer: "Yes, our tool downloads photos in the highest resolution available on Instagram. The quality of the downloaded photo will be the same as the original upload."
     },
     {
-      question: "Is it safe to use SSSInstagram?",
+      question: "Is it safe to use ..?",
       answer: "Absolutely. Our service is secure and respects your privacy. We do not store any of the photos you download or track your download history."
     }
   ];

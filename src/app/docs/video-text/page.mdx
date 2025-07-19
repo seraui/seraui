@@ -1,0 +1,38 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import Videotext from "./video-text.tsx"
+
+# Video Text
+A text component with a video background. 
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Videotext />}/>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/video-text/video-text.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+# Usage
+```tsx
+import { VideoText } from "./video-text";
+```
+
+```tsx
+<div className="relative h-[500px] w-full overflow-hidden">
+  <VideoText src="https://cdn.pixabay.com/video/2024/05/25/213616_large.mp4">Sera UI</VideoText>
+</div>
+```
