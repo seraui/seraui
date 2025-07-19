@@ -72,6 +72,8 @@ import Portfolio2Page from "@/app/docs/portfolio/portfolio2"
 import Portfolio3Page from "@/app/docs/portfolio/portfolio3"
 import NftMarketplace from '@/app/docs/nftmarketplace/nftmarketplace';
 import ImageCarousel from '@/app/docs/carousel/imagecarousel';
+import Portfolio4Page from "@/app/docs/portfolio/portfolio4"
+import PortfolioHero from "@/app/docs/portfolio/portfolio5"
 
 
 
@@ -158,4 +160,7 @@ export const ComponentRegistry: Record<string, React.ComponentType> = {
   'Portfolio3Page': Portfolio3Page,
   'NftMarketplace': NftMarketplace,
   'ImageCarousel': ImageCarousel,
+  'Portfolio4Page': Portfolio4Page,
+  'PortfolioHero': PortfolioHero,
+  // Add more components here...
   };
