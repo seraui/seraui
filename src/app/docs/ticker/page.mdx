@@ -47,134 +47,178 @@ export default function Example() {
 
 ## Props
 
-<div className="overflow-x-auto">
-  <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-    <thead className="bg-gray-50 dark:bg-gray-800">
-      <tr>
-        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+<div className="overflow-x-auto my-4">
+  <table className="w-full border-collapse text-sm">
+    <thead>
+      <tr className="border-b border-gray-200 dark:border-gray-700">
+        <th className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-2 text-left font-semibold text-gray-900 dark:text-gray-100">
           Prop
         </th>
-        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+        <th className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-2 text-left font-semibold text-gray-900 dark:text-gray-100">
           Type
         </th>
-        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+        <th className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-2 text-left font-semibold text-gray-900 dark:text-gray-100">
           Default
         </th>
-        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+        <th className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-2 text-left font-semibold text-gray-900 dark:text-gray-100">
           Description
         </th>
       </tr>
     </thead>
-    <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
-      <tr>
-        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
-          value
+    <tbody>
+      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            value
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          number
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            number
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
           -
         </td>
-        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
           The target number to animate to
         </td>
       </tr>
-      <tr>
-        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
-          duration
+      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            duration
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          number
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            number
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          2000
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            2000
+          </code>
         </td>
-        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
           Animation duration in milliseconds
         </td>
       </tr>
-      <tr>
-        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
-          delay
+      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            delay
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          number
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            number
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          0
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            0
+          </code>
         </td>
-        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
           Delay before animation starts in milliseconds
         </td>
       </tr>
-      <tr>
-        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
-          decimalPlaces
+      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            decimalPlaces
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          number
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            number
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          0
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            0
+          </code>
         </td>
-        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
           Number of decimal places to display
         </td>
       </tr>
-      <tr>
-        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
-          prefix
+      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            prefix
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          string
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            string
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          ""
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            ""
+          </code>
         </td>
-        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
           Text to display before the number (e.g., "$", "€")
         </td>
       </tr>
-      <tr>
-        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
-          suffix
+      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            suffix
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          string
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            string
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          ""
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            ""
+          </code>
         </td>
-        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
           Text to display after the number (e.g., "%", "+", "K")
         </td>
       </tr>
-      <tr>
-        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
-          className
+      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            className
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          string
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            string
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          ""
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            ""
+          </code>
         </td>
-        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
           Additional CSS classes for styling
         </td>
       </tr>
-      <tr>
-        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
-          onComplete
+      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            onComplete
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-          function
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
+          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            function
+          </code>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
           -
         </td>
-        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
           Callback function called when animation completes
         </td>
       </tr>
