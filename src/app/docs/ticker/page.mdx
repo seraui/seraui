@@ -47,180 +47,64 @@ export default function Example() {
 
 ## Props
 
-<div className="overflow-x-auto my-4">
-  <table className="w-full border-collapse text-sm">
-    <thead>
-      <tr className="border-b border-gray-200 dark:border-gray-700">
-        <th className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-2 text-left font-semibold text-gray-900 dark:text-gray-100">
-          Prop
-        </th>
-        <th className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-2 text-left font-semibold text-gray-900 dark:text-gray-100">
-          Type
-        </th>
-        <th className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-2 text-left font-semibold text-gray-900 dark:text-gray-100">
-          Default
-        </th>
-        <th className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-2 text-left font-semibold text-gray-900 dark:text-gray-100">
-          Description
-        </th>
+<div className="my-8 overflow-x-auto">
+  <table className="w-full text-sm border border-gray-200 dark:border-gray-700">
+    <thead className="bg-gray-50 dark:bg-gray-800 text-left font-semibold text-gray-700 dark:text-gray-200 border-b border-gray-200 dark:border-gray-700">
+      <tr>
+        <th className="px-4 py-2 border-r border-gray-200 dark:border-gray-700">Prop</th>
+        <th className="px-4 py-2 border-r border-gray-200 dark:border-gray-700">Type</th>
+        <th className="px-4 py-2 border-r border-gray-200 dark:border-gray-700">Default</th>
+        <th className="px-4 py-2">Description</th>
       </tr>
     </thead>
-    <tbody>
-      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            value
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            number
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          -
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          The target number to animate to
-        </td>
+    <tbody className="text-gray-800 dark:text-gray-100">
+      <tr className="even:bg-gray-50 dark:even:bg-gray-800/40 border-b border-gray-200 dark:border-gray-700">
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>value</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>number</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700">–</td>
+        <td className="px-4 py-2">The target number to animate to</td>
       </tr>
-      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            duration
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            number
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            2000
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          Animation duration in milliseconds
-        </td>
+      <tr className="even:bg-gray-50 dark:even:bg-gray-800/40 border-b border-gray-200 dark:border-gray-700">
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>duration</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>number</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>2000</code></td>
+        <td className="px-4 py-2">Animation duration in milliseconds</td>
       </tr>
-      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            delay
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            number
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            0
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          Delay before animation starts in milliseconds
-        </td>
+      <tr className="even:bg-gray-50 dark:even:bg-gray-800/40 border-b border-gray-200 dark:border-gray-700">
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>delay</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>number</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>0</code></td>
+        <td className="px-4 py-2">Delay before animation starts in milliseconds</td>
       </tr>
-      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            decimalPlaces
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            number
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            0
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          Number of decimal places to display
-        </td>
+      <tr className="even:bg-gray-50 dark:even:bg-gray-800/40 border-b border-gray-200 dark:border-gray-700">
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>decimalPlaces</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>number</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>0</code></td>
+        <td className="px-4 py-2">Number of decimal places to display</td>
       </tr>
-      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            prefix
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            string
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            ""
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          Text to display before the number (e.g., "$", "€")
-        </td>
+      <tr className="even:bg-gray-50 dark:even:bg-gray-800/40 border-b border-gray-200 dark:border-gray-700">
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>prefix</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>string</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>""</code></td>
+        <td className="px-4 py-2">Text to display before the number (e.g. `$`, `€`)</td>
       </tr>
-      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            suffix
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            string
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            ""
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          Text to display after the number (e.g., "%", "+", "K")
-        </td>
+      <tr className="even:bg-gray-50 dark:even:bg-gray-800/40 border-b border-gray-200 dark:border-gray-700">
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>suffix</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>string</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>""</code></td>
+        <td className="px-4 py-2">Text to display after the number (e.g. `%`, `+`, `K`)</td>
       </tr>
-      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            className
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            string
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            ""
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          Additional CSS classes for styling
-        </td>
+      <tr className="even:bg-gray-50 dark:even:bg-gray-800/40 border-b border-gray-200 dark:border-gray-700">
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>className</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>string</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>""</code></td>
+        <td className="px-4 py-2">Additional CSS classes for styling</td>
       </tr>
-      <tr className="even:bg-gray-50/50 dark:even:bg-gray-800/20">
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            onComplete
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-            function
-          </code>
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          -
-        </td>
-        <td className="border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-400">
-          Callback function called when animation completes
-        </td>
+      <tr className="even:bg-gray-50 dark:even:bg-gray-800/40">
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>onComplete</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700"><code>function</code></td>
+        <td className="px-4 py-2 border-r border-gray-200 dark:border-gray-700">–</td>
+        <td className="px-4 py-2">Callback function called when animation completes</td>
       </tr>
     </tbody>
   </table>

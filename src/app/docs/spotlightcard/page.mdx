@@ -8,6 +8,7 @@ import {
   TabsContent,
 } from "@/components/site/tabs.tsx";
 import SpotlightCard from "./spotlightcard.tsx";
+import SpotlightCardView from "./spotlightcard-view.tsx"
 
 # Spotlight Card Component 
 Highlight key information with a stylish Spotlight Card component. This versatile element is perfect for showcasing important details, announcements, or calls to action.
@@ -45,3 +46,33 @@ You can add this component to your project using the CLI or by manually copying 
   </TabsContent>
 </Tabs>
 
+
+
+# A Glowing Spotlight Card
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<SpotlightCardView />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/spotlightcard/spotlight-card.tsx" />
+  </TabsContent>
+</Tabs>
+
+# Usage
+
+```tsx
+import SpotlightCard from './spotlightcard';
+
+<GlowCard>
+  <div className="text-white">
+    <h3 className="text-xl font-bold mb-2">Card 1</h3>
+    <p className="text-gray-300">This is the first spotlight card with some content.</p>
+  </div>
+</GlowCard>
+```
