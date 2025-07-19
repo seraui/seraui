@@ -24,19 +24,20 @@ export const navigation: NavigationItem[] = [
       { label: "Color Palette", href: "/docs/colorpalette" , badge: "Tool"},
       { label : "Gradient " , href : "/docs/gradientgen" , badge: "Tool"},
       { label : "marquee" , href : "/docs/marquee"},
-      { label: "Code Profile", href: "/docs/codeprofile" , badge: "New"},
-      { label: "Portfolio", href: "/docs/portfolio" , badge: "New"},
+      { label: "Code Profile", href: "/docs/codeprofile" },
+      { label: "Portfolio", href: "/docs/portfolio"},
       { label : "Orbiting Circles" , href : "/docs/integrations"},
-      { label : "Network" , href : "/docs/network" , badge: "New"},
-      { label : "Video Text" , href : "/docs/video-text" , badge: "New"}
+      { label : "Network" , href : "/docs/network"},
+      { label : "Video Text" , href : "/docs/video-text" , badge: "New"},
+      { label : "Image Swiper" , href : "/docs/imageswiper" , badge: "New"}
     ],
   },
   {
     label : "Button",
     children : [
      { label : "Button" , href : "/docs/button"},
-     { label : "Retro Button" , href : "/docs/retro", badge: "New"},
-     { label : "Dropdown" , href : "/docs/dropdown", badge: "New"},
+     { label : "Retro Button" , href : "/docs/retro"},
+     { label : "Dropdown" , href : "/docs/dropdown"},
      { label : "Shimmer Button" , href : "/docs/shimmer", badge: "New"},
 
     ]
@@ -46,7 +47,7 @@ export const navigation: NavigationItem[] = [
     children : [
       { label : "Badge" , href : "/docs/badge"},
       { label : "Animated Badge" , href : "/docs/animatedbadge" , badge: "New"},
-      { label : "Toast" , href : "/docs/toast" , badge: "New"}
+      { label : "Toast" , href : "/docs/toast"}
     ]
   },
   {
@@ -54,7 +55,7 @@ export const navigation: NavigationItem[] = [
     children : [
       { label : "Search" , href : "/docs/search"},
       { label : "Prompt" , href : "/docs/prompt" , badge: "Updated"},
-      { label : "Password" , href : "/docs/password", badge: "New"}
+      { label : "Password" , href : "/docs/password"}
     ]
   },
   {
@@ -62,11 +63,11 @@ export const navigation: NavigationItem[] = [
     children : [
       { label : "Text Animation" , href : "/docs/text"},
       { label : "Fuzzy", href : "/docs/fuzzy"},
-      { label : "Flip Words", href : "/docs/flipwords", badge: "New"},
+      { label : "Flip Words", href : "/docs/flipwords"},
       { label : "Text Reveal", href : "/docs/textreveal"},
       { label : "Decrypting", href : "/docs/decrypting"},
-      { label : "Aurora Text", href : "/docs/aurora", badge: "New"},
-      { label : "Sparkles Text", href : "/docs/sparklestext", badge: "New"},
+      { label : "Aurora Text", href : "/docs/aurora"},
+      { label : "Sparkles Text", href : "/docs/sparklestext"},
       { label : "Number Ticker" , href : "/docs/ticker" , badge: "New"}
 
     ]
@@ -80,8 +81,8 @@ export const navigation: NavigationItem[] = [
       { label: "Fancy Tabs", href: "/docs/tabs-fancy"},
       { label: "Classic Tabs", href: "/docs/tabs-classic" },
       { label: "Dock", href: "/docs/dock"},
-      { label: "File Tree", href: "/docs/filetree" , badge: "New"},
-      { label: "Copy Button", href: "/docs/copybutton" , badge: "New"}
+      { label: "File Tree", href: "/docs/filetree" },
+      { label: "Copy Button", href: "/docs/copybutton"}
     ],
   },
   {
@@ -95,17 +96,17 @@ export const navigation: NavigationItem[] = [
   {
     label : "Form & Cards",
     children: [
-      { label: "Login", href: "/docs/login", badge: "Updated"},
-      { label: "Sign In", href: "/docs/signin", badge: "New"},
-      { label: "Waitlist", href: "/docs/waitlist", badge: "New"},
+      { label: "Login", href: "/docs/login"},
+      { label: "Sign In", href: "/docs/signin"},
+      { label: "Waitlist", href: "/docs/waitlist"},
       { label: "Card", href: "/docs/card"},
       { label: "Two Step", href: "/docs/twostep"},
       { label: "Amazon Gift Card", href: "/docs/amazongift"},
       { label : "Magic Card" , href : "/docs/magic"},
-      { label : "Gradient" , href : "/docs/gradient" , badge : "New"},
-      { label : "Spotlight Card" , href : "/docs/spotlightcard" , badge : "New"},
-      { label : "Multi Select" , href : "/docs/multiselector" , badge : "New"},
-      { label : "NFT Marketplace" , href : "/docs/nftmarketplace" , badge : "New"}
+      { label : "Gradient" , href : "/docs/gradient"},
+      { label : "Spotlight Card" , href : "/docs/spotlightcard"},
+      { label : "Multi Select" , href : "/docs/multiselector"},
+      { label : "NFT Marketplace" , href : "/docs/nftmarketplace"}
     ],
   },
   {
@@ -120,10 +121,10 @@ export const navigation: NavigationItem[] = [
       { label : "Hero" , href : "/docs/hero"},
       { label : "Header" , href : "/docs/navbar"},
       { label: "Pricing", href: "/docs/pricing" , badge: "New" },
-      { label: "Testimonial", href: "/docs/testimonial" , badge: "New"},
+      { label: "Testimonial", href: "/docs/testimonial"},
       { label: "Footer", href: "/docs/footer" , badge: "New"},
-      { label: "Forgot Password", href: "/docs/forgotpassword" , badge: "New"},
-      { label: "Team Member", href: "/docs/teammember" , badge: "New"},
+      { label: "Forgot Password", href: "/docs/forgotpassword"},
+      { label: "Team Member", href: "/docs/teammember"},
       
     ]
   },
