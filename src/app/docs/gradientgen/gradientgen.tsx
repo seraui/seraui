@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Plus, ArrowRightLeft, Copy, Check } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import clsx from 'clsx';
 
 const defaultColors = ['#4f46e5', '#06b6d4']; // indigo-600 → cyan-500
@@ -63,25 +64,10 @@ export default function Gradientgen() {
     const [smooth, setSmooth] = useState(true);
     const [type, setType] = useState('linear'); // linear | radial | conic
     const [angle, setAngle] = useState(45);       // only for linear
-    const [isDark, setIsDark] = useState(false);
 
-    // Check for dark mode
-    useEffect(() => {
-        const checkDarkMode = () => {
-            setIsDark(document.documentElement.classList.contains('dark'));
-        };
-
-        checkDarkMode();
-
-        // Watch for theme changes
-        const observer = new MutationObserver(checkDarkMode);
-        observer.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ['class']
-        });
-
-        return () => observer.disconnect();
-    }, []);
+    // Use next-themes hook for proper theme detection
+    const { theme, resolvedTheme } = useTheme();
+    const isDark = theme === 'dark' || resolvedTheme === 'dark';
 
     /* ------------ helpers ----------------- */
     const displayColors = smooth ? getSmoothedColors(colors) : colors;
