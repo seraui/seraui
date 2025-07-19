@@ -64,8 +64,8 @@ const GlowCard: React.FC<GlowCardProps> = ({
     return sizeMap[size];
   };
 
-  const getInlineStyles = (): CSSProperties & Record<string, any> => {
-    const baseStyles: CSSProperties & Record<string, any> = {
+  const getInlineStyles = (): CSSProperties & Record<string, string | number> => {
+    const baseStyles: CSSProperties & Record<string, string | number> = {
       '--base': base,
       '--spread': spread,
       '--radius': '14',
