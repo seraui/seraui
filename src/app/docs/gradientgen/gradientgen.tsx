@@ -153,7 +153,7 @@ export default function Gradientgen() {
                 style={cardBgStyle}
             >
                 <GradientTypeTabs active={type} onChange={setType} isDark={isDark} />
-                {type === 'linear' && <AngleKnob angle={angle} onChange={setAngle} isDark={isDark} />}
+                {type === 'linear' && <AngleKnob angle={angle} onChange={setAngle} />}
             </section>
 
             {/* 📄 Code Output */}
@@ -249,10 +249,9 @@ function GradientTypeTabs({ active, onChange, isDark }: GradientTypeTabsProps) {
 interface AngleKnobProps {
     angle: number;
     onChange: (angle: number) => void;
-    isDark: boolean;
 }
 
-function AngleKnob({ angle, onChange, isDark }: AngleKnobProps) {
+function AngleKnob({ angle, onChange }: AngleKnobProps) {
     const knobRef = useRef<HTMLDivElement>(null);
 
     const handlePointer = useCallback((e: PointerEvent | TouchEvent) => {
