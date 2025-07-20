@@ -14,7 +14,7 @@ const MarqueeText = () => {
   return (
     <div className="w-full font-sans overflow-hidden">
       <LinearLoop
-        marqueeText="Hello there ! how's going ? welcome to seraui i hope you loike all the desigen componnet"
+        marqueeText="Hello there! How’s it going? Welcome to Seraui. Hope you like all the design components"
         speed={1}
         direction="left"
         interactive={true}

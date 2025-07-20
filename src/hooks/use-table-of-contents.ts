@@ -115,15 +115,14 @@ export function useTableOfContents() {
   }, [toc, activeId]);
 
   // Function to scroll to a heading
-  const scrollToHeading = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
+  const scrollToHeading = (id: string, offset: number = 88) => {
+  const element = document.getElementById(id);
+  if (element) {
+    const y = element.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+};
+
 
   return {
     toc,
