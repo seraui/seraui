@@ -110,7 +110,7 @@ const Hero = () => {
       <div className="max-w-2xl space-y-8">
         <div className="space-y-4 animate-fade-in-up">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            Hi, I'm <span className="text-foreground">Alex</span>
+            Hi, I&apos;m <span className="text-foreground">Alex</span>
           </h1>
           <h2 className="text-xl md:text-2xl text-muted-foreground font-medium">
             Digital Designer & Frontend Developer
