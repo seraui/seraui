@@ -371,7 +371,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION,
+    google: "y3qEBdgYG32ZoXRsNqWxh6QgyxhQ337zoKpLwmb_dic",
   },
   category: "technology",
   classification: "React Component Library",
@@ -397,10 +397,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <meta
-          name="google-site-verification"
-          content={process.env.GOOGLE_SITE_VERIFICATION}
-        />
+       <meta name="google-site-verification" content="y3qEBdgYG32ZoXRsNqWxh6QgyxhQ337zoKpLwmb_dic" />
         <meta name="yandex-verification" content="1b0095f6bfc08171" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
