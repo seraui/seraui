@@ -4,8 +4,15 @@
 <img width="1638" height="958" alt="Screenshot 2025-07-18 050214" src="https://github.com/user-attachments/assets/ef7fe2e7-e085-4cfb-bbed-7f2e53c9bee6" />
 
 
->
-( Our official discord invite link! )[https://discord.gg/XqQkbTptvJ ]
+
+<div style="text-align: center; padding: 20px;">
+  <h2>🚀 Join Our Official Discord Server!</h2>
+  <p>Stay connected with the community, get support, share ideas, and be part of something amazing!</p>
+  <a href="https://discord.gg/XqQkbTptvJ" target="_blank" style="padding: 10px 20px; background-color: #5865F2; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">
+    Join Discord
+  </a>
+</div>
+
 
 **Beautifully designed components you can copy and paste into your apps. Accessible. Customizable. Open Source.**
 
