@@ -34,12 +34,15 @@ const TSXIcon = ({ className }: { className?: string }) => (
 const CodeCopy = ({
   code,
   className,
+  selectedLanguage = 'tsx',
+  onLanguageChange,
 }: {
   code: string;
   className?: string;
+  selectedLanguage?: LanguageType;
+  onLanguageChange?: (language: LanguageType) => void;
 }) => {
   const [copied, setCopied] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState<LanguageType>('tsx');
 
   // Transform code based on selected language
   const [transformedCode, setTransformedCode] = useState<string>(code);
@@ -72,7 +75,7 @@ const CodeCopy = ({
       {/* Language selector */}
       <div className="flex items-center bg-muted/50 rounded-md p-1">
         <button
-          onClick={() => setSelectedLanguage('tsx')}
+          onClick={() => onLanguageChange?.('tsx')}
           className={cn(
             "px-2 py-1 text-xs font-medium rounded transition-all duration-200",
             selectedLanguage === 'tsx'
@@ -85,7 +88,7 @@ const CodeCopy = ({
           TS
         </button>
         <button
-          onClick={() => setSelectedLanguage('jsx')}
+          onClick={() => onLanguageChange?.('jsx')}
           className={cn(
             "px-2 py-1 text-xs font-medium rounded transition-all duration-200",
             selectedLanguage === 'jsx'
