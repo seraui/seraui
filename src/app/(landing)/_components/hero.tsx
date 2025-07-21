@@ -55,7 +55,7 @@ export const Hero = () => {
                 alt="Rose decoration"
                 width={70}
                 height={80}
-                className="inline mx-4 align-middle"
+                className="inline mx-4 align-middle w-auto h-auto"
                 style={{ verticalAlign: 'middle' }}
               />
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">

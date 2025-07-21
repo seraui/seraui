@@ -378,7 +378,7 @@ export const metadata: Metadata = {
   other: {
     "theme-color": "#000000",
     "color-scheme": "dark light",
-    "apple-mobile-web-app-capable": "yes",
+    "mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
     "apple-mobile-web-app-title": "Sera UI",
     "application-name": "Sera UI",
@@ -401,7 +401,7 @@ export default function RootLayout({
         <meta name="yandex-verification" content="1b0095f6bfc08171" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Sera UI" />
         <meta name="application-name" content="Sera UI" />

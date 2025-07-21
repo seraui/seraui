@@ -124,18 +124,6 @@
           "sizes": "96x96"
         }
       ]
-    },
-    {
-      "name": "GitHub Repository",
-      "short_name": "GitHub",
-      "description": "View source code on GitHub",
-      "url": "https://github.com/seraprogrammer/sera-ui",
-      "icons": [
-        {
-          "src": "/logo.svg",
-          "sizes": "96x96"
-        }
-      ]
     }
   ],
   "related_applications": [

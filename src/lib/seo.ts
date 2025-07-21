@@ -95,7 +95,7 @@ export function generateMetadata(config: SEOConfig): Metadata {
     other: {
       'theme-color': '#3b82f6',
       'color-scheme': 'dark light',
-      'apple-mobile-web-app-capable': 'yes',
+      'mobile-web-app-capable': 'yes',
       'apple-mobile-web-app-status-bar-style': 'default',
       'apple-mobile-web-app-title': 'Sera UI',
       'application-name': 'Sera UI',

@@ -16,7 +16,7 @@ import { format } from 'prettier';
 const formatCode = async (code: string): Promise<string> => {
   try {
     return await format(code, {
-      parser: 'babel',
+      parser: 'espree',
       semi: true,
       singleQuote: true,
       tabWidth: 2,
