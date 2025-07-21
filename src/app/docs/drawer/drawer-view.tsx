@@ -45,7 +45,8 @@ export default function DrawerView() {
           <DrawerHeader>
             <DrawerTitle>Edit profile</DrawerTitle>
             <DrawerDescription>
-              Make changes to your profile here. Click save when you're done.
+              Make changes to your profile here. Click save when you&apos;re
+              done.
             </DrawerDescription>
           </DrawerHeader>
           <div className="p-6">
