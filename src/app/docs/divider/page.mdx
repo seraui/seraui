@@ -1,0 +1,282 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import DividerView from "./divider-view"
+
+# Divider
+
+A versatile divider component for creating visual separation between content sections with customizable styles and orientations.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<DividerView />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/divider/divider.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Installation
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add divider.json`} />
+  </TabsContent>
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/divider/divider.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+
+## Features
+
+- 🎨 **Multiple Variants**: Solid, dashed, dotted, and gradient styles
+- 📐 **Flexible Orientation**: Horizontal and vertical dividers
+- 🎯 **Customizable**: Adjustable thickness, color, and spacing
+- ♿ **Accessible**: Proper ARIA attributes for screen readers
+- 📱 **Responsive**: Works seamlessly across all device sizes
+
+
+## Usage
+
+### Basic Divider
+
+```tsx
+import Divider from './divider';
+
+<Divider />
+```
+
+### With Custom Styling
+
+```tsx
+<Divider 
+  variant="dashed" 
+  thickness={2} 
+  color="blue" 
+  className="my-8" 
+/>
+```
+
+## Use Cases
+
+### 1. Content Sections
+
+Perfect for separating different content sections in articles or blog posts:
+
+```tsx
+<article>
+  <section>
+    <h2>Introduction</h2>
+    <p>Welcome to our comprehensive guide...</p>
+  </section>
+  
+  <Divider variant="solid" className="my-8" />
+  
+  <section>
+    <h2>Getting Started</h2>
+    <p>Let's begin with the basics...</p>
+  </section>
+</article>
+```
+
+### 2. Navigation Menus
+
+Separate navigation items or menu sections:
+
+```tsx
+<nav className="flex items-center space-x-4">
+  <a href="/home">Home</a>
+  <Divider orientation="vertical" height={20} />
+  <a href="/about">About</a>
+  <Divider orientation="vertical" height={20} />
+  <a href="/contact">Contact</a>
+</nav>
+```
+
+### 3. Card Components
+
+Create visual separation within cards:
+
+```tsx
+<div className="bg-white rounded-lg shadow-md p-6">
+  <h3 className="text-xl font-bold">User Profile</h3>
+  <p className="text-gray-600">john.doe@example.com</p>
+  
+  <Divider className="my-4" />
+  
+  <div className="flex justify-between">
+    <span>Last Login</span>
+    <span>2 hours ago</span>
+  </div>
+</div>
+```
+
+### 4. Form Sections
+
+Organize form fields into logical groups:
+
+```tsx
+<form className="space-y-6">
+  <div>
+    <h3>Personal Information</h3>
+    <input placeholder="Full Name" />
+    <input placeholder="Email" />
+  </div>
+  
+  <Divider variant="dashed" />
+  
+  <div>
+    <h3>Address Details</h3>
+    <input placeholder="Street Address" />
+    <input placeholder="City" />
+  </div>
+</form>
+```
+
+### 5. Dashboard Widgets
+
+Separate different metrics or widgets:
+
+```tsx
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div className="bg-blue-50 p-4 rounded">
+    <h4>Total Users</h4>
+    <p className="text-2xl font-bold">1,234</p>
+  </div>
+  
+  <Divider orientation="vertical" className="hidden md:block" />
+  
+  <div className="bg-green-50 p-4 rounded">
+    <h4>Revenue</h4>
+    <p className="text-2xl font-bold">$45,678</p>
+  </div>
+</div>
+```
+
+### 6. Comment Threads
+
+Separate individual comments or replies:
+
+```tsx
+<div className="space-y-4">
+  <div className="comment">
+    <h5>John Doe</h5>
+    <p>Great article! Very informative.</p>
+  </div>
+  
+  <Divider variant="dotted" opacity={0.5} />
+  
+  <div className="comment">
+    <h5>Jane Smith</h5>
+    <p>Thanks for sharing this resource.</p>
+  </div>
+</div>
+```
+
+### 7. Pricing Tables
+
+Create clear separation between pricing tiers:
+
+```tsx
+<div className="flex space-x-8">
+  <div className="pricing-card">
+    <h3>Basic</h3>
+    <p className="text-3xl">$9/mo</p>
+    <ul>...</ul>
+  </div>
+  
+  <Divider orientation="vertical" height={300} />
+  
+  <div className="pricing-card">
+    <h3>Pro</h3>
+    <p className="text-3xl">$29/mo</p>
+    <ul>...</ul>
+  </div>
+</div>
+```
+
+## API Reference
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'solid' \| 'dashed' \| 'dotted' \| 'gradient'` | `'solid'` | Visual style of the divider |
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Direction of the divider |
+| `thickness` | `number` | `1` | Thickness in pixels |
+| `color` | `string` | `'gray'` | Color of the divider |
+| `opacity` | `number` | `1` | Opacity level (0-1) |
+| `height` | `number` | - | Height for vertical dividers |
+| `className` | `string` | - | Additional CSS classes |
+
+## Best Practices
+
+1. **Consistent Spacing**: Use consistent margins around dividers
+2. **Semantic Usage**: Use dividers to enhance content hierarchy
+3. **Accessibility**: Ensure sufficient color contrast
+4. **Responsive Design**: Consider how dividers appear on mobile
+5. **Visual Balance**: Don't overuse dividers - they should enhance, not clutter
+
+## Examples in Real Applications
+
+### E-commerce Product Page
+
+```tsx
+<div className="product-details">
+  <h1>Product Name</h1>
+  <p className="price">$99.99</p>
+  
+  <Divider className="my-6" />
+  
+  <div className="description">
+    <h3>Description</h3>
+    <p>Product description here...</p>
+  </div>
+  
+  <Divider variant="dashed" className="my-6" />
+  
+  <div className="reviews">
+    <h3>Customer Reviews</h3>
+    {/* Reviews content */}
+  </div>
+</div>
+```
+
+### Settings Panel
+
+```tsx
+<div className="settings-panel">
+  <div className="setting-group">
+    <h3>Account Settings</h3>
+    {/* Account settings */}
+  </div>
+  
+  <Divider className="my-8" />
+  
+  <div className="setting-group">
+    <h3>Privacy Settings</h3>
+    {/* Privacy settings */}
+  </div>
+  
+  <Divider className="my-8" />
+  
+  <div className="setting-group">
+    <h3>Notification Settings</h3>
+    {/* Notification settings */}
+  </div>
+</div>
+```

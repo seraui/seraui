@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "divider",
+  "title": "Divider",
+  "description": "A minimalistic divider component designed with React and Tailwind CSS .",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "divider.tsx",
+      "content": "\"use client\"\nimport React from \"react\";\n\n// An SVG icon to use in the divider, for demonstration\nconst StarIcon = (props: React.SVGProps<SVGSVGElement>) => (\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"24\"\n    height=\"24\"\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    stroke=\"currentColor\"\n    strokeWidth=\"2\"\n    strokeLinecap=\"round\"\n    strokeLinejoin=\"round\"\n    {...props}\n  >\n    <polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\" />\n  </svg>\n);\n\ninterface DividerProps extends React.HTMLAttributes<HTMLDivElement> {\n  orientation?: \"horizontal\" | \"vertical\";\n  decorative?: boolean;\n  variant?: \"solid\" | \"dashed\" | \"dotted\";\n  thickness?: number;\n  color?: string;\n  className?: string;\n  children?: React.ReactNode;\n}\n\nconst Divider = ({\n  orientation = \"horizontal\",\n  decorative = true,\n  variant = \"solid\",\n  thickness = 1,\n  color,\n  className = \"\",\n  children,\n  ...props\n}: DividerProps) => {\n  const baseClasses = \"flex items-center\";\n  const orientationClasses =\n    orientation === \"horizontal\" ? \"w-full my-8\" : \"h-full self-stretch mx-8\";\n\n  // Build border style based on variant\n  const variantStyles = {\n    solid: \"border-solid\",\n    dashed: \"border-dashed\",\n    dotted: \"border-dotted\"\n  };\n\n  // Build color style\n  const colorStyle = color ? { borderColor: color } : {};\n  \n  // Build thickness style\n  const thicknessStyle = orientation === \"horizontal\" \n    ? { borderTopWidth: `${thickness}px` }\n    : { borderLeftWidth: `${thickness}px` };\n\n  // The line itself\n  const lineClasses = `\n    flex-grow\n    ${orientation === \"horizontal\" ? \"border-t\" : \"border-l\"}\n    ${variantStyles[variant]}\n    ${!color ? \"border-border-[#13131d] dark:border-[#13131d]\" : \"\"}\n  `;\n\n  return (\n    <div\n      className={`${baseClasses} ${orientationClasses} ${className}`}\n      role={decorative ? \"none\" : \"separator\"}\n      aria-orientation={orientation}\n      {...props}\n    >\n      {children ? (\n        <>\n          <div \n            className={lineClasses}\n            style={{ ...colorStyle, ...thicknessStyle }}\n          ></div>\n          <span className=\"flex items-center px-4 text-sm text-zinc-500 font-medium\">\n            {children}\n          </span>\n          <div \n            className={lineClasses}\n            style={{ ...colorStyle, ...thicknessStyle }}\n          ></div>\n        </>\n      ) : (\n        <div \n          className={lineClasses}\n          style={{ ...colorStyle, ...thicknessStyle }}\n        ></div>\n      )}\n    </div>\n  );\n};\n\nexport default Divider;",
+      "type": "registry:ui"
+    }
+  ]
+}
