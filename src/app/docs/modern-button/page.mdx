@@ -1,0 +1,63 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+
+import CopyButtonView from "./button";
+import CopyButtonView2 from "./button2";
+
+
+# Section: Copy Button
+ 
+ This section demonstrates a copy button component with two tabs:
+ Preview: Displays the live interactive copy button component.
+ Code: Shows the source code for the copy button component.
+
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  {/* Preview tab renders the interactive CopyButtonView component */}
+  <TabsContent value="preview">
+    <ComponentRenderer component={<CopyButtonView />} />
+  </TabsContent>
+
+  {/* Code tab displays the source code of the CopyButtonView component */}
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/modern-button/button.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+  # Section: Download File
+ 
+   This section demonstrates a download file button component with two tabs:
+   Preview: Displays the live interactive download button component.
+   Code: Shows the source code for the download button component.
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  {/* Preview tab renders the interactive CopyButtonView2 component */}
+  <TabsContent value="preview">
+    <ComponentRenderer component={<CopyButtonView2 />} />
+  </TabsContent>
+
+  {/* Code tab displays the source code of the CopyButtonView2 component */}
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/modern-button/button2.tsx" />
+  </TabsContent>
+</Tabs>

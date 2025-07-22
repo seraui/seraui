@@ -6,9 +6,72 @@ import { GitHubIcon } from "@/assets/icons/github";
 
 import { AnimatePresence, motion } from "motion/react";
 import { SidebarMobile } from "./sidebar-mobile";
-import { X, LinkedinIcon, BookOpen, Wrench, MessageCircle } from "lucide-react";
+import {
+  X,
+  LinkedinIcon,
+  BookOpen,
+  Wrench,
+  MessageCircle,
+  Heart,
+  ExternalLink,
+} from "lucide-react";
 import { Logo } from "@/assets/icons/logo";
 import { SearchModal } from "./search-modal";
+
+// Support Alert Banner Component
+const SupportAlertBanner = () => {
+  const [isVisible, setIsVisible] = useState(() => {
+    // Check if user has previously dismissed the banner
+    if (typeof window !== "undefined") {
+      const dismissed = localStorage.getItem(
+        "sera-ui-support-banner-dismissed"
+      );
+      return !dismissed;
+    }
+    return true;
+  });
+
+  const handleClose = () => {
+    setIsVisible(false);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("sera-ui-support-banner-dismissed", "true");
+    }
+  };
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="w-full bg-gradient-to-r from-rose-500 to-pink-600 text-white relative z-[9999]">
+      <div className="mx-auto max-w-[1536px] px-4 md:px-6 py-2">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2 text-sm">
+            <Heart className="h-4 w-4 fill-current animate-pulse" />
+            <span className="font-medium">
+              We're hitting Vercel's free tier limits! Help keep Sera UI alive.
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/sponsor"
+              className="flex items-center gap-1 px-3 py-1 bg-white/20 hover:bg-white/30 rounded-full text-xs font-medium transition-colors duration-200"
+            >
+              <Heart className="h-3 w-3" />
+              Sponsor
+              <ExternalLink className="h-3 w-3" />
+            </Link>
+            <button
+              onClick={handleClose}
+              className="p-1 hover:bg-white/20 rounded-full transition-colors duration-200"
+              aria-label="Close banner"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // GitHub Star Badge Component
 const GitHubStarBadge = ({ repo }: { repo: string }) => {
@@ -18,19 +81,19 @@ const GitHubStarBadge = ({ repo }: { repo: string }) => {
   useEffect(() => {
     const fetchStars = async () => {
       try {
-        console.log('Fetching stars for repo:', repo);
+        console.log("Fetching stars for repo:", repo);
         const response = await fetch(`https://api.github.com/repos/${repo}`);
-        console.log('Response status:', response.status);
+        console.log("Response status:", response.status);
         if (response.ok) {
           const data = await response.json();
-          console.log('Star count:', data.stargazers_count);
+          console.log("Star count:", data.stargazers_count);
           setStars(data.stargazers_count);
         } else {
-          console.error('Failed to fetch stars, status:', response.status);
+          console.error("Failed to fetch stars, status:", response.status);
           setStars(0); // Set to 0 if API fails
         }
       } catch (error) {
-        console.error('Failed to fetch GitHub stars:', error);
+        console.error("Failed to fetch GitHub stars:", error);
         setStars(0); // Set to 0 if there's an error
       } finally {
         setLoading(false);
@@ -56,7 +119,9 @@ const GitHubStarBadge = ({ repo }: { repo: string }) => {
         className="flex items-center gap-2 px-3 h-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200"
         aria-label="GitHub"
       >
-        <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400 animate-pulse">...</span>
+        <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400 animate-pulse">
+          ...
+        </span>
         <GitHubIcon className="h-4 w-4 fill-zinc-950 dark:fill-zinc-50" />
       </Link>
     );
@@ -71,7 +136,7 @@ const GitHubStarBadge = ({ repo }: { repo: string }) => {
       aria-label="GitHub"
     >
       <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
-        {stars !== null ? formatStars(stars) : 'N/A'}
+        {stars !== null ? formatStars(stars) : "N/A"}
       </span>
       <GitHubIcon className="h-4 w-4 fill-zinc-950 dark:fill-zinc-50" />
     </Link>
@@ -87,18 +152,19 @@ const Header = () => {
   // Keyboard shortcut for search (Cmd+K on Mac, Ctrl+K on Windows/Linux)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         setSearchOpen(true);
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
     <>
+      <SupportAlertBanner />
       <AnimatePresence>
         {sidebarOpen && (
           <motion.div
@@ -242,10 +308,7 @@ const Header = () => {
         </header>
       </div>
 
-      <SearchModal
-        isOpen={searchOpen}
-        onClose={() => setSearchOpen(false)}
-      />
+      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 };
