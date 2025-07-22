@@ -74,7 +74,7 @@ const SupportAlertBanner = () => {
   );
 };
 
-// GitHub Star Badge Component
+// GitHub Star Badge Component with Caching
 const GitHubStarBadge = ({ repo }: { repo: string }) => {
   const [stars, setStars] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
@@ -82,20 +82,43 @@ const GitHubStarBadge = ({ repo }: { repo: string }) => {
   useEffect(() => {
     const fetchStars = async () => {
       try {
+        const now = Date.now();
+        const cacheKey = `github-stars-${repo}`;
+        const cacheTimeKey = `github-stars-time-${repo}`;
+
+        // Check cache first (cache for 1 hour = 3600000ms)
+        if (typeof window !== "undefined") {
+          const cached = localStorage.getItem(cacheKey);
+          const cacheTime = localStorage.getItem(cacheTimeKey);
+
+          if (cached && cacheTime && now - parseInt(cacheTime) < 3600000) {
+            setStars(parseInt(cached));
+            setLoading(false);
+            return;
+          }
+        }
+
         console.log("Fetching stars for repo:", repo);
         const response = await fetch(`https://api.github.com/repos/${repo}`);
         console.log("Response status:", response.status);
+
         if (response.ok) {
           const data = await response.json();
           console.log("Star count:", data.stargazers_count);
           setStars(data.stargazers_count);
+
+          // Cache the result
+          if (typeof window !== "undefined") {
+            localStorage.setItem(cacheKey, data.stargazers_count.toString());
+            localStorage.setItem(cacheTimeKey, now.toString());
+          }
         } else {
           console.error("Failed to fetch stars, status:", response.status);
-          setStars(0); // Set to 0 if API fails
+          setStars(0);
         }
       } catch (error) {
         console.error("Failed to fetch GitHub stars:", error);
-        setStars(0); // Set to 0 if there's an error
+        setStars(0);
       } finally {
         setLoading(false);
       }
@@ -241,13 +264,6 @@ const Header = () => {
               >
                 <BookOpen className="h-4 w-4" />
                 Docs
-              </Link>
-              <Link
-                className="flex items-center gap-2 hover:text-zinc-900 dark:hover:text-zinc-50"
-                href="/tools"
-              >
-                <Wrench className="h-4 w-4" />
-                Tools
               </Link>
               <Link
                 className="flex items-center gap-2 hover:text-zinc-900 dark:hover:text-zinc-50"

@@ -2,18 +2,17 @@ import { CodeBlock } from "@/components/site/code-block";
 import { ComponentRenderer } from "@/components/site/component-renderer";
 import { Cli } from "@/components/site/cli";
 import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
 } from "@/components/site/tabs.tsx";
-import FuzzyText from "./fuzzy"
+import { PropsTable } from "@/components/site/props-table.tsx";
+import FallingGlitchAn from "./falling-glitch"
 
-# Fuzzy Text
 
-A dynamic text component that creates an animated fuzzy/glitch effect using HTML5 Canvas. Perfect for creating eye-catching headings, hero text, and interactive typography with customizable intensity and hover effects.
-
-## Preview
+# Falling Glitch
+A falling glitch animation component for React.
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -21,10 +20,10 @@ A dynamic text component that creates an animated fuzzy/glitch effect using HTML
     <TabsTrigger value="code">Code</TabsTrigger>
   </TabsList>
   <TabsContent value="preview">
-    <ComponentRenderer component={<FuzzyText />} />
+    <ComponentRenderer component={<FallingGlitchAn />} />
   </TabsContent>
   <TabsContent value="code">
-    <CodeBlock filePath="src/app/docs/fuzzy/fuzzy.tsx" />
+    <CodeBlock filePath="src/app/docs/falling-glitch/falling-glitch.tsx" />
   </TabsContent>
 </Tabs>
 

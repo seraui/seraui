@@ -1,171 +1,149 @@
-// Service Worker for Sera UI - Enhanced Performance and SEO
-const CACHE_NAME = 'sera-ui-v1.0.0'
-const STATIC_CACHE = 'sera-ui-static-v1.0.0'
-const DYNAMIC_CACHE = 'sera-ui-dynamic-v1.0.0'
+// Service Worker for caching and performance optimization
+const CACHE_NAME = "sera-ui-v1.0.0";
+const STATIC_CACHE_NAME = "sera-ui-static-v1.0.0";
 
-// Assets to cache immediately
-const STATIC_ASSETS = [
-  '/',
-  '/docs',
-  '/docs/installation',
-  '/docs/button',
-  '/docs/card',
-  '/docs/tabs',
-  '/manifest.json',
-  '/logo.svg',
-  '/favicon.ico',
-  '/og-image.png'
-]
+// Resources to cache immediately
+const STATIC_RESOURCES = [
+  "/",
+  "/docs",
+  "/docs/installation",
+  "/docs/button",
+  "/docs/card",
+  "/docs/tabs",
+  "/manifest.json",
+  "/logo.svg",
+];
 
-// Install event - cache static assets
-self.addEventListener('install', (event) => {
+// API endpoints to cache
+const API_CACHE_PATTERNS = [
+  /^https:\/\/api\.github\.com\/repos\//,
+  /^https:\/\/seraui\.seraprogrammer\.com\/api\//,
+];
+
+// Install event - cache static resources
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(STATIC_CACHE)
-      .then(cache => {
-        console.log('Caching static assets')
-        return cache.addAll(STATIC_ASSETS)
-      })
-      .then(() => {
-        return self.skipWaiting()
-      })
-  )
-})
+    caches
+      .open(STATIC_CACHE_NAME)
+      .then((cache) => cache.addAll(STATIC_RESOURCES))
+      .then(() => self.skipWaiting())
+  );
+});
 
 // Activate event - clean up old caches
-self.addEventListener('activate', (event) => {
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys()
-      .then(cacheNames => {
+    caches
+      .keys()
+      .then((cacheNames) => {
         return Promise.all(
           cacheNames
-            .filter(cacheName => {
-              return cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE
-            })
-            .map(cacheName => {
-              console.log('Deleting old cache:', cacheName)
-              return caches.delete(cacheName)
-            })
-        )
+            .filter(
+              (cacheName) =>
+                cacheName !== CACHE_NAME && cacheName !== STATIC_CACHE_NAME
+            )
+            .map((cacheName) => caches.delete(cacheName))
+        );
       })
-      .then(() => {
-        return self.clients.claim()
-      })
-  )
-})
+      .then(() => self.clients.claim())
+  );
+});
 
-// Fetch event - serve from cache, fallback to network
-self.addEventListener('fetch', (event) => {
-  const { request } = event
-  const url = new URL(request.url)
+// Fetch event - serve from cache with network fallback
+self.addEventListener("fetch", (event) => {
+  const { request } = event;
+  const url = new URL(request.url);
 
-  // Skip non-GET requests
-  if (request.method !== 'GET') return
-
-  // Skip external requests
-  if (url.origin !== location.origin) return
-
-  // Handle different types of requests
-  if (request.destination === 'document') {
-    // HTML pages - Network first, cache fallback
+  // Handle API requests with cache-first strategy
+  if (API_CACHE_PATTERNS.some((pattern) => pattern.test(request.url))) {
     event.respondWith(
-      fetch(request)
-        .then(response => {
-          const responseClone = response.clone()
-          caches.open(DYNAMIC_CACHE)
-            .then(cache => {
-              cache.put(request, responseClone)
-            })
-          return response
-        })
-        .catch(() => {
-          return caches.match(request)
-            .then(response => {
-              return response || caches.match('/')
-            })
-        })
-    )
-  } else if (request.destination === 'image') {
-    // Images - Cache first, network fallback
-    event.respondWith(
-      caches.match(request)
-        .then(response => {
-          if (response) {
-            return response
+      caches.open(CACHE_NAME).then((cache) => {
+        return cache.match(request).then((cachedResponse) => {
+          if (cachedResponse) {
+            // Serve from cache and update in background
+            fetch(request)
+              .then((response) => {
+                if (response.ok) {
+                  cache.put(request, response.clone());
+                }
+              })
+              .catch(() => {}); // Ignore network errors
+            return cachedResponse;
           }
+
+          // Not in cache, fetch from network
           return fetch(request)
-            .then(response => {
-              const responseClone = response.clone()
-              caches.open(DYNAMIC_CACHE)
-                .then(cache => {
-                  cache.put(request, responseClone)
-                })
-              return response
+            .then((response) => {
+              if (response.ok) {
+                cache.put(request, response.clone());
+              }
+              return response;
             })
-        })
-    )
-  } else {
-    // Other assets - Cache first, network fallback
+            .catch(() => {
+              // Return offline fallback for API requests
+              return new Response(
+                JSON.stringify({
+                  error: "Offline",
+                  message: "This request requires an internet connection",
+                }),
+                {
+                  status: 503,
+                  headers: { "Content-Type": "application/json" },
+                }
+              );
+            });
+        });
+      })
+    );
+    return;
+  }
+
+  // Handle static resources with cache-first strategy
+  if (request.method === "GET") {
     event.respondWith(
-      caches.match(request)
-        .then(response => {
-          return response || fetch(request)
-            .then(response => {
-              const responseClone = response.clone()
-              caches.open(DYNAMIC_CACHE)
-                .then(cache => {
-                  cache.put(request, responseClone)
-                })
-              return response
-            })
-        })
-    )
-  }
-})
+      caches.match(request).then((cachedResponse) => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
 
-// Background sync for offline functionality
-self.addEventListener('sync', (event) => {
-  if (event.tag === 'background-sync') {
-    event.waitUntil(
-      // Sync data when back online
-      console.log('Background sync triggered')
-    )
+        return fetch(request)
+          .then((response) => {
+            // Cache successful responses
+            if (response.ok && response.status === 200) {
+              const responseClone = response.clone();
+              caches
+                .open(CACHE_NAME)
+                .then((cache) => cache.put(request, responseClone));
+            }
+            return response;
+          })
+          .catch(() => {
+            // Return offline page for navigation requests
+            if (request.mode === "navigate") {
+              return (
+                caches.match("/offline.html") ||
+                new Response("Offline", { status: 503 })
+              );
+            }
+            throw error;
+          });
+      })
+    );
   }
-})
+});
 
-// Push notifications (for future use)
-self.addEventListener('push', (event) => {
-  if (event.data) {
-    const data = event.data.json()
-    const options = {
-      body: data.body,
-      icon: '/logo.svg',
-      badge: '/logo.svg',
-      data: data.url
-    }
-    
+// Background sync for failed requests
+self.addEventListener("sync", (event) => {
+  if (event.tag === "background-sync") {
     event.waitUntil(
-      self.registration.showNotification(data.title, options)
-    )
+      // Retry failed requests
+      retryFailedRequests()
+    );
   }
-})
+});
 
-// Notification click handler
-self.addEventListener('notificationclick', (event) => {
-  event.notification.close()
-  
-  if (event.notification.data) {
-    event.waitUntil(
-      clients.openWindow(event.notification.data)
-    )
-  }
-})
-
-// Periodic background sync (for future use)
-self.addEventListener('periodicsync', (event) => {
-  if (event.tag === 'content-sync') {
-    event.waitUntil(
-      // Sync content periodically
-      console.log('Periodic sync triggered')
-    )
-  }
-})
+async function retryFailedRequests() {
+  // Implementation for retrying failed requests
+  // This would typically involve checking IndexedDB for queued requests
+  console.log("Retrying failed requests...");
+}

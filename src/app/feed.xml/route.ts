@@ -1,23 +1,67 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server";
 
-// RSS Feed for better SEO and content discovery
+// RSS Feed for better SEO and content discovery with caching
+export const dynamic = "force-static";
+export const revalidate = 3600; // Revalidate every hour
+
 export async function GET() {
-  const baseUrl = 'https://seraui.seraprogrammer.com'
-  const currentDate = new Date().toISOString()
+  const baseUrl = "https://seraui.seraprogrammer.com";
+  // Use fixed date to reduce regeneration
+  const currentDate = new Date("2025-01-01").toISOString();
 
   // Component categories for RSS feed
   const components = [
-    { name: 'Button', description: 'Interactive button components with animations', category: 'UI Components' },
-    { name: 'Card', description: 'Flexible card components for content display', category: 'UI Components' },
-    { name: 'Tabs', description: 'Accessible tab components with smooth transitions', category: 'UI Components' },
-    { name: 'Modal', description: 'Accessible modal and dialog components', category: 'UI Components' },
-    { name: 'Carousel', description: 'Responsive carousel and slider components', category: 'Interactive Components' },
-    { name: 'Login', description: 'Beautiful login form components', category: 'Form Components' },
-    { name: 'Hero', description: 'Stunning hero section components', category: 'Layout Components' },
-    { name: 'Pricing', description: 'Professional pricing table components', category: 'Layout Components' },
-    { name: 'Testimonial', description: 'Social proof testimonial components', category: 'Layout Components' },
-    { name: 'Animation', description: 'Text animation and effect components', category: 'Animation Components' }
-  ]
+    {
+      name: "Button",
+      description: "Interactive button components with animations",
+      category: "UI Components",
+    },
+    {
+      name: "Card",
+      description: "Flexible card components for content display",
+      category: "UI Components",
+    },
+    {
+      name: "Tabs",
+      description: "Accessible tab components with smooth transitions",
+      category: "UI Components",
+    },
+    {
+      name: "Modal",
+      description: "Accessible modal and dialog components",
+      category: "UI Components",
+    },
+    {
+      name: "Carousel",
+      description: "Responsive carousel and slider components",
+      category: "Interactive Components",
+    },
+    {
+      name: "Login",
+      description: "Beautiful login form components",
+      category: "Form Components",
+    },
+    {
+      name: "Hero",
+      description: "Stunning hero section components",
+      category: "Layout Components",
+    },
+    {
+      name: "Pricing",
+      description: "Professional pricing table components",
+      category: "Layout Components",
+    },
+    {
+      name: "Testimonial",
+      description: "Social proof testimonial components",
+      category: "Layout Components",
+    },
+    {
+      name: "Animation",
+      description: "Text animation and effect components",
+      category: "Animation Components",
+    },
+  ];
 
   const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
@@ -60,7 +104,9 @@ export async function GET() {
       ]]></content:encoded>
     </item>
 
-    ${components.map(component => `
+    ${components
+      .map(
+        (component) => `
     <item>
       <title>${component.name} Component - Sera UI</title>
       <description>${component.description} - Free React component built with Tailwind CSS and Framer Motion.</description>
@@ -81,7 +127,9 @@ export async function GET() {
         <p>View the ${component.name} component documentation and examples at <a href="${baseUrl}/docs/${component.name.toLowerCase()}">${baseUrl}/docs/${component.name.toLowerCase()}</a></p>
       ]]></content:encoded>
     </item>
-    `).join('')}
+    `
+      )
+      .join("")}
 
     <item>
       <title>Installation Guide - Getting Started with Sera UI</title>
@@ -103,12 +151,12 @@ export async function GET() {
       ]]></content:encoded>
     </item>
   </channel>
-</rss>`
+</rss>`;
 
   return new NextResponse(rssXml, {
     headers: {
-      'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=3600, s-maxage=3600'
-    }
-  })
+      "Content-Type": "application/xml",
+      "Cache-Control": "public, max-age=3600, s-maxage=3600",
+    },
+  });
 }

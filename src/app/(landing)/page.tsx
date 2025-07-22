@@ -4,22 +4,35 @@ import Header from "@/components/site/header";
 import { Hero } from "./_components/hero";
 import { Footer } from "./_components/footer";
 import A0 from "./_components/a0";
-import NetworkVisualization from "@/app/docs/network/network";  
+import NetworkVisualization from "@/app/docs/network/network";
 import Carousel from "@/app/docs/carousel/carousel";
+
+// Force static generation for landing page
+export const dynamic = "force-static";
+export const revalidate = 3600; // Revalidate every hour
 
 export const metadata: Metadata = {
   title: "Sera UI - Modern React Component Library",
-  description: "Build stunning web applications with Sera UI's modern React components. Free, open-source, and built with Tailwind CSS & Framer Motion.",
-  keywords: ["React components", "UI library", "Tailwind CSS", "Framer Motion", "TypeScript"],
+  description:
+    "Build stunning web applications with Sera UI's modern React components. Free, open-source, and built with Tailwind CSS & Framer Motion.",
+  keywords: [
+    "React components",
+    "UI library",
+    "Tailwind CSS",
+    "Framer Motion",
+    "TypeScript",
+  ],
   openGraph: {
     title: "Sera UI - Modern React Component Library",
-    description: "Build stunning web applications with Sera UI's modern React components.",
+    description:
+      "Build stunning web applications with Sera UI's modern React components.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Sera UI - Modern React Component Library",
-    description: "Build stunning web applications with Sera UI's modern React components.",
+    description:
+      "Build stunning web applications with Sera UI's modern React components.",
   },
 };
 
@@ -38,17 +51,18 @@ const page = () => {
               Let&apos;s Connect Together
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
-              Join our vibrant community of developers and creators. Visualize your network, 
-              collaborate, and build something amazing with Sera UI.
+              Join our vibrant community of developers and creators. Visualize
+              your network, collaborate, and build something amazing with Sera
+              UI.
             </p>
           </div>
-          
+
           <div className="flex justify-center">
-              <NetworkVisualization />
+            <NetworkVisualization />
           </div>
         </div>
       </section>
-      
+
       <Footer />
     </main>
   );

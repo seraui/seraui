@@ -1,27 +1,16 @@
 {
-  "name": "Sera UI - Modern React Component Library | 50+ Animated Components",
+  "name": "Sera UI - Modern React Component Library",
   "short_name": "Sera UI",
-  "description": "Build stunning web applications with Sera UI's 50+ animated React components. Free, open-source, built with Tailwind CSS & Framer Motion. Perfect for developers who want beautiful, accessible, and performant UI components.",
-  "start_url": "/?utm_source=pwa&utm_medium=homescreen",
+  "description": "Modern React component library with 50+ animated components built with Tailwind CSS and Framer Motion",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#3b82f6",
-  "orientation": "any",
-  "scope": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#f43f5e",
+  "orientation": "portrait-primary",
+  "categories": ["developer", "productivity", "utilities"],
   "lang": "en-US",
   "dir": "ltr",
-  "categories": ["developer", "productivity", "utilities", "design", "tools"],
-  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
-  "prefer_related_applications": false,
-  "edge_side_panel": {
-    "preferred_width": 400
-  },
   "icons": [
-    {
-      "src": "/favicon.ico",
-      "sizes": "16x16 32x32 48x48",
-      "type": "image/x-icon"
-    },
     {
       "src": "/logo.svg",
       "sizes": "any",
@@ -39,103 +28,63 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "/icon-maskable-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/icon-maskable-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/og-image.png",
-      "sizes": "1200x630",
-      "type": "image/png"
     }
   ],
   "screenshots": [
     {
-      "src": "/screenshot-desktop-1.png",
+      "src": "/screenshot-desktop.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Sera UI Component Library Homepage"
+      "label": "Sera UI Component Library Desktop View"
     },
     {
-      "src": "/screenshot-desktop-2.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Sera UI Documentation and Components"
-    },
-    {
-      "src": "/screenshot-mobile-1.png",
+      "src": "/screenshot-mobile.png",
       "sizes": "375x667",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Sera UI Mobile Experience"
-    },
-    {
-      "src": "/screenshot-mobile-2.png",
-      "sizes": "375x667",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Sera UI Mobile Components"
+      "label": "Sera UI Component Library Mobile View"
     }
   ],
   "shortcuts": [
     {
       "name": "Documentation",
       "short_name": "Docs",
-      "description": "View comprehensive Sera UI documentation",
-      "url": "/docs?utm_source=pwa&utm_medium=shortcut",
+      "description": "Browse component documentation",
+      "url": "/docs",
       "icons": [
         {
-          "src": "/logo.svg",
-          "sizes": "96x96"
+          "src": "/icon-docs.png",
+          "sizes": "96x96",
+          "type": "image/png"
         }
       ]
     },
     {
-      "name": "Button Components",
-      "short_name": "Buttons",
-      "description": "Explore animated button components",
-      "url": "/docs/button?utm_source=pwa&utm_medium=shortcut",
+      "name": "Components",
+      "short_name": "Components",
+      "description": "View all components",
+      "url": "/docs/button",
       "icons": [
         {
-          "src": "/logo.svg",
-          "sizes": "96x96"
+          "src": "/icon-components.png",
+          "sizes": "96x96",
+          "type": "image/png"
         }
       ]
     },
     {
-      "name": "Installation Guide",
-      "short_name": "Install",
-      "description": "Quick installation guide",
-      "url": "/docs/installation?utm_source=pwa&utm_medium=shortcut",
+      "name": "Tools",
+      "short_name": "Tools",
+      "description": "Design tools and utilities",
+      "url": "/tools",
       "icons": [
         {
-          "src": "/logo.svg",
-          "sizes": "96x96"
+          "src": "/icon-tools.png",
+          "sizes": "96x96",
+          "type": "image/png"
         }
       ]
-    }
-  ],
-  "related_applications": [
-    {
-      "platform": "web",
-      "url": "https://seraui.seraprogrammer.com"
-    }
-  ],
-  "protocol_handlers": [
-    {
-      "protocol": "web+seraui",
-      "url": "/docs/%s"
     }
   ]
-} 
+}

@@ -1,18 +1,45 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server";
 
-// Image sitemap for better image SEO
+// Image sitemap for better image SEO with caching
+export const dynamic = "force-static";
+export const revalidate = 86400; // Revalidate every 24 hours
+
 export async function GET() {
-  const baseUrl = 'https://seraui.seraprogrammer.com'
+  const baseUrl = "https://seraui.seraprogrammer.com";
 
   // Component images and screenshots
   const componentImages = [
-    { name: 'Button Components', url: '/screenshots/button-components.png', caption: 'Beautiful animated button components for React' },
-    { name: 'Card Components', url: '/screenshots/card-components.png', caption: 'Flexible card components with hover effects' },
-    { name: 'Form Components', url: '/screenshots/form-components.png', caption: 'Modern login and form components' },
-    { name: 'Animation Components', url: '/screenshots/animation-components.png', caption: 'Text animations and effects' },
-    { name: 'Layout Components', url: '/screenshots/layout-components.png', caption: 'Hero sections and layout components' },
-    { name: 'Interactive Components', url: '/screenshots/interactive-components.png', caption: 'Carousels and interactive elements' }
-  ]
+    {
+      name: "Button Components",
+      url: "/screenshots/button-components.png",
+      caption: "Beautiful animated button components for React",
+    },
+    {
+      name: "Card Components",
+      url: "/screenshots/card-components.png",
+      caption: "Flexible card components with hover effects",
+    },
+    {
+      name: "Form Components",
+      url: "/screenshots/form-components.png",
+      caption: "Modern login and form components",
+    },
+    {
+      name: "Animation Components",
+      url: "/screenshots/animation-components.png",
+      caption: "Text animations and effects",
+    },
+    {
+      name: "Layout Components",
+      url: "/screenshots/layout-components.png",
+      caption: "Hero sections and layout components",
+    },
+    {
+      name: "Interactive Components",
+      url: "/screenshots/interactive-components.png",
+      caption: "Carousels and interactive elements",
+    },
+  ];
 
   const imageSitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -48,16 +75,20 @@ export async function GET() {
     </image:image>
   </url>
 
-  ${componentImages.map(image => `
+  ${componentImages
+    .map(
+      (image) => `
   <url>
-    <loc>${baseUrl}/docs/${image.name.toLowerCase().replace(/\s+/g, '-')}</loc>
+    <loc>${baseUrl}/docs/${image.name.toLowerCase().replace(/\s+/g, "-")}</loc>
     <image:image>
       <image:loc>${baseUrl}${image.url}</image:loc>
       <image:caption>${image.caption}</image:caption>
       <image:title>${image.name} - Sera UI</image:title>
     </image:image>
   </url>
-  `).join('')}
+  `
+    )
+    .join("")}
 
   <!-- Component specific images -->
   <url>
@@ -102,12 +133,12 @@ export async function GET() {
     </image:image>
   </url>
 
-</urlset>`
+</urlset>`;
 
   return new NextResponse(imageSitemapXml, {
     headers: {
-      'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=86400, s-maxage=86400'
-    }
-  })
+      "Content-Type": "application/xml",
+      "Cache-Control": "public, max-age=86400, s-maxage=86400",
+    },
+  });
 }

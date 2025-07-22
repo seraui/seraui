@@ -2,18 +2,18 @@ import { CodeBlock } from "@/components/site/code-block";
 import { ComponentRenderer } from "@/components/site/component-renderer";
 import { Cli } from "@/components/site/cli";
 import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
 } from "@/components/site/tabs.tsx";
-import FuzzyText from "./fuzzy"
+import ButterflyGlitchView from "./prison"
 
-# Fuzzy Text
+# Butterfly Glitch
 
-A dynamic text component that creates an animated fuzzy/glitch effect using HTML5 Canvas. Perfect for creating eye-catching headings, hero text, and interactive typography with customizable intensity and hover effects.
+A mesmerizing animated butterfly effect with glitch distortion and particle trails. Features smooth wing animations, dynamic color transitions, and ethereal visual effects.
 
-## Preview
+
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -21,10 +21,9 @@ A dynamic text component that creates an animated fuzzy/glitch effect using HTML
     <TabsTrigger value="code">Code</TabsTrigger>
   </TabsList>
   <TabsContent value="preview">
-    <ComponentRenderer component={<FuzzyText />} />
+    <ComponentRenderer component={<ButterflyGlitchView />} />
   </TabsContent>
   <TabsContent value="code">
-    <CodeBlock filePath="src/app/docs/fuzzy/fuzzy.tsx" />
+    <CodeBlock filePath="src/app/docs/prison/prison.tsx" />
   </TabsContent>
 </Tabs>
-
