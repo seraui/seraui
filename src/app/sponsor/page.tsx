@@ -8,8 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Button from "@/app/docs/button/button";
-import { Badge } from "@/app/docs/badge/badge";
-import { Heart, ExternalLink, Mail } from "lucide-react";
+import { ExternalLink, Mail } from "lucide-react";
 
 const contactLinks = [
   {
@@ -46,7 +45,7 @@ export default function Page() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Help Keep Sera UI Alive</h1>
           <p className="text-xl text-muted-foreground mb-2">
-            We're hitting Vercel's free tier limits!
+            We&apos;re hitting Vercel&apos;s free tier limits!
           </p>
           <p className="text-muted-foreground">
             Your support helps maintain and improve this open-source project
@@ -61,7 +60,7 @@ export default function Page() {
               Get in Touch
             </CardTitle>
             <CardDescription>
-              Ready to sponsor or have questions? Let's connect!
+              Ready to sponsor or have questions? Let&apos;s connect!
             </CardDescription>
           </CardHeader>
           <CardContent className="text-center">

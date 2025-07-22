@@ -47,7 +47,8 @@ const SupportAlertBanner = () => {
           <div className="flex items-center gap-2 text-sm">
             <Heart className="h-4 w-4 fill-current animate-pulse" />
             <span className="font-medium">
-              We're hitting Vercel's free tier limits! Help keep Sera UI alive.
+              We&apos;re hitting Vercel&apos;s free tier limits! Help keep Sera
+              UI alive.
             </span>
           </div>
           <div className="flex items-center gap-3">

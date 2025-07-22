@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 //================================================================================
 // LetterGlitch Component (User's Code)
@@ -109,7 +109,7 @@ const LetterGlitch = ({
 
   const hexToRgb = (hex: string) => {
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    hex = hex.replace(shorthandRegex, (m, r, g, b) => {
+    hex = hex.replace(shorthandRegex, (_, r, g, b) => {
       return r + r + g + g + b + b;
     });
 
@@ -284,7 +284,14 @@ const LetterGlitch = ({
       window.removeEventListener("resize", handleResize);
       clearTimeout(resizeTimeout);
     };
-  }, [glitchColors, glitchSpeed, smooth]);
+  }, [
+    glitchColors,
+    glitchSpeed,
+    smooth,
+    getRandomChar,
+    getRandomColor,
+    initializeLetters,
+  ]);
 
   return (
     <div className="relative w-full h-full bg-black overflow-hidden">
