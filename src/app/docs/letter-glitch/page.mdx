@@ -1,0 +1,64 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import LetterGlitchWrapper from "./letter-glitch"
+
+# Letter Glitch
+
+A dynamic animated background component that creates a mesmerizing matrix-style glitch effect with randomly changing letters, numbers, and symbols.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<LetterGlitchWrapper />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/letter-glitch/letter-glitch.tsx" />
+  </TabsContent>
+</Tabs>
+
+# Usage
+
+```tsx
+import { LetterGlitch } from "letter-glitch";
+
+export default function Page() {
+  return (
+    <div className="flex flex-col items-center justify-center">
+      <LetterGlitch />
+    </div>
+  );
+}
+```
+
+## With text
+
+```tsx
+<main className="relative h-screen w-screen bg-gray-900 text-white">
+      {/* The LetterGlitch component is rendered here, taking up the full screen */}
+      <LetterGlitch
+        glitchColors={["#32a852", "#4287f5", "#d942f5", "#f54242"]}
+        glitchSpeed={50}
+        smooth={true}
+        outerVignette={true}
+        centerVignette={false}
+      />
+      {/* Centered Text Overlay */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+       <h1 className="text-7xl font-bold text-white drop-shadow-2xl">
+          Sera Ui
+      </h1>
+    </div>
+</main>
+
+```

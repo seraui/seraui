@@ -70,6 +70,7 @@ export const navigation: NavigationItem[] = [
       { label: "Aurora Text", href: "/docs/aurora" },
       { label: "Sparkles Text", href: "/docs/sparklestext" },
       { label: "Number Ticker", href: "/docs/ticker", badge: "New" },
+      { label: "Letter Glitch", href: "/docs/letter-glitch", badge: "New" },
     ],
   },
   {
