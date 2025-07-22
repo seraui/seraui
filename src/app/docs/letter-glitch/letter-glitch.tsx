@@ -1,322 +1,322 @@
 "use client";
 import { useRef, useEffect, useCallback } from "react";
 
-//================================================================================
-// LetterGlitch Component (User's Code)
-// This is the component you provided, which creates the animated glitch effect.
-//================================================================================
-const LetterGlitch = ({
-  glitchColors = ["#2b4539", "#61dca3", "#61b3dc"],
-  glitchSpeed = 50,
-  centerVignette = false,
-  outerVignette = true,
-  smooth = true,
-}: {
-  glitchColors?: string[];
-  glitchSpeed?: number;
-  centerVignette?: boolean;
-  outerVignette?: boolean;
-  smooth?: boolean;
-}) => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const animationRef = useRef<number | null>(null);
-  const letters = useRef<
-    {
-      char: string;
-      color: string;
-      targetColor: string;
-      colorProgress: number;
-    }[]
-  >([]);
-  const grid = useRef({ columns: 0, rows: 0 });
-  const context = useRef<CanvasRenderingContext2D | null>(null);
-  const lastGlitchTime = useRef(Date.now());
+const FONT_SIZE = 16;
+const CHAR_WIDTH = 10;
+const CHAR_HEIGHT = 20;
+const CHARACTER_SET =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*()-_{}[]:;<>,.?/";
+class Particle {
+  x: number;
+  y: number;
+  char: string;
+  initialColor: string;
+  currentColor: string;
+  targetColor: string;
+  colorProgress: number;
 
-  const fontSize = 16;
-  const charWidth = 10;
-  const charHeight = 20;
+  constructor(
+    x: number,
+    y: number,
+    char: string,
+    color: string,
+    targetColor: string
+  ) {
+    this.x = x;
+    this.y = y;
+    this.char = char;
+    this.initialColor = color;
+    this.currentColor = color;
+    this.targetColor = targetColor;
+    this.colorProgress = 1.0; // Start fully at the initial color
+  }
 
-  const lettersAndSymbols = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-    "!",
-    "@",
-    "#",
-    "$",
-    "&",
-    "*",
-    "(",
-    ")",
-    "-",
-    "_",
-    "+",
-    "=",
-    "/",
-    "[",
-    "]",
-    "{",
-    "}",
-    ";",
-    ":",
-    "<",
-    ">",
-    ",",
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-  ];
+  // Draws the particle on the canvas
+  draw(ctx: CanvasRenderingContext2D) {
+    ctx.fillStyle = this.currentColor;
+    ctx.fillText(this.char, this.x, this.y);
+  }
 
-  const getRandomChar = useCallback(() => {
-    return lettersAndSymbols[
-      Math.floor(Math.random() * lettersAndSymbols.length)
-    ];
-  }, [lettersAndSymbols]);
+  // Assigns a new random character
+  randomizeCharacter() {
+    this.char = CHARACTER_SET[Math.floor(Math.random() * CHARACTER_SET.length)];
+  }
 
-  const getRandomColor = useCallback(() => {
-    return glitchColors[Math.floor(Math.random() * glitchColors.length)];
-  }, [glitchColors]);
+  // Sets a new target color to transition towards
+  setNewTargetColor(newColor: string, smooth: boolean) {
+    if (!smooth) {
+      this.currentColor = newColor;
+      this.targetColor = newColor;
+      this.colorProgress = 1.0;
+    } else {
+      this.initialColor = this.currentColor;
+      this.targetColor = newColor;
+      this.colorProgress = 0.0;
+    }
+  }
 
-  const hexToRgb = (hex: string) => {
-    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    hex = hex.replace(shorthandRegex, (_, r, g, b) => {
-      return r + r + g + g + b + b;
-    });
+  // Updates the color transition if needed
+  updateColorTransition(): boolean {
+    if (this.colorProgress >= 1) return false;
 
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result
-      ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16),
-        }
-      : null;
-  };
+    this.colorProgress = Math.min(this.colorProgress + 0.05, 1);
 
-  const interpolateColor = (
-    start: { r: number; g: number; b: number },
-    end: { r: number; g: number; b: number },
-    factor: number
-  ) => {
-    const result = {
-      r: Math.round(start.r + (end.r - start.r) * factor),
-      g: Math.round(start.g + (end.g - start.g) * factor),
-      b: Math.round(start.b + (end.b - start.b) * factor),
+    const start = ColorUtils.hexToRgb(this.initialColor);
+    const end = ColorUtils.hexToRgb(this.targetColor);
+
+    if (start && end) {
+      this.currentColor = ColorUtils.interpolateRgb(
+        start,
+        end,
+        this.colorProgress
+      );
+    }
+    return true; // Indicates a change was made
+  }
+}
+
+// ================================================================================
+// Utility Functions
+// A collection of pure helper functions.
+// ================================================================================
+interface RgbColor {
+  r: number;
+  g: number;
+  b: number;
+}
+
+const ColorUtils = {
+  // A different implementation of hex-to-rgb conversion
+  hexToRgb(hex: string): RgbColor | null {
+    if (!hex || hex.charAt(0) !== "#") return null;
+    const cleanHex = hex.substring(1);
+
+    // Handle 3-digit hex
+    const fullHex =
+      cleanHex.length === 3
+        ? cleanHex
+            .split("")
+            .map((c: string) => c + c)
+            .join("")
+        : cleanHex;
+
+    if (fullHex.length !== 6) return null;
+
+    return {
+      r: parseInt(fullHex.substring(0, 2), 16),
+      g: parseInt(fullHex.substring(2, 4), 16),
+      b: parseInt(fullHex.substring(4, 6), 16),
     };
-    return `rgb(${result.r}, ${result.g}, ${result.b})`;
-  };
+  },
+  // Interpolates between two RGB colors
+  interpolateRgb(start: RgbColor, end: RgbColor, factor: number): string {
+    const r = Math.round(start.r + (end.r - start.r) * factor);
+    const g = Math.round(start.g + (end.g - start.g) * factor);
+    const b = Math.round(start.b + (end.b - start.b) * factor);
+    return `rgb(${r}, ${g}, ${b})`;
+  },
+  // Picks a random color from the provided array
+  getRandomColor(colors: string[]): string {
+    return colors[Math.floor(Math.random() * colors.length)];
+  },
+};
 
-  const calculateGrid = (width: number, height: number) => {
-    const columns = Math.ceil(width / charWidth);
-    const rows = Math.ceil(height / charHeight);
-    return { columns, rows };
-  };
+interface AnimationOptions {
+  colors?: string[];
+  speed?: number;
+  smooth?: boolean;
+}
 
-  const initializeLetters = useCallback(
-    (columns: number, rows: number) => {
-      grid.current = { columns, rows };
-      const totalLetters = columns * rows;
-      letters.current = Array.from({ length: totalLetters }, () => ({
-        char: getRandomChar(),
-        color: getRandomColor(),
-        targetColor: getRandomColor(),
-        colorProgress: 1,
-      }));
-    },
-    [getRandomChar, getRandomColor]
+const useMatrixAnimation = (
+  canvasRef: React.RefObject<HTMLCanvasElement | null>,
+  options: AnimationOptions
+) => {
+  const {
+    colors = ["#2b4539", "#61dca3", "#61b3dc"],
+    speed = 50,
+    smooth = true,
+  } = options;
+
+  // Using refs to store animation state without causing re-renders
+  const particlesRef = useRef<Particle[]>([]);
+  const animationFrameId = useRef<number | null>(null);
+  const lastUpdateTime = useRef<number>(0);
+  const contextRef = useRef<CanvasRenderingContext2D | null>(null);
+
+  // Memoize the getRandomColor function to ensure stability
+  const getRandomColorMemoized = useCallback(
+    () => ColorUtils.getRandomColor(colors),
+    [colors]
   );
-
-  const drawLetters = () => {
-    if (!context.current || !canvasRef.current || letters.current.length === 0)
-      return;
-    const ctx = context.current;
-    const { width, height } = canvasRef.current.getBoundingClientRect();
-    ctx.clearRect(0, 0, width, height);
-    ctx.font = `${fontSize}px monospace`;
-    ctx.textBaseline = "top";
-
-    letters.current.forEach((letter, index) => {
-      const x = (index % grid.current.columns) * charWidth;
-      const y = Math.floor(index / grid.current.columns) * charHeight;
-      ctx.fillStyle = letter.color;
-      ctx.fillText(letter.char, x, y);
-    });
-  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    context.current = canvas.getContext("2d");
-    if (!context.current) return;
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+    if (!context) return;
+    contextRef.current = context;
 
-    const resizeCanvas = () => {
-      const parent = canvas.parentElement;
-      if (!parent) return;
+    let grid = { cols: 0, rows: 0 };
 
+    // This function initializes or re-initializes the particle grid
+    const setup = (width: number, height: number) => {
       const dpr = window.devicePixelRatio || 1;
-      const rect = parent.getBoundingClientRect();
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
+      context.font = `${FONT_SIZE}px monospace`;
+      context.textBaseline = "top";
 
-      canvas.style.width = `${rect.width}px`;
-      canvas.style.height = `${rect.height}px`;
+      grid.cols = Math.ceil(width / CHAR_WIDTH);
+      grid.rows = Math.ceil(height / CHAR_HEIGHT);
 
-      context.current?.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      const { columns, rows } = calculateGrid(rect.width, rect.height);
-      initializeLetters(columns, rows);
-      drawLetters();
-    };
-
-    const updateLetters = () => {
-      if (!letters.current || letters.current.length === 0) return;
-      const updateCount = Math.max(
-        1,
-        Math.floor(letters.current.length * 0.05)
-      );
-
-      for (let i = 0; i < updateCount; i++) {
-        const index = Math.floor(Math.random() * letters.current.length);
-        if (!letters.current[index]) continue;
-
-        letters.current[index].char = getRandomChar();
-        letters.current[index].targetColor = getRandomColor();
-
-        if (!smooth) {
-          letters.current[index].color = letters.current[index].targetColor;
-          letters.current[index].colorProgress = 1;
-        } else {
-          letters.current[index].colorProgress = 0;
+      particlesRef.current = [];
+      for (let row = 0; row < grid.rows; row++) {
+        for (let col = 0; col < grid.cols; col++) {
+          const x = col * CHAR_WIDTH;
+          const y = row * CHAR_HEIGHT;
+          const char =
+            CHARACTER_SET[Math.floor(Math.random() * CHARACTER_SET.length)];
+          const color = getRandomColorMemoized();
+          const targetColor = getRandomColorMemoized();
+          particlesRef.current.push(
+            new Particle(x, y, char, color, targetColor)
+          );
         }
       }
     };
 
-    const handleSmoothTransitions = () => {
+    // The main animation loop
+    const animate = (timestamp: number) => {
       let needsRedraw = false;
-      letters.current.forEach((letter) => {
-        if (letter.colorProgress < 1) {
-          letter.colorProgress += 0.05;
-          if (letter.colorProgress > 1) letter.colorProgress = 1;
+      const elapsed = timestamp - lastUpdateTime.current;
 
-          const startRgb = hexToRgb(letter.color);
-          const endRgb = hexToRgb(letter.targetColor);
-          if (startRgb && endRgb) {
-            letter.color = interpolateColor(
-              startRgb,
-              endRgb,
-              letter.colorProgress
-            );
-            needsRedraw = true;
+      // Update a batch of particles based on the speed setting
+      if (elapsed > speed) {
+        const updateCount = Math.max(
+          1,
+          Math.floor(particlesRef.current.length * 0.05)
+        );
+        for (let i = 0; i < updateCount; i++) {
+          const index = Math.floor(Math.random() * particlesRef.current.length);
+          const particle = particlesRef.current[index];
+          if (particle) {
+            particle.randomizeCharacter();
+            particle.setNewTargetColor(getRandomColorMemoized(), smooth);
           }
         }
-      });
-
-      if (needsRedraw) {
-        drawLetters();
-      }
-    };
-
-    const animate = () => {
-      const now = Date.now();
-      if (now - lastGlitchTime.current >= glitchSpeed) {
-        updateLetters();
-        drawLetters();
-        lastGlitchTime.current = now;
+        lastUpdateTime.current = timestamp;
+        needsRedraw = true;
       }
 
+      // Handle smooth color transitions for any active particles
       if (smooth) {
-        handleSmoothTransitions();
+        particlesRef.current.forEach((p) => {
+          if (p.updateColorTransition()) {
+            needsRedraw = true;
+          }
+        });
       }
 
-      animationRef.current = requestAnimationFrame(animate);
+      // Only redraw the canvas if something has changed
+      if (needsRedraw) {
+        const canvasWidth = canvas.width / (window.devicePixelRatio || 1);
+        const canvasHeight = canvas.height / (window.devicePixelRatio || 1);
+        context.clearRect(0, 0, canvasWidth, canvasHeight);
+        particlesRef.current.forEach((p) => p.draw(context));
+      }
+
+      animationFrameId.current = requestAnimationFrame(animate);
     };
 
-    resizeCanvas();
-    animate();
+    // Use ResizeObserver for efficient resize handling
+    const resizeObserver = new ResizeObserver((entries) => {
+      if (!entries || entries.length === 0) return;
+      const { width, height } = entries[0].contentRect;
+      setup(width, height);
+    });
 
-    let resizeTimeout: number;
-    const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = window.setTimeout(() => {
-        if (animationRef.current) {
-          cancelAnimationFrame(animationRef.current);
-        }
-        resizeCanvas();
-        animate();
-      }, 100);
-    };
+    if (canvas.parentElement) {
+      resizeObserver.observe(canvas.parentElement);
+    }
 
-    window.addEventListener("resize", handleResize);
+    // Start the animation
+    animate(0);
 
+    // Cleanup function to stop the animation and observer
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
       }
-      window.removeEventListener("resize", handleResize);
-      clearTimeout(resizeTimeout);
+      resizeObserver.disconnect();
     };
-  }, [
-    glitchColors,
-    glitchSpeed,
-    smooth,
-    getRandomChar,
-    getRandomColor,
-    initializeLetters,
-  ]);
+  }, [colors, speed, smooth, canvasRef, getRandomColorMemoized]); // Dependencies for the effect
+};
+
+interface LetterGlitchProps {
+  glitchColors: string[];
+  glitchSpeed: number;
+  smooth: boolean;
+  centerVignette?: boolean;
+  outerVignette?: boolean;
+}
+
+const LetterGlitch = ({
+  glitchColors,
+  glitchSpeed,
+  smooth,
+  centerVignette = false,
+  outerVignette = true,
+}: LetterGlitchProps) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  // The custom hook handles all the complex animation logic
+  useMatrixAnimation(canvasRef, {
+    colors: glitchColors,
+    speed: glitchSpeed,
+    smooth: smooth,
+  });
 
   return (
     <div className="relative w-full h-full bg-black overflow-hidden">
       <canvas ref={canvasRef} className="block w-full h-full" />
+      {/* Vignette overlays for visual effect */}
       {outerVignette && (
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none bg-[radial-gradient(circle,_rgba(0,0,0,0)_60%,_rgba(0,0,0,1)_100%)]"></div>
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,_rgba(0,0,0,0)_60%,_rgba(0,0,0,1)_100%)]"></div>
       )}
       {centerVignette && (
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none bg-[radial-gradient(circle,_rgba(0,0,0,0.8)_0%,_rgba(0,0,0,0)_60%)]"></div>
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,_rgba(0,0,0,0.8)_0%,_rgba(0,0,0,0)_60%)]"></div>
       )}
     </div>
   );
 };
 
+// ================================================================================
+// Wrapper / Example Implementation
+// This component demonstrates how to use the MatrixRain component.
+// ================================================================================
 export default function LetterGlitchWrapper() {
   return (
-    <LetterGlitch
-      glitchColors={["#32a852", "#4287f5", "#d942f5", "#f54242"]}
-      glitchSpeed={50}
-      smooth={true}
-      outerVignette={true}
-      centerVignette={false}
-    />
+    <div className="w-full h-[400px]">
+      <LetterGlitch
+        glitchColors={[
+          "#32a852", // green
+          "#4287f5", // blue
+          "#d942f5", // purple
+          "#f54242", // red
+          "#f5e342", // yellow
+          "#42f5f5", // cyan
+          "#f5a142", // orange
+        ]}
+        glitchSpeed={50}
+        smooth={true}
+        outerVignette={true}
+        centerVignette={false}
+      />
+    </div>
   );
 }

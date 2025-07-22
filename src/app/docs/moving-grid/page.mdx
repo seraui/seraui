@@ -7,11 +7,14 @@ import {
     TabsTrigger,
     TabsContent,
 } from "@/components/site/tabs.tsx";
-import ButterflyGlitchView from "./prison"
+import { HideTOC } from "@/components/site/hide-toc";
+import GridBackgroundView from "./moving-grid"
 
-# Butterfly Glitch
+<HideTOC />
 
-A mesmerizing animated butterfly effect with glitch distortion and particle trails. Features smooth wing animations, dynamic color transitions, and ethereal visual effects.
+
+# Smooth Moving Grid
+A dynamic background with mouse-aware parallax effect.
 
 
 
@@ -20,10 +23,14 @@ A mesmerizing animated butterfly effect with glitch distortion and particle trai
     <TabsTrigger value="preview">Preview</TabsTrigger>
     <TabsTrigger value="code">Code</TabsTrigger>
   </TabsList>
+
+  {/* Preview tab renders the interactive CopyButtonView component */}
   <TabsContent value="preview">
-    <ComponentRenderer component={<ButterflyGlitchView />} />
+    <ComponentRenderer component={<GridBackgroundView />} />
   </TabsContent>
+
+  {/* Code tab displays the source code of the CopyButtonView component */}
   <TabsContent value="code">
-    <CodeBlock filePath="src/app/docs/prison/prison.tsx" />
+    <CodeBlock filePath="src/app/docs/modern-button/button.tsx" />
   </TabsContent>
 </Tabs>

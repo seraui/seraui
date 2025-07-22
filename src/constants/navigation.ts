@@ -123,8 +123,7 @@ export const navigation: NavigationItem[] = [
     label: "Backgrounds",
     children: [
       { label: "Falling Glitch", href: "/docs/falling-glitch" },
-      { label: "Matrix Rain", href: "/docs/matrix-rain" },
-      { label: "Butterfly Glitch", href: "/docs/prison" },
+      { label: "Moving Grid", href: "/docs/moving-grid" },
     ],
   },
   {
