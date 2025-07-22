@@ -30,6 +30,7 @@ export const navigation: NavigationItem[] = [
       { label: "Network", href: "/docs/network" },
       { label: "Video Text", href: "/docs/video-text", badge: "New" },
       { label: "Image Swiper", href: "/docs/imageswiper", badge: "New" },
+      { label: "Divider", href: "/docs/divider", badge: "New" },
     ],
   },
   {

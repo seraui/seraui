@@ -4,20 +4,23 @@ import Divider from "./divider";
 export default function DividerView() {
   return (
     <div className="flex flex-col gap-8 w-full max-w-full mx-auto p-4">
+      <div className="w-full rounded-lg">
+        <div className="text-sm text-zinc-400 mb-1">Tickets Sold</div>
+        <div className="text-3xl font-semibold text-white mb-6">1,587</div>
 
-   <div className="w-full rounded-lg">
-      <div className="text-sm text-zinc-400 mb-1">Tickets Sold</div>
-      <div className="text-3xl font-semibold text-white mb-6">1,587</div>
+        <Divider>
+          <span className="text-sm text-zinc-500">Details</span>
+        </Divider>
 
-      <Divider>
-        <span className="text-sm text-zinc-500">Details</span>
-      </Divider>
-
-      <p className="text-sm text-zinc-400 mt-6 leading-relaxed">
-        Ticket sales peaked in March, largely due to the <b>"March Mountain Madness"</b> event on March 12th, drawing significant tourist interest. Operational efficiencies and local hotel partnerships further boosted sales. Additionally, targeted social media promotions ahead of the event significantly increased online bookings.
-      </p>
-    </div>
-
+        <p className="text-sm text-zinc-400 mt-6 leading-relaxed">
+          Ticket sales peaked in March, largely due to the{" "}
+          <b>&ldquo;March Mountain Madness&rdquo;</b> event on March 12th,
+          drawing significant tourist interest. Operational efficiencies and
+          local hotel partnerships further boosted sales. Additionally, targeted
+          social media promotions ahead of the event significantly increased
+          online bookings.
+        </p>
+      </div>
 
       {/* Text section divider */}
       <Divider variant="dashed" thickness={2} color="gray">
@@ -54,7 +57,6 @@ export default function DividerView() {
           Info line
         </span>
       </Divider>
-      
     </div>
   );
 }
