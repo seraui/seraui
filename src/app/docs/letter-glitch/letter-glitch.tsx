@@ -157,7 +157,7 @@ const useMatrixAnimation = (
     if (!context) return;
     contextRef.current = context;
 
-    let grid = { cols: 0, rows: 0 };
+    const grid = { cols: 0, rows: 0 };
 
     // This function initializes or re-initializes the particle grid
     const setup = (width: number, height: number) => {
