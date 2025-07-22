@@ -10,7 +10,6 @@ import {
   X,
   LinkedinIcon,
   BookOpen,
-  Wrench,
   MessageCircle,
   Heart,
   ExternalLink,

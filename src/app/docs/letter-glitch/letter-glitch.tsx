@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 
 //================================================================================
 // LetterGlitch Component (User's Code)
@@ -97,15 +97,15 @@ const LetterGlitch = ({
     "9",
   ];
 
-  const getRandomChar = () => {
+  const getRandomChar = useCallback(() => {
     return lettersAndSymbols[
       Math.floor(Math.random() * lettersAndSymbols.length)
     ];
-  };
+  }, [lettersAndSymbols]);
 
-  const getRandomColor = () => {
+  const getRandomColor = useCallback(() => {
     return glitchColors[Math.floor(Math.random() * glitchColors.length)];
-  };
+  }, [glitchColors]);
 
   const hexToRgb = (hex: string) => {
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
@@ -142,16 +142,19 @@ const LetterGlitch = ({
     return { columns, rows };
   };
 
-  const initializeLetters = (columns: number, rows: number) => {
-    grid.current = { columns, rows };
-    const totalLetters = columns * rows;
-    letters.current = Array.from({ length: totalLetters }, () => ({
-      char: getRandomChar(),
-      color: getRandomColor(),
-      targetColor: getRandomColor(),
-      colorProgress: 1,
-    }));
-  };
+  const initializeLetters = useCallback(
+    (columns: number, rows: number) => {
+      grid.current = { columns, rows };
+      const totalLetters = columns * rows;
+      letters.current = Array.from({ length: totalLetters }, () => ({
+        char: getRandomChar(),
+        color: getRandomColor(),
+        targetColor: getRandomColor(),
+        colorProgress: 1,
+      }));
+    },
+    [getRandomChar, getRandomColor]
+  );
 
   const drawLetters = () => {
     if (!context.current || !canvasRef.current || letters.current.length === 0)

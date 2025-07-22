@@ -41,8 +41,12 @@ export function PerformanceMonitor() {
       let clsValue = 0;
       const observer = new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
-          if (!(entry as any).hadRecentInput) {
-            clsValue += (entry as any).value;
+          const layoutShiftEntry = entry as PerformanceEntry & {
+            hadRecentInput?: boolean;
+            value?: number;
+          };
+          if (!layoutShiftEntry.hadRecentInput && layoutShiftEntry.value) {
+            clsValue += layoutShiftEntry.value;
           }
         }
         metrics.cls = clsValue;
@@ -57,9 +61,14 @@ export function PerformanceMonitor() {
     const measureFID = () => {
       const observer = new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
-          metrics.fid = (entry as any).processingStart - entry.startTime;
-          if (process.env.NODE_ENV === "development") {
-            console.log("FID:", metrics.fid);
+          const fidEntry = entry as PerformanceEntry & {
+            processingStart?: number;
+          };
+          if (fidEntry.processingStart) {
+            metrics.fid = fidEntry.processingStart - entry.startTime;
+            if (process.env.NODE_ENV === "development") {
+              console.log("FID:", metrics.fid);
+            }
           }
         }
       });
