@@ -194,15 +194,25 @@ const IconGrid = () => {
                 height={svgSize}
                 className="absolute top-0 left-0"
             >
-                <defs>
-                    <filter id="glow">
-                        <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-                        <feMerge>
-                            <feMergeNode in="coloredBlur" />
-                            <feMergeNode in="SourceGraphic" />
-                        </feMerge>
-                    </filter>
-                </defs>
+
+            {/* ------------------------------------------------------------------------------------ */}
+            {/*
+              // The filter definition below causes lines with angles (90°, 0°)—such as
+              // the vertical line that links the hash icon with the first icon and the horizontal line linking the
+              // bottom icons—to become invisible when the glow effect is triggered on hover.
+              // Since the glow effect is visually negligible, it was removed to prevent
+              // these lines from being hidden and to preserve line visibility.*/}
+
+            {/* Filter definition */}
+            {/* <defs>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                  <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                 </filter>
+              </defs> */}
                 <g>
                     {/* Draw lines between outer icons (the "web") */}
                     {outerIcons.map((icon, i) => {
@@ -230,7 +240,7 @@ const IconGrid = () => {
                                 strokeWidth="1.5"
                                 className="transition-all duration-300 dark:stroke-gray-600"
                                 style={{ opacity: isLineActive ? 0.8 : 0.25 }}
-                                filter={isLineActive ? 'url(#glow)' : 'none'}
+                                // Removed the 'filter' prop due to the glow-related visibility issue
                             />
                         );
                     })}
@@ -257,7 +267,7 @@ const IconGrid = () => {
                                 strokeWidth="1.5"
                                 className="transition-all duration-300 dark:stroke-gray-600"
                                 style={{ opacity: isSpokeActive ? 1 : 0.25 }}
-                                filter={isSpokeActive ? 'url(#glow)' : 'none'}
+                                // Removed the 'filter' prop due to the glow-related visibility issue
                             />
                         );
                     })}
