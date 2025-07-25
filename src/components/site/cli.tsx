@@ -5,7 +5,11 @@ import CodeCopy from "./code-copy";
 import { cn } from "@/lib/utils";
 import { FaYarn } from "react-icons/fa";
 import { SiNpm, SiPnpm, SiBun } from "react-icons/si";
-import { usePackageManager, type PackageManager, PM_COMMANDS } from "@/contexts/package-manager-context";
+import {
+  usePackageManager,
+  type PackageManager,
+  PM_COMMANDS,
+} from "@/contexts/package-manager-context";
 
 type CliProps = {
   command: string;
@@ -30,8 +34,8 @@ export const Cli = ({ command }: CliProps) => {
   return (
     <div className="w-full rounded-lg bg-zinc-100 dark:bg-zinc-950 relative overflow-hidden border border-zinc-200 dark:border-zinc-800">
       {/* PM Selector */}
-      <div className="flex items-center justify-between px-4 py-2 bg-zinc-100 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between py-2 bg-zinc-100 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
+        <div className="flex items-center gap-1 sm:gap-2">
           {(Object.keys(PM_COMMANDS) as PackageManager[]).map((name) => {
             const isActive = name === pm;
             return (
@@ -39,7 +43,7 @@ export const Cli = ({ command }: CliProps) => {
                 key={name}
                 onClick={() => setPm(name)}
                 className={cn(
-                  "flex items-center gap-1 px-4 py-2 text-sm font-medium border-b-2 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400",
+                  "flex items-center gap-1 px-2 sm:px-4 py-2 text-sm font-medium border-b-2 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring00",
                   "cursor-pointer",
                   isActive
                     ? "border-amber-400 text-zinc-900 dark:text-zinc-50 font-bold bg-white dark:bg-zinc-900/80 shadow-sm rounded-t-md"
@@ -48,7 +52,9 @@ export const Cli = ({ command }: CliProps) => {
                 style={{
                   background: isActive ? undefined : "none",
                   borderRadius: "0.5rem 0.5rem 0 0", // top rounded
-                  boxShadow: isActive ? "0 2px 8px 0 rgba(0,0,0,0.04)" : undefined,
+                  boxShadow: isActive
+                    ? "0 2px 8px 0 rgba(0,0,0,0.04)"
+                    : undefined,
                   outline: "none",
                   minWidth: 0,
                 }}
@@ -80,7 +86,7 @@ export const Cli = ({ command }: CliProps) => {
         />
       </div>
 
-      <div className="text-sm text-left font-mono text-nowrap font-medium bg-white dark:bg-zinc-950 px-4 py-4 overflow-x-auto max-w-full min-w-0">
+      <div className="text-sm text-left font-mono text-nowrap font-medium bg-white dark:bg-zinc-950 py-4 overflow-x-auto max-w-full min-w-0">
         <span className="text-amber-400">{PM_COMMANDS[pm]}</span>{" "}
         <span className="text-teal-500">shadcn@latest</span>{" "}
         <span className="text-zinc-700 dark:text-zinc-300">{finalCommand}</span>
