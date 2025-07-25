@@ -12,13 +12,13 @@ export const Hero = () => {
     <div className="relative flex items-center justify-center overflow-hidden">
       {/* Base Grid Background - Very Low Opacity */}
       <div className="absolute inset-0 grid-bg-hero" />
-      
+
       {/* Light mode: Very subtle top fade, Dark mode: More pronounced */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/1 to-transparent dark:from-black/60 dark:via-black/10 dark:to-transparent" />
-      
+
       {/* Light mode: Subtle color overlay, Dark mode: Enhanced overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/5 via-transparent to-purple-50/5 dark:from-blue-950/2 dark:via-transparent dark:to-purple-950/2" />
-      
+
       <div className="relative z-10 container mx-auto px-4 py-16 sm:py-20 md:py-24">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           {/* Badge - smaller on mobile */}
@@ -48,15 +48,18 @@ export const Hero = () => {
             className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-[1.1] mb-4 sm:mb-6"
           >
             <span className="block">
-             
               <span className="mask-l-from-0%">Build</span>{" "}
-               <Image
+              <Image
                 src="/images/rose.webp"
                 alt="Rose decoration"
-                width={70}
-                height={80}
-                className="inline mx-4 align-middle w-auto h-auto"
-                style={{ verticalAlign: 'middle' }}
+                width={30}
+                height={35}
+                className="inline mx-2 align-middle"
+                style={{
+                  verticalAlign: "middle",
+                  width: "70px",
+                  height: "70px",
+                }}
               />
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 stunning
@@ -74,7 +77,9 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeInOut" }}
             className="text-sm sm:text-base md:text-lg font-medium text-zinc-600 dark:text-zinc-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed px-2 sm:px-0"
           >
-            Effortlessly copy and paste stunning, responsive components—no need to worry about styling or animations. Build quickly and launch faster.
+            Effortlessly copy and paste stunning, responsive components—no need
+            to worry about styling or animations. Build quickly and launch
+            faster.
           </motion.p>
 
           {/* Action Buttons - better mobile layout */}

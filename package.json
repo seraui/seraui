@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "export": "next build",
     "build:registry": "tsx ./src/scripts/auto-generate-components.ts && tsx ./src/scripts/build-registry.ts",
     "generate:components": "tsx ./src/scripts/auto-generate-components.ts",
     "watch:components": "tsx ./src/scripts/watch-components.ts"
