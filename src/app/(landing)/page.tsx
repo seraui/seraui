@@ -9,7 +9,6 @@ import Carousel from "@/app/docs/carousel/carousel";
 
 // Force static generation for landing page
 export const dynamic = "force-static";
-export const revalidate = 3600; // Revalidate every hour
 
 export const metadata: Metadata = {
   title: "Sera UI - Modern React Component Library",

@@ -207,20 +207,12 @@ const handleClaimCoupon = async () => {
     return;
   }
 
-  try {
-    const response = await fetch('/api/claim-coupon', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ code: couponCode })
-    });
-
-    if (response.ok) {
-      alert('Coupon claimed successfully!');
-    } else {
-      alert('Invalid or expired coupon code');
-    }
-  } catch (error) {
-    alert('Failed to claim coupon. Please try again.');
+  // Static version - no server API needed
+  // You can integrate with external services like Stripe, PayPal, etc.
+  if (couponCode === 'SERA2025') {
+    alert('Demo coupon accepted! In production, integrate with your payment provider.');
+  } else {
+    alert('Invalid coupon code. Try: SERA2025');
   }
 };
 ```

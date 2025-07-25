@@ -1,11 +1,17 @@
-
-import { notFound } from 'next/navigation';
-import { ComponentRegistry } from './component-registry';
+import { notFound } from "next/navigation";
+import { ComponentRegistry } from "./component-registry";
 
 interface StandalonePageProps {
   params: Promise<{
     component: string;
   }>;
+}
+
+// Generate static params for all available components
+export async function generateStaticParams() {
+  return Object.keys(ComponentRegistry).map((component) => ({
+    component,
+  }));
 }
 
 export default async function StandalonePage({ params }: StandalonePageProps) {

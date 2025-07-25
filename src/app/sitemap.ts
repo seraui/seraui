@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 // Component categories for better organization
 const componentCategories = {
   "UI Components": [

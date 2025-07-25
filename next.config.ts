@@ -3,6 +3,8 @@ import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  output: "export", // Force static export - no server functions
+  trailingSlash: true,
   reactStrictMode: true,
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 
@@ -10,113 +12,13 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
 
-  // Image optimization for better Core Web Vitals
+  // Image optimization disabled for static export
   images: {
-    formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 31536000, // 1 year
-    dangerouslyAllowSVG: true,
-    contentDispositionType: "attachment",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    unoptimized: true, // Required for static export
   },
 
-  // Headers for SEO and Security
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          {
-            key: "X-Frame-Options",
-            value: "DENY",
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
-          },
-          {
-            key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
-          },
-        ],
-      },
-      {
-        source: "/sitemap.xml",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=86400, s-maxage=86400",
-          },
-        ],
-      },
-      {
-        source: "/robots.txt",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=86400, s-maxage=86400",
-          },
-        ],
-      },
-      {
-        source: "/static/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      {
-        source: "/_next/static/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      {
-        source: "/docs/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=3600, s-maxage=3600",
-          },
-        ],
-      },
-      {
-        source: "/api/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=300, s-maxage=300",
-          },
-        ],
-      },
-    ];
-  },
-
-  // Redirects for SEO consolidation
-  async redirects() {
-    return [
-      {
-        source: "/components/:path*",
-        destination: "/docs/:path*",
-        permanent: true,
-      },
-      {
-        source: "/component/:path*",
-        destination: "/docs/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  // Static export doesn't support headers() or redirects()
+  // These will be handled by your hosting provider (Vercel)
 
   // Experimental features for better performance
   experimental: {
