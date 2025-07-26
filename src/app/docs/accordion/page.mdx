@@ -10,6 +10,26 @@ import {
 
 import AccordionPage from "./accordion-view"
 import CustomAccordion from "./customAccordion"
+import AccordionSection from "./accordion2"
+
+
+#  Modern Accordion
+A modern accordion component with a live preview and the corresponding code.
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<AccordionSection />} componentName="accordion2" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/accordion/accordion2.tsx" />
+  </TabsContent>
+</Tabs>
+
 
 
 # Introduction
