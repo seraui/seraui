@@ -11,8 +11,27 @@ import { HideTOC } from "@/components/site/hide-toc";
 import Hero from "./hero.tsx"
 import Hero2 from "./hero2.tsx"
 import Hero3 from "./hero3.tsx"
+import SeraUIHero from "./hero4.tsx"
 
 <HideTOC />
+
+
+#  Sera UI Hero
+A hero section component with a responsive design, featuring a centered content area and a background image. Perfect for marketing websites and landing pages.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<SeraUIHero />} componentName="SeraUIHero" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/hero/hero4.tsx" />
+  </TabsContent>
+</Tabs>
+
 
 # Hero Section with Mobile Navigation
 
