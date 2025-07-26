@@ -104,7 +104,7 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "Login", href: "/docs/login", badge: "Updated" },
       { label: "Sign In", href: "/docs/signin" },
-      { label: "Waitlist", href: "/docs/waitlist" },
+      { label: "Newsletter", href: "/docs/waitlist" },
       { label: "Card", href: "/docs/card" },
       { label: "Two Step", href: "/docs/twostep" },
       { label: "Amazon Gift Card", href: "/docs/amazongift" },
