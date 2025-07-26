@@ -3,7 +3,7 @@
   "name": "prompt",
   "title": "Prompt",
   "description": "A minimalistic prompt component designed with React and Tailwind CSS.",
-  "author": "Reche Soares",
+  "author": "Nazmul Hossain",
   "type": "registry:ui",
   "dependencies": [],
   "devDependencies": [],

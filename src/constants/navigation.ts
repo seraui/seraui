@@ -127,7 +127,10 @@ export const navigation: NavigationItem[] = [
   },
   {
     label: "Retro",
-    children: [{ label: "Retro Button", href: "/docs/retro" }],
+    children: [
+      { label: "Retro Button", href: "/docs/retro-button" },
+      { label: "Retro Card", href: "/docs/retro-card" },
+    ],
   },
   {
     label: "Websites Blocks",

@@ -1,0 +1,266 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@/components/site/tabs.tsx";
+import { VitePressTable } from "@/components/ui/vitepress-table";
+import RetroCardView from "./retro-card-view";
+import BasicExamples from "./examples/basic-examples";
+import FormExamples from "./examples/form-examples";
+import ProfileExamples from "./examples/profile-examples";
+import GamingExamples from "./examples/gaming-examples";
+import InteractiveExamples from "./examples/interactive-examples";
+
+# Retro Card
+
+A nostalgic card component with a retro aesthetic featuring bold borders, vibrant colors, and interactive shadow effects.
+
+## Features
+
+- **Retro Design**: Bold black borders with vibrant accent colors
+- **Interactive Shadows**: Hover effects that expand the shadow and lift the card
+- **Flexible Content**: Supports any React children
+- **Accessible**: Built with proper semantic HTML and keyboard navigation
+- **Customizable**: Extends standard div props for easy customization
+
+## Installation
+
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add retroCard.json`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/retro-card/retro-card.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Usage
+
+### Basic Usage
+
+```tsx
+import RetroCard from "@seraui/retro-card";
+
+export default function Example() {
+  return (
+    <RetroCard>
+      <h3>Hello Retro World!</h3>
+      <p>This is a basic retro card.</p>
+    </RetroCard>
+  );
+}
+```
+
+### With Custom Styling
+
+```tsx
+<RetroCard className="max-w-md">
+  <div className="text-center">
+    <h2 className="font-mono text-xl font-bold">CUSTOM CARD</h2>
+    <p className="font-mono text-sm">With additional styling</p>
+  </div>
+</RetroCard>
+```
+
+## Examples
+
+### Basic Examples
+
+<BasicExamples />
+
+Perfect for simple content display, statistics, and status indicators. These examples show the fundamental usage patterns.
+
+```tsx
+// Simple Content Card
+<RetroCard>
+  <div className="text-center">
+    <h3 className="font-mono text-lg font-bold mb-2">
+      HELLO WORLD
+    </h3>
+    <p className="font-mono text-sm text-gray-700 dark:text-gray-300">
+      A simple retro card with basic content.
+    </p>
+  </div>
+</RetroCard>
+
+// Stats Card
+<RetroCard>
+  <div className="text-center space-y-2">
+    <div className="font-mono text-2xl font-bold">1,337</div>
+    <div className="font-mono text-sm text-gray-600 dark:text-gray-400">
+      USERS ONLINE
+    </div>
+    <div className="w-full bg-black dark:bg-white h-1"></div>
+    <div className="font-mono text-xs">↑ 12% from yesterday</div>
+  </div>
+</RetroCard>
+```
+
+### Form Examples
+
+<FormExamples />
+
+Ideal for authentication interfaces and data collection forms with retro styling.
+
+```tsx
+// Login Form
+<RetroCard>
+  <form className="space-y-4">
+    <h2 className="text-xl font-bold font-mono text-center">
+      LOGIN
+    </h2>
+    <div>
+      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 font-mono mb-1">
+        Email
+      </label>
+      <input
+        type="email"
+        className="w-full p-2 border-2 border-black dark:border-white dark:bg-gray-800 dark:text-white font-mono focus:outline-none focus:ring-2 focus:ring-[#00ff84]"
+        placeholder="user@retro.com"
+      />
+    </div>
+    <button className="w-full bg-black dark:bg-white text-white dark:text-black font-mono font-bold py-2 border-2 border-black dark:border-white hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
+      Access System
+    </button>
+  </form>
+</RetroCard>
+```
+
+### Profile & Info Cards
+
+<ProfileExamples />
+
+Great for displaying user information, product details, and notifications with retro flair.
+
+```tsx
+// User Profile Card
+<RetroCard>
+  <div className="text-center space-y-3">
+    <div className="w-16 h-16 bg-black dark:bg-white mx-auto flex items-center justify-center">
+      <span className="text-white dark:text-black font-mono font-bold text-xl">
+        JD
+      </span>
+    </div>
+    <div>
+      <h3 className="font-mono font-bold">JOHN DOE</h3>
+      <p className="font-mono text-sm text-gray-600 dark:text-gray-400">
+        Full Stack Developer
+      </p>
+    </div>
+    <div className="flex justify-center space-x-4 text-xs font-mono">
+      <span>📧 john@dev.com</span>
+    </div>
+  </div>
+</RetroCard>
+```
+
+### Gaming & Interactive
+
+<GamingExamples />
+
+Perfect for retro gaming interfaces, scoreboards, and terminal-style displays.
+
+```tsx
+// Terminal-style Card
+<RetroCard>
+  <div className="bg-black dark:bg-gray-900 text-green-400 p-3 font-mono text-sm">
+    <div className="mb-2">$ system --status</div>
+    <div className="text-green-300">
+      <div>CPU: 45% usage</div>
+      <div>RAM: 2.1GB / 8GB</div>
+      <div>DISK: 156GB free</div>
+      <div>NET: Connected</div>
+    </div>
+    <div className="mt-2">
+      <span className="animate-pulse">█</span>
+    </div>
+  </div>
+</RetroCard>
+```
+
+### Interactive Features
+
+<InteractiveExamples />
+
+Showcase hover effects, interactive buttons, and progress indicators.
+
+```tsx
+// Progress Card
+<RetroCard>
+  <div className="space-y-3">
+    <h3 className="font-mono font-bold">LOADING...</h3>
+    <div className="w-full bg-gray-200 dark:bg-gray-700 border-2 border-black dark:border-white">
+      <div
+        className="bg-[#00ff84] h-4 border-r-2 border-black dark:border-white"
+        style={{ width: "67%" }}
+      ></div>
+    </div>
+    <div className="font-mono text-sm text-center">
+      67% Complete
+    </div>
+  </div>
+</RetroCard>
+```
+
+## Use Cases
+
+### 1. Login Forms
+Perfect for creating retro-styled authentication interfaces with a nostalgic computing feel. The bold borders and monospace fonts create an authentic terminal-like experience.
+
+### 2. Dashboard Cards
+Use for displaying metrics, stats, or information in a retro dashboard layout. The bright accent colors make important data stand out.
+
+### 3. Product Showcases
+Great for highlighting products or features with a unique vintage aesthetic. The card's distinctive style draws attention to key content.
+
+### 4. Notification Cards
+Ideal for alerts, messages, or status updates with retro styling. The visual design makes notifications feel less intrusive and more engaging.
+
+### 5. Profile Cards
+Display user information, team members, or contact details with retro flair. Perfect for developer portfolios or team pages.
+
+### 6. Game UI Elements
+Perfect for retro gaming interfaces, scoreboards, or game menus. The aesthetic matches classic arcade and computer game designs.
+
+## Props
+
+<VitePressTable
+  headers={["Prop", "Type", "Default", "Description"]}
+  rows={[
+    ["children", "React.ReactNode", "-", "Content to display inside the card"],
+    ["className", "string", "-", "Additional CSS classes to apply"],
+    ["...props", "HTMLDivElement", "-", "All standard div props are supported"]
+  ]}
+/>
+
+## Styling
+
+The RetroCard uses a distinctive visual style:
+
+- **Border**: 2px solid black border
+- **Background**: Bright green (#00ff84) accent with white content area
+- **Shadow**: Dynamic shadow that grows on hover (4px → 8px)
+- **Animation**: Smooth transitions with slight upward movement on hover
+- **Typography**: Works best with monospace fonts for authentic retro feel
+
+## Accessibility
+
+- Supports keyboard navigation
+- Maintains proper focus states
+- Compatible with screen readers
+- Follows semantic HTML structure
+
+## Browser Support
+
+Works in all modern browsers that support CSS transforms and transitions.

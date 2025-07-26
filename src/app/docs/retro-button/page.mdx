@@ -1,3 +1,14 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+
 # Retro Button Components
 
 A comprehensive collection of retro-styled button components with hard shadows, vibrant colors, and smooth hover animations. Perfect for modern applications with a nostalgic twist.
@@ -7,6 +18,22 @@ A comprehensive collection of retro-styled button components with hard shadows, 
 ```bash
 npm install class-variance-authority
 ```
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add retroButton.json`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/retro-button/retro-btn.tsx" />
+  </TabsContent>
+</Tabs>
+
+
 
 ## Basic Usage
 

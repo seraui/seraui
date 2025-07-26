@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Button from "../retro";
+import Button from "../retro-btn";
 
 const StarIcon: React.FC = () => (
   <svg

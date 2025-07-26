@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "retrobtn",
+  "title": "Retro Button",
+  "description": "A minimalistic prompt component designed with React and Tailwind CSS.",
+  "author": "Nazmul Hossain",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "retro-btn.tsx",
+      "content": "\"use client\";\nimport React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\n// A simple, typed utility for conditional class names.\nconst cn = (...classes: (string | boolean | undefined | null)[]): string => {\n  return classes.filter(Boolean).join(\" \");\n};\n\n// --- Button Variants Definition ---\nconst buttonVariants = cva(\n  // Base styles for all buttons.\n  \"font-sans transition-all outline-none cursor-pointer duration-200 font-medium flex items-center justify-center disabled:cursor-not-allowed disabled:opacity-60\",\n  {\n    variants: {\n      variant: {\n        // Default button with a hard shadow effect\n        default:\n          \"bg-[#00ff84] text-[#000000] border-2 border-[#000000] shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[4px_4px_0px_0px_#000000] dark:bg-[#00ff84] dark:text-[#000000] dark:border-[#000000] dark:shadow-[4px_4px_0px_0px_#ffffff]\",\n        // A dark gray secondary button\n        secondary:\n          \"bg-[#374151] text-[#ffffff] border-2 border-[#000000] shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[4px_4px_0px_0px_#000000] dark:bg-[#374151] dark:text-[#ffffff] dark:border-[#000000] dark:shadow-[4px_4px_0px_0px_#ffffff]\",\n        // An outline button that fills with the custom color on hover\n        outline:\n          \"bg-transparent text-[#00ff84] border-2 border-[#00ff84] shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 hover:bg-[#00ff84] hover:text-[#000000] disabled:hover:bg-transparent disabled:hover:text-[#00ff84] disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[4px_4px_0px_0px_#000000] dark:bg-transparent dark:text-[#00ff84] dark:border-[#00ff84] dark:shadow-[4px_4px_0px_0px_#ffffff] dark:hover:bg-[#00ff84] dark:hover:text-[#000000]\",\n        // A simple link-style button\n        link: \"bg-transparent text-[#00ff84] hover:underline dark:text-[#00ff84]\",\n      },\n      size: {\n        sm: \"px-4 py-2 text-sm\",\n        md: \"px-6 py-2.5 text-base\",\n        lg: \"px-8 py-4 text-lg\",\n        icon: \"h-12 w-12\", // Made icon button a bit larger for better visuals\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"md\",\n    },\n  }\n);\n\n// --- Button Component Props Interface ---\nexport interface IButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement>,\n    VariantProps<typeof buttonVariants> {\n  loading?: boolean;\n}\n\n// --- Loading Spinner Component ---\nconst Spinner: React.FC = () => (\n  <svg\n    className=\"animate-spin h-6 w-6 text-current\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    fill=\"none\"\n    viewBox=\"0 0 24 24\"\n  >\n    <circle\n      className=\"opacity-25\"\n      cx=\"12\"\n      cy=\"12\"\n      r=\"10\"\n      stroke=\"currentColor\"\n      strokeWidth=\"4\"\n    ></circle>\n    <path\n      className=\"opacity-75\"\n      fill=\"currentColor\"\n      d=\"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z\"\n    ></path>\n  </svg>\n);\n\n// --- Button Component Implementation ---\nconst Button = React.forwardRef<HTMLButtonElement, IButtonProps>(\n  ({ className, variant, size, children, loading = false, ...props }, ref) => {\n    return (\n      <button\n        className={cn(buttonVariants({ variant, size, className }))}\n        ref={ref}\n        disabled={loading || props.disabled}\n        {...props}\n      >\n        {loading ? <Spinner /> : children}\n      </button>\n    );\n  }\n);\nButton.displayName = \"Button\";\n\nexport default Button;\n",
+      "type": "registry:ui"
+    }
+  ]
+}

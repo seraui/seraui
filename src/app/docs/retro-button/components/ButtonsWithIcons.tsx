@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Button from "../retro";
+import Button from "../retro-btn";
 
 // Icon components
 const StarIcon: React.FC = () => (
@@ -70,20 +70,24 @@ const PlusIcon: React.FC = () => (
   </svg>
 );
 
-export default function IconButtons() {
+export default function ButtonsWithIcons() {
   return (
     <div className="flex flex-wrap items-center justify-center gap-6">
-      <Button variant="default" size="icon" aria-label="Star">
-        <StarIcon />
-      </Button>
-      <Button variant="secondary" size="icon" aria-label="Heart">
-        <HeartIcon />
-      </Button>
-      <Button variant="outline" size="icon" aria-label="Download">
+      <Button variant="default" size="lg" className="gap-2">
         <DownloadIcon />
+        Download File
       </Button>
-      <Button variant="default" size="icon" aria-label="Add" disabled>
+      <Button variant="secondary" size="md" className="gap-2">
+        <HeartIcon />
+        Add to Favorites
+      </Button>
+      <Button variant="outline" size="md" className="gap-2">
         <PlusIcon />
+        Create New
+      </Button>
+      <Button variant="default" size="sm" className="gap-2" disabled>
+        <StarIcon />
+        Rate Item
       </Button>
     </div>
   );
