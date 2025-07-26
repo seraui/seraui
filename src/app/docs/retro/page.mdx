@@ -1,29 +1,340 @@
-import { CodeBlock } from "@/components/site/code-block";
-import { ComponentRenderer } from "@/components/site/component-renderer";
-import { Cli } from "@/components/site/cli";
-import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from "@/components/site/tabs.tsx";
-import RetroButtonView from "./retro-view.tsx"
+# Retro Button Components
 
+A comprehensive collection of retro-styled button components with hard shadows, vibrant colors, and smooth hover animations. Perfect for modern applications with a nostalgic twist.
 
-# Retro Button
-A collection of retro-styled button components with hard shadows, vibrant colors, and smooth hover animations. Perfect for modern applications with a nostalgic twist.
+## Installation
 
-<Tabs defaultValue="preview" className="">
-  <TabsList>
-    <TabsTrigger value="preview">Preview</TabsTrigger>
-    <TabsTrigger value="code">Code</TabsTrigger>
-  </TabsList>
-  <TabsContent value="preview">
-    <ComponentRenderer component={<RetroButtonView />}/>
-  </TabsContent>
-  <TabsContent value="code">
-    <CodeBlock filePath="src/app/docs/retro/retro.tsx" />
-  </TabsContent>
-</Tabs>
+```bash
+npm install class-variance-authority
+```
 
+## Basic Usage
 
+```tsx
+import Button from "./retro";
+
+export default function MyComponent() {
+  return (
+    <Button variant="default" size="md">
+      Click me!
+    </Button>
+  );
+}
+```
+
+## API Reference
+
+### Props
+
+import { VitePressTable } from "../../../components/ui/vitepress-table";
+
+<VitePressTable
+  headers={["Prop", "Type", "Default", "Description"]}
+  rows={[
+    ["variant", '"default" | "secondary" | "outline" | "link"', '"default"', "Button style variant"],
+    ["size", '"sm" | "md" | "lg" | "icon"', '"md"', "Button size"],
+    ["loading", "boolean", "false", "Shows loading spinner when true"],
+    ["disabled", "boolean", "false", "Disables the button"],
+    ["className", "string", "-", "Additional CSS classes"],
+    ["children", "ReactNode", "-", "Button content"]
+  ]}
+/>
+
+### Variants
+
+- **default**: Primary action button with bright green background and hard shadow
+- **secondary**: Alternative styling with gray background
+- **outline**: Transparent button with colored border that fills on hover
+- **link**: Minimal styling for text-based actions
+
+### Sizes
+
+- **sm**: Small button (px-4 py-2, text-sm)
+- **md**: Medium button (px-6 py-2.5, text-base)
+- **lg**: Large button (px-8 py-4, text-lg)
+- **icon**: Square button for icons (h-12 w-12)
+
+## Examples
+
+### Default Buttons
+
+Primary action buttons with the signature retro styling and hard shadow effects.
+
+```tsx
+import Button from "./retro";
+
+export default function DefaultButtons() {
+  return (
+    <div className="flex gap-4">
+      <Button variant="default" size="lg">Large Button</Button>
+      <Button variant="default" size="md">Medium Button</Button>
+      <Button variant="default" size="sm">Small Button</Button>
+      <Button variant="default" size="md" disabled>Disabled</Button>
+    </div>
+  );
+}
+```
+
+import DefaultButtons from "./components/DefaultButtons";
+
+<DefaultButtons />
+
+### Secondary Buttons
+
+Alternative styling for secondary actions with gray background.
+
+```tsx
+import Button from "./retro";
+
+export default function SecondaryButtons() {
+  return (
+    <div className="flex gap-4">
+      <Button variant="secondary" size="lg">Large Secondary</Button>
+      <Button variant="secondary" size="md">Medium Secondary</Button>
+      <Button variant="secondary" size="sm">Small Secondary</Button>
+      <Button variant="secondary" size="md" disabled>Disabled</Button>
+    </div>
+  );
+}
+```
+
+import SecondaryButtons from "./components/SecondaryButtons";
+
+<SecondaryButtons />
+
+### Outline Buttons
+
+Transparent buttons with colored borders that fill on hover.
+
+```tsx
+import Button from "./retro";
+
+export default function OutlineButtons() {
+  return (
+    <div className="flex gap-4">
+      <Button variant="outline" size="lg">Large Outline</Button>
+      <Button variant="outline" size="md">Medium Outline</Button>
+      <Button variant="outline" size="sm">Small Outline</Button>
+      <Button variant="outline" size="md" disabled>Disabled</Button>
+    </div>
+  );
+}
+```
+
+import OutlineButtons from "./components/OutlineButtons";
+
+<OutlineButtons />
+
+### Icon Buttons
+
+Square buttons designed specifically for icons and single actions.
+
+```tsx
+import Button from "./retro";
+
+const StarIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+  </svg>
+);
+
+export default function IconButtons() {
+  return (
+    <div className="flex gap-4">
+      <Button variant="default" size="icon" aria-label="Star">
+        <StarIcon />
+      </Button>
+      <Button variant="secondary" size="icon" aria-label="Heart">
+        <HeartIcon />
+      </Button>
+      <Button variant="outline" size="icon" aria-label="Download">
+        <DownloadIcon />
+      </Button>
+    </div>
+  );
+}
+```
+
+import IconButtons from "./components/IconButtons";
+
+<IconButtons />
+
+### Link Buttons
+
+Minimal styling for text-based actions and navigation.
+
+```tsx
+import Button from "./retro";
+
+export default function LinkButtons() {
+  return (
+    <div className="flex gap-8">
+      <Button variant="link">Primary Link</Button>
+      <Button variant="link" disabled>Disabled Link</Button>
+    </div>
+  );
+}
+```
+
+import LinkButtons from "./components/LinkButtons";
+
+<LinkButtons />
+
+### Loading States
+
+Interactive buttons with loading spinners and disabled states during async operations.
+
+```tsx
+import React from "react";
+import Button from "./retro";
+
+export default function LoadingButtons() {
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const handleClick = () => {
+    setIsLoading(true);
+    setTimeout(() => setIsLoading(false), 3000);
+  };
+
+  return (
+    <div className="flex gap-4">
+      <Button variant="default" loading={isLoading} onClick={handleClick}>
+        {isLoading ? "Loading..." : "Click to Load"}
+      </Button>
+      <Button variant="secondary" loading={isLoading} onClick={handleClick}>
+        {isLoading ? "Processing..." : "Process Data"}
+      </Button>
+    </div>
+  );
+}
+```
+
+import LoadingButtons from "./components/LoadingButtons";
+
+<LoadingButtons />
+
+### Buttons with Icons
+
+Combining icons with text for enhanced user experience and visual clarity.
+
+```tsx
+import Button from "./retro";
+
+const DownloadIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+    <polyline points="7,10 12,15 17,10" />
+    <line x1="12" y1="15" x2="12" y2="3" />
+  </svg>
+);
+
+export default function ButtonsWithIcons() {
+  return (
+    <div className="flex gap-4">
+      <Button variant="default" size="lg" className="gap-2">
+        <DownloadIcon />
+        Download File
+      </Button>
+      <Button variant="secondary" size="md" className="gap-2">
+        <HeartIcon />
+        Add to Favorites
+      </Button>
+    </div>
+  );
+}
+```
+
+import ButtonsWithIcons from "./components/ButtonsWithIcons";
+
+<ButtonsWithIcons />
+
+### Form Actions
+
+Common button combinations used in forms and dialogs.
+
+```tsx
+import Button from "./retro";
+
+export default function FormButtons() {
+  return (
+    <div className="flex gap-4">
+      <Button variant="default" size="md" type="submit">
+        Submit Form
+      </Button>
+      <Button variant="secondary" size="md" type="button">
+        Cancel
+      </Button>
+      <Button variant="outline" size="md" type="reset">
+        Reset Form
+      </Button>
+    </div>
+  );
+}
+```
+
+import FormButtons from "./components/FormButtons";
+
+<FormButtons />
+
+### Size Comparison
+
+All available button sizes side by side for easy comparison.
+
+```tsx
+import Button from "./retro";
+
+export default function SizeComparison() {
+  return (
+    <div className="flex items-center gap-4">
+      <Button variant="default" size="sm">Small</Button>
+      <Button variant="default" size="md">Medium</Button>
+      <Button variant="default" size="lg">Large</Button>
+      <Button variant="default" size="icon" aria-label="Icon">
+        <StarIcon />
+      </Button>
+    </div>
+  );
+}
+```
+
+import SizeComparison from "./components/SizeComparison";
+
+<SizeComparison />
+
+### Interactive Demo
+
+Try clicking these buttons to see the retro hover and click animations in action.
+
+import InteractiveDemo from "./components/InteractiveDemo";
+
+<InteractiveDemo />
+
+## Styling
+
+The retro button uses a hard shadow effect that moves when hovered, creating a distinctive 3D appearance. The color scheme features:
+
+- **Primary Color**: `#00ff84` (bright green)
+- **Text Color**: `#000000` (black on light backgrounds)
+- **Border**: `2px solid #000000` (black border)
+- **Shadow**: `4px 4px 0px 0px #000000` (hard black shadow)
+
+### Dark Mode Support
+
+The component automatically adapts to dark mode with white shadows instead of black ones.
+
+## Accessibility
+
+- All buttons include proper ARIA labels when used as icon buttons
+- Focus states are clearly visible
+- Disabled states are properly communicated to screen readers
+- Color contrast meets WCAG guidelines
+
+## Best Practices
+
+1. Use `variant="default"` for primary actions
+2. Use `variant="secondary"` for secondary actions
+3. Use `variant="outline"` for less prominent actions
+4. Use `variant="link"` for navigation or text-based actions
+5. Always provide `aria-label` for icon-only buttons
+6. Use the `loading` prop for async operations
+7. Combine with icons using the `gap-2` className for proper spacing

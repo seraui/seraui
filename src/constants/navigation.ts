@@ -38,7 +38,6 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "Button", href: "/docs/button" },
       { label: "Modern Button", href: "/docs/modern-button" },
-      { label: "Retro Button", href: "/docs/retro" },
       { label: "Dropdown", href: "/docs/dropdown" },
       { label: "Shimmer Button", href: "/docs/shimmer", badge: "New" },
       { label: "Drawer", href: "/docs/drawer", badge: "New" },
@@ -125,6 +124,10 @@ export const navigation: NavigationItem[] = [
       { label: "Falling Glitch", href: "/docs/falling-glitch" },
       { label: "Moving Grid", href: "/docs/moving-grid" },
     ],
+  },
+  {
+    label: "Retro",
+    children: [{ label: "Retro Button", href: "/docs/retro" }],
   },
   {
     label: "Websites Blocks",
