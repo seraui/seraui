@@ -116,7 +116,10 @@ export const navigation: NavigationItem[] = [
   },
   {
     label: "Grid",
-    children: [{ label: "Masonary Grid", href: "/docs/masonary" }],
+    children: [
+      { label: "Masonary Grid", href: "/docs/masonary" },
+      { label: "Bento Grid", href: "/docs/bento-grid" },
+    ],
   },
   {
     label: "Backgrounds",

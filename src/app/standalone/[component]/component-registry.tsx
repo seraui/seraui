@@ -76,6 +76,7 @@ import Portfolio4Page from "@/app/docs/portfolio/portfolio4";
 import PortfolioHero from "@/app/docs/portfolio/portfolio5";
 import CarouselCards from "@/app/docs/carousel/carousel2";
 import AccordionSection from "@/app/docs/accordion/accordion2";
+import BentoGridCom from "@/app/docs/bento-grid/bento-grid";
 
 // Component registry mapping component names to their view components
 export const ComponentRegistry: Record<string, React.ComponentType> = {
@@ -163,5 +164,6 @@ export const ComponentRegistry: Record<string, React.ComponentType> = {
   PortfolioHero: PortfolioHero,
   CarouselCards: CarouselCards,
   AccordionSection: AccordionSection,
+  BentoGridCom: BentoGridCom,
   // Add more components here...
 };

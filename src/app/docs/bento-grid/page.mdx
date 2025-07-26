@@ -1,0 +1,29 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import { Table, StatusBadge } from "@/components/ui/table";
+import BentoGridCom from "./bento-grid"
+
+# Bento Grid
+The Bento grid is a clean and elegant layout designed to highlight a product's features in a clear and organized manner.
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<BentoGridCom />} componentName="BentoGridCom" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/bento-grid/bento-grid.tsx" />
+  </TabsContent>
+</Tabs>
