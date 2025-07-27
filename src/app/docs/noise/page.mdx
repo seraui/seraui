@@ -1,0 +1,132 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+
+import DeepOceanCard from "./cards/deep-ocean-card";
+import ElectricPurpleCard from "./cards/electric-purple-card";
+import ForestGreenCard from "./cards/forest-green-card";
+import ClassicBlackCard from "./cards/classic-black-card";
+import CrimsonRedCard from "./cards/crimson-red-card";
+import VibrantOrangeCard from "./cards/vibrant-orange-card";
+
+# Noise Card Components
+A collection of beautiful noise-textured cards with different color themes and interactive elements.
+
+### Deep Ocean Blue Card
+
+<Tabs defaultValue="preview" className="mb-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <div className="bg-gray-800 p-8 rounded-lg flex justify-center">
+      <DeepOceanCard />
+    </div>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/noise/cards/deep-ocean-card.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Electric Purple Card
+
+<Tabs defaultValue="preview" className="mb-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <div className="bg-gray-800 p-8 rounded-lg flex justify-center">
+      <ElectricPurpleCard />
+    </div>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/noise/cards/electric-purple-card.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Forest Green Card
+
+<Tabs defaultValue="preview" className="mb-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <div className="bg-gray-800 p-8 rounded-lg flex justify-center">
+      <ForestGreenCard />
+    </div>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/noise/cards/forest-green-card.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Classic Black Card
+
+<Tabs defaultValue="preview" className="mb-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <div className="bg-gray-800 p-8 rounded-lg flex justify-center">
+      <ClassicBlackCard />
+    </div>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/noise/cards/classic-black-card.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Crimson Red Card
+
+<Tabs defaultValue="preview" className="mb-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <div className="bg-gray-800 p-8 rounded-lg flex justify-center">
+      <CrimsonRedCard />
+    </div>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/noise/cards/crimson-red-card.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Vibrant Orange Card
+
+<Tabs defaultValue="preview" className="mb-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <div className="bg-gray-800 p-8 rounded-lg flex justify-center">
+      <VibrantOrangeCard />
+    </div>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/noise/cards/vibrant-orange-card.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Base Noise Card Component
+
+<Tabs defaultValue="code">
+  <TabsList>
+    <TabsTrigger value="code">Base Component</TabsTrigger>
+  </TabsList>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/noise/noise-card.tsx" />
+  </TabsContent>
+</Tabs>

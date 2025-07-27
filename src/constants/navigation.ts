@@ -22,7 +22,8 @@ export const navigation: NavigationItem[] = [
       { label: "Loaders", href: "/docs/loaders", badge: "Tool" },
       { label: "Patterns Collection", href: "/docs/pattern", badge: "Tool" },
       { label: "Color Palette", href: "/docs/colorpalette", badge: "Tool" },
-      { label: "Gradient ", href: "/docs/gradientgen", badge: "Tool" },
+      { label: "Gradient", href: "/docs/gradientgen", badge: "Tool" },
+      { label: "SVG Icons", href: "/docs/svg-icons", badge: "Tool" },
       { label: "marquee", href: "/docs/marquee" },
       { label: "Code Profile", href: "/docs/codeprofile" },
       { label: "Portfolio", href: "/docs/portfolio" },
@@ -31,6 +32,7 @@ export const navigation: NavigationItem[] = [
       { label: "Video Text", href: "/docs/video-text", badge: "New" },
       { label: "Image Swiper", href: "/docs/imageswiper", badge: "New" },
       { label: "Divider", href: "/docs/divider", badge: "New" },
+      { label: "Noise", href: "/docs/noise", badge: "New" },
     ],
   },
   {
