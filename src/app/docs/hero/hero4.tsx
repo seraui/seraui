@@ -7,23 +7,6 @@ const SeraUIHero = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
 
-  const NavLink = ({
-    children,
-    hasChevron = false,
-  }: {
-    children: React.ReactNode;
-    hasChevron?: boolean;
-  }) => (
-    <div className="flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
-      <span>{children}</span>
-      {hasChevron && (
-        <ChevronDown
-          className={`w-4 h-4 transition-transform duration-200 ${openDropdown ? "rotate-180" : ""}`}
-        />
-      )}
-    </div>
-  );
-
   const Dropdown = ({
     title,
     children,

@@ -3,7 +3,7 @@ import React from "react";
 
 // --- Caching Mechanism ---
 // Use a Map to cache API results for the duration of the session.
-const apiCache = new Map<string, { data: any[]; pages: number }>();
+const apiCache = new Map<string, { data: Icon[]; pages: number }>();
 
 // --- Custom Hook for Dark Mode ---
 function useDarkMode() {
@@ -327,7 +327,7 @@ function IconCard({ icon, theme }: IconCardProps) {
     });
 
     // Replace hex colors but be more selective
-    svgText = svgText.replace(/#[0-9a-fA-F]{6}/gi, (match) => {
+    svgText = svgText.replace(/#[0-9a-fA-F]{6}/gi, () => {
       // Don't replace if it's in a comment or similar
       return targetColor;
     });

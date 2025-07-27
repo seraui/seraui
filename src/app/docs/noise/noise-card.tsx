@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef, FC, ReactNode } from "react";
 
-// TypeScript interface for the NoiseCard component's props
 interface NoiseCardProps {
   width?: string;
   height?: string;
@@ -13,7 +12,6 @@ interface NoiseCardProps {
   bgColor?: string;
 }
 
-// The NoiseCard component, now fully typed with TypeScript.
 const NoiseCard: FC<NoiseCardProps> = ({
   width = "w-96",
   height = "h-72",
@@ -27,7 +25,6 @@ const NoiseCard: FC<NoiseCardProps> = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // This effect handles drawing and animating the noise on the canvas.
   useEffect(() => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
@@ -38,7 +35,6 @@ const NoiseCard: FC<NoiseCardProps> = ({
 
     let animationFrameId: number;
 
-    // This function draws one frame of noise.
     const drawNoise = () => {
       const { width, height } = canvas;
       if (width === 0 || height === 0) return;
@@ -75,7 +71,7 @@ const NoiseCard: FC<NoiseCardProps> = ({
     };
 
     const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
+      for (const entry of entries) {
         const { width, height } = entry.contentRect;
         canvas.width = width;
         canvas.height = height;
