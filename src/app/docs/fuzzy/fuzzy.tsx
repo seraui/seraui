@@ -1,7 +1,6 @@
 "use client";
 import React, { useRef, useEffect, useMemo } from "react";
 
-// --- HoverGlitch Component ---
 interface HoverGlitchProps {
   text: string;
   fontFamily?: string;
@@ -116,7 +115,6 @@ const HoverGlitch: React.FC<HoverGlitchProps> = ({
       renderLoop();
     };
 
-    // --- Event Handling ---
     const handleMouseEnter = () => {
       currentIntensity.current = hoverIntensity;
     };
@@ -161,7 +159,6 @@ const HoverGlitch: React.FC<HoverGlitchProps> = ({
   return <canvas ref={canvasRef} style={{ maxWidth: "100%" }} />;
 };
 
-// --- Main App Component ---
 export default function FuzzyText() {
   return (
     <div className="w-full flex flex-col items-center justify-center p-4 text-center font-mono select-none">

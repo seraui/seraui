@@ -71,7 +71,7 @@ const faqData = [
   },
 ];
 
-// Individual Accordion Item Component
+
 interface AccordionItemProps {
   item: {
     icon: React.ReactNode;
@@ -117,9 +117,9 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
   );
 };
 
-// Main App Component
+
 export default function AccordionSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(2); // Set the third item as open by default (index 2)
+  const [openIndex, setOpenIndex] = useState<number | null>(2); 
 
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);

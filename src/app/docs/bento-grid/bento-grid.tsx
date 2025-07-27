@@ -25,8 +25,6 @@ const ArrowRightIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-// --- Bento Grid Components ---
-
 interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
   children: ReactNode;
   className?: string;
@@ -70,36 +68,32 @@ const BentoCard: FC<BentoCardProps> = ({
     key={name}
     className={cn(
       "group relative flex flex-col justify-between overflow-hidden rounded-xl",
-      // Base styles including shadows and borders
+
       "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
-      // Dark mode styles
+
       "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
       className
     )}
     {...props}
   >
-    {/* The background element is rendered here. It's passed as a ReactNode. */}
     <div>{background}</div>
     <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
-      {/* The Icon component */}
       <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75 dark:text-neutral-300" />
-      {/* The card title */}
+
       <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
         {name}
       </h3>
-      {/* The card description */}
+
       <p className="max-w-lg text-neutral-500 dark:text-neutral-400">
         {description}
       </p>
     </div>
 
-    {/* The call-to-action button, which becomes visible on hover */}
     <div
       className={cn(
         "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
       )}
     >
-      {/* The link is styled as a button. `pointer-events-auto` makes it clickable even though parent is non-clickable. */}
       <a
         href={href}
         className="pointer-events-auto text-sm font-semibold text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 flex items-center"
@@ -109,7 +103,6 @@ const BentoCard: FC<BentoCardProps> = ({
       </a>
     </div>
 
-    {/* A subtle overlay that appears on hover to create a depth effect */}
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
   </div>
 );
@@ -191,7 +184,6 @@ const GlobeIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-// Explicitly defining a type for the feature objects for better type safety.
 type Feature = {
   Icon: FC<SVGProps<SVGSVGElement>>;
   name: string;
@@ -202,7 +194,6 @@ type Feature = {
   background: ReactNode;
 };
 
-// Example data for the cards, now strongly typed.
 const features: Feature[] = [
   {
     Icon: FileTextIcon,

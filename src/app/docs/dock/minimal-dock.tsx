@@ -1,32 +1,99 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 import {
   motion,
   useMotionValue,
   useSpring,
   useTransform,
-  MotionValue
+  MotionValue,
 } from "framer-motion";
 
-// --- SVG Icon Components ---
 const HomeIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+    <polyline points="9 22 9 12 15 12 15 22" />
+  </svg>
 );
 const SearchIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <circle cx="11" cy="11" r="8" />
+    <path d="m21 21-4.35-4.35" />
+  </svg>
 );
 const BellIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+    <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+  </svg>
 );
 const MessageIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+  </svg>
 );
 const PlusIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M5 12h14" />
+    <path d="M12 5v14" />
+  </svg>
 );
 
-// --- DockIcon Component ---
 interface DockIconProps {
   mouseX?: MotionValue<number>;
   href: string;
@@ -34,11 +101,15 @@ interface DockIconProps {
   onClick?: () => void;
 }
 
-const DockIcon: React.FC<DockIconProps> = ({ mouseX, href, children, onClick }) => {
+const DockIcon: React.FC<DockIconProps> = ({
+  mouseX,
+  href,
+  children,
+  onClick,
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const defaultMouseX = useMotionValue(Infinity);
 
-  // Constants for the animation
   const iconSize = 32;
   const iconMagnification = 48;
   const iconDistance = 120;
@@ -54,7 +125,11 @@ const DockIcon: React.FC<DockIconProps> = ({ mouseX, href, children, onClick }) 
     [iconSize, iconMagnification, iconSize]
   );
 
-  const width = useSpring(widthSync, { mass: 0.1, stiffness: 150, damping: 12 });
+  const width = useSpring(widthSync, {
+    mass: 0.1,
+    stiffness: 150,
+    damping: 12,
+  });
 
   const handleClick = (e: React.MouseEvent) => {
     if (onClick) {
@@ -80,7 +155,6 @@ const DockIcon: React.FC<DockIconProps> = ({ mouseX, href, children, onClick }) 
   );
 };
 
-// --- Minimal Dock Component ---
 interface DockProps {
   children: React.ReactNode;
 }
@@ -96,10 +170,13 @@ const MinimalDock: React.FC<DockProps> = ({ children }) => {
     >
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child) && child.type === DockIcon) {
-          return React.cloneElement(child as React.ReactElement<DockIconProps>, {
-            ...child.props as DockIconProps,
-            mouseX: mouseX,
-          });
+          return React.cloneElement(
+            child as React.ReactElement<DockIconProps>,
+            {
+              ...(child.props as DockIconProps),
+              mouseX: mouseX,
+            }
+          );
         }
         return child;
       })}
@@ -107,14 +184,13 @@ const MinimalDock: React.FC<DockProps> = ({ children }) => {
   );
 };
 
-// --- Main App Component ---
 const MinimalDockApp: React.FC = () => {
   const icons = [
-    { name: 'Home', component: HomeIcon, href: '#' },
-    { name: 'Search', component: SearchIcon, href: '#' },
-    { name: 'Bell', component: BellIcon, href: '#' },
-    { name: 'Message', component: MessageIcon, href: '#' },
-    { name: 'Plus', component: PlusIcon, href: '#' },
+    { name: "Home", component: HomeIcon, href: "#" },
+    { name: "Search", component: SearchIcon, href: "#" },
+    { name: "Bell", component: BellIcon, href: "#" },
+    { name: "Message", component: MessageIcon, href: "#" },
+    { name: "Plus", component: PlusIcon, href: "#" },
   ];
 
   return (

@@ -8,8 +8,6 @@ import React, {
 } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// --- Type Definitions ---
-
 type DrawerSide = "top" | "bottom" | "left" | "right";
 
 interface DrawerContextProps {
@@ -25,8 +23,6 @@ interface DrawerProps {
   side?: DrawerSide;
 }
 
-// --- Create Context for Drawer ---
-// This allows nested components to access and control the drawer's state.
 const DrawerContext = createContext<DrawerContextProps | undefined>(undefined);
 
 const useDrawerContext = () => {
@@ -37,15 +33,12 @@ const useDrawerContext = () => {
   return context;
 };
 
-// --- Main Drawer Component ---
-// This is the root component that manages the drawer's state and behavior.
 const Drawer: React.FC<DrawerProps> = ({
   children,
   open,
   onOpenChange,
   side = "right",
 }) => {
-  // Effect to handle 'Escape' key press for closing the drawer
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -64,8 +57,6 @@ const Drawer: React.FC<DrawerProps> = ({
   );
 };
 
-// --- Drawer Overlay ---
-// A semi-transparent background that covers the main content.
 const DrawerOverlay = React.forwardRef<
   HTMLDivElement,
   Omit<
@@ -94,8 +85,6 @@ const DrawerOverlay = React.forwardRef<
 });
 DrawerOverlay.displayName = "DrawerOverlay";
 
-// --- Drawer Content ---
-// The main panel that slides in from the specified side.
 const DrawerContent = React.forwardRef<
   HTMLDivElement,
   Omit<
@@ -187,7 +176,6 @@ const DrawerContent = React.forwardRef<
 });
 DrawerContent.displayName = "DrawerContent";
 
-// --- Drawer Header ---
 const DrawerHeader = ({
   className,
   ...props
@@ -199,7 +187,6 @@ const DrawerHeader = ({
 );
 DrawerHeader.displayName = "DrawerHeader";
 
-// --- Drawer Footer ---
 const DrawerFooter = ({
   className,
   ...props
@@ -211,7 +198,6 @@ const DrawerFooter = ({
 );
 DrawerFooter.displayName = "DrawerFooter";
 
-// --- Drawer Title ---
 const DrawerTitle = React.forwardRef<
   HTMLHeadingElement,
   HTMLAttributes<HTMLHeadingElement>
@@ -224,7 +210,6 @@ const DrawerTitle = React.forwardRef<
 ));
 DrawerTitle.displayName = "DrawerTitle";
 
-// --- Drawer Description ---
 const DrawerDescription = React.forwardRef<
   HTMLParagraphElement,
   HTMLAttributes<HTMLParagraphElement>
@@ -237,7 +222,6 @@ const DrawerDescription = React.forwardRef<
 ));
 DrawerDescription.displayName = "DrawerDescription";
 
-// --- Custom Button Component for the example ---
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "outline";
 }
@@ -259,7 +243,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
-// --- Export all components ---
 export {
   Drawer,
   DrawerOverlay,

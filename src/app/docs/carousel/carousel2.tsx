@@ -2,16 +2,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
-// You'll need to install framer-motion: npm install framer-motion
-
-// Type definition for story data
 interface Story {
   id: number;
   imageUrl: string;
   title: string;
 }
 
-// New data for the story cards based on your provided links
 const storiesData: Story[] = [
   {
     id: 1,
@@ -69,24 +65,20 @@ const storiesData: Story[] = [
   },
 ];
 
-// Updated Story Card Component for the new data structure
 const StoryCard = ({ story }: { story: Story }) => {
   return (
     <motion.div
       className="relative w-72 h-96 flex-shrink-0 rounded-lg overflow-hidden shadow-xl group"
       whileHover={{ y: -8, transition: { type: "spring", stiffness: 300 } }}
     >
-      {/* Background Image */}
       <img
         src={story.imageUrl}
         alt={story.title}
         className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 pointer-events-none"
       />
 
-      {/* Gradient Overlay for text readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
-      {/* Card Content - displays the title at the bottom */}
       <div className="relative z-10 flex flex-col justify-end h-full p-6 text-white">
         <h3 className="font-bold text-2xl tracking-wide">{story.title}</h3>
       </div>
@@ -94,13 +86,11 @@ const StoryCard = ({ story }: { story: Story }) => {
   );
 };
 
-// Main Component
 export default function CarouselCards() {
   const trackRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [dragConstraint, setDragConstraint] = useState(0);
 
-  // This effect calculates the maximum draggable distance and updates on window resize
   useEffect(() => {
     const calculateConstraints = () => {
       if (containerRef.current && trackRef.current) {
@@ -128,22 +118,20 @@ export default function CarouselCards() {
           </p>
         </header>
 
-        {/* This outer div is the viewport for the draggable carousel */}
         <motion.div
           ref={containerRef}
           className="overflow-hidden cursor-grab"
           whileTap={{ cursor: "grabbing" }}
         >
-          {/* This inner div is the draggable track of cards */}
           <motion.div
             ref={trackRef}
-            className="flex space-x-6 pb-6 px-4" // Added horizontal padding inside the track
+            className="flex space-x-6 pb-6 px-4"
             drag="x"
             dragConstraints={{
               right: 0,
-              left: dragConstraint - 32, // Adjust constraint for padding
+              left: dragConstraint - 32,
             }}
-            dragElastic={0.15} // Increased bounce effect
+            dragElastic={0.15}
           >
             {storiesData.map((story) => (
               <StoryCard key={story.id} story={story} />

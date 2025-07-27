@@ -7,7 +7,6 @@ const SeraUIHero = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
 
-  // Component for individual navigation links
   const NavLink = ({
     children,
     hasChevron = false,
@@ -25,7 +24,6 @@ const SeraUIHero = () => {
     </div>
   );
 
-  // Dropdown Component
   const Dropdown = ({
     title,
     children,
@@ -75,7 +73,6 @@ const SeraUIHero = () => {
     setOpenDropdown((prev) => (prev === title ? null : title));
   };
 
-  // Effect to handle clicks outside of the dropdowns to close them
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
@@ -96,14 +93,12 @@ const SeraUIHero = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Logo */}
             <div className="flex-shrink-0">
               <span className="text-xl font-bold text-slate-900 dark:text-slate-100">
                 Sera UI
               </span>
             </div>
 
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               <Dropdown
                 title="Products"
@@ -149,7 +144,6 @@ const SeraUIHero = () => {
               </button>
             </div>
 
-            {/* Mobile menu button */}
             <div className="lg:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -168,7 +162,6 @@ const SeraUIHero = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div
             className="lg:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700"
@@ -213,10 +206,8 @@ const SeraUIHero = () => {
         )}
       </nav>
 
-      {/* Main Content */}
       <main className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 sm:pt-24 sm:pb-24 lg:pt-32 lg:pb-32">
-          {/* Platform Pill */}
           <div className="flex justify-center mb-6">
             <a
               href="#"
@@ -249,7 +240,6 @@ const SeraUIHero = () => {
             </a>
           </div>
 
-          {/* Hero Content */}
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl md:text-6xl lg:text-7xl mb-6">
               Build Beautiful Interfaces

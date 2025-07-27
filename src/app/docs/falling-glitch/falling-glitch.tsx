@@ -2,20 +2,13 @@
 import React, { useRef, useEffect, useCallback, useMemo } from "react";
 
 const FallingGlitch = ({
-  // --- Style & Appearance ---
   glitchColors = ["#ff7cce", "#7cf0ff", "#fcf07c", "#8E44AD", "#3498DB"],
   fontSize = 14,
   backgroundColor = "#080A12",
-
-  // --- Animation Behavior ---
-  glitchSpeed = 50, // How often the background glitches
-  glitchIntensity = 0.05, // % of background to change
-  fallSpeed = 0.75, // How fast the characters fall
-
-  // --- Vignette Effects ---
+  glitchSpeed = 50,
+  glitchIntensity = 0.05,
+  fallSpeed = 0.75,
   outerVignette = true,
-
-  // --- Children Prop ---
   children,
 }: {
   glitchColors?: string[];
@@ -31,7 +24,6 @@ const FallingGlitch = ({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const animationFrameId = useRef<number | null>(null);
 
-  // --- Animation State Refs ---
   const grid = useRef({ columns: 0, rows: 0, charWidth: 0, charHeight: 0 });
   const letters = useRef<
     Array<{
@@ -64,7 +56,6 @@ const FallingGlitch = ({
     let canvasWidth = 0;
     let canvasHeight = 0;
 
-    // --- Canvas & Grid Setup ---
     const setup = () => {
       if (animationFrameId.current)
         cancelAnimationFrame(animationFrameId.current);
@@ -88,7 +79,6 @@ const FallingGlitch = ({
         charHeight: fontSize * 1.2,
       };
 
-      // Create enough letters to fill a space twice the screen height for a seamless loop.
       const extendedRows = grid.current.rows * 2;
       const totalLetters = grid.current.columns * extendedRows;
       letters.current = Array.from({ length: totalLetters }, (_, i) => {
@@ -97,7 +87,6 @@ const FallingGlitch = ({
         return {
           char: getRandomChar(),
           x: col * grid.current.charWidth,
-          // Start letters off-screen at the top
           y:
             row * grid.current.charHeight -
             grid.current.rows * grid.current.charHeight,
@@ -108,11 +97,9 @@ const FallingGlitch = ({
       animationFrameId.current = requestAnimationFrame(animate);
     };
 
-    // --- The Main Animation Loop ---
     const animate = (timestamp: number) => {
       animationFrameId.current = requestAnimationFrame(animate);
 
-      // --- 1. Update States ---
       if (timestamp - lastGlitchTime.current > glitchSpeed) {
         lastGlitchTime.current = timestamp;
         const updateCount = Math.floor(
@@ -127,17 +114,14 @@ const FallingGlitch = ({
         }
       }
 
-      // **CHANGE**: Update letter positions to make them fall
       const totalFieldHeight = grid.current.rows * grid.current.charHeight * 2;
       letters.current.forEach((letter) => {
         letter.y += fallSpeed;
-        // If a letter goes off the bottom, wrap it to the top of the entire field
         if (letter.y > canvasHeight) {
           letter.y -= totalFieldHeight;
         }
       });
 
-      // --- 2. Draw Frame ---
       ctx.fillStyle = backgroundColor;
       ctx.fillRect(0, 0, canvasWidth, canvasHeight);
       ctx.font = `${fontSize}px monospace`;
@@ -149,7 +133,6 @@ const FallingGlitch = ({
       });
     };
 
-    // --- Event Handling & Cleanup ---
     let resizeTimeout: NodeJS.Timeout;
     const handleResize = () => {
       clearTimeout(resizeTimeout);
@@ -181,7 +164,6 @@ const FallingGlitch = ({
       {outerVignette && (
         <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle,_transparent_70%,_black_100%)]"></div>
       )}
-      {/* Container for children, positioned above the canvas */}
       <div className="relative z-10 flex items-center justify-center w-full h-full">
         {children}
       </div>

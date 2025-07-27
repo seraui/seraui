@@ -32,7 +32,7 @@ interface BadgeBaseProps {
   // Icons and Content
   iconLeft?: ReactElement;
   iconRight?: ReactElement;
-  badge?: string | number; // For notification badges
+  badge?: string | number; 
   loading?: boolean;
 
   // Styling
@@ -64,7 +64,7 @@ interface BadgeBaseProps {
   'aria-describedby'?: string;
   role?: string;
 
-  // Positioning (for absolute/fixed badges)
+
   top?: string | number;
   right?: string | number;
   bottom?: string | number;
@@ -72,7 +72,7 @@ interface BadgeBaseProps {
   zIndex?: number;
 }
 
-// Props for when the badge is a button or a link, including all standard HTML attributes
+
 type BadgeActionProps = 
   | ({ onClick: (event: MouseEvent<HTMLButtonElement>) => void; href?: never; } & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>)
   | ({ href: string; onClick?: never; } & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>)
@@ -207,7 +207,7 @@ export const Badge = React.forwardRef<HTMLElement, BadgeProps>(({
   // Get icon size based on badge size
   const iconSize = iconSizeStyles[size];
 
-  // Build final className - prioritize user's className, fallback to minimal defaults
+ 
   const baseClasses = [
     'inline-flex items-center justify-center font-medium transition-all duration-200',
     'focus:outline-none focus:ring-2 focus:ring-offset-2',
@@ -218,7 +218,6 @@ export const Badge = React.forwardRef<HTMLElement, BadgeProps>(({
     shadowStyles[shadow],
     blurStyles[blur],
     positionStyles[position],
-    // Only add default styling if no className is provided
     !className ? 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200' : '',
     disabled ? 'opacity-50 cursor-not-allowed' : '',
     active ? 'ring-2 ring-offset-2' : '',

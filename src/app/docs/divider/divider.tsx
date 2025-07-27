@@ -25,23 +25,19 @@ const Divider = ({
   const orientationClasses =
     orientation === "horizontal" ? "w-full my-8" : "h-full self-stretch mx-8";
 
-  // Build border style based on variant
   const variantStyles = {
     solid: "border-solid",
     dashed: "border-dashed",
     dotted: "border-dotted",
   };
 
-  // Build color style
   const colorStyle = color ? { borderColor: color } : {};
 
-  // Build thickness style
   const thicknessStyle =
     orientation === "horizontal"
       ? { borderTopWidth: `${thickness}px` }
       : { borderLeftWidth: `${thickness}px` };
 
-  // The line itself
   const lineClasses = `
     flex-grow
     ${orientation === "horizontal" ? "border-t" : "border-l"}

@@ -8,7 +8,50 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Button from "@/app/docs/button/button";
-import { ExternalLink, Mail } from "lucide-react";
+import { ExternalLink, Mail, TrendingUp } from "lucide-react";
+
+const sponsorshipPlans = [
+  {
+    name: "Monthly",
+    price: "$10",
+    duration: "1 Month",
+    features: [
+      "Logo placement on homepage",
+      "Website link in banner ads",
+      "Monthly exposure to our audience",
+      "Social media mentions",
+    ],
+    popular: false,
+  },
+  {
+    name: "Yearly",
+    price: "$100",
+    duration: "12 Months",
+    features: [
+      "Logo placement on homepage",
+      "Website link in banner ads",
+      "Year-long exposure to our audience",
+      "Priority placement",
+      "Monthly social media mentions",
+      "2 months free (vs monthly plan)",
+    ],
+    popular: true,
+  },
+  {
+    name: "Lifetime",
+    price: "$500",
+    duration: "Forever",
+    features: [
+      "Permanent logo placement",
+      "Permanent website link",
+      "Lifetime exposure to our audience",
+      "Top priority placement",
+      "Regular social media mentions",
+      "Special 'Founding Sponsor' badge",
+    ],
+    popular: false,
+  },
+];
 
 const contactLinks = [
   {
@@ -39,28 +82,137 @@ const contactLinks = [
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20 p-4">
-      <div className="max-w-4xl mx-auto py-12">
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20 p-4 relative">
+      {/* Top Fade Grid Pattern Background */}
+      <div className="absolute inset-0 z-0">
+        {/* Light mode Top Fade Grid */}
+        <div
+          className="absolute inset-0 z-0 dark:hidden"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(226,232,240,0.4) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(226,232,240,0.4) 1px, transparent 1px)
+            `,
+            backgroundSize: "32px 32px",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+            maskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+          }}
+        />
+
+        {/* Dark mode Top Fade Grid */}
+        <div
+          className="absolute inset-0 z-0 hidden dark:block"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(71,85,105,0.2) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(71,85,105,0.2) 1px, transparent 1px)
+            `,
+            backgroundSize: "32px 32px",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+            maskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+          }}
+        />
+      </div>
+
+      <div className="max-w-4xl mx-auto py-12 relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Help Keep Sera UI Alive</h1>
+          <h1 className="text-4xl font-bold mb-4">Sponsor Sera UI</h1>
           <p className="text-xl text-muted-foreground mb-2">
-            We&apos;re hitting Vercel&apos;s free tier limits!
+            Showcase your brand to our growing developer community
           </p>
           <p className="text-muted-foreground">
-            Your support helps maintain and improve this open-source project
+            Get your logo and website link featured on our platform
           </p>
         </div>
 
-        {/* Main CTA */}
+        {/* Visitor Stats */}
+        <Card className="mb-8 border-2 border-primary/20">
+          <CardHeader className="text-center">
+            <CardTitle className="flex items-center justify-center gap-2">
+              <TrendingUp className="w-5 h-5" />
+              Our Reach
+            </CardTitle>
+            <CardDescription>
+              See the impact your sponsorship will have
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="text-center">
+            <img
+              src="https://i.postimg.cc/8z65s96b/Screenshot-2025-07-27-055210.webp"
+              alt="Visitor Statistics"
+              className="w-full max-w-3xl mx-auto rounded-lg border shadow-lg"
+            />
+          </CardContent>
+        </Card>
+
+        {/* Sponsorship Plans */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-center mb-8">
+            Choose Your Sponsorship Plan
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {sponsorshipPlans.map((plan) => (
+              <Card
+                key={plan.name}
+                className={`relative ${plan.popular ? "border-2 border-primary" : ""}`}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+                <CardHeader className="text-center">
+                  <CardTitle>{plan.name}</CardTitle>
+                  <div className="text-3xl font-bold text-primary">
+                    {plan.price}
+                  </div>
+                  <CardDescription>{plan.duration}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 mb-6">
+                    {plan.features.map((feature, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="text-primary">✓</span>
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button
+                    className="w-full"
+                    variant={plan.popular ? "default" : "outline"}
+                    onClick={() =>
+                      window.open(
+                        "mailto:codewithnazmul@gmail.com?subject=Sponsorship Inquiry - " +
+                          plan.name +
+                          " Plan",
+                        "_blank"
+                      )
+                    }
+                  >
+                    Get Started
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Contact CTA */}
         <Card className="mb-8 border-2 border-primary/20">
           <CardHeader className="text-center">
             <CardTitle className="flex items-center justify-center gap-2">
               <Mail className="w-5 h-5" />
-              Get in Touch
+              Ready to Sponsor?
             </CardTitle>
             <CardDescription>
-              Ready to sponsor or have questions? Let&apos;s connect!
+              Contact us to get your brand featured on Sera UI
             </CardDescription>
           </CardHeader>
           <CardContent className="text-center">
@@ -68,7 +220,10 @@ export default function Page() {
               size="lg"
               className="mb-4"
               onClick={() =>
-                window.open("mailto:codewithnazmul@gmail.com", "_blank")
+                window.open(
+                  "mailto:codewithnazmul@gmail.com?subject=Sponsorship Inquiry",
+                  "_blank"
+                )
               }
             >
               <Mail className="w-4 h-4 mr-2" />

@@ -1,24 +1,26 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+"use client";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
-// A-Z, a-z, and a few symbols for the scrambling effect
-const CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()-+=[]{}|;:,.<>?";
+const CHARACTERS =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()-+=[]{}|;:,.<>?";
 
 interface DecryptingTextProps {
   targetText: string;
   speed?: number;
 }
 
-const DecryptingText: React.FC<DecryptingTextProps> = ({ targetText, speed = 8 }) => {
+const DecryptingText: React.FC<DecryptingTextProps> = ({
+  targetText,
+  speed = 8,
+}) => {
   const [currentText, setCurrentText] = useState<string>("");
 
   useEffect(() => {
     let animationFrameId: number;
     let iteration = 0;
     let isMounted = true;
-    
-    // Ensure speed is a positive number to avoid errors
+
     const animationSpeed = Math.max(1, speed);
 
     const scramble = () => {
@@ -27,18 +29,16 @@ const DecryptingText: React.FC<DecryptingTextProps> = ({ targetText, speed = 8 }
       const newText = targetText
         .split("")
         .map((char, index) => {
-          // The speed prop controls how quickly characters are revealed
           if (iteration / animationSpeed > index) {
             return targetText[index];
           }
-          if (char === ' ') return ' ';
+          if (char === " ") return " ";
           return CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
         })
         .join("");
 
       setCurrentText(newText);
 
-      // The total duration is also adjusted based on the speed.
       if (iteration < targetText.length * animationSpeed) {
         iteration += 1;
         animationFrameId = requestAnimationFrame(scramble);
@@ -69,16 +69,15 @@ const DecryptingText: React.FC<DecryptingTextProps> = ({ targetText, speed = 8 }
   );
 };
 
-
 const DecryptingView: React.FC = () => {
-const demoLines = "In silence wakes the sleeping code";
-const demoLines2 = "A whisper through the circuit flowed";
+  const demoLines = "In silence wakes the sleeping code";
+  const demoLines2 = "A whisper through the circuit flowed";
 
   return (
     <div className="flex flex-col items-center justify-center font-mono p-4 gap-2 overflow-hidden relative">
       <div className="w-full max-w-4xl z-10 space-y-2">
-          <DecryptingText targetText={demoLines} speed={3} />
-          <DecryptingText targetText={demoLines2} speed={3} />
+        <DecryptingText targetText={demoLines} speed={3} />
+        <DecryptingText targetText={demoLines2} speed={3} />
       </div>
     </div>
   );

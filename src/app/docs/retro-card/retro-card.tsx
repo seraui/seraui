@@ -20,9 +20,7 @@ const RetroCard = React.forwardRef<HTMLDivElement, RetroCardProps>(
         )}
         {...props}
       >
-        {/* The inner container holds all the content. */}
         <div className="bg-white dark:bg-gray-900 border-2 border-black dark:border-white">
-          {/* Content Area */}
           <div className="p-4 text-black dark:text-white">{children}</div>
         </div>
       </div>

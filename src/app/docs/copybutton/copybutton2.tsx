@@ -70,7 +70,6 @@ const CheckIcon: React.FC<IconProps> = ({ className }) => (
   </svg>
 );
 
-// --- Main Component ---
 
 const CopyButton2: React.FC = () => {
   return (
@@ -86,7 +85,7 @@ const CodeBlock: React.FC = () => {
     npm: {
       command: '$ npm',
       package: 'create vite@latest',
-      url: '', // No URL for this command
+      url: '', 
     },
     yarn: {
       command: '$ yarn',
@@ -161,7 +160,7 @@ const CodeBlock: React.FC = () => {
                 key={tab.id}
                 className={`flex items-center gap-1 px-3 py-2 text-sm transition-all duration-200 focus:outline-none cursor-pointer
                   ${activeTab === tab.id
-                    ? 'text-white border-b-2 border-purple-500' // Vite-like active border
+                    ? 'text-white border-b-2 border-purple-500' 
                     : 'text-gray-400 hover:text-white'
                   }`}
                 onClick={() => setActiveTab(tab.id)}
@@ -172,7 +171,7 @@ const CodeBlock: React.FC = () => {
             ))}
           </div>
           <div className="flex items-center gap-1">
-            <span className="text-xs text-gray-500 mr-2">bash</span> {/* Added bash label */}
+            <span className="text-xs text-gray-500 mr-2">bash</span> 
             <button onClick={handleCopy} className="cursor-pointer z-20 p-2 hover:text-white transition-colors relative text-gray-400 focus:outline-none" title="Copy code">
               <div className={`absolute inset-0 transform transition-all duration-300 ${copied ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}>
                 <CopyIcon className="h-4 w-4" />
