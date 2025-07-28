@@ -74,6 +74,7 @@ export const navigation: NavigationItem[] = [
       { label: "Sparkles Text", href: "/docs/sparklestext" },
       { label: "Number Ticker", href: "/docs/ticker" },
       { label: "Letter Glitch", href: "/docs/letter-glitch" },
+      { label: "ResizeHandle Text", href: "/docs/resize-handle" },
     ],
   },
   {

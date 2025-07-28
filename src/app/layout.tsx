@@ -336,7 +336,7 @@ export const metadata: Metadata = {
     siteName: "Sera UI",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://seraui.seraprogrammer.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "Sera UI - Modern React Component Library with 500+ Animated Components",
@@ -351,7 +351,7 @@ export const metadata: Metadata = {
     title: "Sera UI - Modern React Component Library",
     description:
       "500+ animated React components built with Tailwind CSS & Framer Motion. Free, open-source, and production-ready. Perfect for modern web development.",
-    images: ["/og-image.png"],
+    images: ["https://seraui.seraprogrammer.com/og-image.png"],
     creator: "@sera_ui",
     site: "@sera_ui",
   },
@@ -404,6 +404,52 @@ export default function RootLayout({
         <meta name="application-name" content="Sera UI" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Sera UI" />
+        <meta
+          property="og:title"
+          content="Sera UI - Modern React Component Library | 500+ Animated Components"
+        />
+        <meta
+          property="og:description"
+          content="Build stunning web applications with Sera UI's 500+ animated React components. Free, open-source, and built with Tailwind CSS & Framer Motion. Perfect for developers who want beautiful, accessible, and performant UI components."
+        />
+        <meta property="og:url" content="https://seraui.seraprogrammer.com" />
+        <meta
+          property="og:image"
+          content="https://seraui.seraprogrammer.com/og-image.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Sera UI - Modern React Component Library with 500+ Animated Components"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@sera_ui" />
+        <meta name="twitter:creator" content="@sera_ui" />
+        <meta
+          name="twitter:title"
+          content="Sera UI - Modern React Component Library"
+        />
+        <meta
+          name="twitter:description"
+          content="500+ animated React components built with Tailwind CSS & Framer Motion. Free, open-source, and production-ready. Perfect for modern web development."
+        />
+        <meta
+          name="twitter:image"
+          content="https://seraui.seraprogrammer.com/og-image.png"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Sera UI - Modern React Component Library with 500+ Animated Components"
+        />
 
         {/* Manifest and Icons */}
         <link rel="manifest" href="/manifest.json" />

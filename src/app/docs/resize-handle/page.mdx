@@ -1,0 +1,48 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import ResizeHandle from "./resize-handle";
+
+# Resize Handle Text
+
+The **Resize Handle Text** component provides an animated, draggable resize handle with a flipping text effect and a stylish blurry transition. It's perfect for interactive layouts where you want to add a dynamic UI element.
+
+It displays an array of vibrant words that flip as the user interacts with the handle—creating a polished, modern feel for your app or website.
+
+<Tabs defaultValue="preview" className="mt-4">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<ResizeHandle />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/resize-handle/resize-handle.tsx" />
+  </TabsContent>
+</Tabs>
+
+---
+
+## Customizing Your Flipping Words
+
+You can easily replace the text being flipped with your own words by updating the `phrases` array:
+
+```tsx
+const phrases = [
+  "AWESOME",
+  "BEAUTIFUL",
+  "STUNNING",
+  "COOL",
+  "ELEGANT",
+  "AMAZING",
+  "VIBRANT",
+  "DYNAMIC",
+];
