@@ -100,7 +100,7 @@ export const Hero = () => {
               </Button>
             </Link>
 
-            <Link href="/tools">
+            <Link href="/docs/pattern">
               <Button
                 size="lg"
                 variant="outline"

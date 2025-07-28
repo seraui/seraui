@@ -29,10 +29,10 @@ export const navigation: NavigationItem[] = [
       { label: "Portfolio", href: "/docs/portfolio" },
       { label: "Orbiting Circles", href: "/docs/integrations" },
       { label: "Network", href: "/docs/network" },
-      { label: "Video Text", href: "/docs/video-text", badge: "New" },
+      { label: "Video Text", href: "/docs/video-text" },
       { label: "Image Swiper", href: "/docs/imageswiper", badge: "New" },
-      { label: "Divider", href: "/docs/divider", badge: "New" },
-      { label: "Noise", href: "/docs/noise", badge: "New" },
+      { label: "Divider", href: "/docs/divider" },
+      { label: "Noise", href: "/docs/noise" },
     ],
   },
   {
@@ -40,9 +40,10 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "Button", href: "/docs/button" },
       { label: "Modern Button", href: "/docs/modern-button" },
+      { label: "Glow Button", href: "/docs/glow-button", badge: "New" },
       { label: "Dropdown", href: "/docs/dropdown" },
-      { label: "Shimmer Button", href: "/docs/shimmer", badge: "New" },
-      { label: "Drawer", href: "/docs/drawer", badge: "New" },
+      { label: "Shimmer Button", href: "/docs/shimmer" },
+      { label: "Drawer", href: "/docs/drawer" },
     ],
   },
   {
@@ -71,8 +72,8 @@ export const navigation: NavigationItem[] = [
       { label: "Decrypting", href: "/docs/decrypting" },
       { label: "Aurora Text", href: "/docs/aurora" },
       { label: "Sparkles Text", href: "/docs/sparklestext" },
-      { label: "Number Ticker", href: "/docs/ticker", badge: "New" },
-      { label: "Letter Glitch", href: "/docs/letter-glitch", badge: "New" },
+      { label: "Number Ticker", href: "/docs/ticker" },
+      { label: "Letter Glitch", href: "/docs/letter-glitch" },
     ],
   },
   {
