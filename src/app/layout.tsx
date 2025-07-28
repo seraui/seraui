@@ -328,9 +328,10 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Sera UI - Modern React Component Library | 50+ Animated Components",
+    title:
+      "Sera UI - Modern React Component Library | 500+ Animated Components",
     description:
-      "Build stunning web applications with Sera UI's 50+ animated React components. Free, open-source, and built with Tailwind CSS & Framer Motion. Perfect for developers who want beautiful, accessible, and performant UI components.",
+      "Build stunning web applications with Sera UI's 500+ animated React components. Free, open-source, and built with Tailwind CSS & Framer Motion. Perfect for developers who want beautiful, accessible, and performant UI components.",
     url: "https://seraui.seraprogrammer.com",
     siteName: "Sera UI",
     images: [
@@ -338,14 +339,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Sera UI - Modern React Component Library with 50+ Animated Components",
-        type: "image/png",
-      },
-      {
-        url: "/product.png",
-        width: 800,
-        height: 600,
-        alt: "Sera UI Component Showcase",
+        alt: "Sera UI - Modern React Component Library with 500+ Animated Components",
         type: "image/png",
       },
     ],
@@ -356,7 +350,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sera UI - Modern React Component Library",
     description:
-      "50+ animated React components built with Tailwind CSS & Framer Motion. Free, open-source, and production-ready. Perfect for modern web development.",
+      "500+ animated React components built with Tailwind CSS & Framer Motion. Free, open-source, and production-ready. Perfect for modern web development.",
     images: ["/og-image.png"],
     creator: "@sera_ui",
     site: "@sera_ui",
@@ -439,7 +433,7 @@ export default function RootLayout({
               "@type": "SoftwareApplication",
               name: "Sera UI",
               description:
-                "Modern React component library with 50+ animated components built with Tailwind CSS and Framer Motion. Free, open-source, and production-ready for modern web applications.",
+                "Modern React component library with 500+ animated components built with Tailwind CSS and Framer Motion. Free, open-source, and production-ready for modern web applications.",
               url: "https://seraui.seraprogrammer.com",
               applicationCategory: "DeveloperApplication",
               operatingSystem: "Web",
@@ -516,7 +510,7 @@ export default function RootLayout({
               url: "https://seraui.seraprogrammer.com",
               logo: "https://seraui.seraprogrammer.com/logo.svg",
               description:
-                "Modern React component library for developers. First UI library from Bangladesh with 50+ animated components.",
+                "Modern React component library for developers. First UI library from Bangladesh with 500+ animated components.",
               foundingDate: "2024",
               founder: {
                 "@type": "Person",
@@ -551,7 +545,7 @@ export default function RootLayout({
               name: "Sera UI",
               url: "https://seraui.seraprogrammer.com",
               description:
-                "Modern React component library with 50+ animated components",
+                "Modern React component library with 500+ animated components",
               publisher: {
                 "@type": "Organization",
                 name: "Sera UI",
