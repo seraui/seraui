@@ -47,18 +47,26 @@ A notification-style card with red glitch effects, ideal for status updates or p
   </TabsContent>
 </Tabs>
 
-## 
+## Installation
 
+You can add this component to your project using the CLI or by manually copying the code.
 
-
-
-<Tabs defaultValue="preview" className="mb-8">
+<Tabs defaultValue="cli" className="mb-8">
   <TabsList>
-    <TabsTrigger value="preview">Basic Usage</TabsTrigger>
-    <TabsTrigger value="code">Code</TabsTrigger>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
   </TabsList>
-  <TabsContent value="preview">
-    ```tsx
+  <TabsContent value="cli">
+    <Cli command="add glitchvault.json" />
+  </TabsContent>
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/glitchvault/glitchvault.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Basic Usage
+
+```tsx
 import GlitchVault from "./glitchvault";
 
 export default function MyComponent() {
@@ -76,11 +84,6 @@ export default function MyComponent() {
   );
 }
 ```
-  </TabsContent>
-  <TabsContent value="code">
-    <CodeBlock filePath="src/app/docs/glitchvault/glitchvault.tsx" />
-  </TabsContent>
-</Tabs>
 
 
 
@@ -95,5 +98,46 @@ export default function MyComponent() {
 | `glitchRadius` | `number` | `120` | Radius of the mouse interaction area |
 | `performanceMode` | `"high" \| "balanced" \| "low"` | `"balanced"` | Performance optimization level |
 | `disabled` | `boolean` | `false` | Disable the glitch effect |
-| `vignette` | `boolean` | `true` | Enable vignette effect (future feature) |
+| `theme` | `"light" \| "dark" \| "auto"` | - | Theme variant (future feature) |
 </MdxTable>
+
+## Examples
+
+### Different Colors
+```tsx
+// Cyan glitch effect (default)
+<GlitchVault glitchColor="#0AF0F0">
+  <div className="p-6">Cyan Effect</div>
+</GlitchVault>
+
+// Red glitch effect
+<GlitchVault glitchColor="#FF0040">
+  <div className="p-6">Red Effect</div>
+</GlitchVault>
+
+// Green glitch effect
+<GlitchVault glitchColor="#00FF41">
+  <div className="p-6">Green Effect</div>
+</GlitchVault>
+```
+
+### Performance Modes
+```tsx
+// High performance mode (more responsive)
+<GlitchVault performanceMode="high">
+  <div className="p-6">High Performance</div>
+</GlitchVault>
+
+// Low performance mode (better for mobile)
+<GlitchVault performanceMode="low">
+  <div className="p-6">Low Performance</div>
+</GlitchVault>
+```
+
+### Disabled State
+```tsx
+// Disable the glitch effect
+<GlitchVault disabled>
+  <div className="p-6">No Glitch Effect</div>
+</GlitchVault>
+```

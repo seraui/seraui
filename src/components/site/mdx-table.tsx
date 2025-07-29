@@ -22,7 +22,9 @@ export function MdxTable({
       return children.toString();
     }
     if (React.isValidElement(children)) {
-      return extractTextFromChildren((children.props as any).children);
+      return extractTextFromChildren(
+        (children.props as { children?: React.ReactNode }).children
+      );
     }
     if (Array.isArray(children)) {
       return children.map(extractTextFromChildren).join("");

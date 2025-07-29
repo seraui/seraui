@@ -1,11 +1,5 @@
 "use client";
-import React, {
-  useRef,
-  useEffect,
-  useCallback,
-  useMemo,
-  useState,
-} from "react";
+import React, { useRef, useEffect, useCallback, useMemo } from "react";
 
 // Type declarations for OffscreenCanvas (may not be available in all environments)
 declare global {
@@ -79,7 +73,6 @@ interface GlitchVaultProps {
   glitchRadius?: number;
   performanceMode?: "high" | "balanced" | "low";
   disabled?: boolean;
-  vignette?: boolean;
   theme?: "light" | "dark" | "auto";
 }
 
@@ -297,7 +290,11 @@ class RenderingEngine {
 
     if (this.offscreenCanvas && this.offscreenCtx) {
       this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-      this.ctx.drawImage(this.offscreenCanvas as any, 0, 0);
+      this.ctx.drawImage(
+        this.offscreenCanvas as unknown as CanvasImageSource,
+        0,
+        0
+      );
     }
   }
 
@@ -537,7 +534,6 @@ const GlitchVault = React.memo<GlitchVaultProps>(
     glitchRadius = 120,
     performanceMode = "balanced",
     disabled = false,
-    vignette = true,
   }) => {
     const interactionRef = useRef<HTMLDivElement>(null);
 
