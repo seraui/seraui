@@ -6,8 +6,20 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "@/app/docs/button/button";
 import { BookOpen, Wrench } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export const Hero = () => {
+  const words = ["beautiful", "stunning", "modern", "elegant", "amazing"];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % words.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [words.length]);
+
   return (
     <div className="relative flex items-center justify-center overflow-hidden">
       {/* Base Grid Background - Very Low Opacity */}
@@ -61,8 +73,42 @@ export const Hero = () => {
                   height: "70px",
                 }}
               />
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                stunning
+              <span className="relative inline-block">
+                <motion.span
+                  key={currentWordIndex}
+                  initial={{
+                    y: 20,
+                    opacity: 0,
+                    rotateX: -90,
+                    filter: "blur(8px)",
+                  }}
+                  animate={{
+                    y: 0,
+                    opacity: 1,
+                    rotateX: 0,
+                    filter: "blur(0px)",
+                  }}
+                  exit={{
+                    y: -20,
+                    opacity: 0,
+                    rotateX: 90,
+                    filter: "blur(8px)",
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    ease: [0.25, 0.1, 0.25, 1],
+                    type: "spring",
+                    stiffness: 80,
+                  }}
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
+                  style={{ transformOrigin: "center center" }}
+                >
+                  {words[currentWordIndex]}
+                </motion.span>
+
+                <span className="invisible bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  {words[0]}
+                </span>
               </span>
             </span>
             <span className="block">

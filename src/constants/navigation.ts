@@ -32,7 +32,8 @@ export const navigation: NavigationItem[] = [
       { label: "Video Text", href: "/docs/video-text" },
       { label: "Image Swiper", href: "/docs/imageswiper", badge: "New" },
       { label: "Divider", href: "/docs/divider" },
-      { label: "Noise", href: "/docs/noise" },
+      { label: "Noise", href: "/docs/noise", badge: "New" },
+      { label: "GlitchVault Card", href: "/docs/glitchvault", badge: "New" },
     ],
   },
   {

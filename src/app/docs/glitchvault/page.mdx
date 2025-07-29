@@ -1,0 +1,99 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { MdxTable } from "@/components/site/mdx-table";
+import GlitchVaultProfile from "./glitchvault-view"
+import GlitchVaultCard from "./glitchvault-card"
+
+# GlitchVault Card
+
+A dynamic interactive component that creates a matrix-style glitch effect on hover. Perfect for adding cyberpunk aesthetics to profiles, cards, and interactive elements.
+
+### Profile Card
+A sleek profile card with cyan glitch effects perfect for showcasing team members or user profiles.
+
+<Tabs defaultValue="preview" className="mb-8">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<GlitchVaultProfile />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/glitchvault/glitchvault-view.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Project Card
+A notification-style card with red glitch effects, ideal for status updates or project announcements.
+
+<Tabs defaultValue="preview" className="mb-8">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<GlitchVaultCard />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/glitchvault/glitchvault-card.tsx" />
+  </TabsContent>
+</Tabs>
+
+## 
+
+
+
+
+<Tabs defaultValue="preview" className="mb-8">
+  <TabsList>
+    <TabsTrigger value="preview">Basic Usage</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    ```tsx
+import GlitchVault from "./glitchvault";
+
+export default function MyComponent() {
+  return (
+    <GlitchVault
+      className="w-full max-w-sm border rounded-lg"
+      glitchColor="#0AF0F0"
+      glitchRadius={120}
+    >
+      <div className="p-6">
+        <h2>Your Content Here</h2>
+        <p>Any content can go inside the GlitchVault</p>
+      </div>
+    </GlitchVault>
+  );
+}
+```
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/glitchvault/glitchvault.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+
+## Props
+
+<MdxTable>
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | - | Content to display inside the component |
+| `className` | `string` | - | Additional CSS classes for styling |
+| `glitchColor` | `string` | `"#0AF0F0"` | Hex color for the glitch effect |
+| `glitchRadius` | `number` | `120` | Radius of the mouse interaction area |
+| `performanceMode` | `"high" \| "balanced" \| "low"` | `"balanced"` | Performance optimization level |
+| `disabled` | `boolean` | `false` | Disable the glitch effect |
+| `vignette` | `boolean` | `true` | Enable vignette effect (future feature) |
+</MdxTable>

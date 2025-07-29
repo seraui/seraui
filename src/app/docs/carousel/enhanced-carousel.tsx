@@ -108,7 +108,7 @@ export default function CarouselCards() {
     <div className="font-sans w-full py-12 md:py-20 flex flex-col items-center justify-center">
       <div className="w-full max-w-7xl mx-auto px-4">
         <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">
+          <h1 className="text-4xl md:text-5xl font-bold text-black dark:text-white ">
             Explore Worlds
           </h1>
           <p className="mt-4 text-lg text-gray-400">
