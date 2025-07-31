@@ -70,6 +70,67 @@ function AnnouncementView() {
 - Smooth animations and transitions
 
 
+
+## variant
+The visual style variant of the announcement. Can be one of the following:
+
+- `"default"`: Default style
+- `"success"`: Success style
+- `"error"`: Error style
+- `"warning"`: Warning style
+- `"info"`: Info style
+- `"gradient"`: Gradient style
+
+```tsx
+        <Announcement
+          variant="default"
+          onClick={() => handleAnnouncementClick("Default")}
+        >
+          New feature added
+        </Announcement>
+
+        <Announcement
+          variant="success"
+          onClick={() => handleAnnouncementClick("Success")}
+        >
+          Update successful
+        </Announcement>
+
+        <Announcement
+          variant="error"
+          onClick={() => handleAnnouncementClick("Error")}
+        >
+          Action failed
+        </Announcement>
+
+        <Announcement
+          variant="warning"
+          onClick={() => handleAnnouncementClick("Warning")}
+        >
+          Please check input
+        </Announcement>
+
+        <Announcement
+          variant="info"
+          onClick={() => handleAnnouncementClick("Info")}
+        >
+          For your information
+        </Announcement>
+
+        <Announcement
+          variant="gradient"
+          onClick={() => handleAnnouncementClick("Gradient")}
+        >
+          Announcing Gradients!
+        </Announcement>
+
+        <Announcement variant="default" disabled>
+          Disabled state
+        </Announcement>
+
+        ```
+
+
 ## Props
 
 <MdxTable>
