@@ -1,9 +1,8 @@
-import Head from "next/head";
-
 export function CriticalCSS() {
   return (
-    <Head>
-      <style jsx>{`
+    <style
+      dangerouslySetInnerHTML={{
+        __html: `
         /* Critical CSS for above-the-fold content */
         .hero-section {
           min-height: 100vh;
@@ -43,7 +42,14 @@ export function CriticalCSS() {
           );
           background-size: 200% 100%;
         }
-      `}</style>
-    </Head>
+
+        /* Optimize font loading */
+        @font-face {
+          font-family: 'Inter';
+          font-display: swap;
+        }
+      `,
+      }}
+    />
   );
 }

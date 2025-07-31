@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 interface ResourcePreloaderProps {
   fonts?: string[];
   images?: string[];
@@ -12,7 +10,7 @@ export function ResourcePreloader({
   scripts = [],
 }: ResourcePreloaderProps) {
   return (
-    <Head>
+    <>
       {/* Preload critical fonts */}
       {fonts.map((font) => (
         <link
@@ -48,6 +46,6 @@ export function ResourcePreloader({
         href="https://fonts.gstatic.com"
         crossOrigin="anonymous"
       />
-    </Head>
+    </>
   );
 }
