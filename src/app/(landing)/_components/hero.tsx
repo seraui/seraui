@@ -1,8 +1,8 @@
 import { BorderBeam } from "@/components/ui";
-import Image from "next/image";
 import Link from "next/link";
 import Button from "@/app/docs/button/button";
 import { BookOpen, Wrench } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 export const Hero = () => {
   return (
@@ -36,11 +36,12 @@ export const Hero = () => {
           <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-[1.1] mb-4 sm:mb-6">
             <span className="block">
               <span className="mask-l-from-0%">Build</span>{" "}
-              <Image
+              <OptimizedImage
                 src="/images/rose.webp"
                 alt="Rose decoration"
                 width={70}
                 height={70}
+                priority={true}
                 className="inline mx-1 sm:mx-2 align-middle w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-[70px] xl:h-[70px]"
               />
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">

@@ -5,7 +5,8 @@ import { Hero } from "./_components/hero";
 import { Footer } from "./_components/footer";
 import Testimonial from "./_components/testimonial";
 
-import CarouselCards from "@/app/docs/carousel/enhanced-carousel";
+// Dynamic import for heavy carousel component
+import { DynamicCarousel } from "@/components/ui/dynamic-loader";
 
 // Force static generation for landing page
 export const dynamic = "force-static";
@@ -40,7 +41,7 @@ const page = () => {
     <main className="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 min-h-screen">
       <Header />
       <Hero />
-      <CarouselCards />
+      <DynamicCarousel />
       <Testimonial />
       <Footer />
     </main>

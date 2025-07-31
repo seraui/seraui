@@ -5,12 +5,16 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:analyze": "set ANALYZE=true && next build",
     "start": "next start",
     "lint": "next lint",
     "export": "next build",
     "build:registry": "tsx ./src/scripts/auto-generate-components.ts && tsx ./src/scripts/build-registry.ts",
     "generate:components": "tsx ./src/scripts/auto-generate-components.ts",
-    "watch:components": "tsx ./src/scripts/watch-components.ts"
+    "watch:components": "tsx ./src/scripts/watch-components.ts",
+    "perf:audit": "npx lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html",
+    "perf:bundle": "npx bundle-analyzer .next/static/chunks/*.js",
+    "perf:optimize": "node scripts/optimize-build.js"
   },
   "dependencies": {
     "@babel/generator": "^7.28.0",
@@ -44,6 +48,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@next/bundle-analyzer": "^15.4.5",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.16",
     "@types/babel__generator": "^7.27.0",

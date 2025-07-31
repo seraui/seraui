@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 
+// Bundle analyzer for performance monitoring
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
 const nextConfig: NextConfig = {
   /* config options here */
   output: "export", // Force static export - no server functions
@@ -12,9 +17,10 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
 
-  // Image optimization disabled for static export
+  // Image optimization for static export
   images: {
-    unoptimized: true, // Required for static export
+    loader: "custom",
+    loaderFile: "./image-loader.js",
     domains: ["i.postimg.cc", "i.pinimg.com", "avatars.githubusercontent.com"],
   },
 
@@ -23,7 +29,12 @@ const nextConfig: NextConfig = {
 
   // Experimental features for better performance
   experimental: {
-    optimizePackageImports: ["lucide-react", "framer-motion"],
+    optimizePackageImports: [
+      "lucide-react",
+      "framer-motion",
+      "@radix-ui/react-icons",
+    ],
+    scrollRestoration: true,
   },
 
   // Bundle analyzer for performance monitoring
@@ -53,4 +64,4 @@ const withMDX = createMDX({
   },
 });
 
-export default withMDX(nextConfig);
+export default withBundleAnalyzer(withMDX(nextConfig));
