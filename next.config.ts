@@ -12,9 +12,11 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
 
-  // Image optimization disabled for static export
+  // Image optimization for static export
   images: {
-    unoptimized: true, // Required for static export
+    loader: "custom",
+    loaderFile: "./image-loader.js",
+    domains: ["i.postimg.cc", "i.pinimg.com", "avatars.githubusercontent.com"],
   },
 
   // Static export doesn't support headers() or redirects()
