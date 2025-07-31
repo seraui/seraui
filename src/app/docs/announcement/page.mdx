@@ -2,10 +2,10 @@ import { CodeBlock } from "@/components/site/code-block";
 import { ComponentRenderer } from "@/components/site/component-renderer";
 import { Cli } from "@/components/site/cli";
 import {
-    Tabs,
-    TabsList,
-    TabsTrigger,
-    TabsContent,
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
 } from "@/components/site/tabs.tsx";
 import { MdxTable } from "@/components/site/mdx-table.tsx";
 import AnnouncementView from "./announcement-view"
@@ -23,7 +23,7 @@ A versatile announcement component that displays important messages with differe
     <ComponentRenderer component={<AnnouncementView />} />
   </TabsContent>
   <TabsContent value="code">
-    <CodeBlock filePath="src/app/docs/announcement/announcement.tsx" />
+    <CodeBlock filePath="src/app/docs/announcement/announcement-view.tsx" />
   </TabsContent>
 </Tabs>
 
@@ -82,53 +82,46 @@ The visual style variant of the announcement. Can be one of the following:
 - `"gradient"`: Gradient style
 
 ```tsx
-        <Announcement
-          variant="default"
-          onClick={() => handleAnnouncementClick("Default")}
-        >
-          New feature added
-        </Announcement>
+<Announcement
+  variant="default"
+>
+  New feature added
+</Announcement>
 
-        <Announcement
-          variant="success"
-          onClick={() => handleAnnouncementClick("Success")}
-        >
-          Update successful
-        </Announcement>
+<Announcement
+  variant="success"
+>
+  Update successful
+</Announcement>
 
-        <Announcement
-          variant="error"
-          onClick={() => handleAnnouncementClick("Error")}
-        >
-          Action failed
-        </Announcement>
+<Announcement
+  variant="error"
+>
+  Action failed
+</Announcement>
 
-        <Announcement
-          variant="warning"
-          onClick={() => handleAnnouncementClick("Warning")}
-        >
-          Please check input
-        </Announcement>
+<Announcement
+  variant="warning"
+>
+  Please check input
+</Announcement>
 
-        <Announcement
-          variant="info"
-          onClick={() => handleAnnouncementClick("Info")}
-        >
-          For your information
-        </Announcement>
+<Announcement
+  variant="info"
+>
+  For your information
+</Announcement>
 
-        <Announcement
-          variant="gradient"
-          onClick={() => handleAnnouncementClick("Gradient")}
-        >
-          Announcing Gradients!
-        </Announcement>
+<Announcement
+  variant="gradient"
+>
+  Announcing Gradients!
+</Announcement>
 
-        <Announcement variant="default" disabled>
-          Disabled state
-        </Announcement>
-
-        ```
+<Announcement variant="default" disabled>
+  Disabled state
+</Announcement>
+```
 
 
 ## Props
