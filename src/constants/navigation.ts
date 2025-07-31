@@ -53,6 +53,7 @@ export const navigation: NavigationItem[] = [
       { label: "Badge", href: "/docs/badge" },
       { label: "Animated Badge", href: "/docs/animatedbadge", badge: "New" },
       { label: "Toast", href: "/docs/toast" },
+      { label: "Announcement", href: "/docs/announcement", badge: "New" },
     ],
   },
   {
