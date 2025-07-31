@@ -2,7 +2,7 @@ import { BorderBeam } from "@/components/ui";
 import Link from "next/link";
 import Button from "@/app/docs/button/button";
 import { BookOpen, Wrench } from "lucide-react";
-import { OptimizedImage } from "@/components/ui/optimized-image";
+import Image from "next/image";
 
 export const Hero = () => {
   return (
@@ -36,7 +36,7 @@ export const Hero = () => {
           <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-[1.1] mb-4 sm:mb-6">
             <span className="block">
               <span className="mask-l-from-0%">Build</span>{" "}
-              <OptimizedImage
+              <Image
                 src="/images/rose.webp"
                 alt="Rose decoration"
                 width={70}
