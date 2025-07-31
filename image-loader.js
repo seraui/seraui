@@ -6,8 +6,11 @@ const imageLoader = ({ src, width, quality }) => {
     return src;
   }
 
+  // Clean up the src path to avoid double slashes
+  const cleanSrc = src.startsWith("/") ? src.slice(1) : src;
+
   // For local images, use next-image-export-optimizer
-  return `/_next/static/media/${src}?w=${width}&q=${quality || 75}`;
+  return `/_next/static/media/${cleanSrc}?w=${width}&q=${quality || 75}`;
 };
 
 module.exports = imageLoader;
