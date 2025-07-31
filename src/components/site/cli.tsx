@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
-import CodeCopy from "./code-copy";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { FaYarn } from "react-icons/fa";
 import { SiNpm, SiPnpm, SiBun } from "react-icons/si";
+import { Copy, Check } from "lucide-react";
 import {
   usePackageManager,
   type PackageManager,
@@ -17,6 +17,17 @@ type CliProps = {
 
 export const Cli = ({ command }: CliProps) => {
   const { packageManager: pm, setPackageManager: setPm } = usePackageManager();
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(fullCommand);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
 
   // Dynamically build the registry URL if command looks like 'add *.json'
   let finalCommand = command;
@@ -80,10 +91,17 @@ export const Cli = ({ command }: CliProps) => {
             );
           })}
         </div>
-        <CodeCopy
-          className="relative top-0 right-0 text-zinc-900 dark:text-zinc-50"
-          code={fullCommand}
-        />
+        <button
+          onClick={handleCopy}
+          className="relative top-0 right-0 text-zinc-900 dark:text-zinc-50 p-2 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-md transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+          title={copied ? "Copied!" : "Copy command"}
+        >
+          {copied ? (
+            <Check size={16} className="text-green-500" />
+          ) : (
+            <Copy size={16} />
+          )}
+        </button>
       </div>
 
       <div className="text-sm text-left font-mono text-nowrap font-medium bg-white dark:bg-zinc-950 py-4 overflow-x-auto max-w-full min-w-0">

@@ -9,6 +9,7 @@ import {
 } from "@/components/site/tabs.tsx";
 import { PropsTable } from "@/components/site/props-table.tsx";
 import { Table, StatusBadge } from "@/components/ui/table";
+import { MdxTable } from "@/components/site/mdx-table.tsx";
 
 import ButtonView from "./button-view"
 import SocialButton from "./social-button"
@@ -245,39 +246,12 @@ You can put the button into a loading state, which disables it and shows a spinn
 
 # Props
 
-<table border="1" cellspacing="0" cellpadding="8">
-  <thead>
-    <tr>
-      <th>Prop</th>
-      <th>Type</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>variant</code></td>
-      <td><code>'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'</code></td>
-      <td><code>'default'</code></td>
-      <td>The visual style of the button.</td>
-    </tr>
-    <tr>
-      <td><code>size</code></td>
-      <td><code>'default' | 'sm' | 'lg'</code></td>
-      <td><code>'default'</code></td>
-      <td>The size of the button.</td>
-    </tr>
-    <tr>
-      <td><code>loading</code></td>
-      <td><code>boolean</code></td>
-      <td><code>false</code></td>
-      <td>If <code>true</code>, the button will be disabled and show a loading spinner.</td>
-    </tr>
-    <tr>
-      <td><code>...props</code></td>
-      <td><code>React.ButtonHTMLAttributes&lt;HTMLButtonElement&gt;</code></td>
-      <td></td>
-      <td>Any other standard <code>button</code> attributes (e.g., <code>onClick</code>, <code>disabled</code>, <code>className</code>) will be passed through.</td>
-    </tr>
-  </tbody>
-</table>
+<MdxTable>
+| **Prop**    | **Type**                                                                                          | **Default**   | **Description**                                                                                                      |
+|-------------|---------------------------------------------------------------------------------------------------|---------------|----------------------------------------------------------------------------------------------------------------------|
+| `variant`   | `'default'` \| `'destructive'` \| `'outline'` \| `'secondary'` \| `'ghost'` \| `'link'`            | `'default'`   | The visual style of the button.                                                                                      |
+| `size`      | `'default'` \| `'sm'` \| `'lg'`                                                                    | `'default'`   | The size of the button.                                                                                              |
+| `loading`   | `boolean`                                                                                          | `false`       | If `true`, the button will be disabled and show a loading spinner.                                                  |
+| `...props`  | `React.ButtonHTMLAttributes<HTMLButtonElement>`                                                   | —             | Any other standard `button` attributes (e.g., `onClick`, `disabled`, `className`) will be passed through.           |
+
+</MdxTable>
