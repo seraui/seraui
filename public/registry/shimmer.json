@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer",
+  "title": "Shimmer",
+  "description": "A minimalistic shimmer component designed with React and Tailwind CSS.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "shimmer.tsx",
+      "content": "'use client'\r\nimport React from 'react';\r\n\r\n// The main App component that renders our ShimmerButton\r\nexport default function ShimmerButton() {\r\n  const customCss = `\r\n    /* This is the key to the seamless animation.\r\n      The @property rule tells the browser that '--angle' is a custom property\r\n      of type <angle>. This allows the browser to smoothly interpolate it\r\n      during animations, preventing the \"jump\" at the end of the loop.\r\n    */\r\n    @property --angle {\r\n      syntax: '<angle>';\r\n      initial-value: 0deg;\r\n      inherits: false;\r\n    }\r\n\r\n    /* The keyframe animation simply transitions the --angle property\r\n      from its start (0deg) to its end (360deg).\r\n    */\r\n    @keyframes shimmer-spin {\r\n      to {\r\n        --angle: 360deg;\r\n      }\r\n    }\r\n  `;\r\n\r\n  return (\r\n    // Main container to center the button on the page\r\n    <div className=\"flex items-center justify-center font-sans\">\r\n      <style>{customCss}</style>\r\n      <button className=\"relative inline-flex items-center justify-center p-[1.5px] bg-gray-300 dark:bg-black rounded-full overflow-hidden group\">\r\n        <div \r\n          className=\"absolute inset-0\"\r\n          style={{\r\n            background: 'conic-gradient(from var(--angle), transparent 25%, #06b6d4, transparent 50%)',\r\n            animation: 'shimmer-spin 2.5s linear infinite',\r\n          }}\r\n        />\r\n        <span className=\"relative z-10 inline-flex items-center justify-center w-full h-full px-8 py-3 text-gray-900 dark:text-white bg-white dark:bg-gray-900 rounded-full group-hover:bg-gray-100 dark:group-hover:bg-gray-800 transition-colors duration-300\">\r\n          Shimmer Button\r\n        </span>\r\n      </button>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

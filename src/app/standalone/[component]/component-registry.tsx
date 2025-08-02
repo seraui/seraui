@@ -7,6 +7,7 @@ import OnlyIconButton from "@/app/docs/button/only";
 import CommerceButton from "@/app/docs/button/commerce";
 import OthersButton from "@/app/docs/button/others";
 import CardView from "@/app/docs/card/card-view";
+import ComboboxView from "@/app/docs/combobox/combobox-view";
 import FlipwordsView from "@/app/docs/flipwords/flipwords-view";
 import TwoStep from "@/app/docs/twostep/twostep";
 import Search from "@/app/docs/search/search";
@@ -88,6 +89,7 @@ export const ComponentRegistry: Record<string, React.ComponentType> = {
   "commerce-button": CommerceButton,
   "other-buttons": OthersButton,
   card: CardView,
+  combobox: ComboboxView,
   flipwords: FlipwordsView,
   twostep: TwoStep,
   search: Search,

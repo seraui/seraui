@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "retro-card",
+  "title": "Retro Card",
+  "description": "A minimalistic retro card component designed with React and Tailwind CSS.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "retro-card.tsx",
+      "content": "\"use client\";\r\nimport BasicExamples from \"./examples/basic-examples\";\r\nimport FormExamples from \"./examples/form-examples\";\r\nimport ProfileExamples from \"./examples/profile-examples\";\r\nimport GamingExamples from \"./examples/gaming-examples\";\r\nimport InteractiveExamples from \"./examples/interactive-examples\";\r\n\r\nconst RetroCardView: React.FC = () => {\r\n  return (\r\n    <div className=\"bg-[#f5f5f5] dark:bg-gray-900 min-h-screen w-full p-4 sm:p-6 lg:p-8 transition-colors\">\r\n      <div className=\"max-w-6xl mx-auto space-y-12\">\r\n        <BasicExamples />\r\n        <FormExamples />\r\n        <ProfileExamples />\r\n        <GamingExamples />\r\n        <InteractiveExamples />\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default RetroCardView;\r\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "retro-card.tsx",
+      "content": "\"use client\";\r\nimport React from \"react\";\r\n\r\nconst cn = (...classes: (string | boolean | undefined | null)[]): string => {\r\n  return classes.filter(Boolean).join(\" \");\r\n};\r\n\r\ninterface RetroCardProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  children: React.ReactNode;\r\n}\r\n\r\nconst RetroCard = React.forwardRef<HTMLDivElement, RetroCardProps>(\r\n  ({ className, children, ...props }, ref) => {\r\n    return (\r\n      <div\r\n        ref={ref}\r\n        className={cn(\r\n          \"bg-[#00ff84] border-2 border-black dark:border-white p-2 transition-all duration-300 shadow-[4px_4px_0px_black] dark:shadow-[4px_4px_0px_white] hover:shadow-[8px_8px_0px_black] dark:hover:shadow-[8px_8px_0px_white] hover:-translate-y-1\",\r\n          className\r\n        )}\r\n        {...props}\r\n      >\r\n        <div className=\"bg-white dark:bg-gray-900 border-2 border-black dark:border-white\">\r\n          <div className=\"p-4 text-black dark:text-white\">{children}</div>\r\n        </div>\r\n      </div>\r\n    );\r\n  }\r\n);\r\n\r\nRetroCard.displayName = \"RetroCard\";\r\nexport default RetroCard;\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}
