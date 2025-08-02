@@ -212,7 +212,7 @@ export function MdxTable({
       return <span className="text-zinc-400 dark:text-zinc-500">—</span>;
     }
 
-    let processedContent = content.trim();
+    const processedContent = content.trim();
     const elements: React.ReactNode[] = [];
     let currentIndex = 0;
 
