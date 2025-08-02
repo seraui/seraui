@@ -1,0 +1,250 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import ComboboxView from "./combobox-view.tsx";
+
+# Combobox
+
+A searchable dropdown component that allows users to filter and select from a list of options. Features real-time filtering, keyboard navigation, and accessible interactions.
+
+## Features
+
+- **Real-time Search**: Filter options as you type
+- **Keyboard Navigation**: Arrow keys, Enter, and Escape support
+- **Accessible**: Proper focus management and ARIA compliance
+- **Dark Mode**: Full support for light and dark themes
+- **Responsive**: Adapts to different screen sizes
+- **TypeScript**: Full type safety with TypeScript support
+
+## Preview
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<ComboboxView />} componentName="combobox" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/combobox/combobox.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Installation
+
+<Cli command="add combobox.json" />
+
+## Usage
+
+Import and use the Combobox component in your React application:
+
+```tsx
+import Combobox from "./combobox";
+
+function App() {
+  const options = ["React", "Vue", "Angular", "Svelte"];
+
+  const handleSelect = (value: string) => {
+    console.log("Selected:", value);
+  };
+
+  return (
+    <Combobox
+      options={options}
+      placeholder="Choose a framework..."
+      onSelect={handleSelect}
+    />
+  );
+}
+```
+
+## Props
+
+<PropsTable
+  props={[
+    {
+      name: "options",
+      type: "string[]",
+      required: true,
+      description: "Array of options to display in the dropdown",
+    },
+    {
+      name: "placeholder",
+      type: "string",
+      default: '"Select an option..."',
+      required: false,
+      description: "Placeholder text for the input field",
+    },
+    {
+      name: "onSelect",
+      type: "(value: string) => void",
+      required: false,
+      description: "Callback function when an option is selected",
+    },
+    {
+      name: "className",
+      type: "string",
+      required: false,
+      description: "Additional CSS classes for the container",
+    },
+  ]}
+/>
+
+## Examples
+
+### Basic Combobox
+
+Simple implementation with minimal configuration:
+
+```tsx
+<Combobox
+  options={["Option 1", "Option 2", "Option 3"]}
+  placeholder="Select an option"
+/>
+```
+
+### With Selection Handler
+
+Handle selection events for form integration:
+
+```tsx
+const [selectedValue, setSelectedValue] = useState("");
+
+<Combobox
+  options={["Apple", "Banana", "Cherry", "Date"]}
+  placeholder="Choose a fruit..."
+  onSelect={(value) => setSelectedValue(value)}
+/>;
+```
+
+### Custom Styling
+
+Apply custom styles with the className prop:
+
+```tsx
+<Combobox
+  options={countries}
+  placeholder="Search countries..."
+  className="w-full max-w-md"
+  onSelect={handleCountrySelect}
+/>
+```
+
+## Keyboard Shortcuts
+
+The combobox supports full keyboard navigation for accessibility:
+
+| Key       | Action                        |
+| --------- | ----------------------------- |
+| `↓` / `↑` | Navigate through options      |
+| `Enter`   | Select highlighted option     |
+| `Escape`  | Close dropdown and blur input |
+| `Type`    | Filter options in real-time   |
+
+## Accessibility
+
+- **ARIA Compliance**: Proper focus management and screen reader support
+- **Keyboard Navigation**: Full keyboard accessibility
+- **Focus Indicators**: Clear visual focus states
+- **Screen Reader**: Descriptive labels and announcements
+
+## Customization
+
+### Styling
+
+The component uses Tailwind CSS classes. You can customize the appearance by modifying the classes in the component:
+
+```tsx
+// Input styling
+className =
+  "w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500";
+
+// Dropdown styling
+className =
+  "absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg";
+
+// Option styling
+className = "px-3 py-2 hover:bg-gray-100";
+```
+
+### Custom Filtering
+
+You can modify the filtering logic in the component:
+
+```tsx
+// Current: includes match
+const filteredOptions = options.filter((option) =>
+  option.toLowerCase().includes(inputValue.toLowerCase())
+);
+
+// Alternative: starts with match
+const filteredOptions = options.filter((option) =>
+  option.toLowerCase().startsWith(inputValue.toLowerCase())
+);
+```
+
+## Best Practices
+
+1. **Performance**: For large datasets (>100 items), consider implementing virtualization
+2. **Validation**: Add form validation when using in forms
+3. **Loading States**: Show loading indicators for async option fetching
+4. **Error Handling**: Provide fallback UI for empty states
+5. **Mobile**: Test on mobile devices for touch interactions
+
+## Advanced Usage
+
+### With Form Libraries
+
+Integration with popular form libraries:
+
+```tsx
+// React Hook Form
+const { register, watch } = useForm();
+
+<Combobox
+  options={options}
+  onSelect={(value) => setValue('framework', value)}
+/>
+
+// Formik
+<Field name="framework">
+  {({ field, form }) => (
+    <Combobox
+      options={options}
+      onSelect={(value) => form.setFieldValue('framework', value)}
+    />
+  )}
+</Field>
+```
+
+### Async Options
+
+For dynamically loaded options:
+
+```tsx
+const [options, setOptions] = useState([]);
+const [loading, setLoading] = useState(false);
+
+useEffect(() => {
+  const fetchOptions = async () => {
+    setLoading(true);
+    const data = await api.getOptions();
+    setOptions(data);
+    setLoading(false);
+  };
+  fetchOptions();
+}, []);
+
+<Combobox
+  options={options}
+  placeholder={loading ? "Loading..." : "Select option..."}
+/>;
+```

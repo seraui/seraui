@@ -62,6 +62,7 @@ export const navigation: NavigationItem[] = [
       { label: "Search", href: "/docs/search" },
       { label: "Prompt", href: "/docs/prompt", badge: "Updated" },
       { label: "Password", href: "/docs/password" },
+      { label: "Combobox", href: "/docs/combobox", badge: "New" },
     ],
   },
   {

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aurora",
+  "title": "Aurora",
+  "description": "A minimalistic aurora component designed with React and Tailwind CSS.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "aurora.tsx",
+      "content": "\"use client\";\r\nimport React, { memo } from \"react\";\r\n\r\ninterface AuroraTextProps {\r\n  children: React.ReactNode;\r\n  className?: string;\r\n  colors?: string[];\r\n  speed?: number;\r\n}\r\n\r\nexport const AuroraText = memo(\r\n  ({\r\n    children,\r\n    className = \"\",\r\n\r\n    colors = [\"#FF0080\", \"#7928CA\", \"#0070F3\", \"#38bdf8\"],\r\n\r\n    speed = 1,\r\n  }: AuroraTextProps) => {\r\n    const gradientStyle = {\r\n      backgroundImage: `linear-gradient(135deg, ${colors.join(\", \")}, ${\r\n        colors[0]\r\n      })`,\r\n      WebkitBackgroundClip: \"text\",\r\n      WebkitTextFillColor: \"transparent\",\r\n\r\n      animationDuration: `${10 / speed}s`,\r\n    };\r\n\r\n    return (\r\n      <span className={`relative inline-block ${className}`}>\r\n        <span className=\"sr-only\">{children}</span>\r\n\r\n        <span\r\n          className=\"relative animate-aurora bg-[length:200%_auto] bg-clip-text text-transparent\"\r\n          style={gradientStyle}\r\n          aria-hidden=\"true\"\r\n        >\r\n          {children}\r\n        </span>\r\n      </span>\r\n    );\r\n  }\r\n);\r\n\r\nAuroraText.displayName = \"AuroraText\";\r\n\r\nexport default function AuroraView() {\r\n  return (\r\n    <>\r\n      <style>{`\r\n        @keyframes aurora {\r\n          0%   { background-position: 0% 50%; }\r\n          50%  { background-position: 100% 50%; }\r\n          100% { background-position: 0% 50%; }\r\n        }\r\n        /* The animation duration is now set via inline styles, so we don't need the --duration variable here. */\r\n        .animate-aurora {\r\n          animation-name: aurora;\r\n          animation-timing-function: ease-in-out;\r\n          animation-iteration-count: infinite;\r\n        }\r\n        @media (prefers-reduced-motion: reduce) {\r\n          .animate-aurora { animation: none; }\r\n        }\r\n      `}</style>\r\n\r\n      {/* demo ---------------------------------------------------------------- */}\r\n      <main className=\"flex items-center justify-center font-sans text-black dark:text-white\">\r\n        <h1 className=\"text-6xl font-bold\">\r\n          Create{\" \"}\r\n          <AuroraText speed={1} colors={[\"#38BDF8\", \"#3B82F6\", \"#EC4899\"]}>\r\n            beautiful\r\n          </AuroraText>{\" \"}\r\n          things\r\n        </h1>\r\n      </main>\r\n    </>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

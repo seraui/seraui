@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gradient",
+  "title": "Gradient",
+  "description": "A minimalistic gradient component designed with React and Tailwind CSS.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "gradient.tsx",
+      "content": "import Gradient from './gradient';\r\n\r\nfunction GradientView() {\r\n  return (\r\n    <div className=\"font-sans flex items-center justify-center\">\r\n      <Gradient>\r\n        <div className=\"bg-slate-900 rounded-lg p-8 w-full max-w-md\">\r\n          <div className=\"text-center\">\r\n          <span className=\"pointer-events-none z-10 h-full whitespace-pre-wrap bg-gradient-to-br from-[#ff2975] from-35% to-[#00FFF1] bg-clip-text text-center text-6xl font-bold leading-none tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]\">\r\n          Neon Gradient Card\r\n          </span>\r\n          </div>\r\n        </div>\r\n      </Gradient>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default GradientView",
+      "type": "registry:ui"
+    },
+    {
+      "path": "gradient.tsx",
+      "content": "\"use client\";\r\nimport React, { useEffect, ReactNode } from \"react\";\r\n\r\nlet stylesInjected = false;\r\n\r\nconst injectGlobalStyles = () => {\r\n  if (stylesInjected) return;\r\n  const style = document.createElement(\"style\");\r\n  style.innerHTML = `\r\n    @keyframes move-gradient {\r\n      0% {\r\n        background-position: 0% 50%;\r\n      }\r\n      50% {\r\n        background-position: 100% 50%;\r\n      }\r\n      100% {\r\n        background-position: 0% 50%;\r\n      }\r\n    }\r\n  `;\r\n  document.head.appendChild(style);\r\n  stylesInjected = true;\r\n};\r\n\r\ninterface GradientProps {\r\n  children: ReactNode;\r\n  className?: string;\r\n}\r\n\r\nconst Gradient = ({ children, className = \"\" }: GradientProps) => {\r\n  useEffect(() => {\r\n    injectGlobalStyles();\r\n  }, []);\r\n\r\n  return (\r\n    <div className={`relative group ${className}`}>\r\n      <div\r\n        className=\"absolute -inset-2 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-500 rounded-xl blur-2xl opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200\"\r\n        style={{\r\n          backgroundSize: \"200% 200%\",\r\n          animation: \"move-gradient 4s ease-in-out infinite\",\r\n        }}\r\n      ></div>\r\n\r\n      <div\r\n        className=\"relative rounded-xl bg-gradient-to-r from-pink-600 via-purple-600 to-blue-500 p-0.5 transition-all duration-500\"\r\n        style={{\r\n          backgroundSize: \"200% 200%\",\r\n          animation: \"move-gradient 4s ease-in-out infinite\",\r\n        }}\r\n      >\r\n        {children}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Gradient;\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

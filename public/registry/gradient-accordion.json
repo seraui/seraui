@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gradient-accordion",
+  "title": "Gradient Accordion",
+  "description": "A minimalistic gradient accordion component designed with React and Tailwind CSS.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "gradient-accordion.tsx",
+      "content": "\"use client\";\r\nimport React, { useState } from \"react\";\r\n\r\ninterface FAQItem {\r\n  question: string;\r\n  answer: string;\r\n}\r\n\r\ninterface AccordionItemProps {\r\n  question: string;\r\n  answer: string;\r\n}\r\n\r\nexport default function GradientAccordion() {\r\n  const faqData: FAQItem[] = [\r\n    {\r\n      question: \"Is it legal to download photos from Instagram using ..?\",\r\n      answer:\r\n        \"Yes, it is generally legal to download photos from Instagram for personal use. However, you should respect copyright and privacy. Do not use downloaded content for commercial purposes without permission from the owner.\",\r\n    },\r\n    {\r\n      question:\r\n        \"Do I need an Instagram account to download photos and pics using this tool?\",\r\n      answer:\r\n        \"No, you do not need an Instagram account to use this tool. You only need the public URL of the photo or video you wish to download.\",\r\n    },\r\n    {\r\n      question: \"Can I download the photos in high resolution?\",\r\n      answer:\r\n        \"Yes, our tool downloads photos in the highest resolution available on Instagram. The quality of the downloaded photo will be the same as the original upload.\",\r\n    },\r\n    {\r\n      question: \"Is it safe to use ..?\",\r\n      answer:\r\n        \"Absolutely. Our service is secure and respects your privacy. We do not store any of the photos you download or track your download history.\",\r\n    },\r\n  ];\r\n\r\n  return (\r\n    <div className=\"w-full max-w-2xl mx-auto\">\r\n      <h1 className=\"text-4xl font-bold text-gray-900 dark:text-white text-center mb-10\">\r\n        FAQ\r\n      </h1>\r\n      <div className=\"space-y-4\">\r\n        {faqData.map((item, index) => (\r\n          <AccordionItem\r\n            key={index}\r\n            question={item.question}\r\n            answer={item.answer}\r\n          />\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n\r\nfunction AccordionItem({ question, answer }: AccordionItemProps) {\r\n  const [isOpen, setIsOpen] = useState<boolean>(false);\r\n\r\n  return (\r\n    <div className=\"p-0.5 rounded-lg bg-gradient-to-r from-cyan-400 to-pink-500 dark:from-cyan-500 dark:to-pink-600\">\r\n      <div className=\"bg-gray-50 dark:bg-gray-800 rounded-md\">\r\n        <button\r\n          onClick={() => setIsOpen(!isOpen)}\r\n          className=\"w-full flex justify-between items-center text-left p-4 focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200\"\r\n        >\r\n          <span className=\"text-lg font-medium text-gray-900 dark:text-white\">\r\n            {question}\r\n          </span>\r\n          <span\r\n            className={`transform transition-transform duration-300 ${isOpen ? \"rotate-180\" : \"\"}`}\r\n          >\r\n            <svg\r\n              xmlns=\"http://www.w3.org/2000/svg\"\r\n              className=\"h-6 w-6 text-gray-600 dark:text-gray-400\"\r\n              fill=\"none\"\r\n              viewBox=\"0 0 24 24\"\r\n              stroke=\"currentColor\"\r\n            >\r\n              <path\r\n                strokeLinecap=\"round\"\r\n                strokeLinejoin=\"round\"\r\n                strokeWidth={2}\r\n                d=\"M19 9l-7 7-7-7\"\r\n              />\r\n            </svg>\r\n          </span>\r\n        </button>\r\n\r\n        <div\r\n          className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? \"max-h-96 opacity-100\" : \"max-h-0 opacity-0\"}`}\r\n        >\r\n          <div className=\"p-4 border-t border-gray-200 dark:border-gray-700\">\r\n            <p className=\"text-gray-700 dark:text-gray-300\">{answer}</p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}
