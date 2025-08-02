@@ -1,0 +1,60 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@/components/site/tabs.tsx";
+import { MdxTable } from "@/components/site/mdx-table.tsx"
+import GlowlineView from "./glowline-view"
+
+# GlowLine
+
+A customizable glowing line component that creates beautiful neon-like effects. Perfect for adding visual flair to your UI with horizontal or vertical glowing lines in various colors.
+
+## Demo
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<GlowlineView />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/glowline/glowline.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Props
+
+<MdxTable>
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `orientation` | `'vertical' \| 'horizontal'` | - | Sets the direction of the glow line |
+| `position` | `string` | - | CSS position value (e.g., '50%', '100px') |
+| `color` | `'purple' \| 'blue' \| 'green' \| 'red'` | - | Color scheme for the glow effect |
+| `className` | `string` | `''` | Additional CSS classes for custom styling |
+</MdxTable>
+
+## Usage Examples
+
+### Basic Usage
+
+```tsx
+import { GlowLine } from './components/GlowLine';
+
+export default function Example() {
+  return (
+    <div className="relative w-full h-screen bg-gray-900">
+      <GlowLine 
+        orientation="horizontal" 
+        position="50%" 
+        color="blue" 
+      />
+    </div>
+  );
+}
