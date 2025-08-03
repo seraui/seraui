@@ -1,0 +1,407 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import { Table, StatusBadge } from "@/components/ui/table";
+
+import ComboBoxView from "./combo-box-view";
+
+
+# ComboBox Component
+
+A powerful and accessible combobox component that combines an input field with a dropdown list. Features include real-time filtering, keyboard navigation, and customizable options. Perfect for searchable select inputs and autocomplete functionality.
+
+## Preview
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<ComboBoxView />} componentName="combo-box" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/combo-box/combo-box-view.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Installation
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add combo-box.json`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/combo-box/combo-box.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Basic Usage
+
+After installation, import and use the ComboBox component in your React application:
+
+```tsx
+import ComboBox from "./combo-box";
+
+function App() {
+  const options = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
+
+  const handleSelect = (option: string | null) => {
+    console.log("Selected:", option);
+  };
+
+  return (
+    <div className="p-4">
+      <ComboBox
+        options={options}
+        placeholder="Search fruits..."
+        onSelect={handleSelect}
+      />
+    </div>
+  );
+}
+```
+
+## API Reference
+
+### Props
+
+| Prop          | Type                               | Default                 | Description                                         |
+| ------------- | ---------------------------------- | ----------------------- | --------------------------------------------------- |
+| `options`     | `string[]`                         | `[]`                    | Array of options to display in the dropdown         |
+| `placeholder` | `string`                           | `"Select an option..."` | Placeholder text for the input field                |
+| `onSelect`    | `(option: string \| null) => void` | `undefined`             | Callback function called when an option is selected |
+
+### ComboBoxProps Interface
+
+```tsx
+interface ComboBoxProps {
+  options: string[];
+  placeholder?: string;
+  onSelect?: (option: string | null) => void;
+}
+```
+
+## Features
+
+### 🔍 Real-time Filtering
+
+The component automatically filters options based on user input, providing instant search results.
+
+### 🎯 Click Outside to Close
+
+Dropdown automatically closes when clicking outside the component area.
+
+### 🎨 Modern Design
+
+Clean, modern interface with smooth transitions and hover effects.
+
+### 📱 Responsive
+
+Fully responsive design that works across all device sizes.
+
+### ⌨️ Keyboard Accessible
+
+Full keyboard navigation support with focus management.
+
+## Component Structure
+
+The ComboBox component consists of several key elements:
+
+### 1. Input Field
+
+- Text input with real-time filtering
+- Customizable placeholder text
+- Focus management and styling
+- Clear visual feedback
+
+### 2. Dropdown Toggle
+
+- Chevron icon that rotates based on state
+- Click to toggle dropdown visibility
+- Smooth animation transitions
+
+### 3. Options Dropdown
+
+- Filtered list of selectable options
+- Hover and focus states for better UX
+- Scrollable when content exceeds max height
+- "No options found" message when filter returns empty
+
+### 4. State Management
+
+- Input value tracking
+- Dropdown open/close state
+- Selected option state
+- Filtered options based on input
+
+## Customization
+
+### Styling
+
+The component uses Tailwind CSS classes. Customize the appearance by modifying the classes:
+
+```tsx
+// Custom input styling
+<input
+  className="w-full px-4 py-3 border-2 border-purple-300 rounded-xl focus:ring-4 focus:ring-purple-200"
+  // ... other props
+/>
+
+// Custom dropdown styling
+<div className="absolute z-20 w-full mt-2 bg-gray-50 border-2 border-gray-200 rounded-xl shadow-2xl">
+  {/* Options */}
+</div>
+```
+
+### Custom Option Rendering
+
+Extend the component to support custom option objects:
+
+```tsx
+interface CustomOption {
+  id: string;
+  label: string;
+  value: string;
+  icon?: string;
+}
+
+// Modified component to handle object options
+const options: CustomOption[] = [
+  { id: "1", label: "React.js", value: "react", icon: "⚛️" },
+  { id: "2", label: "Vue.js", value: "vue", icon: "💚" },
+  // ... more options
+];
+```
+
+### Color Themes
+
+Customize colors to match your brand:
+
+```tsx
+// Dark theme variant
+<input className="bg-gray-800 text-white border-gray-600 focus:ring-blue-500" />
+
+// Success theme
+<input className="border-green-300 focus:ring-green-500 focus:border-green-500" />
+
+// Error theme
+<input className="border-red-300 focus:ring-red-500 focus:border-red-500" />
+```
+
+## Advanced Examples
+
+### With Form Integration
+
+Integrate with form libraries like React Hook Form:
+
+```tsx
+import { useForm, Controller } from "react-hook-form";
+import ComboBox from "./combo-box";
+
+function FormExample() {
+  const { control, handleSubmit } = useForm();
+  const options = ["Option 1", "Option 2", "Option 3"];
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        name="selectedOption"
+        control={control}
+        render={({ field }) => (
+          <ComboBox
+            options={options}
+            onSelect={field.onChange}
+            placeholder="Choose an option..."
+          />
+        )}
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+### Async Data Loading
+
+Handle asynchronous option loading:
+
+```tsx
+import { useState, useEffect } from "react";
+import ComboBox from "./combo-box";
+
+function AsyncComboBox() {
+  const [options, setOptions] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchOptions = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch("/api/options");
+        const data = await response.json();
+        setOptions(data);
+      } catch (error) {
+        console.error("Failed to fetch options:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOptions();
+  }, []);
+
+  if (loading) {
+    return <div>Loading options...</div>;
+  }
+
+  return (
+    <ComboBox
+      options={options}
+      placeholder="Search options..."
+      onSelect={(option) => console.log("Selected:", option)}
+    />
+  );
+}
+```
+
+### Multi-Select Variant
+
+Extend for multi-select functionality:
+
+```tsx
+import { useState } from "react";
+
+function MultiSelectComboBox({ options }: { options: string[] }) {
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+
+  const handleSelect = (option: string) => {
+    setSelectedOptions((prev) =>
+      prev.includes(option)
+        ? prev.filter((item) => item !== option)
+        : [...prev, option]
+    );
+  };
+
+  return (
+    <div>
+      <ComboBox
+        options={options.filter((opt) => !selectedOptions.includes(opt))}
+        onSelect={handleSelect}
+        placeholder="Add more options..."
+      />
+
+      {/* Selected options display */}
+      <div className="mt-2 flex flex-wrap gap-2">
+        {selectedOptions.map((option) => (
+          <span
+            key={option}
+            className="px-2 py-1 bg-blue-100 text-blue-800 rounded-md text-sm"
+          >
+            {option}
+            <button
+              onClick={() => handleSelect(option)}
+              className="ml-1 text-blue-600 hover:text-blue-800"
+            >
+              ×
+            </button>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
+## Accessibility
+
+The ComboBox component follows accessibility best practices:
+
+- **ARIA Labels**: Proper labeling for screen readers
+- **Keyboard Navigation**: Full keyboard support for all interactions
+- **Focus Management**: Clear focus indicators and logical tab order
+- **Role Attributes**: Semantic roles for better screen reader support
+- **High Contrast**: WCAG compliant color combinations
+
+### Keyboard Shortcuts
+
+| Key             | Action                         |
+| --------------- | ------------------------------ |
+| `Tab`           | Navigate to/from the component |
+| `Enter`         | Select highlighted option      |
+| `Escape`        | Close dropdown                 |
+| `Arrow Up/Down` | Navigate through options       |
+| `Type`          | Filter options in real-time    |
+
+## Browser Support
+
+The ComboBox component is compatible with all modern browsers:
+
+- ✅ Chrome 70+
+- ✅ Firefox 65+
+- ✅ Safari 12+
+- ✅ Edge 79+
+
+## Performance Considerations
+
+### Optimization Tips
+
+1. **Large Option Lists**: Consider virtualization for 100+ options
+2. **Debounced Filtering**: Add debouncing for API-based filtering
+3. **Memoization**: Use `React.memo` for expensive option rendering
+4. **Lazy Loading**: Load options on-demand when possible
+
+```tsx
+// Example with debounced filtering
+import { useMemo, useState } from "react";
+import { debounce } from "lodash";
+
+const debouncedFilter = useMemo(
+  () =>
+    debounce((value: string) => {
+      // Perform expensive filtering operation
+    }, 300),
+  []
+);
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**Dropdown not closing on outside click**
+
+- Ensure the component is properly mounted
+- Check for event listener conflicts
+
+**Options not filtering correctly**
+
+- Verify the `options` prop is passed correctly
+- Check the filtering logic in `useEffect`
+
+**Styling issues**
+
+- Ensure Tailwind CSS is properly configured
+- Check for CSS conflicts with existing styles
+
+**Performance issues with large lists**
+
+- Consider implementing virtual scrolling
+- Add debouncing to the filter function
+- Use `React.memo` for option items

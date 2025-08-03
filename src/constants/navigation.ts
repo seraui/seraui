@@ -63,6 +63,8 @@ export const navigation: NavigationItem[] = [
       { label: 'Search Input', href: '/docs/search' },
       { label: 'Command Prompt', href: '/docs/prompt', badge: 'Updated' },
       { label: 'Password Input', href: '/docs/password' },
+      { label: ' Combo Box', href: '/docs/combo-box', badge: 'New' },
+      
     ],
   },
   {
