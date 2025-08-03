@@ -64,7 +64,6 @@ export const navigation: NavigationItem[] = [
       { label: 'Command Prompt', href: '/docs/prompt', badge: 'Updated' },
       { label: 'Password Input', href: '/docs/password' },
       { label: ' Combo Box', href: '/docs/combo-box', badge: 'New' },
-      
     ],
   },
   {
@@ -80,6 +79,7 @@ export const navigation: NavigationItem[] = [
       { label: 'Number Ticker Counter', href: '/docs/ticker' },
       { label: 'Letter Glitch Effect', href: '/docs/letter-glitch' },
       { label: 'Resize Handle Text', href: '/docs/resize-handle' },
+      { label: 'Noise Text', href: '/docs/noisetext' },
     ],
   },
   {

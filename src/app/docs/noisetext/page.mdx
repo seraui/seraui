@@ -1,0 +1,107 @@
+export const metadata = {
+    title: 'Noise Text',
+    description: 'A React component that displays text with a blurred glassy background and static noise overlay, using Tailwind CSS.',
+}
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@/components/site/tabs";
+import NoisetextView from "./noisetext-view";
+
+<AI dir="left" />
+
+# Noise Text
+
+Enhance your UI with elegant noise-text effects — a combination of a blurred glass background and subtle static overlay, creating a modern and stylish design.
+
+## Preview & Code
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<NoisetextView />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/noisetext/noisetext.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import NoiseText from './noisetext';
+
+export default function NoisetextView() {
+  return (
+    <NoiseText className="z-20">
+      <span className="bg-gradient-to-t from-green-300 to-green-600 bg-clip-text text-transparent text-7xl font-bold font-mono">
+        SERA UI
+      </span>
+    </NoiseText>
+  );
+}
+```
+
+## Component Code
+
+```tsx
+'use client';
+import React from 'react';
+
+const NoiseText = ({
+  children,
+  className = '',
+}: React.PropsWithChildren<{ className?: string }>) => (
+  <span
+    className={`
+      relative inline-block w-fit rounded-lg px-4 py-2
+      backdrop-blur-md
+      bg-white/60  dark:bg-white/10
+      border border-black/10 dark:border-white/20
+      shadow-lg shadow-black/10 dark:shadow-black/40
+      ${className}
+    `}
+  >
+    {/* noise overlay */}
+    <span
+      aria-hidden
+      style={{ opacity: 0.06 }} // Adjust this value to control noise intensity
+      className="
+        absolute inset-0 pointer-events-none
+        bg-[url('https://i0.wp.com/css-tricks.com/wp-content/uploads/2022/11/tv-static-gif-7.gif')]
+        mix-blend-overlay dark:mix-blend-soft-light
+      "
+    />
+
+    {/* actual payload */}
+    <span className="relative z-10 text-slate-900 dark:text-white font-medium text-sm">
+      {children}
+    </span>
+  </span>
+);
+
+export default NoiseText;
+```
+
+## Customization Tip
+
+To increase or decrease the noise visibility, modify the `opacity` in the inline style:
+
+```tsx
+style={{ opacity: 0.1 }} // More visible static
+style={{ opacity: 0.02 }} // More subtle effect
+```
+
+## Ideal Use Cases
+- Glassmorphism UI components
+- Highlighting dynamic titles or headings
+- Futuristic or playful design aesthetics
