@@ -20,8 +20,6 @@ const inter = Inter({
 });
 
 export { metadata };
-//Changelog test comments
-
 export default function RootLayout({
   children,
 }: Readonly<{
