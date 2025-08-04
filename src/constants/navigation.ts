@@ -79,7 +79,8 @@ export const navigation: NavigationItem[] = [
       { label: 'Number Ticker Counter', href: '/docs/ticker' },
       { label: 'Letter Glitch Effect', href: '/docs/letter-glitch' },
       { label: 'Resize Handle Text', href: '/docs/resize-handle' },
-      { label: 'Noise Text', href: '/docs/noisetext' },
+      { label: 'Noise Text', href: '/docs/noisetext', badge: 'New' },
+      { label: 'Text Highlighter', href: '/docs/text-highlighter', badge: 'New' },
     ],
   },
   {
@@ -110,7 +111,8 @@ export const navigation: NavigationItem[] = [
   {
     label: 'Forms & Cards',
     children: [
-      { label: 'Login Form', href: '/docs/login', badge: 'Updated' },
+      { label: '3D Card', href: '/docs/threed-card', badge: 'New' },
+      { label: 'Login Form', href: '/docs/login' },
       { label: 'Sign In Form', href: '/docs/signin' },
       { label: 'Newsletter Signup', href: '/docs/waitlist' },
       { label: 'Basic Card', href: '/docs/card' },
