@@ -71,7 +71,7 @@ const useInView = (ref: React.RefObject<HTMLElement | null>, options: UseInViewO
     observer.observe(element);
 
     return () => observer.disconnect();
-  }, [options.amount, options.margin, options.once]);
+  }, [ref, options.amount, options.margin, options.once]);
 
   return isInView;
 };
@@ -107,7 +107,9 @@ export const TextHighlighter = forwardRef<TextHighlighterRef, TextHighlighterPro
       setCurrentDirection(direction);
     }, [direction]);
 
-    const isInView = triggerType === 'inView' ? useInView(componentRef, useInViewOptions) : false;
+    // Always call the hook, but only use the result when needed
+    const inViewResult = useInView(componentRef, useInViewOptions);
+    const isInView = triggerType === 'inView' ? inViewResult : false;
 
     useImperativeHandle(ref, () => ({
       animate: (animationDirection?: HighlightDirection) => {
@@ -132,23 +134,37 @@ export const TextHighlighter = forwardRef<TextHighlighterRef, TextHighlighterPro
 
     const ElementTag = as || 'span';
 
-    // Get background size based on direction
-    const getBackgroundSize = (animated: boolean) => {
+    const animatedSize = useMemo(() => {
       switch (currentDirection) {
         case 'ltr':
-          return animated ? '100% 100%' : '0% 100%';
+          return shouldAnimate ? '100% 100%' : '0% 100%';
         case 'rtl':
-          return animated ? '100% 100%' : '0% 100%';
+          return shouldAnimate ? '100% 100%' : '0% 100%';
         case 'ttb':
-          return animated ? '100% 100%' : '100% 0%';
+          return shouldAnimate ? '100% 100%' : '100% 0%';
         case 'btt':
-          return animated ? '100% 100%' : '100% 0%';
+          return shouldAnimate ? '100% 100%' : '100% 0%';
         default:
-          return animated ? '100% 100%' : '0% 100%';
+          return shouldAnimate ? '100% 100%' : '0% 100%';
       }
-    };
+    }, [shouldAnimate, currentDirection]);
 
-    const getBackgroundPosition = () => {
+    const initialSize = useMemo(() => {
+      switch (currentDirection) {
+        case 'ltr':
+          return '0% 100%';
+        case 'rtl':
+          return '0% 100%';
+        case 'ttb':
+          return '100% 0%';
+        case 'btt':
+          return '100% 0%';
+        default:
+          return '0% 100%';
+      }
+    }, [currentDirection]);
+
+    const backgroundPosition = useMemo(() => {
       switch (currentDirection) {
         case 'ltr':
           return '0% 0%';
@@ -161,14 +177,7 @@ export const TextHighlighter = forwardRef<TextHighlighterRef, TextHighlighterPro
         default:
           return '0% 0%';
       }
-    };
-
-    const animatedSize = useMemo(
-      () => getBackgroundSize(shouldAnimate),
-      [shouldAnimate, currentDirection]
-    );
-    const initialSize = useMemo(() => getBackgroundSize(false), [currentDirection]);
-    const backgroundPosition = useMemo(() => getBackgroundPosition(), [currentDirection]);
+    }, [currentDirection]);
 
     const getTimingFunction = (type: string = 'spring') => {
       switch (type) {
