@@ -1,0 +1,170 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import { Table, StatusBadge } from "@/components/ui/table";
+import { MdxTable } from "@/components/site/mdx-table.tsx";
+
+import ModalView from "./modal-view";
+import BasicModal from "./basic-modal";
+import SizeVariants from "./size-variants";
+import FormModal from "./form-modal";
+import ConfirmationModal from "./confirmation-modal";
+import SuccessModal from "./success-modal";
+import AnimationModal from "./animation-modal";
+
+# Modal
+
+A flexible and accessible modal dialog component that displays content in a layer above the page.
+
+## Features
+
+- ✅ **Portal Rendering** - Renders at document body level to avoid z-index conflicts
+- ✅ **Theme Support** - Automatic dark/light mode support
+- ✅ **Multiple Sizes** - sm, md, lg, xl options for different content needs
+- ✅ **Accessible** - ARIA attributes, keyboard navigation, focus management
+- ✅ **Easy Close** - ESC key, click outside, or close button
+- ✅ **Scroll Lock** - Prevents background scrolling when open
+
+## Basic Usage
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<BasicModal />} componentName="modal" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/modal/basic-modal.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Animation Types
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<AnimationModal />} componentName="modal" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/modal/animation-modal.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Installation
+
+<Cli command={`add modal.json`} />
+
+## Size Variants
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<SizeVariants />} componentName="modal" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/modal/size-variants.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Form Modals
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<FormModal />} componentName="modal" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/modal/form-modal.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Confirmation Modals
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer
+      component={<ConfirmationModal />}
+      componentName="modal"
+    />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/modal/confirmation-modal.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Success & No Title Modals
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<SuccessModal />} componentName="modal" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/modal/success-modal.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Props
+
+<MdxTable>
+  | **Prop** | **Type** | **Default** | **Description** |
+  |----------|----------|-------------|-----------------| 
+  | `isOpen` | `boolean` | — | Controls modal visibility |
+  | `onClose` | `() => void` | — | Called when modal should close |
+  | `children` | `ReactNode` | — | Content inside the modal |
+  | `title` | `string` | `undefined` | Optional header title |
+  | `size` | `'sm'  'md' 'lg' 'xl'` | `'md'` | Modal size |
+  | `animation` | `'scale'  'slide' 'fade' 'bounce'` | `'scale'` | Animation type |
+</MdxTable>
+
+## Usage
+
+```tsx
+import React, { useState } from "react";
+import Modal from "./modal";
+
+function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        title="My Modal"
+        size="md"
+        animation="bounce"
+      >
+        <p>Modal content goes here...</p>
+      </Modal>
+    </>
+  );
+}
+```
