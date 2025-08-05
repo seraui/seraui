@@ -11,7 +11,6 @@ import { PropsTable } from "@/components/site/props-table.tsx";
 import { Table, StatusBadge } from "@/components/ui/table";
 import { MdxTable } from "@/components/site/mdx-table.tsx";
 
-import ModalView from "./modal-view";
 import BasicModal from "./basic-modal";
 import SizeVariants from "./size-variants";
 import FormModal from "./form-modal";
@@ -19,18 +18,11 @@ import ConfirmationModal from "./confirmation-modal";
 import SuccessModal from "./success-modal";
 import AnimationModal from "./animation-modal";
 
+<AI dir="left"/>
+
 # Modal
 
 A flexible and accessible modal dialog component that displays content in a layer above the page.
-
-## Features
-
-- ✅ **Portal Rendering** - Renders at document body level to avoid z-index conflicts
-- ✅ **Theme Support** - Automatic dark/light mode support
-- ✅ **Multiple Sizes** - sm, md, lg, xl options for different content needs
-- ✅ **Accessible** - ARIA attributes, keyboard navigation, focus management
-- ✅ **Easy Close** - ESC key, click outside, or close button
-- ✅ **Scroll Lock** - Prevents background scrolling when open
 
 ## Basic Usage
 
@@ -46,6 +38,15 @@ A flexible and accessible modal dialog component that displays content in a laye
     <CodeBlock filePath="src/app/docs/modal/basic-modal.tsx" />
   </TabsContent>
 </Tabs>
+
+## Features
+
+- ✅ **Portal Rendering** - Renders at document body level to avoid z-index conflicts
+- ✅ **Theme Support** - Automatic dark/light mode support
+- ✅ **Multiple Sizes** - sm, md, lg, xl options for different content needs
+- ✅ **Accessible** - ARIA attributes, keyboard navigation, focus management
+- ✅ **Easy Close** - ESC key, click outside, or close button
+- ✅ **Scroll Lock** - Prevents background scrolling when open
 
 ## Animation Types
 
