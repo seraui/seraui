@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Modal from "./modal";
+import Button from "../button/button";
 
 const ConfirmationModalView: React.FC = () => {
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
@@ -29,24 +30,23 @@ const ConfirmationModalView: React.FC = () => {
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-3">
-        <button
-          onClick={() => setIsDeleteOpen(true)}
-          className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors"
-        >
+        <Button onClick={() => setIsDeleteOpen(true)} variant="destructive">
           Delete Item
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => setIsLogoutOpen(true)}
-          className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors"
+          variant="default"
+          className="bg-orange-500 hover:bg-orange-600"
         >
           Logout
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => setIsResetOpen(true)}
-          className="px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition-colors"
+          variant="default"
+          className="bg-yellow-500 hover:bg-yellow-600"
         >
           Reset Settings
-        </button>
+        </Button>
       </div>
 
       {/* Delete Confirmation Modal */}
@@ -109,18 +109,12 @@ const ConfirmationModalView: React.FC = () => {
           </div>
 
           <div className="flex justify-end space-x-3">
-            <button
-              onClick={() => setIsDeleteOpen(false)}
-              className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors"
-            >
+            <Button onClick={() => setIsDeleteOpen(false)} variant="secondary">
               Cancel
-            </button>
-            <button
-              onClick={handleDelete}
-              className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-            >
+            </Button>
+            <Button onClick={handleDelete} variant="destructive">
               Delete
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>
@@ -168,18 +162,16 @@ const ConfirmationModalView: React.FC = () => {
           </div>
 
           <div className="flex justify-end space-x-3">
-            <button
-              onClick={() => setIsLogoutOpen(false)}
-              className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors"
-            >
+            <Button onClick={() => setIsLogoutOpen(false)} variant="secondary">
               Stay Logged In
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={handleLogout}
-              className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors"
+              variant="default"
+              className="bg-orange-500 hover:bg-orange-600"
             >
               Logout
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>
@@ -233,18 +225,16 @@ const ConfirmationModalView: React.FC = () => {
           </div>
 
           <div className="flex justify-end space-x-3">
-            <button
-              onClick={() => setIsResetOpen(false)}
-              className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors"
-            >
+            <Button onClick={() => setIsResetOpen(false)} variant="secondary">
               Cancel
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={handleReset}
-              className="px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition-colors"
+              variant="default"
+              className="bg-yellow-500 hover:bg-yellow-600"
             >
               Reset Settings
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Modal from "./modal";
+import Button from "../button/button";
 
 const SuccessModalView: React.FC = () => {
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
@@ -11,24 +12,23 @@ const SuccessModalView: React.FC = () => {
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-3">
-        <button
+        <Button
           onClick={() => setIsSuccessOpen(true)}
-          className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+          variant="default"
+          className="bg-green-500 hover:bg-green-600"
         >
           Success Message
-        </button>
-        <button
-          onClick={() => setIsCompletionOpen(true)}
-          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
-        >
+        </Button>
+        <Button onClick={() => setIsCompletionOpen(true)} variant="default">
           Task Completion
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => setIsAchievementOpen(true)}
-          className="px-4 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition-colors"
+          variant="default"
+          className="bg-purple-500 hover:bg-purple-600"
         >
           Achievement Unlocked
-        </button>
+        </Button>
       </div>
 
       {/* Success Message Modal (No Title) */}
@@ -65,12 +65,13 @@ const SuccessModalView: React.FC = () => {
           </div>
 
           <div className="pt-2">
-            <button
+            <Button
               onClick={() => setIsSuccessOpen(false)}
-              className="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+              variant="default"
+              className="bg-green-500 hover:bg-green-600"
             >
               Continue
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>
@@ -121,18 +122,18 @@ const SuccessModalView: React.FC = () => {
           </div>
 
           <div className="flex justify-center space-x-3">
-            <button
+            <Button
               onClick={() => setIsCompletionOpen(false)}
-              className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors"
+              variant="secondary"
             >
               Later
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => setIsCompletionOpen(false)}
-              className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+              variant="default"
             >
               Get Started
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>
@@ -210,12 +211,14 @@ const SuccessModalView: React.FC = () => {
           </div>
 
           <div>
-            <button
+            <Button
               onClick={() => setIsAchievementOpen(false)}
-              className="px-8 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-md hover:from-purple-600 hover:to-pink-600 transition-all duration-200 transform hover:scale-105"
+              variant="default"
+              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transform hover:scale-105"
+              size="lg"
             >
               Awesome!
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>

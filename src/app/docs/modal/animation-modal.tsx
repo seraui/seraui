@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Modal from "./modal";
+import Button from "../button/button";
 
 const AnimationModalView: React.FC = () => {
   const [activeModal, setActiveModal] = useState<string | null>(null);
@@ -46,12 +47,14 @@ const AnimationModalView: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {animations.map((animation) => (
           <div key={animation.type} className="space-y-2">
-            <button
+            <Button
               onClick={() => openModal(animation.type)}
-              className={`w-full px-4 py-3 text-white rounded-md transition-colors ${animation.color}`}
+              className="w-full"
+              variant="default"
+              size="default"
             >
               {animation.name} Animation
-            </button>
+            </Button>
             <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
               {animation.description}
             </p>

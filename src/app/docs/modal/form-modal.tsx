@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Modal from "./modal";
+import Button from "../button/button";
 
 const FormModalView: React.FC = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -24,18 +25,16 @@ const FormModalView: React.FC = () => {
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-3">
-        <button
-          onClick={() => setIsContactOpen(true)}
-          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
-        >
+        <Button onClick={() => setIsContactOpen(true)} variant="default">
           Contact Form Modal
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => setIsSettingsOpen(true)}
-          className="px-4 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition-colors"
+          variant="default"
+          className="bg-purple-500 hover:bg-purple-600"
         >
           Settings Form Modal
-        </button>
+        </Button>
       </div>
 
       {/* Contact Form Modal */}
@@ -146,19 +145,16 @@ const FormModalView: React.FC = () => {
           </div>
 
           <div className="flex justify-end space-x-3 pt-4 border-t border-gray-200 dark:border-gray-700">
-            <button
+            <Button
               type="button"
               onClick={() => setIsContactOpen(false)}
-              className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors"
+              variant="secondary"
             >
               Cancel
-            </button>
-            <button
-              type="submit"
-              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
-            >
+            </Button>
+            <Button type="submit" variant="default">
               Send Message
-            </button>
+            </Button>
           </div>
         </form>
       </Modal>
@@ -296,19 +292,20 @@ const FormModalView: React.FC = () => {
           </div>
 
           <div className="flex justify-end space-x-3 pt-4 border-t border-gray-200 dark:border-gray-700">
-            <button
+            <Button
               type="button"
               onClick={() => setIsSettingsOpen(false)}
-              className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors"
+              variant="secondary"
             >
               Cancel
-            </button>
-            <button
+            </Button>
+            <Button
               type="submit"
-              className="px-4 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition-colors"
+              variant="default"
+              className="bg-purple-500 hover:bg-purple-600"
             >
               Save Settings
-            </button>
+            </Button>
           </div>
         </form>
       </Modal>

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Modal from "./modal";
+import Button from "../button/button";
 
 const SizeVariantsView: React.FC = () => {
   const [isSmallOpen, setIsSmallOpen] = useState(false);
@@ -12,30 +13,30 @@ const SizeVariantsView: React.FC = () => {
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-3">
-        <button
+        <Button
           onClick={() => setIsSmallOpen(true)}
-          className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+          variant="default"
+          className="bg-green-500 hover:bg-green-600"
         >
           Small Modal
-        </button>
-        <button
-          onClick={() => setIsMediumOpen(true)}
-          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
-        >
+        </Button>
+        <Button onClick={() => setIsMediumOpen(true)} variant="default">
           Medium Modal
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => setIsLargeOpen(true)}
-          className="px-4 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition-colors"
+          variant="default"
+          className="bg-purple-500 hover:bg-purple-600"
         >
           Large Modal
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => setIsXLOpen(true)}
-          className="px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors"
+          variant="default"
+          className="bg-indigo-500 hover:bg-indigo-600"
         >
           Extra Large Modal
-        </button>
+        </Button>
       </div>
 
       {/* Small Modal */}
@@ -51,18 +52,21 @@ const SizeVariantsView: React.FC = () => {
             (28rem).
           </p>
           <div className="flex justify-end space-x-2">
-            <button
+            <Button
               onClick={() => setIsSmallOpen(false)}
-              className="px-3 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors"
+              variant="secondary"
+              size="sm"
             >
               Cancel
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => setIsSmallOpen(false)}
-              className="px-3 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+              variant="default"
+              className="bg-green-500 hover:bg-green-600"
+              size="sm"
             >
               Confirm
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>
@@ -88,12 +92,9 @@ const SizeVariantsView: React.FC = () => {
             </p>
           </div>
           <div className="flex justify-end">
-            <button
-              onClick={() => setIsMediumOpen(false)}
-              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
-            >
+            <Button onClick={() => setIsMediumOpen(false)} variant="default">
               Got it
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>
@@ -129,12 +130,13 @@ const SizeVariantsView: React.FC = () => {
             </div>
           </div>
           <div className="flex justify-end">
-            <button
+            <Button
               onClick={() => setIsLargeOpen(false)}
-              className="px-4 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition-colors"
+              variant="default"
+              className="bg-purple-500 hover:bg-purple-600"
             >
               Close
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>
@@ -168,12 +170,13 @@ const SizeVariantsView: React.FC = () => {
             ))}
           </div>
           <div className="flex justify-end">
-            <button
+            <Button
               onClick={() => setIsXLOpen(false)}
-              className="px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors"
+              variant="default"
+              className="bg-indigo-500 hover:bg-indigo-600"
             >
               Close
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>

@@ -2,18 +2,16 @@
 
 import React, { useState } from "react";
 import Modal from "./modal";
+import Button from "../button/button";
 
 const BasicModalView: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="space-y-4">
-      <button
-        onClick={() => setIsOpen(true)}
-        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
-      >
+      <Button onClick={() => setIsOpen(true)} variant="default">
         Open Basic Modal
-      </button>
+      </Button>
 
       <Modal
         isOpen={isOpen}
@@ -27,12 +25,9 @@ const BasicModalView: React.FC = () => {
             outside the modal.
           </p>
           <div className="flex justify-end">
-            <button
-              onClick={() => setIsOpen(false)}
-              className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
-            >
+            <Button onClick={() => setIsOpen(false)} variant="secondary">
               Close
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>
