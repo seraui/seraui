@@ -17,6 +17,7 @@ import SizeVariants from "./size-variants";
 import FormModal from "./form-modal";
 import ConfirmationModal from "./confirmation-modal";
 import SuccessModal from "./success-modal";
+import AnimationModal from "./animation-modal";
 
 # Modal
 
@@ -43,6 +44,21 @@ A flexible and accessible modal dialog component that displays content in a laye
   </TabsContent>
   <TabsContent value="code">
     <CodeBlock filePath="src/app/docs/modal/basic-modal.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Animation Types
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<AnimationModal />} componentName="modal" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/modal/animation-modal.tsx" />
   </TabsContent>
 </Tabs>
 
@@ -113,17 +129,6 @@ A flexible and accessible modal dialog component that displays content in a laye
   </TabsContent>
 </Tabs>
 
-## Component Code
-
-<Tabs defaultValue="modal" className="">
-  <TabsList>
-    <TabsTrigger value="modal">modal.tsx</TabsTrigger>
-  </TabsList>
-  <TabsContent value="modal">
-    <CodeBlock filePath="src/app/docs/modal/modal.tsx" />
-  </TabsContent>
-</Tabs>
-
 ## Props
 
 <MdxTable>
@@ -131,10 +136,10 @@ A flexible and accessible modal dialog component that displays content in a laye
   |----------|----------|-------------|-----------------| 
   | `isOpen` | `boolean` | — | Controls modal visibility |
   | `onClose` | `() => void` | — | Called when modal should close |
-  | `children` | `ReactNode` | — | Content inside the modal |   
-    | `title` | `string` | `undefined` | Optional header title |
-    | `size` | `'sm','md','lg','xl' \|  'md'| Modal size |
-    |----------|----------|-------------|-----------------|
+  | `children` | `ReactNode` | — | Content inside the modal |
+  | `title` | `string` | `undefined` | Optional header title |
+  | `size` | `'sm'  'md' 'lg' 'xl'` | `'md'` | Modal size |
+  | `animation` | `'scale'  'slide' 'fade' 'bounce'` | `'scale'` | Animation type |
 </MdxTable>
 
 ## Usage
@@ -155,6 +160,7 @@ function App() {
         onClose={() => setIsOpen(false)}
         title="My Modal"
         size="md"
+        animation="bounce"
       >
         <p>Modal content goes here...</p>
       </Modal>
