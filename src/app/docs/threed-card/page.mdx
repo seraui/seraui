@@ -1,0 +1,151 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@/components/site/tabs.tsx";
+import { MdxTable } from "@/components/site/mdx-table";
+
+import ThreedcardVew from "./threed-card-view"
+
+<AI dir="left"/>
+
+# 3D Card Component
+
+A highly customizable 3D card component with interactive hover effects, glow animations, and parallax transformations.
+
+
+## Examples
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<ThreedcardVew />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/threed-card/threed-card.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Features
+
+- **3D Rotation Effects**: Smooth mouse-following rotation on X and Y axes
+- **Dynamic Glow**: Radial gradient glow that follows mouse position
+- **Shadow Animation**: Realistic shadow that responds to card rotation
+- **Parallax Content**: Optional 3D depth effect for card content
+- **Background Images**: Support for dynamic background images with hover transitions
+- **Accessibility**: Full keyboard navigation and screen reader support
+- **Performance Optimized**: Uses React.memo and useCallback for optimal rendering
+
+
+## How to Use
+
+### Basic Usage
+
+```tsx
+import ThreeDCard from './threed-card';
+
+function MyComponent() {
+  return (
+    <ThreeDCard>
+      <div className="p-6">
+        <h3 className="text-xl font-bold">Card Title</h3>
+        <p className="text-gray-300">Card content goes here</p>
+      </div>
+    </ThreeDCard>
+  );
+}
+```
+
+### With Image Content
+
+```tsx
+import ThreeDCard from './threed-card';
+
+function ImageCard() {
+  return (
+    <ThreeDCard className="w-80 h-96">
+      <img
+        src="/your-image.jpg"
+        alt="Description"
+        className="w-full h-full object-cover rounded-2xl"
+      />
+    </ThreeDCard>
+  );
+}
+```
+
+### Advanced Configuration
+
+```tsx
+import ThreeDCard from './threed-card';
+
+function AdvancedCard() {
+  return (
+    <ThreeDCard
+      maxRotation={15}
+      glowOpacity={0.3}
+      shadowBlur={40}
+      parallaxOffset={60}
+      transitionDuration="0.8s"
+      backgroundImage="/background.jpg"
+      enableGlow={true}
+      enableShadow={true}
+      enableParallax={true}
+      className="w-96 h-80"
+    >
+      <div className="p-8 text-center">
+        <h2 className="text-2xl font-bold mb-4">Premium Card</h2>
+        <p className="text-gray-300">Enhanced 3D effects</p>
+      </div>
+    </ThreeDCard>
+  );
+}
+```
+
+### Minimal Configuration
+
+```tsx
+import ThreeDCard from './threed-card';
+
+function MinimalCard() {
+  return (
+    <ThreeDCard
+      enableGlow={false}
+      enableShadow={false}
+      enableParallax={false}
+      maxRotation={5}
+    >
+      <div className="p-4">
+        <p>Simple 3D card with minimal effects</p>
+      </div>
+    </ThreeDCard>
+  );
+}
+```
+
+## Props
+
+<MdxTable>
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| children | ReactNode | - | Content to be rendered inside the card |
+| className | string | '' | Additional CSS classes for the card container |
+| maxRotation | number | 10 | Maximum rotation angle in degrees (0-45 recommended) |
+| glowOpacity | number | 0.2 | Opacity of the glow effect (0-1) |
+| shadowBlur | number | 30 | Blur radius for the card shadow in pixels |
+| parallaxOffset | number | 40 | 3D depth offset for content in pixels |
+| transitionDuration | string | '0.6s' | CSS transition duration for animations |
+| backgroundImage | string \| null | null | URL for background image that appears on hover |
+| enableGlow | boolean | true | Enable/disable the radial glow effect |
+| enableShadow | boolean | true | Enable/disable the dynamic shadow effect |
+| enableParallax | boolean | true | Enable/disable the 3D parallax effect for content |
+</MdxTable>
+

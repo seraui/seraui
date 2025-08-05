@@ -1,0 +1,212 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { VitePressTable } from "@/components/ui/vitepress-table";
+import TextHighlighterPage from "./text-highlighter-view"
+
+<AI dir="left"/>
+
+# Text highlighter
+The text highlighter component is a powerful tool that allows you to highlight specific text within a given text string. It is designed to be used in various scenarios, such as displaying search results, code snippets, or any other text-based content.
+
+## Preview
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TextHighlighterPage />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/text-highlighter/text-highlighter.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## How to Use
+
+### Basic Usage
+
+```tsx
+import TextHighlighter from '@/components/text-highlighter';
+
+export default function Example() {
+  return (
+    <p>
+      Welcome to <TextHighlighter>Sera UI</TextHighlighter>
+    </p>
+  );
+}
+```
+
+### Trigger Types
+
+The component supports different trigger types for animations:
+
+<Tabs defaultValue="inView" className="mt-4">
+  <TabsList>
+    <TabsTrigger value="inView">In View</TabsTrigger>
+    <TabsTrigger value="hover">Hover</TabsTrigger>
+    <TabsTrigger value="auto">Auto</TabsTrigger>
+    <TabsTrigger value="ref">Ref Control</TabsTrigger>
+  </TabsList>
+  
+  <TabsContent value="inView">
+    ```tsx
+    <TextHighlighter triggerType="inView">
+      This text highlights when it comes into view
+    </TextHighlighter>
+    ```
+  </TabsContent>
+  
+  <TabsContent value="hover">
+    ```tsx
+    <TextHighlighter triggerType="hover">
+      This text highlights on hover
+    </TextHighlighter>
+    ```
+  </TabsContent>
+  
+  <TabsContent value="auto">
+    ```tsx
+    <TextHighlighter triggerType="auto">
+      This text highlights automatically
+    </TextHighlighter>
+    ```
+  </TabsContent>
+  
+  <TabsContent value="ref">
+    ```tsx
+    import { useRef } from 'react';
+    
+    function Example() {
+      const highlighterRef = useRef(null);
+      
+      return (
+        <>
+          <TextHighlighter ref={highlighterRef} triggerType="ref">
+            Controlled text highlighting
+          </TextHighlighter>
+          <button onClick={() => highlighterRef.current?.animate()}>
+            Animate
+          </button>
+        </>
+      );
+    }
+    ```
+  </TabsContent>
+</Tabs>
+
+### Highlight Directions
+
+Control the direction of the highlight animation:
+
+```tsx
+// Left to right (default)
+<TextHighlighter direction="ltr">Left to right</TextHighlighter>
+
+// Right to left
+<TextHighlighter direction="rtl">Right to left</TextHighlighter>
+
+// Top to bottom
+<TextHighlighter direction="ttb">Top to bottom</TextHighlighter>
+
+// Bottom to top
+<TextHighlighter direction="btt">Bottom to top</TextHighlighter>
+```
+
+### Custom Colors
+
+<Tabs defaultValue="css" className="mt-4">
+  <TabsList>
+    <TabsTrigger value="css">CSS Colors</TabsTrigger>
+    <TabsTrigger value="tailwind">Tailwind Classes</TabsTrigger>
+  </TabsList>
+  
+  <TabsContent value="css">
+    ```tsx
+    // Solid color
+    <TextHighlighter highlightColor="#3b82f6">
+      Blue highlight
+    </TextHighlighter>
+    
+    // Gradient
+    <TextHighlighter highlightColor="linear-gradient(45deg, #3b82f6, #8b5cf6)">
+      Gradient highlight
+    </TextHighlighter>
+    ```
+  </TabsContent>
+  
+  <TabsContent value="tailwind">
+    ```tsx
+    <TextHighlighter 
+      useTailwindClasses={true}
+      highlightColor="bg-gradient-to-r from-blue-500 to-purple-500"
+    >
+      Tailwind gradient
+    </TextHighlighter>
+    ```
+  </TabsContent>
+</Tabs>
+
+### Animation Transitions
+
+Customize the animation timing and easing:
+
+```tsx
+<TextHighlighter
+  transition={{
+    duration: 1.2,
+    delay: 0.3,
+    type: 'spring',
+    bounce: 0.2
+  }}
+>
+  Custom animation
+</TextHighlighter>
+```
+
+### InView Options
+
+Configure when the highlight triggers based on viewport intersection:
+
+```tsx
+<TextHighlighter
+  triggerType="inView"
+  useInViewOptions={{
+    once: true,        // Only animate once
+    initial: false,    // Don't animate initially
+    amount: 0.5,       // 50% of element must be visible
+    margin: '100px'    // Trigger 100px before entering viewport
+  }}
+>
+  Advanced in-view highlighting
+</TextHighlighter>
+```
+
+### Different HTML Elements
+
+Use different HTML elements as the container:
+
+```tsx
+// As a heading
+<TextHighlighter as="h1">Highlighted Heading</TextHighlighter>
+
+// As a div
+<TextHighlighter as="div" className="text-center">
+  Highlighted block content
+</TextHighlighter>
+
+// As a button
+<TextHighlighter as="button" onClick={handleClick}>
+  Highlighted Button
+</TextHighlighter>
+```
