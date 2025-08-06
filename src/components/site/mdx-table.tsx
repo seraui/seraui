@@ -161,33 +161,35 @@ export function MdxTable({
         return {
           container: `my-6 ${baseContainer}`,
           table: 'w-full border-collapse',
-          thead: 'border-b-2 border-gray-200 dark:border-gray-600',
+          thead: 'border-b-2 border-gray-200/60 dark:border-white/20',
           th: 'px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider',
           tbody: '',
-          tr: 'border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-black/20 transition-colors',
+          tr: 'border-b border-gray-100/60 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-black/20 transition-colors',
           td: 'px-6 py-4 text-sm text-gray-900 dark:text-gray-100',
         };
       case 'bordered':
         return {
           container: `my-6 ${baseContainer}`,
           table:
-            'w-full border-collapse border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm',
-          thead: 'bg-gray-50 dark:bg-gray-900/50 border-b border-gray-200 dark:border-gray-700',
-          th: 'border-r border-gray-200 dark:border-gray-700 px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider last:border-r-0',
-          tbody: 'bg-white dark:bg-gray-900',
-          tr: 'border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors last:border-b-0',
-          td: 'border-r border-gray-200 dark:border-gray-700 px-6 py-4 text-sm text-gray-900 dark:text-gray-100 last:border-r-0',
+            'w-full border-collapse border border-gray-200/60 dark:border-white/20 rounded-xl overflow-hidden shadow-sm backdrop-blur-sm',
+          thead:
+            'bg-gray-50/80 dark:bg-black/40 border-b border-gray-200/60 dark:border-white/20 backdrop-blur-sm',
+          th: 'border-r border-gray-200/60 dark:border-white/10 px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider last:border-r-0',
+          tbody: 'bg-white/80 dark:bg-black/60 backdrop-blur-sm',
+          tr: 'border-b border-gray-200/60 dark:border-white/10 hover:bg-gray-50/80 dark:hover:bg-white/5 transition-colors last:border-b-0',
+          td: 'border-r border-gray-200/60 dark:border-white/10 px-6 py-4 text-sm text-gray-900 dark:text-gray-100 last:border-r-0',
         };
       default:
         return {
           container: `my-8 ${baseContainer} not-prose`,
           table:
-            'w-full border-collapse rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm bg-white dark:bg-gray-900',
-          thead: 'bg-gray-50 dark:bg-gray-900/50 border-b border-gray-200 dark:border-gray-700',
-          th: 'px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider border-r border-gray-200 dark:border-gray-700 last:border-r-0',
-          tbody: 'divide-y divide-gray-200 dark:divide-gray-700',
-          tr: 'hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors',
-          td: 'px-6 py-4 text-sm text-gray-900 dark:text-gray-100 border-r border-gray-200 dark:border-gray-700 last:border-r-0',
+            'w-full border-collapse rounded-xl border border-gray-200/60 dark:border-white/20 overflow-hidden shadow-sm bg-white/80 dark:bg-black/60 backdrop-blur-sm',
+          thead:
+            'bg-gray-50/80 dark:bg-black/40 border-b border-gray-200/60 dark:border-white/20 backdrop-blur-sm',
+          th: 'px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider border-r border-gray-200/60 dark:border-white/10 last:border-r-0',
+          tbody: 'divide-y divide-gray-200/60 dark:divide-white/10',
+          tr: 'hover:bg-gray-50/80 dark:hover:bg-white/5 transition-colors',
+          td: 'px-6 py-4 text-sm text-gray-900 dark:text-gray-100 border-r border-gray-200/60 dark:border-white/10 last:border-r-0',
         };
     }
   };

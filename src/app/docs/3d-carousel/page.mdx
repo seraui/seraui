@@ -1,0 +1,57 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@/components/site/tabs.tsx";
+import { MdxTable } from "@/components/site/mdx-table.tsx";
+import ThreeDCarousel from "./3d-carousel";
+
+<AI dir="left"/>
+
+# 3D Carousel
+
+A stunning 3D carousel component that displays items in a rotating circular layout with smooth animations and perspective effects. Perfect for showcasing products, images, or any content in an engaging three-dimensional presentation.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<ThreeDCarousel />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/3d-carousel/3d-carousel.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Usage
+
+```tsx
+ import ThreeDCarousel from "@/components/ui/3d-carousel";
+
+export default function BasicCarouselPage() {
+  return (
+    <main className="p-4">
+      <ThreeDCarousel />
+    </main>
+  );
+}
+```
+
+## Props
+
+<MdxTable>
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `items` | `ReactNode[]` | `[]` | Array of items to display in the carousel |
+| `autoRotate` | `boolean` | `true` | Whether the carousel should auto-rotate |
+| `rotationSpeed` | `number` | `3000` | Speed of auto-rotation in milliseconds |
+| `perspective` | `number` | `1000` | CSS perspective value for 3D effect |
+</MdxTable>
+
