@@ -40,6 +40,7 @@ export const navigation: NavigationItem[] = [
       { label: 'Glitch Vault Card', href: '/docs/glitchvault' },
       { label: 'Glow Line Effect', href: '/docs/glowline', badge: 'New' },
       { label: 'Modal Dialog', href: '/docs/modal', badge: 'New' },
+      { label: 'Tooltip', href: '/docs/tooltip', badge: 'New' },
     ],
   },
   {
