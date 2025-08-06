@@ -1,4 +1,3 @@
-
 import { CodeBlock } from "@/components/site/code-block";
 import { ComponentRenderer } from "@/components/site/component-renderer";
 import { Cli } from "@/components/site/cli";
@@ -8,7 +7,27 @@ import {
   TabsTrigger,
   TabsContent,
 } from "@/components/site/tabs.tsx";
+
+import { MdxTable } from "@/components/site/mdx-table.tsx";
 import TooltipView from "./tooltip-view";
+
+<AI dir="left"/>
+
+# Tooltip
+
+A clean and accessible tooltip component that displays helpful information on hover. Built with smooth animations, smart positioning, and full dark mode support.
+
+## Features
+
+- **Multiple Positions**: Top, bottom, left, right, and auto-positioning
+- **Smart Auto-Positioning**: Automatically adjusts position based on available screen space
+- **Dark Mode Support**: Automatically adapts to light and dark themes
+- **Smooth Animations**: Fade and zoom transitions with Tailwind CSS
+- **Arrow Indicators**: Optional visual arrows pointing to trigger element
+- **Responsive**: Handles long text with proper wrapping
+- **TypeScript**: Fully typed with comprehensive prop interface
+
+## Examples
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -22,3 +41,149 @@ import TooltipView from "./tooltip-view";
     <CodeBlock filePath="src/app/docs/tooltip/tooltip-view.tsx" />
   </TabsContent>
 </Tabs>
+
+## Installation
+
+You can add this component to your project using the CLI or by manually copying the code.
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add tooltip.json`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/tooltip/tooltip.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+### Basic Example
+
+```tsx
+import Tooltip from "./tooltip";
+
+function BasicExample() {
+  return (
+    <Tooltip text="This is a helpful tooltip">
+      <button>Hover me</button>
+    </Tooltip>
+  );
+}
+```
+
+### With Custom Position
+
+```tsx
+<Tooltip text="Bottom tooltip" position="bottom">
+  <button>Hover for bottom tooltip</button>
+</Tooltip>
+```
+
+### With Auto-Positioning
+
+```tsx
+<Tooltip text="This tooltip will position itself automatically" position="auto">
+  <button>Smart positioning</button>
+</Tooltip>
+```
+
+## API Reference
+
+### Props
+
+<MdxTable>
+  | Prop | Type | Default | Description |
+  | ----------- | ----------- | ----------- | ------------------------------------------------ |
+  | `children` | `React.ReactNode` | - | The element that triggers the tooltip |
+  | `text` | `string` | - | The text content to display in the tooltip |
+  | `position` | `"top" "bottom" "left" "right" "auto"` | `"top"` | Position of the tooltip relative to the trigger |
+  | `className` | `string` | `""` | Additional CSS classes to apply to the tooltip |
+  | `arrow` | `boolean` | `true` | Whether to show the arrow indicator |
+  | `maxWidth` | `string` | `"200px"` | Maximum width of the tooltip |
+</MdxTable>
+
+### Position Behavior
+
+- **`top`**: Displays above the trigger element
+- **`bottom`**: Displays below the trigger element
+- **`left`**: Displays to the left of the trigger element
+- **`right`**: Displays to the right of the trigger element
+- **`auto`**: Automatically chooses the best position based on available space
+
+### Dark Mode Support
+
+The tooltip automatically adapts to your theme:
+
+- **Light Mode**: White background with dark text and arrows
+- **Dark Mode**: Dark background with white text and arrows
+- **Automatic Detection**: Uses Tailwind's `dark:` classes for seamless theme switching
+
+## Accessibility
+
+The tooltip component follows accessibility best practices:
+
+- **ARIA Attributes**: Uses `role="tooltip"` and `aria-label` for screen readers
+- **Mouse Interaction**: Shows on hover, hides on mouse leave
+- **Screen Reader Friendly**: Proper semantic markup for assistive technologies
+
+## Advanced Examples
+
+### Auto-Positioning
+
+```tsx
+<Tooltip text="This tooltip will position itself automatically" position="auto">
+  <button>Smart positioning</button>
+</Tooltip>
+```
+
+### Custom Styling
+
+```tsx
+<Tooltip
+  text="Custom styled tooltip"
+  className="font-bold text-lg"
+  maxWidth="300px"
+>
+  <button>Custom tooltip</button>
+</Tooltip>
+```
+
+### No Arrow
+
+```tsx
+<Tooltip text="Clean tooltip without arrow" arrow={false}>
+  <button>No arrow tooltip</button>
+</Tooltip>
+```
+
+### Long Content
+
+```tsx
+<Tooltip
+  text="This is a very long tooltip that demonstrates how the component handles extensive content with proper text wrapping and maximum width constraints."
+  maxWidth="400px"
+>
+  <button>Long content tooltip</button>
+</Tooltip>
+```
+
+## Best Practices
+
+1. **Keep tooltips concise** - Use short, helpful text that enhances understanding
+2. **Consider positioning** - Use auto-positioning for dynamic layouts
+3. **Don't overuse** - Tooltips should supplement, not replace clear UI labels
+4. **Test responsiveness** - Ensure tooltips work well on different screen sizes
+5. **Maintain accessibility** - Ensure tooltips work with screen readers
+
+## Notes
+
+- Tooltips automatically hide when the trigger element loses mouse hover
+- The component uses React state management for smooth animations
+- Auto-positioning requires client-side rendering and calculates optimal placement
+- Dark mode adaptation uses Tailwind's built-in dark mode classes
+- All animations respect user preferences for reduced motion

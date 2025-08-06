@@ -6,74 +6,30 @@ interface TooltipProps {
   children: React.ReactNode;
   text: string;
   position?: "top" | "bottom" | "left" | "right" | "auto";
-  delay?: number;
-  disabled?: boolean;
   className?: string;
   arrow?: boolean;
   maxWidth?: string;
-  variant?:
-    | "default"
-    | "dark"
-    | "light"
-    | "info"
-    | "success"
-    | "warning"
-    | "error";
 }
 
 const Tooltip: React.FC<TooltipProps> = ({
   children,
   text,
   position = "top",
-  delay = 300,
-  disabled = false,
   className = "",
   arrow = true,
   maxWidth = "200px",
-  variant = "default",
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [actualPosition, setActualPosition] = useState(position);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
 
-  const getVariantStyles = (variant: string) => {
-    const variants = {
-      default: "bg-gray-900 text-white border-gray-700",
-      dark: "bg-black text-white border-gray-800",
-      light: "bg-white text-gray-900 border-gray-200 shadow-lg",
-      info: "bg-blue-600 text-white border-blue-500",
-      success: "bg-green-600 text-white border-green-500",
-      warning: "bg-yellow-600 text-white border-yellow-500",
-      error: "bg-red-600 text-white border-red-500",
-    };
-    return variants[variant as keyof typeof variants] || variants.default;
-  };
-
   const handleMouseEnter = () => {
-    if (disabled) return;
-
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-
-    timeoutRef.current = setTimeout(() => {
-      setIsVisible(true);
-    }, delay);
+    setIsVisible(true);
   };
 
   const handleMouseLeave = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
     setIsVisible(false);
-  };
-
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Escape") {
-      setIsVisible(false);
-    }
   };
 
   useEffect(() => {
@@ -113,14 +69,6 @@ const Tooltip: React.FC<TooltipProps> = ({
     }
   }, [isVisible, position]);
 
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, []);
-
   const getPositionClasses = (pos: string) => {
     const positions = {
       top: "bottom-full left-1/2 -translate-x-1/2 mb-1",
@@ -135,12 +83,12 @@ const Tooltip: React.FC<TooltipProps> = ({
     if (!arrow) return "";
 
     const arrows = {
-      top: "after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-current",
+      top: "after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-gray-900 dark:after:border-t-white",
       bottom:
-        "after:absolute after:bottom-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-b-current",
-      left: "after:absolute after:left-full after:top-1/2 after:-translate-y-1/2 after:border-4 after:border-transparent after:border-l-current",
+        "after:absolute after:bottom-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-b-gray-900 dark:after:border-b-white",
+      left: "after:absolute after:left-full after:top-1/2 after:-translate-y-1/2 after:border-4 after:border-transparent after:border-l-gray-900 dark:after:border-l-white",
       right:
-        "after:absolute after:right-full after:top-1/2 after:-translate-y-1/2 after:border-4 after:border-transparent after:border-r-current",
+        "after:absolute after:right-full after:top-1/2 after:-translate-y-1/2 after:border-4 after:border-transparent after:border-r-gray-900 dark:after:border-r-white",
     };
     return arrows[pos as keyof typeof arrows] || "";
   };
@@ -151,8 +99,6 @@ const Tooltip: React.FC<TooltipProps> = ({
       className="relative inline-block"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
     >
       {children}
       {isVisible && text && (
@@ -164,8 +110,9 @@ const Tooltip: React.FC<TooltipProps> = ({
                         absolute z-50 px-3 py-2 text-sm font-medium rounded-lg border
                         transition-all duration-200 ease-in-out
                         animate-in fade-in-0 zoom-in-95
+                        bg-white text-gray-900 border-gray-200 shadow-lg
+                        dark:bg-gray-900 dark:text-white dark:border-gray-700
                         ${getPositionClasses(actualPosition)}
-                        ${getVariantStyles(variant)}
                         ${getArrowClasses(actualPosition)}
                         ${className}
                     `}
