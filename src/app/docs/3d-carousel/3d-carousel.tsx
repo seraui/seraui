@@ -69,6 +69,8 @@ const Card = React.memo(({ src, transform, cardW, cardH }: CardProps) => (
   </div>
 ));
 
+Card.displayName = 'Card';
+
 /* 4️⃣  Main component —————————————————— */
 interface ThreeDCarouselProps {
   images?: string[];
@@ -243,5 +245,7 @@ const ThreeDCarousel = React.memo(
     );
   }
 );
+
+ThreeDCarousel.displayName = 'ThreeDCarousel';
 
 export default ThreeDCarousel;
