@@ -1,0 +1,199 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { MdxTable } from "@/components/site/mdx-table.tsx";
+
+import HtmlCodeDemo from "./html-code-demo";
+import HtmlCodeTabs from "./html-code";
+import {
+  BasicButtonExample,
+  CardExample,
+  FormExample,
+  NavigationExample,
+} from "./html-code-examples";
+
+<AI dir="left" />
+
+# HTML Code Tabs
+
+A powerful and customizable component for displaying HTML code with live preview and syntax highlighting. Perfect for documentation, tutorials, and showcasing HTML/CSS examples.
+
+## Demo
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<HtmlCodeDemo />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/html-code/html-code.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Features
+
+- **Live Preview**: Renders HTML in an iframe with Tailwind CSS support
+- **Syntax Highlighting**: Beautiful code highlighting using Shiki
+- **Copy to Clipboard**: One-click code copying functionality
+- **Responsive Design**: Works seamlessly across all device sizes
+- **Dark Theme**: GitHub Dark theme for code display
+- **TypeScript Support**: Fully typed for better development experience
+
+## Usage
+
+### Basic Usage
+
+```tsx
+import HtmlCodeTabs from "./html-code";
+
+export default function MyComponent() {
+  const htmlCode = `<div class="p-4 bg-blue-500 text-white rounded-lg">
+  <h1>Hello World</h1>
+  <p>This is a sample HTML content.</p>
+</div>`;
+
+  return <HtmlCodeTabs htmlContent={htmlCode} />;
+}
+```
+
+### Custom Title and Filename
+
+```tsx
+<HtmlCodeTabs htmlContent={htmlCode} title="My Demo" fileName="example.html" />
+```
+
+### With Custom Styling
+
+```tsx
+<HtmlCodeTabs
+  htmlContent={htmlCode}
+  title="Styled Demo"
+  fileName="styled.html"
+  className="min-h-[800px] bg-gray-900"
+/>
+```
+
+### Complex HTML Example
+
+```tsx
+const complexHtml = `<body class="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center">
+  <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+    <div class="md:flex">
+      <div class="md:shrink-0">
+        <img class="h-48 w-full object-cover md:h-full md:w-48" src="https://via.placeholder.com/300x200" alt="Modern building architecture">
+      </div>
+      <div class="p-8">
+        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Company retreats</div>
+        <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Incredible accommodation for your team</a>
+        <p class="mt-2 text-slate-500">Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of places to do just that.</p>
+      </div>
+    </div>
+  </div>
+</body>`;
+
+<HtmlCodeTabs
+  htmlContent={complexHtml}
+  title="Card Component"
+  fileName="card-example.html"
+/>;
+```
+
+## Examples
+
+### Basic Button
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<BasicButtonExample />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/html-code/html-code.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Component Structure
+
+The component consists of several sub-components:
+
+- **HtmlCodeTabs**: Main wrapper component
+- **CodeTabs**: Tab management and layout
+- **Preview**: Live HTML preview with iframe
+- **CodeView**: Code display with syntax highlighting
+- **HtmlRenderer**: HTML rendering with Tailwind CSS support
+- **CodeEditor**: Syntax highlighting and copy functionality
+
+## Props
+
+<MdxTable>
+  | **Prop** | **Type** | **Default** | **Description** |
+  |---------------|------------|-----------------|-----------------------------------------------------------|
+  | `htmlContent` | `string` | — | The HTML content to display and preview
+  (required) | | `title` | `string` | `"Demo"` | Title for the preview tab | |
+  `fileName` | `string` | `"index.html"` | Filename to display in the code tab |
+  | `className` | `string` | `""` | Additional CSS classes for the container |
+</MdxTable>
+
+## Features in Detail
+
+### Live Preview
+
+- Renders HTML in a sandboxed iframe
+- Includes Tailwind CSS CDN for styling
+- Transparent background support
+- Responsive design with grid background
+
+### Code Display
+
+- Syntax highlighting using Shiki with GitHub Dark theme
+- Line numbers for better readability
+- Copy to clipboard functionality with visual feedback
+- Hover effects for better user experience
+
+### Responsive Design
+
+- Mobile-first approach
+- Adaptive sizing for different screen sizes
+- Optimized for both desktop and mobile viewing
+
+## Styling
+
+The component uses a dark theme by default with:
+
+- GitHub Dark syntax highlighting
+- Dark background containers
+- Blue accent colors
+- Smooth transitions and hover effects
+
+You can customize the appearance by:
+
+- Passing custom `className` props
+- Modifying the CSS classes in the component
+- Overriding the default styles with your own CSS
+
+## Browser Support
+
+- Modern browsers with ES6+ support
+- iframe sandbox support required for preview
+- CSS Grid and Flexbox support needed for layout
+
+## Dependencies
+
+- React 18+
+- Lucide React (for icons)
+- Shiki (for syntax highlighting)
+- Tailwind CSS (for styling)
+
+The component dynamically imports Shiki to keep the initial bundle size small.

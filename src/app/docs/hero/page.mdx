@@ -12,10 +12,30 @@ import Hero from "./hero.tsx"
 import Hero2 from "./hero2.tsx"
 import Hero3 from "./hero3.tsx"
 import SeraUIHero from "./hero4.tsx"
+import Hero5 from "./hero5.tsx"
 
 <HideTOC />
 
 <AI dir="left"/>
+
+
+
+# SaaS Hero
+A modern, customizable UI library designed to help you ship beautiful SaaS products faster. Packed with responsive components, clean code, and flexible design tokens—so you can focus on building, not styling from scratch.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Hero5 />}/>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/hero/hero5.tsx" />
+  </TabsContent>
+</Tabs>
+
 
 #  Sera UI Hero
 A hero section component with a responsive design, featuring a centered content area and a background image. Perfect for marketing websites and landing pages.
