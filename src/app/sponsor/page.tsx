@@ -12,20 +12,21 @@ import { ExternalLink, Mail, TrendingUp } from "lucide-react";
 
 const sponsorshipPlans = [
   {
-    name: "Monthly",
-    price: "$10",
-    duration: "1 Month",
+    name: "6 Months",
+    price: "$15",
+    duration: "6 Months",
     features: [
       "Logo placement on homepage",
       "Website link in banner ads",
-      "Monthly exposure to our audience",
+      "6-month exposure to our audience",
       "Social media mentions",
+      "Community recognition",
     ],
     popular: false,
   },
   {
-    name: "Yearly",
-    price: "$100",
+    name: "1 Year",
+    price: "$20",
     duration: "12 Months",
     features: [
       "Logo placement on homepage",
@@ -33,13 +34,13 @@ const sponsorshipPlans = [
       "Year-long exposure to our audience",
       "Priority placement",
       "Monthly social media mentions",
-      "2 months free (vs monthly plan)",
+      "Best value for money",
     ],
     popular: true,
   },
   {
     name: "Lifetime",
-    price: "$500",
+    price: "$100",
     duration: "Forever",
     features: [
       "Permanent logo placement",
@@ -142,11 +143,20 @@ export default function Page() {
             </CardDescription>
           </CardHeader>
           <CardContent className="text-center">
-            <img
-              src="https://i.postimg.cc/8z65s96b/Screenshot-2025-07-27-055210.webp"
-              alt="Visitor Statistics"
-              className="w-full max-w-3xl mx-auto rounded-lg border shadow-lg"
-            />
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center p-4">
+                <div className="text-3xl font-bold text-primary mb-2">200k+</div>
+                <div className="text-muted-foreground">Monthly Visitors</div>
+              </div>
+              <div className="text-center p-4">
+                <div className="text-3xl font-bold text-primary mb-2">600+</div>
+                <div className="text-muted-foreground">GitHub Stars</div>
+              </div>
+              <div className="text-center p-4">
+                <div className="text-3xl font-bold text-primary mb-2">100+</div>
+                <div className="text-muted-foreground">Components</div>
+              </div>
+            </div>
           </CardContent>
         </Card>
 
