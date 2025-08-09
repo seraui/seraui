@@ -91,7 +91,7 @@ const Newsletter = () => {
 
             <button
               type="submit"
-              className="w-full sm:w-auto mt-2 sm:mt-0 px-6 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-semibold rounded-full hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors duration-300 shadow-md transform group-hover:scale-105"
+              className="sm:w-auto px-16 mt-2 sm:mt-0 md:px-6 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-semibold rounded-full hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors duration-300 shadow-md transform group-hover:scale-105"
             >
               Get Notified
             </button>
