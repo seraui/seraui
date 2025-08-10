@@ -1,3 +1,57 @@
+export const metadata = {
+  title: "Sera UI - Modern React Component Library Documentation",
+  description:
+    "Beautifully designed React components you can copy and paste into your apps. Accessible, customizable, and open source. Built with Tailwind CSS and Framer Motion.",
+  keywords: [
+    "React component library",
+    "UI components",
+    "Tailwind CSS components",
+    "Next.js components",
+    "modern UI library",
+    "accessible components",
+    "customizable UI",
+    "open source components",
+    "Framer Motion animations",
+    "Sera UI documentation",
+  ],
+  openGraph: {
+    title: "Sera UI - Modern React Component Library",
+    description:
+      "Beautifully designed React components you can copy and paste into your apps. Accessible, customizable, and open source.",
+    type: "website",
+    url: "/docs",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Sera UI - Modern React Component Library",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sera UI - Modern React Component Library",
+    description:
+      "Beautifully designed React components you can copy and paste into your apps. Accessible, customizable, and open source.",
+    images: ["/og-image.png"],
+  },
+  alternates: {
+    canonical: "/docs",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
 import { CodeBlock } from "@/components/site/code-block";
 import { ComponentRenderer } from "@/components/site/component-renderer";
 import { Cli } from "@/components/site/cli";

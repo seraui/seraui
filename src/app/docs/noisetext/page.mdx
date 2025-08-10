@@ -1,16 +1,45 @@
 export const metadata = {
-    title: 'Noise Text',
-    description: 'A React component that displays text with a blurred glassy background and static noise overlay, using Tailwind CSS.',
-}
+  title: "Noise Text - Sera UI Component Library",
+  description:
+    "A React component that displays text with a blurred glassy background and static noise overlay, using Tailwind CSS. Perfect for glassmorphism UI designs.",
+  keywords: [
+    "React noise text",
+    "glassmorphism component",
+    "blurred background text",
+    "static overlay effect",
+    "Tailwind CSS component",
+    "UI text effects",
+    "modern text design",
+    "glass effect text",
+    "backdrop blur text",
+    "Sera UI components",
+  ],
+  openGraph: {
+    title: "Noise Text Component - Sera UI",
+    description:
+      "Create elegant noise-text effects with blurred glass backgrounds and subtle static overlays for modern UI designs.",
+    type: "article",
+    url: "/docs/noisetext",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Noise Text Component - Sera UI",
+    description:
+      "Create elegant noise-text effects with blurred glass backgrounds and subtle static overlays for modern UI designs.",
+  },
+  alternates: {
+    canonical: "/docs/noisetext",
+  },
+};
 
 import { CodeBlock } from "@/components/site/code-block";
 import { ComponentRenderer } from "@/components/site/component-renderer";
 import { Cli } from "@/components/site/cli";
 import {
-    Tabs,
-    TabsList,
-    TabsTrigger,
-    TabsContent,
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
 } from "@/components/site/tabs";
 import NoisetextView from "./noisetext-view";
 
@@ -38,7 +67,7 @@ Enhance your UI with elegant noise-text effects — a combination of a blurred g
 ## Usage
 
 ```tsx
-import NoiseText from './noisetext';
+import NoiseText from "./noisetext";
 
 export default function NoisetextView() {
   return (
@@ -54,12 +83,12 @@ export default function NoisetextView() {
 ## Component Code
 
 ```tsx
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 
 const NoiseText = ({
   children,
-  className = '',
+  className = "",
 }: React.PropsWithChildren<{ className?: string }>) => (
   <span
     className={`
@@ -102,6 +131,7 @@ style={{ opacity: 0.02 }} // More subtle effect
 ```
 
 ## Ideal Use Cases
+
 - Glassmorphism UI components
 - Highlighting dynamic titles or headings
 - Futuristic or playful design aesthetics
