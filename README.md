@@ -6,6 +6,12 @@
   <a href="https://discord.gg/XqQkbTptvJ" target="_blank" style="padding: 10px 20px; background-color: #5865F2; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">
     Join Discord
   </a>
+  <br/>
+  <a href="https://x.com/devshowcse" target="_blank" style="padding: 10px 20px; background-color: #5865F2; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">
+    Ask on X
+  </a>
+
+
 </div>
 
 ---
