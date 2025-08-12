@@ -43,6 +43,7 @@ import { HideTOC } from "@/components/site/hide-toc";
 import PricingSection from "./pricing";
 import Pricing2 from "./pricing2";
 import SimplePricing from "./pricing3";
+import Pricing4 from "./pricing4";
 
 <HideTOC />
 
@@ -105,5 +106,23 @@ Perfect for large numbers of plans or complex pricing structures.
 
   <TabsContent value="code">
     <CodeBlock filePath="src/app/docs/pricing/pricing3.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Colorfull Pricing Section
+A pricing section with a color gradient and a blur effect.
+
+<Tabs defaultValue="preview" className="mt-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Pricing4 />} />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/pricing/pricing4.tsx" />
   </TabsContent>
 </Tabs>

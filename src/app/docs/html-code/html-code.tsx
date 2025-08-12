@@ -28,7 +28,6 @@ interface TabData {
 
 interface CodeTabsProps {
   children: ReactNode;
-  width?: string;
 }
 
 interface PreviewProps {
@@ -75,7 +74,6 @@ interface HtmlCodeTabsProps {
   title?: string;
   fileName?: string;
   className?: string;
-  width?: string;
 }
 
 // --- Main Reusable Component ---
@@ -84,13 +82,12 @@ export default function HtmlCodeTabs({
   title = "Demo",
   fileName = "index.html",
   className = "",
-  width = "w-[800px]",
 }: HtmlCodeTabsProps) {
   return (
     <div
-      className={`font-sans flex items-center justify-center p-2 sm:p-4 lg:p-8 ${className}`}
+      className={`font-sans w-full max-w-none p-2 sm:p-4 lg:p-8 ${className}`}
     >
-      <CodeTabs width={width}>
+      <CodeTabs>
         <Preview title={title}>
           <HtmlRenderer htmlContent={htmlContent} />
         </Preview>
@@ -102,7 +99,7 @@ export default function HtmlCodeTabs({
   );
 }
 
-const CodeTabs = ({ children, width = "w-[800px]" }: CodeTabsProps) => {
+const CodeTabs = ({ children }: CodeTabsProps) => {
   const [activeTabId, setActiveTabId] = useState<number>(1);
 
   const handleTabClick = useCallback((id: number) => {
@@ -129,15 +126,15 @@ const CodeTabs = ({ children, width = "w-[800px]" }: CodeTabsProps) => {
 
   return (
     <div
-      className={`${width} mx-auto rounded-xl shadow-2xl border overflow-hidden bg-white dark:bg-[#161b22] border-gray-200 dark:border-gray-800`}
+      className="w-full max-w-7xl mx-auto rounded-xl shadow-2xl border overflow-hidden bg-white dark:bg-[#161b22] border-gray-200 dark:border-gray-800"
     >
       <Header
         tabs={tabs}
         activeTabId={activeTabId}
         onTabClick={handleTabClick}
       />
-      {/* Fixed height content area */}
-      <div className="h-[400px] md:h-[500px] overflow-hidden bg-gray-50 dark:bg-[#0d1117]">
+      {/* Responsive height content area */}
+      <div className="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden bg-gray-50 dark:bg-[#0d1117]">
         {tabs.map((tab) =>
           cloneElement(tab.content, {
             key: tab.id,

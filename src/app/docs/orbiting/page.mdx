@@ -1,0 +1,130 @@
+export const metadata = {
+    title: 'Orbiting Skills Component - Sera UI Component Library',
+    description: 'Dynamic orbiting skills component that displays technologies and expertise in an animated circular pattern. Perfect for showcasing skills, technologies, and proficiency in portfolios and about pages.',
+    keywords: [
+        'React orbiting component',
+        'animated skills display',
+        'orbiting animation',
+        'skills showcase',
+        'technology icons',
+        'portfolio component',
+        'circular animation',
+        'Tailwind CSS animation',
+        'interactive skills',
+        'dynamic UI component',
+        'Sera UI components'
+    ],
+    openGraph: {
+        title: 'Orbiting Skills Component - Sera UI',
+        description: 'Dynamic React component that displays skills and technologies in an animated orbiting pattern. Perfect for portfolios and showcasing expertise.',
+        type: 'article',
+        url: '/docs/orbiting',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Orbiting Skills Component - Sera UI',
+        description: 'Dynamic React component that displays skills and technologies in an animated orbiting pattern. Perfect for portfolios and showcasing expertise.',
+    },
+    alternates: {
+        canonical: '/docs/orbiting',
+    },
+};
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import OrbitingSkills from "./orbiting"
+
+<AI dir="left"/>
+
+# Orbiting Skills
+A dynamic and visually appealing component that displays a set of skills or technologies in an orbiting pattern. Perfect for showcasing expertise, proficiency, or areas of interest in a creative and engaging way.
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<OrbitingSkills />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/orbiting/orbiting.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+Import and use the OrbitingSkills component in your React application:
+
+```tsx
+import OrbitingSkills from '@/components/orbiting-skills';
+
+export default function Portfolio() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-900">
+      <OrbitingSkills />
+    </div>
+  );
+}
+```
+
+## Customization
+
+The component comes with predefined skills configuration. To customize the skills, modify the `skillsConfig` array:
+
+```tsx
+const skillsConfig: SkillConfig[] = [
+  // Inner Orbit
+  {
+    id: 'html',
+    orbitRadius: 100,
+    size: 40,
+    speed: 1,
+    iconType: 'html',
+    phaseShift: 0,
+    glowColor: 'cyan',
+    label: 'HTML5'
+  },
+  // Add more skills...
+];
+```
+
+## Configuration Options
+
+Each skill object supports the following properties:
+
+- `id`: Unique identifier for the skill
+- `orbitRadius`: Distance from center (100 for inner, 180 for outer orbit)
+- `size`: Icon size in pixels
+- `speed`: Rotation speed (positive for clockwise, negative for counter-clockwise)
+- `iconType`: Type of icon ('html', 'css', 'javascript', 'react', 'node', 'tailwind')
+- `phaseShift`: Starting position offset in radians
+- `glowColor`: Glow effect color ('cyan' or 'purple')
+- `label`: Text displayed on hover
+
+## Features
+
+- **Responsive Design**: Adapts to different screen sizes
+- **Interactive**: Hover effects with skill labels
+- **Pause on Hover**: Animation pauses when hovering over the container
+- **Smooth Animations**: Uses requestAnimationFrame for optimal performance
+- **Customizable**: Easy to modify skills, colors, and orbit configurations
+- **Accessible**: Includes proper hover states and visual feedback
+
+## Styling
+
+The component uses Tailwind CSS classes and can be customized by modifying:
+
+- Background colors and gradients
+- Glow effects and shadows
+- Orbit path styling
+- Icon sizes and spacing
+- Animation timing and easing

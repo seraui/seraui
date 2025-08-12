@@ -1,0 +1,183 @@
+
+export const metadata = {
+    title: 'Infinite Grid Component - Interactive Draggable Photo Gallery | Sera UI',
+    description: 'High-performance infinite scrolling grid component with smooth drag interactions, momentum physics, and optimized rendering. Perfect for photo galleries, image browsers, and infinite content displays.',
+    keywords: [
+        'React infinite grid',
+        'infinite scrolling grid',
+        'draggable grid component',
+        'photo gallery grid',
+        'infinite scroll React',
+        'drag to scroll grid',
+        'virtual scrolling',
+        'image gallery component',
+        'momentum scrolling',
+        'performance grid',
+        'Tailwind CSS grid',
+        'interactive grid',
+        'smooth scrolling',
+        'optimized rendering',
+        'Sera UI components'
+    ],
+    openGraph: {
+        title: 'Infinite Grid Component - Interactive Draggable Photo Gallery | Sera UI',
+        description: 'High-performance infinite scrolling grid component with smooth drag interactions, momentum physics, and optimized rendering for React applications.',
+        type: 'article',
+        url: '/docs/infinite-grid',
+        images: [
+            {
+                url: '/og-infinite-grid.png',
+                width: 1200,
+                height: 630,
+                alt: 'Infinite Grid Component Preview'
+            }
+        ]
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Infinite Grid Component - Interactive Draggable Photo Gallery',
+        description: 'High-performance infinite scrolling grid with smooth drag interactions and momentum physics for React applications.',
+        images: ['/og-infinite-grid.png']
+    },
+    alternates: {
+        canonical: '/docs/infinite-grid',
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
+};
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@/components/site/tabs.tsx";
+import { MdxTable } from "@/components/site/mdx-table";
+
+import Infinitegrid from "./infinite-grid.tsx"
+
+
+
+<AI dir="left"/>
+
+# Infinite Grid
+
+A high-performance infinite scrolling grid component with smooth drag interactions, momentum physics, and optimized rendering. Perfect for creating photo galleries, image browsers, and infinite content displays with buttery-smooth user experience.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Infinitegrid />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/infinite-grid/infinite-grid.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+
+## Features
+
+- **Infinite Scrolling**: Seamlessly browse through unlimited content
+- **Drag to Scroll**: Intuitive mouse and touch drag interactions
+- **Momentum Physics**: Realistic momentum and damping effects
+- **Performance Optimized**: Virtual rendering for smooth performance
+- **Responsive Design**: Works perfectly on desktop and mobile devices
+- **Smooth Animations**: Hardware-accelerated transforms and transitions
+
+## Usage Examples
+
+### Basic Implementation
+
+```tsx
+import { InfiniteDraggableGrid } from './infinite-grid';
+
+const galleryData = [
+  { id: 1, thumb_src: '/image1.jpg', title: 'Image 1' },
+  { id: 2, thumb_src: '/image2.jpg', title: 'Image 2' },
+  // ... more images
+];
+
+export default function Gallery() {
+  return (
+    <div className="w-full h-screen">
+      <InfiniteDraggableGrid gallery={galleryData} />
+    </div>
+  );
+}
+```
+
+### Custom Gallery Data
+
+```tsx
+interface GalleryItem {
+  id?: number;
+  thumb_src: string;
+  title?: string;
+  full_src?: string;
+}
+
+const customGallery: GalleryItem[] = [
+  {
+    id: 1,
+    thumb_src: 'https://example.com/thumb1.jpg',
+    full_src: 'https://example.com/full1.jpg',
+    title: 'Beautiful Landscape'
+  },
+  // Add more items...
+];
+```
+
+### Responsive Container
+
+```tsx
+export default function ResponsiveGallery() {
+  return (
+    <div className="w-full min-h-[400px] md:h-screen">
+      <InfiniteDraggableGrid gallery={galleryData} />
+    </div>
+  );
+}
+```
+
+## Props
+
+<MdxTable>
+| Prop | Type | Description |
+|------|------|-------------|
+| `gallery` | `GalleryItem[]` | Array of gallery items to display |
+</MdxTable>
+
+### GalleryItem Interface
+
+<MdxTable>
+| Property | Type | Required | Description |
+|----------|------|----------|-------------|
+| `id` | `number` | No | Unique identifier for the item |
+| `thumb_src` | `string` | Yes | URL for the thumbnail image |
+| `title` | `string` | No | Alt text and title for the image |
+| `full_src` | `string` | No | URL for the full-size image |    
+</MdxTable>
+
+## Performance Tips
+
+- **Image Optimization**: Use optimized images with appropriate sizes
+- **Lazy Loading**: Images are automatically lazy-loaded for better performance
+- **Virtual Rendering**: Only visible cards are rendered to maintain smooth performance
+- **Hardware Acceleration**: Uses CSS transforms for smooth animations
+

@@ -12,7 +12,6 @@ import {
   BookOpen,
   MessageCircle,
   Heart,
-  ExternalLink,
 } from "lucide-react";
 import { Logo } from "@/assets/icons/logo";
 import { SearchModal } from "./search-modal";

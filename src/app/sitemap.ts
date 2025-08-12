@@ -1,146 +1,94 @@
-import type { MetadataRoute } from "next";
+import type { MetadataRoute } from 'next'
 
-export const dynamic = "force-static";
-
-// Component categories for better organization
-const componentCategories = {
-  "UI Components": [
-    "accordion",
-    "badge",
-    "button",
-    "card",
-    "dropdown",
-    "tabs",
-    "tabs-classic",
-    "tabs-fancy",
-    "toast",
-    "modal",
-    "tooltip",
-    "navbar",
-    "footer",
-    "dock",
-    "marquee",
-  ],
-  "Form Components": [
-    "login",
-    "signin",
-    "password",
-    "forgotpassword",
-    "twostep",
-    "multiselector",
-    "search",
-  ],
-  "Animation Components": [
-    "flipwords",
-    "textreveal",
-    "sparklestext",
-    "decrypting",
-    "shimmer",
-    "loaders",
-    "retro",
-  ],
-  "Layout Components": [
-    "hero",
-    "pricing",
-    "testimonial",
-    "portfolio",
-    "teammember",
-    "waitlist",
-    "filetree",
-    "masonary",
-  ],
-  "Interactive Components": [
-    "carousel",
-    "network",
-    "copybutton",
-    "colorpalette",
-    "gradient",
-    "fuzzy",
-    "magic",
-    "spotlightcard",
-  ],
-  "Specialized Components": [
-    "nftmarketplace",
-    "amazongift",
-    "codeprofile",
-    "pattern",
-    "aurora",
-    "integrations",
-    "prompt",
-  ],
-};
+// Required for static export
+export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://seraui.seraprogrammer.com";
-  // Use a fixed date to reduce regeneration
-  const currentDate = new Date("2025-01-01");
-
-  // Core pages
-  const corePages = [
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: "weekly" as const,
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/docs`,
-      lastModified: currentDate,
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/docs/installation`,
-      lastModified: currentDate,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-  ];
-
-  // Generate component pages dynamically with better caching
-  const componentPages = Object.values(componentCategories)
-    .flat()
-    .map((component) => ({
-      url: `${baseUrl}/docs/${component}`,
-      lastModified: currentDate,
-      changeFrequency: "monthly" as const, // Changed from weekly to monthly
-      priority:
-        component === "button" || component === "card" || component === "tabs"
-          ? 0.8
-          : 0.7,
-    }));
-
-  // Tools and utilities
-  const toolPages = [
-    {
-      url: `${baseUrl}/tools`,
-      lastModified: currentDate,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    },
-  ];
-
-  // Additional important pages
-  const additionalPages = [
-    {
-      url: `${baseUrl}/examples`,
-      lastModified: currentDate,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/templates`,
-      lastModified: currentDate,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/showcase`,
-      lastModified: currentDate,
-      changeFrequency: "monthly" as const,
-      priority: 0.5,
-    },
-  ];
-
-  return [...corePages, ...componentPages, ...toolPages, ...additionalPages];
+  return [
+    { url: 'https://seraui.seraprogrammer.com/', lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
+    { url: 'https://seraui.seraprogrammer.com/sponsor/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/', lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
+    { url: 'https://seraui.seraprogrammer.com/docs/installation/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/loaders/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/pattern/', lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
+    { url: 'https://seraui.seraprogrammer.com/docs/colorpalette/', lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
+    { url: 'https://seraui.seraprogrammer.com/docs/gradientgen/', lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
+    { url: 'https://seraui.seraprogrammer.com/docs/svg-icons/', lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
+    { url: 'https://seraui.seraprogrammer.com/docs/marquee/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/codeprofile/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/portfolio/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/integrations/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/network/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/video-text/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/imageswiper/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/divider/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/noise/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/glitchvault/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/glowline/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/modal/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/html-code/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/button/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/modern-button/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/glow-button/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/dropdown/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/shimmer/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/drawer/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/badge/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/animatedbadge/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/toast/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/announcement/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/search/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/prompt/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/password/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/combo-box/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/text/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/fuzzy/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/flipwords/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/textreveal/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/decrypting/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/aurora/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/sparklestext/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/ticker/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/letter-glitch/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/resize-handle/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/noisetext/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/text-highlighter/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/doctabs/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/carousel/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/3d-carousel/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/tabs/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/tabs-fancy/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/tabs-classic/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/dock/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/filetree/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/copybutton/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/accordion/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/accordion-last/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/gradient-accordion/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/threed-card/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/login/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/signin/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/waitlist/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/card/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/twostep/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/amazongift/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/magic/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/gradient/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/spotlightcard/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/multiselector/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/nftmarketplace/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/masonary/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/bento-grid/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/falling-glitch/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/moving-grid/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/retro-button/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/retro-card/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/hero/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/navbar/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/pricing/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/testimonial/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/footer/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/forgotpassword/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/teammember/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  ]
 }
