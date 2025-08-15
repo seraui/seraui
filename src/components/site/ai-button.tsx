@@ -57,7 +57,7 @@ export function AIButton({ dir = 'right' }: AIButtonProps) {
     <div className={`flex ${dir === 'left' ? 'justify-start' : 'justify-end'} gap-2 mb-6`}>
       <button
         onClick={handleChatGPTClick}
-        className="inline-flex items-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:cursor-pointer duration-300 ease-out transition hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 rounded-lg py-2 px-3 gap-2 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 shadow-sm"
+        className="inline-flex items-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:cursor-pointer duration-300 ease-out transition hover:bg-opacity-20 hover:backdrop-blur-lg hover:text-gray-900 dark:hover:text-gray-100 rounded-full py-2 px-3 gap-2 border border-gray-200 dark:border-gray-700 bg-white bg-opacity-10 backdrop-filter backdrop-blur-md dark:bg-gray-900 text-gray-700 dark:text-gray-300 shadow-sm"
         title="Open this documentation in ChatGPT"
       >
         <svg
@@ -77,7 +77,7 @@ export function AIButton({ dir = 'right' }: AIButtonProps) {
 
       <button
         onClick={handleClaudeClick}
-        className="inline-flex items-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:cursor-pointer duration-300 ease-out transition hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 rounded-lg py-2 px-3 gap-2 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 shadow-sm"
+        className="inline-flex items-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:cursor-pointer duration-300 ease-out transition hover:bg-opacity-20 hover:backdrop-blur-lg hover:text-gray-900 dark:hover:text-gray-100 rounded-full py-2 px-3 gap-2 border border-gray-200 dark:border-gray-700 bg-white bg-opacity-10 backdrop-filter backdrop-blur-md dark:bg-gray-900 text-gray-700 dark:text-gray-300 shadow-sm"
         title="Open this documentation in Claude"
       >
         <svg
