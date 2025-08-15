@@ -1,0 +1,87 @@
+export const metadata = {
+    title: "Curved Text Component - Sera UI",
+    description: "A React component to render text along a curved path, perfect for creating visually appealing headlines, logos, and decorative text elements.",
+    keywords: [
+        "React curved text",
+        "text on a curve",
+        "circular text component",
+        "arced text",
+        "Tailwind CSS curved text",
+        "UI text effects",
+        "creative text display",
+        "Sera UI components"
+    ],
+    openGraph: {
+        title: "Curved Text Component - Sera UI",
+        description: "Render text along a curved path with this customizable React component from Sera UI.",
+        type: "article",
+        url: "/docs/curved-text",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Curved Text Component - Sera UI",
+        description: "Render text along a curved path with this customizable React component from Sera UI.",
+    },
+    alternates: {
+        canonical: "/docs/curved-text",
+    },
+};
+
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import CanvasCurvedLoopExample from "./curved-text-view";
+
+<AI dir="left"/>
+
+# Curved Text Component
+A React component to render text along a curved path, perfect for creating visually appealing headlines, logos, and decorative text elements
+
+
+<Tabs defaultValue="preview" className="mb-8">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<CanvasCurvedLoopExample />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/curved-text/curved-text.tsx" />
+  </TabsContent>
+</Tabs>
+
+# Usage
+
+```tsx
+import { CurvedText } from "@/components/curved-text";
+
+export default function CanvasCurvedLoopExample() {
+  return (
+    <div className="flex flex-col items-center w-full font-sans">
+      <div className="w-full max-w-7xl px-4">
+        <CanvasCurvedLoop
+          text="A helpful UI library for design engineers. Use cool animations and components with just a copy and paste. Free and open source"
+          speed={1}
+          curveHeight={50}
+          fontSize={64}
+          color=""
+          height={200}
+          gap={0.5}
+          easing={0.05}
+          direction="left"
+          interactive={true}
+          className="rounded-lg overflow-hidden text-black dark:text-white"
+        />
+      </div>
+    </div>
+  );
+}
+```

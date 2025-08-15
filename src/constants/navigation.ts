@@ -98,6 +98,7 @@ export const navigation: NavigationItem[] = [
         href: "/docs/text-highlighter",
         badge: "New",
       },
+      { label: "Curved Text", href: "/docs/curved-text", badge: "New" },
     ],
   },
   {
