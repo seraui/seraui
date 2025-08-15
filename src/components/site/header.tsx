@@ -54,7 +54,7 @@ const SupportAlertBanner = () => {
         }
       `}</style>
       <div
-        className="sticky top-0 z-40 flex flex-row items-center justify-center px-4 text-center text-sm font-medium bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 relative"
+        className="sticky top-0 z-40 flex flex-row items-center justify-center px-4 text-center text-sm font-medium bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100"
         style={{ height: "3rem" }}
       >
         <div

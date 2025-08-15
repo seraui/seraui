@@ -1,0 +1,60 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import PhotoGlobeView from "./photo-globe-view";
+
+# 3D Photo Globe
+
+A fully interactive, responsive 3D globe featuring a grid of photos that dynamically react to user input. Includes hover effects, a popup modal for images, and an atmospheric glow.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<PhotoGlobeView />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/photo-globe/photo-globe.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Features
+
+- **Fully Interactive 3D Scene**: Built with Three.js for a smooth, hardware-accelerated experience.
+- **Responsive & Centered**: The globe automatically resizes and centers itself to fit any container, from full-screen to small divs.
+- **Dynamic Hover Effects**: Photo patches lift off the surface and emit a subtle glow when hovered over.
+- **Image Popup Modal**: Clicking a photo opens it in a clean, centered overlay with a backdrop.
+- **Atmospheric Glow**: A beautiful shader-based glow effect gives the globe a sense of depth and realism.
+- **Auto-Rotation**: The globe gently spins by default, which can be paused and resumed via UI controls.
+- **Dark Theme**: A sleek, dark, space-themed aesthetic that fits modern UIs.
+- **Optimized Performance**: Efficiently manages rendering and event listeners within a React `useEffect` hook for optimal performance and cleanup.
+
+## How to Use
+
+### Basic Usage
+
+The component is self-contained and designed to fill its parent container. For the best results, place it inside a container with a defined height.
+
+```tsx 
+import PhotoGlobe from './photo-globe';
+
+export function Example() {
+  return (
+    <div className="relative w-full h-[700px]">
+      <PhotoGlobe />
+    </div>
+  );
+}
+```
+# Props
+This component is self-contained and does not accept any external
+```
+creater: Nandan D
+```

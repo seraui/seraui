@@ -42,7 +42,7 @@ export const navigation: NavigationItem[] = [
       { label: "Modal Dialog", href: "/docs/modal", badge: "New" },
       { label: "HTML code runner", href: "/docs/html-code", badge: "New" },
       { label: "Infinite Grid", href: "/docs/infinite-grid", badge: "New" },
-      { label: "Orbiting Skills", href: "/docs/orbiting" , badge: "New" },
+      { label: "Orbiting Skills", href: "/docs/orbiting", badge: "New" },
     ],
   },
   {
@@ -128,6 +128,7 @@ export const navigation: NavigationItem[] = [
   {
     label: "Forms & Cards",
     children: [
+      { label: "3D Photo Globe", href: "/docs/photo-globe", badge: "New" },
       { label: "3D Card", href: "/docs/threed-card", badge: "New" },
       { label: "Login Form", href: "/docs/login" },
       { label: "Sign In Form", href: "/docs/signin" },
