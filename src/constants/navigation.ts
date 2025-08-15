@@ -162,8 +162,7 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "Retro-style Button", href: "/docs/retro-button" },
       { label: "Retro-style Card", href: "/docs/retro-card" },
-      { label: "Retro-style Accordion", href: "/docs/retro-style-accordion" },
-      
+      { label: "Retro-style Accordion", href: "/docs/retro-style-accordion" , badge : "New" }
     ],
   },
   {
