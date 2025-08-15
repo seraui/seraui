@@ -54,6 +54,7 @@ export const navigation: NavigationItem[] = [
       { label: "Dropdown Menu", href: "/docs/dropdown" },
       { label: "Shimmer Button", href: "/docs/shimmer" },
       { label: "Slide-out Drawer", href: "/docs/drawer" },
+      { label: "Liquid Glass Button", href: "/docs/liquid-glass", badge: "New" },
     ],
   },
   {
@@ -161,6 +162,8 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "Retro-style Button", href: "/docs/retro-button" },
       { label: "Retro-style Card", href: "/docs/retro-card" },
+      { label: "Retro-style Accordion", href: "/docs/retro-style-accordion" },
+      
     ],
   },
   {

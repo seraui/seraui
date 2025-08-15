@@ -1,0 +1,224 @@
+export const metadata = {
+    title: 'React Liquid Glass Component - Sera UI Component Library',
+    description: 'Advanced glassmorphism React component with SVG filters for chromatic aberration and liquid distortion effects. Create stunning glass UI elements with customizable variants and responsive design.',
+    keywords: [
+        'React glassmorphism',
+        'liquid glass effect',
+        'glass UI component',
+        'chromatic aberration',
+        'SVG filters',
+        'backdrop filter',
+        'glass morphism',
+        'Tailwind CSS glass',
+        'UI glass effects',
+        'frosted glass',
+        'Sera UI components'
+    ],
+    openGraph: {
+        title: 'Liquid Glass Component - Sera UI',
+        description: 'Advanced React glassmorphism component with SVG filters for creating stunning liquid glass UI elements with chromatic aberration effects.',
+        type: 'article',
+        url: '/docs/liquid-glass',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Liquid Glass Component - Sera UI',
+        description: 'Advanced React glassmorphism component with SVG filters for creating stunning liquid glass UI elements with chromatic aberration effects.',
+    },
+    alternates: {
+        canonical: '/docs/liquid-glass',
+    },
+};
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@/components/site/tabs.tsx";
+import { MdxTable } from "@/components/site/mdx-table.tsx";
+import LiquidGlassDemo from "./liquid-glass-demo"
+
+<AI dir="left"/>
+
+# Liquid Glass Component
+
+A sophisticated glassmorphism React component that creates stunning liquid glass effects using advanced SVG filters. Features chromatic aberration, customizable distortion, and multiple visual variants for modern UI design.
+
+
+## Preview
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<LiquidGlassDemo />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/liquid-glass/liquid-glass.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Features
+
+- **Advanced SVG Filters**: Chromatic aberration and displacement mapping for realistic glass effects
+- **Multiple Variants**: Subtle, default, bold, and ghost presets with customizable parameters
+- **Responsive Design**: Automatically adapts to container size changes
+- **Cross-browser Support**: Fallback rendering for browsers without SVG filter support
+- **Dark Mode Compatible**: Automatic theme detection and appropriate styling
+- **Accessibility**: Focus-visible states and proper ARIA support
+- **TypeScript**: Full type safety with comprehensive prop interfaces
+
+
+## Usage
+
+### Basic Glass Button
+
+```tsx
+import GlassButton from './liquid-glass';
+
+function App() {
+  return (
+    <GlassButton
+      variant="default"
+      size="md"
+      onClick={() => console.log('Clicked!')}
+    >
+      Click me
+    </GlassButton>
+  );
+}
+```
+
+### Custom Glass Surface
+
+```tsx
+import { Glass } from './liquid-glass';
+
+function App() {
+  return (
+    <Glass
+      variant="bold"
+      width={300}
+      height={200}
+      borderRadius={16}
+    >
+      <div className="p-4">
+        <h3>Glass Panel</h3>
+        <p>Content inside glass surface</p>
+      </div>
+    </Glass>
+  );
+}
+```
+
+## Variants
+
+The component includes four built-in variants:
+
+- **subtle**: Minimal glass effect with low opacity and gentle distortion
+- **default**: Balanced glass effect suitable for most use cases
+- **bold**: Strong glass effect with high saturation and pronounced distortion
+- **ghost**: Transparent variant with minimal background opacity
+
+## Props
+
+### GlassButton Props
+
+<MdxTable>
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'subtle' \| 'default' \| 'bold' \| 'ghost'` | `'default'` | Visual variant preset for the glass effect |
+| `size` | `'sm' \| 'md' \| 'lg' \| 'icon'` | `'md'` | Button size variant |
+| `children` | `React.ReactNode` | `undefined` | Button content |
+| `onClick` | `MouseEventHandler` | `undefined` | Click event handler |
+| `disabled` | `boolean` | `false` | Whether the button is disabled |
+| `className` | `string` | `''` | Additional CSS classes |
+| `textClassName` | `string` | `'text-white font-semibold'` | CSS classes for button text |
+</MdxTable>
+
+### Glass Props
+
+<MdxTable>
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'subtle' \| 'default' \| 'bold' \| 'ghost'` | `'default'` | Visual variant preset for the glass effect |
+| `width` | `number \| string` | `'auto'` | Width of the glass surface |
+| `height` | `number \| string` | `'auto'` | Height of the glass surface |
+| `borderRadius` | `number` | `20` | Border radius in pixels |
+| `opacity` | `number` | `0.93` | Overall opacity of the glass effect |
+| `blur` | `number` | varies by variant | Blur intensity for the glass effect |
+| `saturation` | `number` | varies by variant | Color saturation multiplier |
+| `brightness` | `number` | `55` | Brightness level for the glass surface |
+| `backgroundOpacity` | `number` | varies by variant | Opacity of the background color |
+| `distortionScale` | `number` | varies by variant | Scale of the chromatic aberration effect |
+| `redOffset` | `number` | varies by variant | Red channel displacement offset |
+| `greenOffset` | `number` | varies by variant | Green channel displacement offset |
+| `blueOffset` | `number` | varies by variant | Blue channel displacement offset |
+</MdxTable>
+
+## Advanced Customization
+
+### Custom Glass Effect
+
+```tsx
+<Glass
+  variant="default"
+  backgroundOpacity={0.15}
+  saturation={2.0}
+  brightness={65}
+  blur={15}
+  distortionScale={-200}
+  redOffset={4}
+  greenOffset={8}
+  blueOffset={16}
+  borderRadius={24}
+>
+  <div className="p-6">
+    Custom glass panel with enhanced effects
+  </div>
+</Glass>
+```
+
+### Responsive Glass Container
+
+```tsx
+<Glass
+  width="100%"
+  height="auto"
+  className="min-h-[200px] max-w-md mx-auto"
+  variant="subtle"
+>
+  <div className="p-4 w-full">
+    Responsive glass container that adapts to content
+  </div>
+</Glass>
+```
+
+## Browser Support
+
+The component automatically detects browser capabilities and provides appropriate fallbacks:
+
+- **Modern browsers**: Full SVG filter support with chromatic aberration
+- **Safari/Firefox**: Backdrop filter fallback with blur and saturation
+- **Legacy browsers**: Static glass appearance with border and shadow effects
+
+## Performance Considerations
+
+- SVG filters are GPU-accelerated in modern browsers
+- ResizeObserver efficiently handles container size changes
+- Memoized calculations prevent unnecessary re-renders
+- Automatic cleanup of event listeners and observers
+
+## Accessibility
+
+- Focus-visible states for keyboard navigation
+- Proper ARIA attributes for interactive elements
+- High contrast support in fallback modes
+- Screen reader compatible content structure
+

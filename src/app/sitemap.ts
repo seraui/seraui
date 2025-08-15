@@ -90,5 +90,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://seraui.seraprogrammer.com/docs/footer/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: 'https://seraui.seraprogrammer.com/docs/forgotpassword/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: 'https://seraui.seraprogrammer.com/docs/teammember/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://seraui.seraprogrammer.com/docs/liquid-glass/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   ]
 }

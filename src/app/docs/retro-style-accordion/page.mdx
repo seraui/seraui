@@ -1,0 +1,106 @@
+export const metadata = {
+    title: 'Retro Style Accordion Component - Sera UI Component Library',
+    description: 'A vintage-style retro accordion component with classic aesthetics, hard shadows, and a nostalgic design. Perfect for retro-themed applications and interfaces.',
+    keywords: [
+        'React retro accordion',
+        'vintage accordion',
+        'retro UI component',
+        'classic accordion design',
+        'nostalgic accordion',
+        'collapsible retro panel',
+        'Tailwind CSS retro accordion',
+        'UI retro library',
+        'vintage design',
+        'Sera UI components'
+    ],
+    openGraph: {
+        title: 'Retro Style Accordion Component - Sera UI',
+        description: 'A vintage-style React retro accordion component with classic aesthetics and hard shadows for retro-themed applications.',
+        type: 'article',
+        url: '/docs/Retro-style-accordion',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Retro Style Accordion Component - Sera UI',
+        description: 'A vintage-style React retro accordion component with classic aesthetics and hard shadows for retro-themed applications.',
+    },
+    alternates: {
+        canonical: '/docs/Retro-style-accordion',
+    },
+};
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@/components/site/tabs.tsx";
+import RetroStyleAccordionDemo from "./retro-style-accordion-demo";
+
+
+<AI dir="left"/>
+
+# Retro Style Accordion
+
+A retro-style accordion component that brings a nostalgic, vintage feel to your user interface. It features a classic design with hard shadows and a distinct, old-school aesthetic, perfect for applications aiming for a retro look.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<RetroStyleAccordionDemo />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/Retro-style-accordion/Retro-style-accordion.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+To use the retro style accordion, import the necessary components and structure them as shown below.
+
+```tsx
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/retro-style-accordion"; // Adjust the import path if needed
+
+export default function MyAccordion() {
+  return (
+    <Accordion defaultValue="item-1" className="w-full max-w-md">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>
+          <p className="p-4">
+            Yes. It follows the WAI-ARIA design pattern for accordions, ensuring it is accessible to screen readers and keyboard users.
+          </p>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Can I customize the style?</AccordionTrigger>
+        <AccordionContent>
+          <p className="p-4">
+            Absolutely. The component is built with Tailwind CSS, and you can easily customize the appearance by passing your own classes.
+          </p>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+### Components
+
+The accordion is composed of several components that work together:
+
+-   **`Accordion`**: The main wrapper that provides context and state management for the accordion group.
+-   **`AccordionItem`**: A container for each individual collapsible section. It requires a unique `value` prop.
+-   **`AccordionTrigger`**: The button element that the user clicks to open or close an `AccordionItem`.
+-   **`AccordionContent`**: The container for the content that is revealed when an `AccordionItem` is open.
