@@ -128,7 +128,6 @@ export const navigation: NavigationItem[] = [
   {
     label: "Forms & Cards",
     children: [
-      { label: "3D Photo Globe", href: "/docs/photo-globe", badge: "New" },
       { label: "3D Card", href: "/docs/threed-card", badge: "New" },
       { label: "Login Form", href: "/docs/login" },
       { label: "Sign In Form", href: "/docs/signin" },
