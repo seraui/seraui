@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Search, Command, FileText, Home, Settings } from "lucide-react";
 import { getAllSearchableItems, searchItems, SearchableItem } from "@/lib/search-registry";
@@ -32,6 +32,11 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
   
   const inputRef = useRef<HTMLInputElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+
+  const handleSelectAndClose = useCallback(() => {
+    setQuery("");
+    onClose();
+  }, [onClose]);
 
   // Update filtered items when query changes
   useEffect(() => {
@@ -74,7 +79,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
           e.preventDefault();
           if (filteredItems[selectedIndex]) {
             window.location.href = filteredItems[selectedIndex].href;
-            onClose();
+            handleSelectAndClose();
           }
           break;
         case "Escape":
@@ -86,7 +91,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, filteredItems, selectedIndex, onClose]);
+  }, [isOpen, filteredItems, selectedIndex, onClose, handleSelectAndClose]);
 
   // Handle click outside
   useEffect(() => {
@@ -151,7 +156,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
                     <Link
                       key={item.id}
                       href={item.href}
-                      onClick={onClose}
+                      onClick={handleSelectAndClose}
                       className={`flex items-center gap-3 px-4 py-3 hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-colors ${
                         index === selectedIndex
                           ? "bg-white/50 dark:bg-zinc-900/50"
