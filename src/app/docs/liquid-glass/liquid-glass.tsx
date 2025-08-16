@@ -7,7 +7,6 @@ import { twMerge } from "tailwind-merge";
 // utility
 const cn = (...inputs: Parameters<typeof clsx>) => twMerge(clsx(inputs));
 
-// Helper hook to detect dark mode
 const useDarkMode = (): boolean => {
   const [isDark, setIsDark] = useState(false);
 
@@ -25,9 +24,7 @@ const useDarkMode = (): boolean => {
   return isDark;
 };
 
-// ---- Glass variants (presets) ----
-// Variants tweak the "feel" of the glass by changing effect props.
-// You can add more (outline, tinted, success, warning, etc.) later.
+
 const GLASS_PRESETS = {
   subtle: {
     backgroundOpacity: 0.06,
@@ -81,7 +78,6 @@ const GLASS_PRESETS = {
 
 type GlassVariant = keyof typeof GLASS_PRESETS;
 
-// Default props if nothing is provided
 const GLASS_DEFAULTS = {
   width: "auto",
   height: "auto",
@@ -124,7 +120,6 @@ const Glass: React.FC<GlassProps> = (rawProps) => {
     children,
     className = "",
     style = {},
-    // allow per-instance overrides (everything’s optional)
     width,
     height,
     borderRadius,
@@ -158,7 +153,6 @@ const Glass: React.FC<GlassProps> = (rawProps) => {
 
   const isDarkMode = useDarkMode();
 
-  // Merge: defaults -> preset (by variant) -> overrides (props win)
   const v = useMemo(() => {
     const p = GLASS_PRESETS[variant] ?? GLASS_PRESETS.default;
     return {
@@ -510,7 +504,6 @@ const Glass: React.FC<GlassProps> = (rawProps) => {
   );
 };
 
-// --- Button sizes via cva (shadcn style) ---
 const glassButtonSizes = cva("rounded-[inherit]", {
   variants: {
     size: {
@@ -525,8 +518,6 @@ const glassButtonSizes = cva("rounded-[inherit]", {
   },
 });
 
-// --- GlassButton.jsx ---
-// Supports: variant="subtle|default|bold|ghost", size="sm|md|lg|icon"
 type GlassButtonProps = {
   children: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -545,14 +536,13 @@ const GlassButton: React.FC<GlassButtonProps> = ({
   size = "md",
   textClassName = "text-white font-semibold",
   disabled,
-  ...surfaceOverrides // width/height/etc if you still want to override per instance
+  ...surfaceOverrides 
 }) => {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        // base button behaviors
         "relative inline-flex items-center justify-center cursor-pointer select-none",
         "transform active:scale-95 transition-transform duration-150 ease-in-out",
         "focus:outline-none disabled:opacity-50 disabled:pointer-events-none",

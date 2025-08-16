@@ -95,27 +95,6 @@ function App() {
 }
 ```
 
-### Custom Glass Surface
-
-```tsx
-import { Glass } from './liquid-glass';
-
-function App() {
-  return (
-    <Glass
-      variant="bold"
-      width={300}
-      height={200}
-      borderRadius={16}
-    >
-      <div className="p-4">
-        <h3>Glass Panel</h3>
-        <p>Content inside glass surface</p>
-      </div>
-    </Glass>
-  );
-}
-```
 
 ## Variants
 
@@ -142,63 +121,6 @@ The component includes four built-in variants:
 | `textClassName` | `string` | `'text-white font-semibold'` | CSS classes for button text |
 </MdxTable>
 
-### Glass Props
-
-<MdxTable>
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `'subtle' \| 'default' \| 'bold' \| 'ghost'` | `'default'` | Visual variant preset for the glass effect |
-| `width` | `number \| string` | `'auto'` | Width of the glass surface |
-| `height` | `number \| string` | `'auto'` | Height of the glass surface |
-| `borderRadius` | `number` | `20` | Border radius in pixels |
-| `opacity` | `number` | `0.93` | Overall opacity of the glass effect |
-| `blur` | `number` | varies by variant | Blur intensity for the glass effect |
-| `saturation` | `number` | varies by variant | Color saturation multiplier |
-| `brightness` | `number` | `55` | Brightness level for the glass surface |
-| `backgroundOpacity` | `number` | varies by variant | Opacity of the background color |
-| `distortionScale` | `number` | varies by variant | Scale of the chromatic aberration effect |
-| `redOffset` | `number` | varies by variant | Red channel displacement offset |
-| `greenOffset` | `number` | varies by variant | Green channel displacement offset |
-| `blueOffset` | `number` | varies by variant | Blue channel displacement offset |
-</MdxTable>
-
-## Advanced Customization
-
-### Custom Glass Effect
-
-```tsx
-<Glass
-  variant="default"
-  backgroundOpacity={0.15}
-  saturation={2.0}
-  brightness={65}
-  blur={15}
-  distortionScale={-200}
-  redOffset={4}
-  greenOffset={8}
-  blueOffset={16}
-  borderRadius={24}
->
-  <div className="p-6">
-    Custom glass panel with enhanced effects
-  </div>
-</Glass>
-```
-
-### Responsive Glass Container
-
-```tsx
-<Glass
-  width="100%"
-  height="auto"
-  className="min-h-[200px] max-w-md mx-auto"
-  variant="subtle"
->
-  <div className="p-4 w-full">
-    Responsive glass container that adapts to content
-  </div>
-</Glass>
-```
 
 ## Browser Support
 

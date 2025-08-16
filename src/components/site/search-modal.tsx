@@ -113,7 +113,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-50 bg-black/40 backdrop-blur-md"
       >
-        <div className="flex items-start justify-center pt-[10vh] px-4">
+        <div className="flex items-center justify-center min-h-screen px-4">
           <motion.div
             ref={modalRef}
             initial={{ opacity: 0, scale: 0.95, y: -20 }}

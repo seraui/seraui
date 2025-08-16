@@ -9,7 +9,6 @@ export const Hero = () => {
     <div className="relative flex items-center justify-center overflow-hidden">
       {/* Base Grid Background - Very Low Opacity */}
       <div className="absolute inset-0 grid-bg-hero" />
-
       {/* Light mode: Very subtle top fade, Dark mode: More pronounced */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/1 to-transparent dark:from-black/60 dark:via-black/10 dark:to-transparent" />
 
