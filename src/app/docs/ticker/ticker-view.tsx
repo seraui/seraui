@@ -7,7 +7,7 @@ export default function Tickerview() {
         <NumberTicker
             value={100}
             duration={2500}
-            className="text-9xl font-bold text-white transition-all"
+            className="text-9xl font-bold text-black dark:text-white transition-all"
             prefix="$"
             decimalPlaces={2}
         />
