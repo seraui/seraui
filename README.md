@@ -1,17 +1,10 @@
 # Sera UI
 <a href="https://www.producthunt.com/products/sera-ui?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-sera&#0045;ui" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=994756&theme=light&t=1752876970839" alt="Sera&#0032;UI - Modern&#0032;react&#0032;component&#0032;library | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-<div style="text-align: center; padding: 20px;">
+<div align="center">
   <h2>🚀 Join Our Official Discord Server!</h2>
   <p>Stay connected with the community, get support, share ideas, and be part of something amazing!</p>
-  <a href="https://discord.gg/XqQkbTptvJ" target="_blank" style="padding: 10px 20px; background-color: #5865F2; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">
-    Join Discord
-  </a>
-  <br/>
-  <a href="https://x.com/devshowcse" target="_blank" style="padding: 10px 20px; background-color: #5865F2; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">
-    Ask on X
-  </a>
-
-
+  <a href="https://discord.gg/XqQkbTptvJ" target="_blank"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="join-discord"></a>
+  <a href="https://x.com/devshowcse" target="_blank"><img src="https://img.shields.io/badge/Ask%20on%20X-000000?style=for-the-badge&logo=x&logoColor=white" alt="ask-on-x"></a>
 </div>
 
 ---
@@ -82,19 +75,23 @@ For manual installation, you can copy and paste the component code directly from
 
 We are constantly growing our library of components. Here are some of the components currently available:
 
-* Accordion
+* [Accordion](https://seraui.seraprogrammer.com/docs/accordion/)
 * Alert
 * Avatar
-* Badge
-* Button
-* Card
+* [Badge](https://seraui.seraprogrammer.com/docs/badge/)
+* [Button](https://seraui.seraprogrammer.com/docs/button/)
+* [Card](https://seraui.seraprogrammer.com/docs/card/)
+* [Carousel](https://seraui.seraprogrammer.com/docs/carousel/)
 * Checkbox
-* Dialog (Modal)
-* Input
-* Label
-* Select
-* Tabs
-* Textarea
+* [Dialog (Modal)](https://seraui.seraprogrammer.com/docs/modal/)
+* [Dropdown Menu](https://seraui.seraprogrammer.com/docs/dropdown/)
+* [Divider](https://seraui.seraprogrammer.com/docs/divider/)
+* [Form (Input & Label)](https://seraui.seraprogrammer.com/docs/login/)
+* [Layout](https://seraui.seraprogrammer.com/docs/masonary/)
+* [Select (Combobox)](https://seraui.seraprogrammer.com/docs/combo-box/)
+* [Tabs](https://seraui.seraprogrammer.com/docs/tabs/)
+* [Text](https://seraui.seraprogrammer.com/docs/text/)
+* [Toast](https://seraui.seraprogrammer.com/docs/toast/)
 * Tooltip
 
 ...and more are on the way!
@@ -109,7 +106,7 @@ Sera UI is built on top of **Tailwind CSS**, making it incredibly easy to custom
 
 ## 📜 License
 
-Sera UI is an open-source project released under the **MIT License**. This means you are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software.
+`Sera UI` is an open-source project released under the **MIT License**. This means you are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software.
 
 ---
 
@@ -117,5 +114,5 @@ Sera UI is an open-source project released under the **MIT License**. This means
 
 Have a question or want to get involved?
 
-* **GitHub Discussions:** The best place to ask questions, share ideas, and get help from the community.
-* **Report an Issue:** If you find a bug, please report it on our GitHub Issues page.
+* [**GitHub Discussions:**](https://github.com/seraui/seraui/discussions/new/choose) The best place to ask questions, share ideas, and get help from the community.
+* [**Report an Issue:**](https://github.com/seraui/seraui/issues) If you find a bug, please report it on our GitHub Issues page.
