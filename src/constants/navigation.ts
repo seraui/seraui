@@ -43,6 +43,7 @@ export const navigation: NavigationItem[] = [
       { label: "HTML code runner", href: "/docs/html-code", badge: "New" },
       { label: "Infinite Grid", href: "/docs/infinite-grid", badge: "New" },
       { label: "Orbiting Skills", href: "/docs/orbiting", badge: "New" },
+      { label: "Orbiting Carousel", href: "/docs/orbit-carousel", badge: "New" },
     ],
   },
   {
