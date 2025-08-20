@@ -100,6 +100,7 @@ export const navigation: NavigationItem[] = [
         badge: "New",
       },
       { label: "Curved Text", href: "/docs/curved-text", badge: "New" },
+      { label: "Kbd Text", href: "/docs/kbd", badge: "New" },
     ],
   },
   {
