@@ -1,0 +1,78 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import KbdView from "./kbd-view";
+import Kbd from "./kbd";
+import { PropsTable } from "@/components/site/props-table.tsx";
+
+# Kbd
+
+A minimalistic keyboard key component designed with React and Tailwind CSS. Use it to display shortcuts (like Ctrl + C) and keypress hints inline with your content for better usability and accessibility.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<KbdView />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/kbd/kbd.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Sizes
+
+<div className="mt-4 flex items-center gap-4">
+  <Kbd size="sm">Esc</Kbd>
+  <Kbd size="md">Esc</Kbd>
+  <Kbd size="lg">Esc</Kbd>
+</div>
+
+
+```tsx
+import Kbd from "./kbd";
+
+export function Sizes() {
+  return (
+    <div className="flex items-center gap-4">
+      <Kbd size="sm">Esc</Kbd>
+      <Kbd size="md">Esc</Kbd>
+      <Kbd size="lg">Esc</Kbd>
+    </div>
+  );
+}
+```
+
+
+## Usage
+
+```tsx
+import Kbd from "./kbd";
+
+export function Example() {
+  return (
+    <div>
+      <Kbd>Esc</Kbd>
+      <span> to close, </span>
+      <Kbd>Ctrl</Kbd> + <Kbd>C</Kbd> to copy
+    </div>
+  );
+}
+```
+
+## Props
+
+<PropsTable
+  props={[
+    { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Visual size of the keycap." },
+    { name: "className", type: "string", description: "Additional Tailwind classes to customize styling." },
+  ]}
+/>
+
