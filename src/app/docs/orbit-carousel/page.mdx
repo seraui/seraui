@@ -1,0 +1,78 @@
+export const metadata = {
+  title: "Orbiting Carousel Component - Sera UI",
+  description: "A dynamic carousel component that showcases items in a circular, orbiting animation. Ideal for featuring skills, technologies, or portfolio pieces.",
+  keywords: [
+    "React carousel",
+    "orbiting animation",
+    "circular carousel",
+    "animated gallery",
+    "skills showcase",
+    "portfolio component",
+    "Tailwind CSS carousel",
+    "interactive UI",
+    "Sera UI components"
+  ],
+  openGraph: {
+    title: "Orbiting Carousel Component - Sera UI",
+    description: "A dynamic carousel component that showcases items in a circular, orbiting animation. Ideal for featuring skills, technologies, or portfolio pieces.",
+    type: "article",
+    url: "/docs/orbit-carousel",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Orbiting Carousel Component - Sera UI",
+    description: "A dynamic carousel component that showcases items in a circular, orbiting animation. Ideal for featuring skills, technologies, or portfolio pieces.",
+  },
+  alternates: {
+    canonical: "/docs/orbit-carousel",
+  },
+};
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import OrbitCarousel from "./orbit-carousel"
+import OrbitCarousel2 from "./orbit-carousel2"
+
+<AI dir="left"/>
+
+# Orbiting Carousel
+
+The Orbiting Carousel is a stunning visual component that arranges items in a circular path, creating a captivating orbiting effect. It's perfect for showcasing logos, skills, or featured products in a dynamic and engaging way.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<OrbitCarousel />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/orbit-carousel/orbit-carousel.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+# Orbiting Carousel with Animated Icons
+
+This variation of the Orbiting Carousel adds a layer of interactivity with animated icons. Each item in the carousel not only orbits but also features its own animation, drawing attention and adding a playful touch to your UI.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<OrbitCarousel2 />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/orbit-carousel/orbit-carousel2.tsx" />
+  </TabsContent>
+</Tabs>
