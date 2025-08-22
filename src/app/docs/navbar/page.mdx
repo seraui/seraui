@@ -45,6 +45,9 @@ import Header2 from "./header2.tsx";
 import Header3 from "./header3.tsx";
 import Header4 from "./header4.tsx";
 import MenuBar from "./animatedmenu.tsx"
+import PortfolioHeader from "./navbar2.tsx"
+import BlogHeader from "./navbar3.tsx"
+
 
 <HideTOC />
 
@@ -53,6 +56,46 @@ import MenuBar from "./animatedmenu.tsx"
 # Navigation Components
 
 A comprehensive collection of modern, responsive navigation components designed for web applications. These navbar components feature clean designs, smooth animations, mobile-first responsive layouts, and accessibility-focused implementations.
+
+
+# Blog Header
+The **Blog Header** component is a customizable header section designed for Blog or personal websites.
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<BlogHeader />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/navbar/navbar3.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+# PortfolioHeader
+
+The **PortfolioHeader** component is a customizable header section designed for portfolio or personal websites.  
+It provides an elegant way to display navigation, branding, or quick links at the top of your portfolio page.
+
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<PortfolioHeader />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/navbar/navbar2.tsx" />
+  </TabsContent>
+</Tabs>
+
+
 
 # Animated Menu
  A unique and interactive navigation menu with animated icons and gradients.

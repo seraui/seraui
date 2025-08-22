@@ -42,7 +42,7 @@ export function ComponentRenderer({
     <div
       ref={containerRef}
       className={cn(
-        "group flex w-full items-center justify-center rounded-lg p-4 relative not-prose grid-bg bg-white dark:bg-black",
+        "flex w-full items-center justify-center rounded-lg p-4 relative not-prose grid-bg bg-white dark:bg-black",
         isFullPage ? "fixed inset-0 top-16 z-50 min-h-screen rounded-none overflow-auto" : "min-h-[350px]",
         className
       )}
@@ -66,7 +66,7 @@ export function ComponentRenderer({
         <Expand size={20} className="text-zinc-700 dark:text-zinc-300" />
       </button>
       {reTrigger && (
-        <div className={`absolute top-3 ${componentName ? 'right-20' : 'right-12'}`}>
+        <div className={`absolute top-3 ${componentName ? 'right-20' : 'right-12'} group`}>
           <button
             onClick={changeKey}
             className="cursor-pointer p-1 flex items-center gap-3 opacity-0 transition-opacity group-hover:opacity-100 text-zinc-700 dark:text-zinc-300"

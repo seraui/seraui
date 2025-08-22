@@ -15,6 +15,16 @@ function Testimonial() {
       text: "I’m speechless. This site is extraordinary! I’m truly surprised after visiting it. It’s so good means so good. I have no words to describe it.",
       image: "https://i.postimg.cc/3rjmyNYJ/image.png",
     },
+   {
+    name: "Jakaria Ahmed",
+    title: "Web Designer",
+    text: `Sera UI is truly amazing! 🎉
+       The interface is clean, the color scheme is pleasant to the eyes, and the navigation feels super smooth. I especially love the user-friendly design—it’s easy for even new users to get comfortable quickly.
+       In the future, adding a dark mode and more customization options could make it even more powerful.
+       Kudos to the team for such an impressive work. 🙌`,
+    image: "https://i.postimg.cc/4xpQZLVt/image.png",
+   },
+
     {
       name: "Sidharth Baby",
       title: "Full Stack Developer",
@@ -51,6 +61,21 @@ function Testimonial() {
       text: "I have been watching this project from the early versions, loving the improvement, brother.",
       image: "https://avatars.githubusercontent.com/u/121743420?v=4",
     },
+    {
+      name: "Rashel Hossen",
+      title: "Full Stack Developer",
+      text: "I have been following your work for a considerable period, as have my colleagues, including international software engineers. It is regrettable that we have not had the opportunity to connect earlier. Otherwise, we would have welcomed the chance for engaging discussions with you. We hold your SeraUi in high regard and intend to incorporate it into our work. I am particularly fond of it myself. I hope that we can have a pleasant conversation in the future.",
+      image: "https://i.postimg.cc/MT9YNnRF/image.png",
+    },
+    {
+  name: "Md Sinikdho Mahmud",
+  title: "Web Developer",
+  text: `Sera UI truly lives up to its name—it's the best in both design and performance.  
+The UI components are next-level and incredibly good-looking.  
+In one word: outstanding! I'm using Sera UI in my projects, and it’s working perfectly.`,
+  image: "https://i.postimg.cc/rsttjs9W/image.png",
+},
+
   ];
 
   const anonymousFallbackImage =
