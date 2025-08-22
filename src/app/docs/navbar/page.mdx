@@ -47,6 +47,7 @@ import Header4 from "./header4.tsx";
 import MenuBar from "./animatedmenu.tsx"
 import PortfolioHeader from "./navbar2.tsx"
 import BlogHeader from "./navbar3.tsx"
+import GlassmorphismHeader from "./navbar5.tsx"
 
 
 <HideTOC />
@@ -175,7 +176,7 @@ An advanced navigation component with enhanced features, perfect for complex app
 
 ## Premium Header
 
-A premium navigation header with full-featured mobile menu, dark mode support, and polished animations. Ideal for modern web applications.
+A premium navigation header with full-featured mobile menu, and polished animations. Ideal for modern web applications.
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -205,5 +206,24 @@ A standalone navigation header component with a static logged-in view, perfect f
   </TabsContent>
   <TabsContent value="code">
     <CodeBlock filePath="src/app/docs/navbar/header4.tsx" />
+  </TabsContent>
+</Tabs>
+
+---
+
+# Glassmorphism Header
+
+A modern glassmorphism navigation header with translucent backgrounds, backdrop blur effects, and gradient accents. Perfect for contemporary web applications seeking a sleek, modern aesthetic with depth and visual hierarchy.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<GlassmorphismHeader />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/navbar/navbar5.tsx" />
   </TabsContent>
 </Tabs>

@@ -1,0 +1,94 @@
+export const metadata = {
+    title: 'Timeline Component - Sera UI Component Library',
+    description: 'Visually represent a sequence of events in chronological order. Ideal for illustrating project milestones, historical events, or user activity feeds.',
+    keywords: [
+        'React timeline component',
+        'vertical timeline',
+        'horizontal timeline',
+        'event timeline',
+        'chronological order',
+        'Tailwind CSS timeline',
+        'UI timeline library',
+        'Sera UI components'
+    ],
+    openGraph: {
+        title: 'Timeline Component - Sera UI',
+        description: 'Visually represent a sequence of events in chronological order with this customizable React timeline component.',
+        type: 'article',
+        url: '/docs/timeline',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Timeline Component - Sera UI',
+        description: 'Visually represent a sequence of events in chronological order with this customizable React timeline component.',
+    },
+    alternates: {
+        canonical: '/docs/timeline',
+    },
+};
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import TimelinePage from "./timeline"
+import TimelinePage2 from "./timeline2"
+import TimelinePage3 from "./timeline3"
+
+
+
+## Professional Timeline
+A Professional, clean, and effective timeline component. Perfect for showcasing events in a straightforward, easy-to-read format.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TimelinePage3 />}/>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/timeline/timeline3.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+
+## Simple Timeline
+A simple, clean, and effective timeline component. Perfect for showcasing events in a straightforward, easy-to-read format.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TimelinePage />}/>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/timeline/timeline.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Modern Timeline
+A modern, visually appealing timeline with a central axis. Ideal for portfolios, company histories, or any scenario where a strong visual narrative is desired.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<TimelinePage2 />}/>
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/timeline/timeline2.tsx" />
+  </TabsContent>
+</Tabs>

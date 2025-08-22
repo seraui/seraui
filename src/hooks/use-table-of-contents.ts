@@ -24,6 +24,8 @@ export function useTableOfContents() {
         const headings = mainContent.querySelectorAll("h1, h2, h3");
         const tocItems: TOCItem[] = [];
 
+        const usedIds = new Set<string>();
+
         headings.forEach((heading, index) => {
           // Skip if heading is empty or just whitespace
           const text = heading.textContent?.trim();
@@ -33,12 +35,24 @@ export function useTableOfContents() {
 
           // If heading doesn't have an id, create one from the text
           if (!id) {
-            id = text
+            const baseId = text
               .toLowerCase()
               .replace(/[^a-z0-9]+/g, "-")
               .replace(/(^-|-$)/g, "") || `heading-${index}`;
+
+            // Ensure the ID is unique
+            id = baseId;
+            let counter = 1;
+            while (usedIds.has(id)) {
+              id = `${baseId}-${counter}`;
+              counter++;
+            }
+
             heading.id = id;
           }
+
+          // Track this ID to prevent duplicates
+          usedIds.add(id);
 
           // Get the heading level from the tag name
           const level = parseInt(heading.tagName.charAt(1));

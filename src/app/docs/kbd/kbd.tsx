@@ -24,8 +24,9 @@ export const Kbd = React.forwardRef<HTMLElement, KbdProps>(function Kbd(
       ref={ref as React.Ref<HTMLElement>}
       className={cn(
         "inline-flex items-center rounded border border-slate-200 bg-slate-50 text-slate-800 shadow-sm",
-        "dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200",
+        "dark:border-zinc-800 dark:bg-black dark:text-zinc-100",
         "font-mono select-none leading-none",
+        "transition-colors duration-200",
         sizeClasses[size],
         className
       )}
@@ -39,4 +40,3 @@ export const Kbd = React.forwardRef<HTMLElement, KbdProps>(function Kbd(
 Kbd.displayName = "Kbd";
 
 export default Kbd;
-
