@@ -24,6 +24,16 @@ const nextConfig: NextConfig = {
     domains: ["i.postimg.cc", "i.pinimg.com", "avatars.githubusercontent.com"],
   },
 
+  // Handle MD files serving from public/docs-md directory at /docs/ URL
+  async rewrites() {
+    return [
+      {
+        source: '/docs/:path*.md',
+        destination: '/docs-md/:path*.md',
+      },
+    ];
+  },
+
   // Static export doesn't support headers() or redirects()
   // These will be handled by your hosting provider (Vercel)
 

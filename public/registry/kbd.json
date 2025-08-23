@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "title": "Kbd",
+  "description": "A minimalistic kbd component designed with React and Tailwind CSS.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "kbd.tsx",
+      "content": "import Kbd from \"./kbd\";\r\n\r\nexport default function KbdView() {\r\n  return (\r\n    <div className=\"flex w-full items-center justify-center gap-2 p-8\">\r\n      <Kbd>Ctrl</Kbd>\r\n      <span className=\"opacity-60\">+</span>\r\n      <Kbd>C</Kbd>\r\n    </div>\r\n  );\r\n}\r\n\r\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "kbd.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nexport type KbdSize = \"sm\" | \"md\" | \"lg\";\r\n\r\nexport interface KbdProps extends React.HTMLAttributes<HTMLElement> {\r\n  size?: KbdSize;\r\n}\r\n\r\nexport const Kbd = React.forwardRef<HTMLElement, KbdProps>(function Kbd(\r\n  { className, size = \"md\", children, ...props },\r\n  ref\r\n) {\r\n  const sizeClasses: Record<KbdSize, string> = {\r\n    sm: \"text-xs px-1.5 py-0.5\",\r\n    md: \"text-sm px-2 py-1\",\r\n    lg: \"text-base px-2.5 py-1.5\",\r\n  };\r\n\r\n  return (\r\n    <kbd\r\n      ref={ref as React.Ref<HTMLElement>}\r\n      className={cn(\r\n        \"inline-flex items-center rounded border border-slate-200 bg-slate-50 text-slate-800 shadow-sm\",\r\n        \"dark:border-zinc-800 dark:bg-black dark:text-zinc-100\",\r\n        \"font-mono select-none leading-none\",\r\n        \"transition-colors duration-200\",\r\n        sizeClasses[size],\r\n        className\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </kbd>\r\n  );\r\n});\r\n\r\nKbd.displayName = \"Kbd\";\r\n\r\nexport default Kbd;",
+      "type": "registry:ui"
+    }
+  ]
+}

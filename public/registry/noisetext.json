@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "noisetext",
+  "title": "Noisetext",
+  "description": "A minimalistic noisetext component designed with React and Tailwind CSS.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "noisetext.tsx",
+      "content": "import NoiseText from './noisetext';\r\n\r\nexport default function NoisetextView() {\r\n  return (\r\n    <NoiseText className=\"z-20\">\r\n      <span className=\"bg-gradient-to-t from-green-300 to-green-600 bg-clip-text text-transparent text-7xl font-bold font-mono\">\r\n        SERA UI\r\n      </span>\r\n    </NoiseText>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "noisetext.tsx",
+      "content": "'use client';\r\nimport React from 'react';\r\n\r\nconst NoiseText = ({\r\n  children,\r\n  className = '',\r\n}: React.PropsWithChildren<{ className?: string }>) => (\r\n  <span\r\n    className={`\r\n      relative inline-block w-fit rounded-lg px-4 py-2\r\n      backdrop-blur-md\r\n\r\n      /* Glass background */\r\n      bg-white/60  dark:bg-white/10\r\n\r\n      /* Border */\r\n      border border-black/10 dark:border-white/20\r\n\r\n      /* Shadow */\r\n      shadow-lg shadow-black/10 dark:shadow-black/40\r\n      ${className}\r\n    `}\r\n  >\r\n    {/* noise overlay */}\r\n    <span\r\n      aria-hidden\r\n      style={{ opacity: 0.06 }}\r\n      className=\"\r\n        absolute inset-0 pointer-events-none\r\n        bg-[url('https://i0.wp.com/css-tricks.com/wp-content/uploads/2022/11/tv-static-gif-7.gif')]\r\n        mix-blend-overlay dark:mix-blend-soft-light\r\n      \"\r\n    />\r\n\r\n    {/* actual payload */}\r\n    <span className=\"relative z-10 text-slate-900 dark:text-white font-medium text-sm\">\r\n      {children}\r\n    </span>\r\n  </span>\r\n);\r\n\r\nexport default NoiseText;\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

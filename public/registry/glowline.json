@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glowline",
+  "title": "Glowline",
+  "description": "A minimalistic glowline component designed with React and Tailwind CSS.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "glowline.tsx",
+      "content": "import GlowLine from './glowline';\r\n\r\n// Main App component\r\nconst GlowlineView: React.FC = () => {\r\n  return (\r\n    <div className=\"relative w-full h-screen overflow-hidden\">\r\n      {/* Glow lines */}\r\n\r\n      <GlowLine orientation=\"horizontal\" position=\"50%\" color=\"blue\" />\r\n      <GlowLine orientation=\"horizontal\" position=\"30%\" color=\"green\" />\r\n      <GlowLine orientation=\"horizontal\" position=\"70%\" color=\"red\" />\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default GlowlineView;\r\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "glowline.tsx",
+      "content": "import React from 'react';\r\n\r\n// Type definitions\r\ntype Orientation = 'vertical' | 'horizontal';\r\ntype ColorScheme = 'purple' | 'blue' | 'green' | 'red';\r\n\r\ninterface GlowLineProps {\r\n  orientation: Orientation;\r\n  position: string;\r\n  className?: string;\r\n  color: ColorScheme;\r\n}\r\n\r\ninterface GlowLayer {\r\n  size: string;\r\n  blur: string;\r\n  opacity: string;\r\n  color: string;\r\n}\r\n\r\ninterface ColorSchemeConfig {\r\n  core: string;\r\n  glow: string[];\r\n}\r\n\r\n// Color schemes configuration\r\nconst COLOR_SCHEMES: Record<ColorScheme, ColorSchemeConfig> = {\r\n  purple: {\r\n    core: 'via-purple-400',\r\n    glow: ['via-purple-400', 'via-purple-500', 'via-purple-400', 'via-purple-300'],\r\n  },\r\n  blue: {\r\n    core: 'via-blue-400',\r\n    glow: ['via-blue-400', 'via-blue-500', 'via-blue-400', 'via-blue-300'],\r\n  },\r\n  green: {\r\n    core: 'via-green-400',\r\n    glow: ['via-green-400', 'via-green-500', 'via-green-400', 'via-green-300'],\r\n  },\r\n  red: {\r\n    core: 'via-red-400',\r\n    glow: ['via-red-400', 'via-red-500', 'via-red-400', 'via-red-300'],\r\n  },\r\n};\r\n\r\nconst GlowLine: React.FC<GlowLineProps> = ({ orientation, position, className = '', color }) => {\r\n  const isVertical = orientation === 'vertical';\r\n  const containerClasses = isVertical ? 'absolute w-px h-full' : 'absolute w-full h-px';\r\n  const positionStyle: React.CSSProperties = isVertical ? { left: position } : { top: position };\r\n  const gradientDirection = isVertical ? 'bg-gradient-to-b' : 'bg-gradient-to-r';\r\n\r\n  const selectedScheme = COLOR_SCHEMES[color];\r\n\r\n  const glowLayers: GlowLayer[] = [\r\n    {\r\n      size: isVertical ? 'w-1 -ml-0.5' : 'h-1 -mt-0.5',\r\n      blur: 'blur-sm',\r\n      opacity: 'opacity-100',\r\n      color: selectedScheme.glow[0],\r\n    },\r\n    {\r\n      size: isVertical ? 'w-2 -ml-1' : 'h-2 -mt-1',\r\n      blur: 'blur-md',\r\n      opacity: 'opacity-80',\r\n      color: selectedScheme.glow[1],\r\n    },\r\n    {\r\n      size: isVertical ? 'w-4 -ml-2' : 'h-4 -mt-2',\r\n      blur: 'blur-lg',\r\n      opacity: 'opacity-60',\r\n      color: selectedScheme.glow[2],\r\n    },\r\n  ];\r\n\r\n  return (\r\n    <div className={`${containerClasses} ${className}`} style={positionStyle}>\r\n      <div\r\n        className={`absolute inset-0 ${gradientDirection} from-transparent ${selectedScheme.core} to-transparent`}\r\n      />\r\n      <div\r\n        className={`absolute inset-0 ${isVertical ? 'w-0.5 -ml-px' : 'h-0.5 -mt-px'} ${gradientDirection} from-transparent via-white to-transparent opacity-60`}\r\n      />\r\n      {glowLayers.map((layer, index) => (\r\n        <div\r\n          key={index}\r\n          className={`absolute inset-0 ${layer.size} ${gradientDirection} from-transparent ${layer.color} to-transparent ${layer.blur} ${layer.opacity}`}\r\n        />\r\n      ))}\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default GlowLine;\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}
