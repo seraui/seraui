@@ -9,7 +9,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const nextConfig: NextConfig = {
   /* config options here */
   output: "export", // Force static export - no server functions
-  trailingSlash: true,
+  trailingSlash: false,
   reactStrictMode: true,
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 
@@ -22,16 +22,6 @@ const nextConfig: NextConfig = {
     loader: "custom",
     loaderFile: "./image-loader.js",
     domains: ["i.postimg.cc", "i.pinimg.com", "avatars.githubusercontent.com"],
-  },
-
-  // Handle MD files serving from public/docs-md directory at /docs/ URL
-  async rewrites() {
-    return [
-      {
-        source: '/docs/:path*.md',
-        destination: '/docs-md/:path*.md',
-      },
-    ];
   },
 
   // Static export doesn't support headers() or redirects()
