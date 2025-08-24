@@ -41,18 +41,32 @@ const AILogo: React.FC<{ className?: string; size?: 'sm' | 'md' | 'lg'; loading?
   );
 };
 
+// Declare marked types for window object
+declare global {
+  interface Window {
+    marked?: {
+      parse: (markdown: string) => string;
+      setOptions: (options: {
+        breaks?: boolean;
+        gfm?: boolean;
+        sanitize?: boolean;
+      }) => void;
+    };
+  }
+}
+
 // Load marked.js for markdown parsing
-const loadMarked = () => {
+const loadMarked = (): Promise<typeof window.marked> => {
   return new Promise((resolve) => {
-    if (typeof window !== 'undefined' && (window as any).marked) {
-      resolve((window as any).marked);
+    if (typeof window !== 'undefined' && window.marked) {
+      resolve(window.marked);
       return;
     }
     
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js';
     script.onload = () => {
-      resolve((window as any).marked);
+      resolve(window.marked);
     };
     document.head.appendChild(script);
   });
@@ -71,10 +85,10 @@ interface AIResponseRendererProps {
 
 const AIResponseRenderer: React.FC<AIResponseRendererProps> = ({ content, onLinkClick }) => {
   const [renderedContent, setRenderedContent] = useState<string>("");
-  const [marked, setMarked] = useState<any>(null);
+  const [marked, setMarked] = useState<typeof window.marked | null>(null);
 
   useEffect(() => {
-    loadMarked().then((markedLib: any) => {
+    loadMarked().then((markedLib) => {
       setMarked(markedLib);
     });
   }, []);
@@ -323,7 +337,7 @@ User question: ${prompt}`;
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isAIMode, filteredItems, selectedIndex, onClose, handleSelectAndClose, fetchAIResponse, query, handleClearSearch]);
+  }, [isOpen, isAIMode, filteredItems, selectedIndex, onClose, handleSelectAndClose, fetchAIResponse, query, handleClearSearch]);
 
   // Handle click outside
   useEffect(() => {
