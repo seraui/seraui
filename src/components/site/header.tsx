@@ -279,15 +279,6 @@ const Header = () => {
                 <BookOpen className="h-4 w-4" />
                 Docs
               </Link>
-              <Link
-                className="flex items-center gap-2 hover:text-zinc-900 dark:hover:text-zinc-50"
-                href="https://ai.seraprogrammer.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MessageCircle className="h-4 w-4" />
-                Sera Chat
-              </Link>
             </nav>
           </div>
           <nav className="flex items-center space-x-3">
