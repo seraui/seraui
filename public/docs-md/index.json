@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-08-23T23:20:15.337Z",
-  "totalFiles": 92,
+  "generatedAt": "2025-08-28T09:36:03.716Z",
+  "totalFiles": 93,
   "files": [
     {
       "name": "3d-carousel",
@@ -541,6 +541,12 @@
       "path": "/docs/twostep.md",
       "url": "/docs/twostep",
       "originalMdx": "twostep\\page.mdx"
+    },
+    {
+      "name": "verify-badge",
+      "path": "/docs/verify-badge.md",
+      "url": "/docs/verify-badge",
+      "originalMdx": "verify-badge\\page.mdx"
     },
     {
       "name": "video-text",

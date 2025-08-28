@@ -64,6 +64,11 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "Status Badge", href: "/docs/badge" },
       { label: "Animated Badge", href: "/docs/animatedbadge", badge: "New" },
+      {
+        label: 'Verify Badge',
+        href: '/docs/verify-badge',
+        badge: 'New'
+      },
       { label: "Toast Notification", href: "/docs/toast" },
       {
         label: "Announcement Banner",

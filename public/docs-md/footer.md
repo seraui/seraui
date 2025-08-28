@@ -1,8 +1,4 @@
-# Footer
-
-## Footer - Modern
-
-**Modern Footer Component**
+# Footer 
 
 ### 📝 Description
 A comprehensive modern footer component featuring a multi-column layout with company branding, navigation links, resources, and contact information. Includes social media icons, gradient backgrounds, and full dark mode support with smooth hover animations.

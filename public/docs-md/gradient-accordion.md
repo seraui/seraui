@@ -1,4 +1,4 @@
-#  Gradientaccordion
+#  Gradientaccordion 
 A gradient accordion component for React.
 
 ## Preview
