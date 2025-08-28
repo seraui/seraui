@@ -1,4 +1,4 @@
-# Logomarquee
+# Logomarquee 
 A beautiful logomarquee component with smooth animations and customizable logos. Perfect for creating a dynamic and engaging header for your website.
 
 ---

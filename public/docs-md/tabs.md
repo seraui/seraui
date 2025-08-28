@@ -1,4 +1,4 @@
-# 🎛️ Tabs Component
+# 🎛️ Tabs Component 
 
 A minimalistic and animated tab component built with **React**, **Tailwind CSS**, and powered by **Framer Motion** for smooth transitions.
 

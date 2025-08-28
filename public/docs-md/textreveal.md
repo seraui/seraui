@@ -1,4 +1,4 @@
-# Text Reveal Animation
+# Text Reveal Animation 
 
 A beautiful text reveal animation component that creates a smooth, word-by-word reveal effect with blur and fade transitions. Perfect for hero sections, quotes, and attention-grabbing text content.
 

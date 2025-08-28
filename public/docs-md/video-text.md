@@ -1,4 +1,4 @@
-# Video Text
+# Video Text 
 A text component with a video background. 
 
 ## Preview

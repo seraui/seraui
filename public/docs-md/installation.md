@@ -1,4 +1,4 @@
-# Shadcn/ui (Recommended)
+# Shadcn/ui (Recommended) 
 
 How to install dependencies and structure your app.
 

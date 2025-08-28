@@ -1,4 +1,4 @@
-# Modern Newsletter
+# Modern Newsletter 
 A modern newsletter component with email collection, loading states, and success animations. Perfect for capturing early user interest before product launches with professional shadcn-style design aesthetics.
 
 ## Preview

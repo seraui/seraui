@@ -1,4 +1,4 @@
-# Orbiting Carousel
+# Orbiting Carousel 
 
 The Orbiting Carousel is a stunning visual component that arranges items in a circular path, creating a captivating orbiting effect. It's perfect for showcasing logos, skills, or featured products in a dynamic and engaging way.
 

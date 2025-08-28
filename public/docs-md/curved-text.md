@@ -1,4 +1,4 @@
-# Curved Text Component
+# Curved Text Component 
 A React component to render text along a curved path, perfect for creating visually appealing headlines, logos, and decorative text elements
 
 ## Preview

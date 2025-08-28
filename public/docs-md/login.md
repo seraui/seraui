@@ -1,4 +1,4 @@
-# Login
+# Login 
 
 A modern, responsive login component with social authentication options, password visibility toggle, and elegant shadcn-inspired design. Perfect for authentication flows with a professional, polished appearance.
 

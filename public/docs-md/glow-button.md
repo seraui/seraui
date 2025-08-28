@@ -1,4 +1,4 @@
-# Glow Button
+# Glow Button 
 
 A visually striking button component with an animated glow effect that creates an engaging hover interaction. Perfect for call-to-action buttons and highlighting important actions in your interface.
 

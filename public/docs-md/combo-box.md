@@ -1,4 +1,4 @@
-# ComboBox Component
+# ComboBox Component 
 
 A powerful and accessible combobox component that combines an input field with a dropdown list. Features include real-time filtering, keyboard navigation, and customizable options. Perfect for searchable select inputs and autocomplete functionality.
 

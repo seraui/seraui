@@ -1,4 +1,4 @@
-## 📋 Classic Copy Button
+## 📋 Classic Copy Button 
 
 A clean and minimal copy button with smooth hover effects and success feedback.
 

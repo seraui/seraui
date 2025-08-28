@@ -1,4 +1,4 @@
-# Dropdown Menu
+# Dropdown Menu 
 
 A flexible and accessible dropdown menu component with customizable triggers, items, and styling. Perfect for navigation menus, user profiles, settings panels, and action lists.
 

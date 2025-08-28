@@ -1,4 +1,4 @@
-# Neon Gradient Card
+# Neon Gradient Card 
 
 The `Gradient` component wraps any content with a beautiful, animated neon gradient border. It's perfect for highlighting cards, callouts, or any UI element that needs to stand out.
 

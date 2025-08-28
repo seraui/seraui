@@ -1,4 +1,4 @@
-# Accordion Last
+# Accordion Last 
 A minimalistic accordion component with last item styling designed with React and Tailwind CSS.
 
 ## Preview

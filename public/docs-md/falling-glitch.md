@@ -1,4 +1,4 @@
-# Falling Glitch
+# Falling Glitch 
 A falling glitch animation component for React.
 
 ## Preview

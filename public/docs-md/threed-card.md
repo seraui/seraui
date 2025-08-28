@@ -1,4 +1,4 @@
-# 3D Card Component
+# 3D Card Component 
 
 A highly customizable 3D card component with interactive hover effects, glow animations, and parallax transformations.
 

@@ -1,4 +1,4 @@
-# Badges
+# Badges 
 A comprehensive collection of 30+ customizable and interactive badge components with stunning glassy effects, animations, and modern styling.
 
 ## Preview

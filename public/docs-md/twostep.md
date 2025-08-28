@@ -1,4 +1,4 @@
-# Two-Step Verification
+# Two-Step Verification 
 
 A secure and user-friendly two-step verification component with a 5-digit code input interface. Features automatic focus management, paste support, and elegant Mac-style design with dark mode compatibility.
 

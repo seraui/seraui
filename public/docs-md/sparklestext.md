@@ -1,4 +1,4 @@
-# Sparkles Text
+# Sparkles Text 
 A sparkling text component that creates a glittering effect with customizable sparkle count, size, and colors. Perfect for creating eye-catching, animated text for your applications.
 
 ## Preview

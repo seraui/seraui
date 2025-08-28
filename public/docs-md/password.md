@@ -1,4 +1,4 @@
-# Password Input Components
+# Password Input Components 
 
 Secure and user-friendly password input components with visibility toggle and optional strength validation. Perfect for authentication forms, registration pages, and any application requiring password input.
 

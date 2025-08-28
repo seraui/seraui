@@ -1,4 +1,4 @@
-# Network Visualization
+# Network Visualization 
 This is a network visualization component that displays a network of avatars in a circular layout.
 
 ## Preview

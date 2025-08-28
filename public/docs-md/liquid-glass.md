@@ -1,4 +1,4 @@
-# Liquid Glass Component
+# Liquid Glass Component 
 
 A sophisticated glassmorphism React component that creates stunning liquid glass effects using advanced SVG filters. Features chromatic aberration, customizable distortion, and multiple visual variants for modern UI design.
 

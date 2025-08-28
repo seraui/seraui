@@ -1,4 +1,4 @@
-# Retro Style Accordion
+# Retro Style Accordion 
 
 A retro-style accordion component that brings a nostalgic, vintage feel to your user interface. It features a classic design with hard shadows and a distinct, old-school aesthetic, perfect for applications aiming for a retro look.
 

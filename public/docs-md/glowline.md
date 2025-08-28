@@ -1,4 +1,4 @@
-# GlowLine
+# GlowLine 
 
 A customizable glowing line component that creates beautiful neon-like effects. Perfect for adding visual flair to your UI with horizontal or vertical glowing lines in various colors.
 

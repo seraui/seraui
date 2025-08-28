@@ -1,4 +1,4 @@
-# Chatbot UI
+# Chatbot UI 
 A chatbot UI component with a sleek design and modern features. Features a clean and minimalistic design with a modern glassmorphism effect, dark mode compatibility, and a seamless transition between messages. Perfect for creating engaging and interactive user experiences.
 
 ## Preview

@@ -1,4 +1,4 @@
-# Search Component
+# Search Component 
 
 A beautiful and interactive search component with gradient borders, keyboard shortcuts, and recent search functionality. Perfect for command palettes, global search interfaces, and application navigation.
 

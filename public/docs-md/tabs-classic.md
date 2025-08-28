@@ -1,4 +1,4 @@
-# 🎨 Tabs View: Classic
+# 🎨 Tabs View: Classic 
 
 The **Classic Tabs** component provides a timeless and functional design, offering a structured and familiar layout that users intuitively understand. Its clean lines and clear separation of content make it a reliable choice for any application where clarity and usability are
 

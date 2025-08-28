@@ -1,4 +1,4 @@
-# 💎 Tabs View: Fancy
+# 💎 Tabs View: Fancy 
 
 This **Fancy Tabs** component offers a vibrant and animated design perfect for modern user interfaces. It leverages smooth transitions and a sleek aesthetic to create an engaging user experience. Ideal for dashboards, portfolios, or any application where a touch of style can elevate the content.
 

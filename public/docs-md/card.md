@@ -1,4 +1,4 @@
-# Card Component
+# Card Component 
 
 A beautifully designed, responsive card component perfect for login forms, user authentication, and content containers. Features modern styling with dark mode support, form validation, and social authentication options.
 

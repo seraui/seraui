@@ -1,4 +1,4 @@
-# Divider
+# Divider 
 
 A versatile divider component for creating visual separation between content sections with customizable styles and orientations.
 

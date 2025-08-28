@@ -1,4 +1,4 @@
-# Image Swiper
+# Image Swiper 
 A beautiful image swiper component that allows users to swipe through images with a smooth and interactive experience.
 
 ## Preview

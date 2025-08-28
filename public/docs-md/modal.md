@@ -1,4 +1,4 @@
-# Modal
+# Modal 
 
 A flexible and accessible modal dialog component that displays content in a layer above the page.
 

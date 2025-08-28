@@ -184,6 +184,7 @@ export const navigation: NavigationItem[] = [
       { label: "Footer Section", href: "/docs/footer", badge: "New" },
       { label: "Forgot Password Form", href: "/docs/forgotpassword" },
       { label: "Team Member Card", href: "/docs/teammember" },
+      { label: "FAQ Section", href: "/docs/faq", badge: "New" }
     ],
   },
 ];

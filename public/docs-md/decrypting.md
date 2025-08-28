@@ -1,4 +1,4 @@
-# Decrypting Text
+# Decrypting Text 
 
 A mesmerizing text animation component that simulates the process of decrypting or revealing text character by character. Perfect for creating dramatic reveals, loading states, or adding a cyberpunk aesthetic to your applications.
 

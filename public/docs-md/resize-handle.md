@@ -1,4 +1,4 @@
-# Resize Handle Text
+# Resize Handle Text 
 
 The **Resize Handle Text** component provides an animated, draggable resize handle with a flipping text effect and a stylish blurry transition. It's perfect for interactive layouts where you want to add a dynamic UI element.
 

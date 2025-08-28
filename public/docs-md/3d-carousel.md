@@ -1,4 +1,4 @@
-# 3D Carousel
+# 3D Carousel 
 
 A stunning 3D carousel component that displays items in a rotating circular layout with smooth animations and perspective effects. Perfect for showcasing products, images, or any content in an engaging three-dimensional presentation.
 

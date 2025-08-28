@@ -1,4 +1,4 @@
-# NFT Marketplace
+# NFT Marketplace 
 A fully responsive NFT marketplace component with a clean design.
 
 ## Preview

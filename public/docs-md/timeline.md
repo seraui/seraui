@@ -1,4 +1,4 @@
-## Professional Timeline
+## Professional Timeline 
 A Professional, clean, and effective timeline component. Perfect for showcasing events in a straightforward, easy-to-read format.
 
 ## Preview

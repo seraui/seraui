@@ -1,4 +1,4 @@
-# Text highlighter
+# Text highlighter 
 The text highlighter component is a powerful tool that allows you to highlight specific text within a given text string. It is designed to be used in various scenarios, such as displaying search results, code snippets, or any other text-based content.
 
 ## Preview

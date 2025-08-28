@@ -1,4 +1,4 @@
-# Orbiting Skills
+# Orbiting Skills 
 A dynamic and visually appealing component that displays a set of skills or technologies in an orbiting pattern. Perfect for showcasing expertise, proficiency, or areas of interest in a creative and engaging way.
 
 ## Preview
