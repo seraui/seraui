@@ -1,0 +1,115 @@
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import FAQViewDemo from "./faq-view";
+
+# FAQ
+
+A customizable FAQ component with accordion and grid examples, featuring smooth animations, optional search functionality, and responsive design.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<FAQViewDemo />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/faq/faq.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+"use client";
+
+import { FAQ } from "./faq";
+
+const sampleFaqs = [
+  {
+    index: 1,
+    question: "What makes this FAQ component special?",
+    answer:
+      "This FAQ component features modern design with smooth animations, responsive layout, search functionality, and customizable color schemes. It's built with React and Tailwind CSS for optimal performance and beautiful aesthetics.",
+  }
+];
+
+export default function FAQViewDemo() {
+  return (
+    <div className="space-y-12">
+    {/* Accordion View */}
+      <div>
+        <h3 className="text-2xl font-semibold mb-4 text-center">Accordion View</h3>
+        <FAQ faqs={sampleFaqs} colorScheme="blue" searchable />
+      </div>
+        {/* Grid View (custom) */}
+      <div>
+        <h3 className="text-2xl font-semibold mb-4 text-center">Grid View (custom)</h3>
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {sampleFaqs.map((faq, i) => (
+            <div key={i} className="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-gradient-to-b from-blue-500 to-purple-600">
+              <h3 className="font-semibold text-lg mb-2">{faq.question}</h3>
+              <p className="text-gray-600">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+```
+
+## Props – FAQ
+
+<PropsTable props={[
+{ 
+    name: "faqs", 
+    type: "FAQItem[]", 
+    description: "Array of FAQ objects with question and answer." 
+    },
+{ 
+    name: "title", 
+    type: "string", 
+    default: '"Frequently Asked Questions"', 
+    description: "Title of the FAQ section." 
+    },
+{ 
+    name: "searchable", 
+    type: "boolean", 
+    default: "false", 
+    description: "Enable/disable search functionality." 
+    },
+{ 
+    name: "colorScheme", 
+    type: '"blue" | "purple" | "green"', 
+    default: '"blue"', 
+    description: "Color scheme for styling." },
+{ 
+    name: "className", 
+    type: "string", 
+    description: "Additional Tailwind CSS classes." }
+]} />
+
+## FAQItem Object
+
+<PropsTable props={[
+{ 
+    name: "index", 
+    type: "number", 
+    description: "Optional index for display." 
+    },
+{ 
+    name: "question", 
+    type: "string", 
+    description: "The FAQ question." 
+    },
+{ 
+    name: "answer", 
+    type: "string", 
+    description: "The FAQ answer." 
+    }
+]} />
