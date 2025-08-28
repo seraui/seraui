@@ -1,4 +1,4 @@
-# Noise Text
+# Noise Text 
 
 Enhance your UI with elegant noise-text effects — a combination of a blurred glass background and subtle static overlay, creating a modern and stylish design.
 

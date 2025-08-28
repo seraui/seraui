@@ -1,4 +1,4 @@
-# Dock
+# Dock 
 
 A macOS-style dock component with smooth magnification animations and glassmorphism effects. Perfect for navigation bars, quick access toolbars, and application launchers with an elegant, interactive design.
 

@@ -1,4 +1,4 @@
-# Multi-Select Components
+# Multi-Select Components 
 
 A collection of versatile multi-select components with different use cases and styling approaches.
 

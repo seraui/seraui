@@ -1,4 +1,4 @@
-# Navigation Components
+# Navigation Components 
 
 A comprehensive collection of modern, responsive navigation components designed for web applications. These navbar components feature clean designs, smooth animations, mobile-first responsive layouts, and accessibility-focused implementations.
 

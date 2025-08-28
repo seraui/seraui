@@ -1,4 +1,4 @@
-# Infinite Grid
+# Infinite Grid 
 
 A high-performance infinite scrolling grid component with smooth drag interactions, momentum physics, and optimized rendering. Perfect for creating photo galleries, image browsers, and infinite content displays with buttery-smooth user experience.
 

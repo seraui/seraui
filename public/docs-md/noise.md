@@ -1,4 +1,4 @@
-# Noise Card Components
+# Noise Card Components 
 A collection of beautiful noise-textured cards with different color themes and interactive elements.
 
 ### Deep Ocean Blue Card

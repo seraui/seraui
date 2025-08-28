@@ -1,4 +1,4 @@
-# Section: Copy Button
+# Section: Copy Button 
  
  This section demonstrates a copy button component with two tabs:
  Preview: Displays the live interactive copy button component.

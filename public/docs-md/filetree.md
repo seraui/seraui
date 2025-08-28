@@ -1,4 +1,4 @@
-# File Tree
+# File Tree 
 A customizable and interactive file tree component with a built-in ripple effect.
 
 ## Advanced Example

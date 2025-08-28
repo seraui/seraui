@@ -1,4 +1,5 @@
-# Aurora Text
+# Aurora Text 
+
 A beautiful Aurora Borealis effect for text, with customizable colors and speed. Perfect for creating a magical, mystical, or futuristic atmosphere in your applications.
 
 ## Preview

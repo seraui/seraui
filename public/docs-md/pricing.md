@@ -1,4 +1,4 @@
-# 💸 Pricing Section Component
+# 💸 Pricing Section Component 
 
 A sleek and responsive pricing section built for modern websites. This component is ideal for showcasing plans, pricing tiers, or service packages in a clean and user-friendly layout.
 

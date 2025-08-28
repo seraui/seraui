@@ -1,4 +1,4 @@
-# Letter Glitch
+# Letter Glitch 
 
 A dynamic animated background component that creates a mesmerizing matrix-style glitch effect with randomly changing letters, numbers, and symbols.
 

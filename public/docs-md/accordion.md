@@ -1,4 +1,4 @@
-#  Modern Accordion
+#  Modern Accordion 
 A modern accordion component with a live preview and the corresponding code.
 
 ## Preview

@@ -1,4 +1,4 @@
-# Animated Badges
+# Animated Badges 
 A collection of animated badges with a linear gradient border.
 
 ## Preview

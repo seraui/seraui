@@ -2,8 +2,8 @@
 
 This directory contains auto-generated Markdown versions of all MDX documentation pages.
 
-**Generated at:** 2025-08-28T09:36:03.742Z
-**Total files:** 93
+**Generated at:** 2025-08-28T16:58:59.963Z
+**Total files:** 94
 
 ## Available Files
 
@@ -31,6 +31,7 @@ This directory contains auto-generated Markdown versions of all MDX documentatio
 - [drawer](/docs/drawer.md) - Source: `drawer\page.mdx`
 - [dropdown](/docs/dropdown.md) - Source: `dropdown\page.mdx`
 - [falling-glitch](/docs/falling-glitch.md) - Source: `falling-glitch\page.mdx`
+- [faq](/docs/faq.md) - Source: `faq\page.mdx`
 - [filetree](/docs/filetree.md) - Source: `filetree\page.mdx`
 - [flipwords](/docs/flipwords.md) - Source: `flipwords\page.mdx`
 - [footer](/docs/footer.md) - Source: `footer\page.mdx`

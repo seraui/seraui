@@ -1,4 +1,4 @@
-# Text Animation Components
+# Text Animation Components 
 
 A collection of beautiful text animation components built with Framer Motion and React. These components provide various entrance effects, continuous animations, and interactive text displays perfect for modern web applications.
 

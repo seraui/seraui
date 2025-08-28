@@ -1,4 +1,4 @@
-# FlipWords
+# FlipWords 
 
 A dynamic text animation component that smoothly transitions between different words with elegant spring animations and blur effects. Perfect for creating engaging hero sections and dynamic content displays.
 

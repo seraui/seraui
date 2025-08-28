@@ -1,4 +1,4 @@
-# Bento Grid
+# Bento Grid 
 The Bento grid is a clean and elegant layout designed to highlight a product's features in a clear and organized manner.
 
 ## Preview

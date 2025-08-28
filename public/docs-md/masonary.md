@@ -1,4 +1,4 @@
-# Masonary Grid
+# Masonary Grid 
 A masonary grid layout with images and titles.
 
 ## Preview

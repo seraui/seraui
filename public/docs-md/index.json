@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-08-28T09:36:03.716Z",
-  "totalFiles": 93,
+  "generatedAt": "2025-08-28T16:58:59.856Z",
+  "totalFiles": 94,
   "files": [
     {
       "name": "3d-carousel",
@@ -145,6 +145,12 @@
       "path": "/docs/falling-glitch.md",
       "url": "/docs/falling-glitch",
       "originalMdx": "falling-glitch\\page.mdx"
+    },
+    {
+      "name": "faq",
+      "path": "/docs/faq.md",
+      "url": "/docs/faq",
+      "originalMdx": "faq\\page.mdx"
     },
     {
       "name": "filetree",

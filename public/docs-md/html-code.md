@@ -1,4 +1,4 @@
-# HTML Code Tabs
+# HTML Code Tabs 
 
 A powerful and customizable component for displaying HTML code with live preview and syntax highlighting. Perfect for documentation, tutorials, and showcasing HTML/CSS examples.
 

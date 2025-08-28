@@ -1,4 +1,4 @@
-# Smooth Moving Grid
+# Smooth Moving Grid 
 A dynamic background with mouse-aware parallax effect.
 
 ## Preview

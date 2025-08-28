@@ -1,4 +1,4 @@
-# Magic Card
+# Magic Card 
 
 A stunning profile card component with an interactive glowing border effect that follows your mouse cursor. Features a modern design with cover image, profile picture, user stats, skills, and a magical hover animation that creates a beautiful gradient border.
 

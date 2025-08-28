@@ -1,4 +1,4 @@
-# Team Member
+# Team Member 
 
 Professional team member components for showcasing your team with various layouts and styles.
 

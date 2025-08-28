@@ -1,4 +1,4 @@
-# Announcement
+# Announcement 
 
 A versatile announcement component that displays important messages with different visual styles and states. Perfect for notifications, alerts, and call-to-action messages.
 

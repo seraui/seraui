@@ -1,4 +1,4 @@
-# Kbd
+# Kbd 
 
 A minimalistic keyboard key component designed with React and Tailwind CSS. Use it to display shortcuts (like Ctrl + C) and keypress hints inline with your content for better usability and accessibility.
 

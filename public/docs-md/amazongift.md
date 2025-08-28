@@ -1,4 +1,4 @@
-# Amazon Gift Card
+# Amazon Gift Card 
 
 A beautifully designed gift card component with realistic scratch-off effect, frosted glass styling, and interactive elements. Perfect for promotional campaigns, reward systems, and e-commerce applications.
 

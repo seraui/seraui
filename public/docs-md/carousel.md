@@ -1,4 +1,4 @@
-# Carousel Components
+# Carousel Components 
 
 A collection of beautifully designed carousel components with advanced features and smooth animations. Perfect for showcasing images, portfolios, and interactive content.
 

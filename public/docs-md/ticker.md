@@ -1,4 +1,4 @@
-# Number Ticker
+# Number Ticker 
 A smooth animated number counter component that animates from 0 to any target value with customizable formatting and styling.
 
 ## Preview

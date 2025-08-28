@@ -1,4 +1,4 @@
-# Navbar
+# Navbar 
 A modern, responsive navbar component with a clean design and smooth animations.
 
 ## Preview

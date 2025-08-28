@@ -1,4 +1,4 @@
-# Retro Card
+# Retro Card 
 
 A nostalgic card component with a retro aesthetic featuring bold borders, vibrant colors, and interactive shadow effects.
 

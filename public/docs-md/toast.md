@@ -1,4 +1,4 @@
-# Toast
+# Toast 
 A modern, customizable toast notification system with support for multiple types, positions, and animations. Features automatic dismissal, progress bars, and seamless dark mode integration.
 
 ## Preview
