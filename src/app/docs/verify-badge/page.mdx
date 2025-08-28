@@ -1,0 +1,138 @@
+export const metadata = {
+    title: 'Verify Badge Component - Sera UI Component Library',
+    description: 'A customizable verification badge component featuring SVG icons, glassmorphism effects, and variants for basic, gold, and premium statuses for profile, statement, and more verification types.',
+    keywords: [
+        'React verify badge component',
+        'verify badge',
+        'glassy verify badge effects',
+        'animated verify badges',
+        'Tailwind CSS verify badge',
+        'UI verify badge library',
+        'customizable verify badge',
+        'modern verify badge design',
+        'Sera UI components'
+    ],
+    openGraph: {
+        title: 'Verify Badge Component - Sera UI',
+        description: 'A customizable verification badge component featuring SVG icons, glassmorphism effects, and variants for basic, gold, and premium statuses for profile, statement, and more verification types.',
+        type: 'article',
+        url: '/docs/verify-badge',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Verify Badge Component - Sera UI',
+        description: 'A customizable verification badge component featuring SVG icons, glassmorphism effects, and variants for basic, gold, and premium statuses.',
+    },
+    alternates: {
+        canonical: '/docs/verify-badge',
+    },
+};
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/site/tabs";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import VerifyBadgeView from "./verify-badge-view";
+import VerifyProfileExample from "./verify-profile-example.tsx"
+
+# Verify Badge
+
+A customizable verification badge component featuring SVG icons, glassmorphism effects, and variants for basic, gold, and premium statuses for profile, statement, and more verification types.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<VerifyBadgeView />} />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/verify-badge/verify-badge.tsx" />
+  </TabsContent>
+</Tabs>
+
+{/* Optional */}
+#### Verify Profile 
+<Tabs defaultValue="preview">
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<VerifyProfileExample />} />
+  </TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { VerifyBadge, VerifyIcon, FloatingVerifyBadge } from './verify-badge';
+
+export function Example() {
+  return (
+    <div>
+      <VerifyBadge type="basic" />
+      <VerifyIcon type="gold" size="lg" />
+      <FloatingVerifyBadge type="premium" position="top-right" showLabel={false} />
+    </div>
+  );
+}
+```
+
+## Props
+
+<PropsTable props={[
+  {
+    name: "type",
+    type: "'basic' | 'gold' | 'premium'",
+    description: "Badge variant to represent different user tiers"
+  },
+  {
+    name: "size",
+    type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+    default: "'md'",
+    description: "Defines the size of the badge"
+  },
+  {
+    name: "showLabel",
+    type: "boolean",
+    default: "true",
+    description: "Toggle visibility of the badge's label text"
+  },
+  {
+    name: "animate",
+    type: "boolean",
+    default: "true",
+    description: "Enables animation effects on hover"
+  },
+  {
+    name: "className",
+    type: "string",
+    description: "Additional Tailwind CSS classes for customization"
+  },
+  {
+    name: "onClick",
+    type: "() => void",
+    description: "Callback function triggered on badge click"
+  },
+  {
+    name: "position",
+    type: "'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'",
+    default: "'top-right'",
+    description: "Floating position for the badge"
+  }
+]} /> 
+
+## Accessibility
+
+- Semantic `div` with `role="button"` and `tabIndex` for clickable badges
+- ARIA-compatible for screen readers
+- Keyboard navigation support with `onClick`
+
+## Styling
+
+- Uses Tailwind CSS for responsive design
+- Supports dark mode with `dark:` classes
+- Glassmorphic effects with `backdrop-blur-md`
+- Smooth hover animations with `transition-all`
