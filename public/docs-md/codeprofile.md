@@ -1,4 +1,4 @@
-# Developer profile
+# Developer profile 
 
 A beautifully designed code window component that displays developer profile information in a realistic code editor interface. Features syntax highlighting, line numbers, window controls, and a dark theme with gradient effects perfect for portfolios and developer showcases.
 

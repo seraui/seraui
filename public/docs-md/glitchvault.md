@@ -1,4 +1,4 @@
-# GlitchVault Card
+# GlitchVault Card 
 
 A dynamic interactive component that creates a matrix-style glitch effect on hover. Perfect for adding cyberpunk aesthetics to profiles, cards, and interactive elements.
 

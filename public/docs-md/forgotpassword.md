@@ -1,4 +1,4 @@
-# Forgot Password
+# Forgot Password 
 A modern, responsive, and user-friendly password recovery form with a focus on security and ease of use. Features a sleek design with a green color scheme and smooth animations.
 
 ## Preview

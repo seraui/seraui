@@ -1,4 +1,4 @@
-# Fuzzy Text
+# Fuzzy Text 
 
 A dynamic text component that creates an animated fuzzy/glitch effect using HTML5 Canvas. Perfect for creating eye-catching headings, hero text, and interactive typography with customizable intensity and hover effects.
 
