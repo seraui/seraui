@@ -1,0 +1,240 @@
+export const metadata = {
+  title: "Retro Form Component - Sera UI Component Library",
+  description: "A dynamic, retro-styled form component for React and Next.js, featuring customizable fields, built-in validation, and a nostalgic design with Lucide icons and Tailwind CSS.",
+  keywords: [
+    "React form component",
+    "retro form",
+    "Tailwind CSS form",
+    "Next.js form",
+    "dynamic form",
+    "accessible form",
+    "customizable form",
+    "Lucide icons",
+    "Sera UI RetroForm"
+  ],
+  openGraph: {
+    title: "Retro Form Component - Sera UI",
+    description: "A dynamic, retro-styled form component for React and Next.js with customizable fields and built-in validation.",
+    type: "article",
+    url: "/docs/retro-style-form",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Retro Form Component - Sera UI",
+    description: "A dynamic, retro-styled form component for React and Next.js with customizable fields and built-in validation.",
+  },
+  alternates: {
+    canonical: "/docs/retro-style-form",
+  },
+};
+
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/site/tabs";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import RetroFormView from "./RetroForm-view";
+
+# Retro Form
+
+A dynamic, retro-styled form component for React and Next.js, featuring customizable fields, built-in validation, and a nostalgic design with Lucide icons and Tailwind CSS.
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<RetroFormView formType="register" />} />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/retro-style-form/RetroForm.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+The `RetroForm` component is highly customizable and supports various field types (`text`, `email`, `password`, `tel`, `date`, `select`). Below is an example for a registration form:
+```tsx
+"use client";
+
+import React from 'react';
+import RetroForm, { FieldConfig, FormType } from './RetroForm';
+
+const fieldConfigs: Record<FormType, FieldConfig[]> = {
+  register: [
+    { name: 'username', type: 'text', label: 'USERNAME', icon: 'user', required: true, section: 'BASIC INFO' },
+    { name: 'email', type: 'email', label: 'EMAIL', icon: 'mail', required: true },
+    { name: 'phoneNumber', type: 'tel', label: 'PHONE NUMBER', icon: 'phone', section: 'CONTACT INFO' },
+    { name: 'password', type: 'password', label: 'PASSWORD', icon: 'lock', required: true, section: 'SECURITY' },
+    { name: 'confirmPassword', type: 'password', label: 'CONFIRM PASSWORD', icon: 'lock', required: true },
+    {
+      name: 'gender',
+      type: 'select',
+      label: 'GENDER',
+      icon: 'user',
+      options: [
+        { value: 'male', label: 'Male' },
+        { value: 'female', label: 'Female' },
+      ],
+    },
+  ],
+  profile: [
+    { name: 'username', type: 'text', label: 'USERNAME', icon: 'user', required: true, section: 'BASIC INFO' },
+    { name: 'email', type: 'email', label: 'EMAIL', icon: 'mail', required: true },
+    { name: 'phoneNumber', type: 'tel', label: 'PHONE NUMBER', icon: 'phone', section: 'CONTACT INFO' },
+    { name: 'birthDate', type: 'date', label: 'BIRTH DATE', icon: 'calendar' },
+  ],
+  login: [
+    { name: 'email', type: 'email', label: 'EMAIL', icon: 'mail', required: true },
+    { name: 'password', type: 'password', label: 'PASSWORD', icon: 'lock', required: true },
+  ],
+};
+
+interface RetroFormExampleProps {
+  formType: FormType;
+}
+
+const RetroFormExample: React.FC<RetroFormExampleProps> = ({ formType }) => {
+  const handleSubmit = (data: Record<string, any>) => {
+    console.log(`${formType.toUpperCase()} Form Data:`, data);
+    alert(`${formType.toUpperCase()} form submitted! Check console.`);
+  };
+
+  return (
+    <RetroForm
+      formType={formType}
+      fields={fieldConfigs[formType]}
+      onSubmit={handleSubmit}
+      showOTP={formType === 'register'}
+    />
+  );
+};
+
+export default RetroFormExample;
+```
+
+## Props
+
+<PropsTable props={[
+  {
+    name: "formType",
+    type: "'register' | 'profile' | 'login'",
+    description: "Defines the type of form, affecting default titles and required fields.",
+    default: "None (required)"
+  },
+  {
+    name: "fields",
+    type: "FieldConfig[]",
+    description: "Array of field objects with `name`, `type`, `label`, `placeholder`, `icon`, `options`, `required`, and optional `section` for grouping.",
+    default: "[]"
+  },
+  {
+    name: "onSubmit",
+    type: "(data: Record<string, string>) => void",
+    description: "Callback function triggered on form submission with form data.",
+    default: "None (required)"
+  },
+  {
+    name: "title",
+    type: "string",
+    description: "Main title of the form.",
+    default: "Conditional: 'SIGN IN' (login), 'REGISTER' (register), 'UPDATE PROFILE' (profile)"
+  },
+  {
+    name: "subtitle",
+    type: "string",
+    description: "Subtitle text below the form title.",
+    default: "Conditional: 'Welcome Back!' (login), 'Join the Retro Club!' (register), 'Update Your Info!' (profile)"
+  },
+  {
+    name: "buttonText",
+    type: "string",
+    description: "Text for the submit button.",
+    default: "Conditional: 'LOGIN' (login), 'SUBMIT' (register/profile)"
+  },
+  {
+    name: "showOTP",
+    type: "boolean",
+    description: "Enables OTP verification for the phone number field. Note: OTP functionality is a placeholder and requires integration with an external service (e.g., Twilio).",
+    default: "false"
+  }
+]} />
+
+## Field Config
+
+<PropsTable
+  props={[
+    {
+      name: "name",
+      type: "string",
+      description: "Unique identifier for the field.",
+      default: "None (required)"
+    },
+    {
+      name: "type",
+      type: "'text' | 'email' | 'password' | 'tel' | 'date' | 'select'",
+      description: "Field input type.",
+      default: "'text'"
+    },
+    {
+      name: "label",
+      type: "string",
+      description: "Display label for the field.",
+      default: "None (required)"
+    },
+    {
+      name: "placeholder",
+      type: "string",
+      description: "Placeholder text for the input.",
+      default: "`Enter ${label.toLowerCase()}`"
+    },
+    {
+      name: "icon",
+      type: "'user' | 'mail' | 'lock' | 'phone' | 'calendar' | 'mapPin' | React.ElementType",
+      description: "Icon to display with the field. Can be a predefined string or a custom React component.",
+      default: "'user'"
+    },
+    {
+      name: "options",
+      type: "{ value: string; label: string }[]",
+      description: "Options for select fields. If empty, the select field is replaced with a disabled text input.",
+      default: "undefined"
+    },
+    {
+      name: "required",
+      type: "boolean",
+      description: "Marks the field as required.",
+      default: "false"
+    },
+    {
+      name: "section",
+      type: "string",
+      description: "Groups fields under a section header.",
+      default: "undefined"
+    }
+  ]}
+/>
+
+## Accessibility
+
+- Semantic `input` and `select` elements with `aria-label` and `aria-required` attributes.
+- ARIA live regions (`aria-live="polite"`) for error and success messages to ensure screen reader compatibility.
+- Full keyboard navigation support for inputs, buttons, and select elements (via `Enter` and `Space` keys).
+- Visible asterisks for required fields and high-contrast styling for readability.
+- Error states with subtle shake animations and success states with green borders.
+
+## Styling
+
+- Uses Tailwind CSS for responsive grid layouts and retro aesthetics.
+- Dark mode support with gradient backgrounds (purple-blue-indigo).
+- 3D effects with `transform-gpu`, `box-shadow`, and perspective for a nostalgic look.
+- Smooth hover and focus animations using `transition-all` and cubic-bezier curves.
+- Theming support with a `theme` object for primary, success, and error colors.
+
+## Notes
+
+- The OTP functionality (`showOTP`) is a placeholder and logs to the console. For production, integrate with an OTP service like Twilio or Firebase.
+- For large forms, consider using `react-hook-form` for optimized state management and validation.
+- Styles are Tailwind-specific but can be extracted to a CSS module for non-Tailwind projects.
