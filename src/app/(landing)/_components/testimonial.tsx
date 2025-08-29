@@ -10,6 +10,12 @@ function Testimonial() {
       image: "https://avatars.githubusercontent.com/u/7549148?v=4&s=64",
     },
     {
+  name: "Ikram Sarkar",
+  title: "Web Developer",
+  text: `Sera UI is really good! I have used many websites with Sera UI and it’s always very helpful. The design is clean and user-friendly.`,
+  image: "https://i.postimg.cc/1Rj7JLG4/512908506-1261994748789025-5837757630180600658-n.jpg",
+},
+    {
       name: "Sehab Ahmed",
       title: "Full Stack Developer",
       text: "I’m speechless. This site is extraordinary! I’m truly surprised after visiting it. It’s so good means so good. I have no words to describe it.",
@@ -75,6 +81,14 @@ The UI components are next-level and incredibly good-looking.
 In one word: outstanding! I'm using Sera UI in my projects, and it’s working perfectly.`,
   image: "https://i.postimg.cc/rsttjs9W/image.png",
 },
+
+{
+  name: "AL Shahed",
+  title: "Web Developer",
+  text: `Sera UI is simply outstanding! ✨ The website looks clean and modern, and it’s super easy to use. Every component feels like exactly what I was looking for. As an open-source library, it not only saves time but also makes projects more polished and professional. Truly a great resource for developers. Huge thanks to the team—please keep up the amazing work!|
+`,
+  image: "https://avatars.githubusercontent.com/u/163788370?v=4",
+}
 
   ];
 
