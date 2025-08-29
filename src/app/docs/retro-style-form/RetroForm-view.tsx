@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react';
-import RetroForm, { FieldConfig, FormType } from './RetroForm';
+import React, { useCallback } from 'react';
+import RetroForm, { FieldConfig, FormType, FormData as RetroFormData } from './RetroForm';
 
 const fieldConfigs: Record<FormType, FieldConfig[]> = {
   register: [
@@ -38,18 +38,30 @@ interface RetroFormViewProps {
 }
 
 const RetroFormView: React.FC<RetroFormViewProps> = ({ formType }) => {
-  const handleSubmit = (data: Record<string, any>) => {
-    console.log(`${formType.toUpperCase()} Form Data:`, data);
-    alert(`${formType.toUpperCase()} form submitted! Check console.`);
-  };
+  // Handle form submission
+  const handleSubmit = useCallback((data: RetroFormData) => {
+    console.log(`${formType.toUpperCase()} FORM DATA:`, data);
+    // Add your submission logic here (e.g., API call)
+  }, [formType]);
 
   return (
-    <RetroForm
-      formType={formType}
-      fields={fieldConfigs[formType]}
-      onSubmit={handleSubmit}
-      showOTP={formType === 'register'}
-    />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 p-4">
+      <RetroForm
+        formType={formType}
+        fields={fieldConfigs[formType]}
+        onSubmit={handleSubmit}
+        showOTP={formType === 'register'}
+        title={formType === 'login' ? 'SIGN IN' : formType === 'register' ? 'REGISTER' : 'UPDATE PROFILE'}
+        subtitle={
+          formType === 'login'
+            ? 'Welcome Back!'
+            : formType === 'register'
+            ? 'Join the Retro Club!'
+            : 'Update Your Info!'
+        }
+        buttonText={formType === 'login' ? 'LOGIN' : 'SUBMIT'}
+      />
+    </div>
   );
 };
 

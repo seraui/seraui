@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { User, Mail, Lock, Phone, Calendar, MapPin, Eye, EyeOff } from 'lucide-react';
 
 // Type Definitions
@@ -21,7 +21,7 @@ export interface FieldConfig {
   required?: boolean;
   section?: string;
 }
-type FormData = { [key: string]: string };
+export type FormData = { [key: string]: string };
 interface RetroFormProps {
   formType: FormType;
   fields: FieldConfig[];
@@ -79,7 +79,8 @@ const RetroInput: React.FC<RetroInputProps> = ({
   const Icon = typeof icon === 'string' ? (iconMap[icon] || User) : icon;
   const inputId = `retro-input-${name}`;
   const messageId = `retro-message-${name}`;
-  const inputRef = useRef<HTMLInputElement | HTMLSelectElement | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const selectRef = useRef<HTMLSelectElement>(null);
 
   const getBorderColor = () => {
     if (error) return 'border-rose-500';
@@ -99,7 +100,7 @@ const RetroInput: React.FC<RetroInputProps> = ({
         <button
           type="button"
           className="p-3 border-r-4 border-gray-900 flex justify-center items-center hover:bg-amber-300 transition-colors duration-200"
-          onClick={() => inputRef.current?.focus()}
+          onClick={() => (type === 'select' ? selectRef.current?.focus() : inputRef.current?.focus())}
           aria-label={`Focus on ${label} field`}
         >
           <Icon size={20} className="text-gray-900" />
@@ -110,7 +111,7 @@ const RetroInput: React.FC<RetroInputProps> = ({
           </span>
           {type === 'select' ? (
             <select
-              ref={inputRef}
+              ref={selectRef}
               id={inputId}
               name={name}
               value={value}
