@@ -7,33 +7,33 @@ import { getAllSearchableItems, searchItems, SearchableItem } from "@/lib/search
 import Link from "next/link";
 
 // AI Logo Component with fallback
-const AILogo: React.FC<{ className?: string; size?: 'sm' | 'md' | 'lg'; loading?: boolean }> = ({ 
-  className = "", 
-  size = 'md', 
-  loading = false 
+const AILogo: React.FC<{ className?: string; size?: 'sm' | 'md' | 'lg'; loading?: boolean }> = ({
+  className = "",
+  size = 'md',
+  loading = false
 }) => {
   const [imageError, setImageError] = useState(false);
-  
+
   const sizeClasses = {
     sm: 'w-6 h-6',
-    md: 'w-8 h-8', 
+    md: 'w-8 h-8',
     lg: 'w-12 h-12'
   };
-  
+
   const sizeStyles = {
     sm: { width: '24px', height: '24px' },
     md: { width: '32px', height: '32px' },
     lg: { width: '48px', height: '48px' }
   };
-  
+
   if (imageError) {
     return <Sparkles className={`${sizeClasses[size]} ${loading ? 'animate-pulse' : ''} ${className}`} />;
   }
-  
+
   return (
-    <img 
-      src="/logo.svg" 
-      alt="AI Assistant" 
+    <img
+      src="/logo.svg"
+      alt="AI Assistant"
       className={`${sizeClasses[size]} ${loading ? 'animate-pulse' : ''} ${className} rounded-lg`}
       style={sizeStyles[size]}
       onError={() => setImageError(true)}
@@ -62,7 +62,7 @@ const loadMarked = (): Promise<typeof window.marked> => {
       resolve(window.marked);
       return;
     }
-    
+
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js';
     script.onload = () => {
@@ -101,7 +101,7 @@ const AIResponseRenderer: React.FC<AIResponseRendererProps> = ({ content, onLink
         gfm: true,
         sanitize: false
       });
-      
+
       // Render markdown to HTML
       const htmlContent = marked.parse(content);
       setRenderedContent(htmlContent);
@@ -125,7 +125,7 @@ const AIResponseRenderer: React.FC<AIResponseRendererProps> = ({ content, onLink
   };
 
   return (
-    <div 
+    <div
       className="markdown-content prose prose-sm dark:prose-invert max-w-none text-zinc-700 dark:text-zinc-100"
       dangerouslySetInnerHTML={{ __html: renderedContent }}
       onClick={handleClick}
@@ -153,7 +153,7 @@ const AIResponseRenderer: React.FC<AIResponseRendererProps> = ({ content, onLink
 // Icon mapping for different categories and items
 const getItemIcon = (item: SearchableItem) => {
   const title = item.title.toLowerCase();
-  
+
   if (title.includes("introduction") || title.includes("home")) {
     return <Home className="w-4 h-4" />;
   }
@@ -172,7 +172,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
   const [isAILoading, setIsAILoading] = useState(false);
   const [aiResponse, setAiResponse] = useState("");
   const [aiConversation, setAiConversation] = useState<Array<{type: 'user' | 'ai', content: string}>>([]);
-  
+
   const inputRef = useRef<HTMLInputElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
@@ -198,19 +198,19 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
   // AI Search Function
   const fetchAIResponse = useCallback(async (prompt: string) => {
     if (!prompt.trim()) return;
-    
+
     setIsAILoading(true);
     setAiResponse("");
-    
+
     // Add user message to conversation
     setAiConversation(prev => [...prev, { type: 'user', content: prompt }]);
-    
+
     try {
       const currentUrl = window.location.origin;
-      const componentsWithLinks = allItems.map(item => 
+      const componentsWithLinks = allItems.map(item =>
         `${item.title}: ${item.description} - Link: ${currentUrl}${item.href}`
       ).join('\n');
-      
+
      const enhancedPrompt = `You are "Sera UI Search," an expert assistant for the SeraUI component library. Here are the available components with their documentation links:\n\n${componentsWithLinks}\n\nWhen recommending components, follow these guidelines:
 1. Understand the user's intent, even if their keywords are unclear or imperfect.
 2. Suggest the most relevant SeraUI components based on reasoning, context, and functionality—not just keyword matching.
@@ -245,13 +245,13 @@ User question: ${prompt}`;
         const chunk = decoder.decode(value, { stream: true });
         fullText += chunk;
         setAiResponse(fullText);
-        
+
         // Auto-scroll to bottom
         if (resultsRef.current) {
           resultsRef.current.scrollTop = resultsRef.current.scrollHeight;
         }
       }
-      
+
       // Add AI response to conversation and clear current response
       setAiConversation(prev => [...prev, { type: 'ai', content: fullText }]);
       setAiResponse(""); // Clear current response to prevent duplication
@@ -303,7 +303,7 @@ User question: ${prompt}`;
       switch (e.key) {
         case "ArrowDown":
           e.preventDefault();
-          setSelectedIndex((prev) => 
+          setSelectedIndex((prev) =>
             prev < filteredItems.length - 1 ? prev + 1 : prev
           );
           break;
@@ -473,7 +473,7 @@ User question: ${prompt}`;
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 bg-black/40 backdrop-blur-md"
+        className="fixed inset-0 z-99999 bg-black/40 backdrop-blur-md"
       >
         <div className="flex items-center justify-center min-h-screen px-4">
           <motion.div
@@ -508,9 +508,9 @@ User question: ${prompt}`;
                     } flex items-center justify-center`}
                   >
                     {isAIMode ? (
-                      <div className="w-2 h-2 bg-blue-600 rounded-full" />
+                      <div className="m-1 w-2 h-2 bg-blue-600 rounded-full" />
                     ) : (
-                      <div className="w-2 h-2 bg-zinc-400 rounded-full" />
+                      <div className="m-1 w-2 h-2 bg-zinc-400 rounded-full" />
                     )}
                   </span>
                 </button>
@@ -518,14 +518,14 @@ User question: ${prompt}`;
                   {isAIMode ? 'AI' : 'Search'}
                 </span>
               </div>
-              
+
               {/* Search Icon */}
               {isAIMode ? (
                 <Bot className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               ) : (
                 <Search className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />
               )}
-              
+
               {/* Input Field */}
               <form onSubmit={handleAIQuery} className="flex-1">
                 <input
@@ -537,7 +537,7 @@ User question: ${prompt}`;
                   className="w-full bg-transparent text-zinc-900 dark:text-zinc-100 placeholder-zinc-500 outline-none text-lg"
                 />
               </form>
-              
+
               {/* Results Counter / AI Status */}
               <div className="flex items-center gap-2 text-xs text-zinc-500">
                 {isAIMode ? (
@@ -589,7 +589,7 @@ User question: ${prompt}`;
                       </div>
                     </div>
                   ))}
-                  
+
                   {/* Current AI Response */}
                   {(isAILoading || aiResponse) && (
                     <div className="flex gap-3 justify-start">
@@ -612,7 +612,7 @@ User question: ${prompt}`;
                       </div>
                     </div>
                   )}
-                  
+
                   {/* Welcome Message */}
                   {aiConversation.length === 0 && !aiResponse && (
                     <div className="text-center py-8">
@@ -625,8 +625,8 @@ User question: ${prompt}`;
                       </p>
                       <div className="mt-4 flex flex-wrap gap-2 justify-center">
                         {[
-                          'How do I use the Button component?', 
-                          'Show me Modal examples', 
+                          'How do I use the Button component?',
+                          'Show me Modal examples',
                           'What video components are available?',
                           'Guide me to Accordion usage',
                           'Find Carousel components'
