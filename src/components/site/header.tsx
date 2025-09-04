@@ -10,7 +10,6 @@ import {
   X,
   LinkedinIcon,
   BookOpen,
-  MessageCircle,
   Heart,
 } from "lucide-react";
 import { Logo } from "@/assets/icons/logo";

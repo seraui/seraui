@@ -1,0 +1,389 @@
+export const metadata = {
+  title: 'Radio Button & Interactive Selection Components - Sera UI',
+  description:
+    'Explore Sera UI’s modern, interactive radio button components with animations, glassmorphism, and sleek designs — including payment methods, star ratings, service selectors, and pattern locks. Perfect for React + Tailwind projects.',
+  keywords: [
+    'React radio button component',
+    'modern radio buttons',
+    'interactive UI components',
+    'Tailwind CSS radio button',
+    'React payment method selector',
+    'React star rating component',
+    'customizable toggle buttons',
+    'React pattern lock',
+    'Sera UI component library'
+  ],
+  openGraph: {
+    title: 'Radio Button & Interactive Selection Components - Sera UI',
+    description:
+      'Beautiful, customizable radio buttons and interactive selectors — service toggles, payment methods, star ratings, volume sliders, and pattern locks — built with React, Tailwind, and Framer Motion.',
+    type: 'article',
+    url: '/docs/radio-buttons',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Radio Button & Interactive Selection Components - Sera UI',
+    description:
+      'Modern, animated radio buttons and selectors for React apps — from payment toggles to star ratings, all in one sleek library.',
+  },
+  alternates: {
+    canonical: '/docs/radio-buttons',
+  },
+};
+
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/site/tabs";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import LoveReactView from "./love-react-view.tsx";
+import SelectServiceView from "./select-service-view.tsx"
+import PaymentMethod from "./PaymentMethod.tsx"
+import RateStar from "./RateStar.tsx"
+import PlanToggleView from "./PlanToggle.tsx"
+import Volume from "./Volume.tsx"
+import PatternLockDemo from "./PatternLockDemo.tsx"
+
+
+
+# Radio Buttons
+
+A collection of sleek, interactive, and fully customizable components — 
+
+## Love React
+
+An interactive heart-shaped reaction button with customizable colors and smooth animations — perfect for likes, favorites, or quick feedback.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<LoveReactView />} />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/radio-buttons/love-react.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Usage (Love React)
+
+```tsx
+import React from "react";
+import LoveReact from "./love-react";
+
+export default function LoveReactView() {
+  return (
+    <div className="p-10 flex flex-wrap gap-6 justify-center items-center">
+      {/* Default */}
+      <LoveReact />
+
+      {/* Custom Colors */}
+      <LoveReact color="#ef4444" size={60} />
+      <LoveReact color="#22c55e" size={55} />
+      <LoveReact color="#3b82f6" size={45} />
+      <LoveReact color="#a855f7" size={50} />
+
+    </div>
+  );
+}
+```
+
+## Select Service
+
+Dynamic, mini selectable toggle buttons with icons — ideal for choosing services, categories, or options in a fun and interactive way.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<SelectServiceView />} />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/radio-buttons/select-service.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Usage (Select Service)
+
+```tsx
+import React, { useState } from 'react';
+import SelectVehicle from './select-service';
+
+const SelectServiceViewExample = () => {
+  const [selected, setSelected] = useState('motorbike');
+
+  const options = [
+    { icon: Bike, text: 'Bicycle', value: 'bicycle' },
+    { icon: Motorcycle, text: 'Motorbike', value: 'motorbike' },
+    { icon: Car, text: 'Car', value: 'car' },
+    { icon: TramFront, text: 'Train', value: 'train' },
+  ];
+
+  return (
+    <div className="p-6">
+      <h2 className="text-xl font-semibold mb-4">Choose Your Vehicle</h2>
+      <SelectVehicle
+        options={options}
+        selected={selected}
+        onChange={setSelected}
+      />
+    </div>
+  );
+};
+
+export default SelectServiceViewExample;
+```
+
+## Props
+
+<PropsTable props={[
+  {
+    name: "icon",
+    type: "keyof typeof LucideIcons",
+    required: "yes",
+    description: "Choose any Lucide icon to represent your option visually"
+  },
+  {
+    name: "text",
+    type: "string",
+    required: "yes",
+    description: ":)"
+  },
+  {
+    name: "value",
+    type: "string",
+    required: "yes",
+    description: "The unique value for identifying which option is selected."
+  }
+]} /> 
+
+
+## Payment Method
+
+A clean and minimal payment method selector that makes checkout experiences smooth, controlled, and professional.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<PaymentMethod />} />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/radio-buttons/PaymentMethod.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+<PropsTable props={[
+    {
+      name: "PaymentMethod",
+      type: " 'google' | 'apple' | 'paypal' | 'visa' ",
+      description:
+        "The currently selected payment value. Useful for controlled components.",
+    },
+  ]}
+/>
+
+## Rate with Star
+
+A fully interactive 1–5 star rating component with hover effects and real-time feedback — perfect for reviews, products, or services.
+
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<RateStar />} />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/radio-buttons/RateStar.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Usage (Rate with Star)
+
+```tsx
+import RateStar from './RateStar';
+
+function App() {
+  return (
+    <div className="p-8">
+      <h1 className="text-xl mb-4">Rate this product:</h1>
+      <RateStar />
+    </div>
+  );
+}
+
+```
+
+
+## Plan Toggle
+
+A stylish toggle to switch between pricing plans (Free, Personal, Team, etc.) with a clear active state and smooth transitions.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<PlanToggleView />} />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/radio-buttons/PlanToggle.tsx" />
+  </TabsContent>
+</Tabs>
+
+### Usage (Plan Toggle)
+
+```tsx
+// Example: Make "Team" the active one
+<button className={`${baseClass} ${inactiveClass}`}>Free</button>
+<button className={`${baseClass} ${inactiveClass}`}>Personal</button>
+<button className={`${baseClass} ${activeClass}`}>Team</button>
+```
+
+
+## Volume Toggle
+A draggable, modern volume control slider designed with fluid animations — sleek, intuitive, and perfect for media players
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Volume />} />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/radio-buttons/Volume.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+## Pattern Lock
+
+A mobile-style pattern lock screen for web apps — adds a unique and secure interactive experience with customizable nodes and lock values.
+
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<PatternLockDemo />} />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/radio-buttons/PatternLock.tsx" />
+  </TabsContent>
+</Tabs>
+
+
+### Usage (Pattern Lock)
+
+```tsx
+"use client";
+
+import React, { useState } from "react";
+import PatternLock from "./PatternLock";
+
+const PatternDemo = () => {
+  const [savedPattern, setSavedPattern] = useState<number[]>([]);
+  const [isUnlocked, setIsUnlocked] = useState<boolean | null>(null);
+
+  return (
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center space-y-12 p-6">
+      <h1 className="text-4xl font-bold">🔐 Pattern Lock Demo</h1>
+
+      {/* Step 1: Set Pattern */}
+      <div className="w-full max-w-xl bg-gray-800 p-6 rounded-2xl shadow-lg">
+        <h2 className="text-2xl font-semibold mb-4">Step 1: Set a Pattern</h2>
+        <PatternLock
+          mode="set"
+          onSetPattern={(pattern) => {
+            setSavedPattern(pattern);
+            console.log("Saved Pattern:", pattern);
+          }}
+        />
+      </div>
+
+      {/* Step 2: Unlock */}
+      {savedPattern.length > 0 && (
+        <div className="w-full max-w-xl bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h2 className="text-2xl font-semibold mb-4">Step 2: Unlock</h2>
+          <PatternLock
+            mode="unlock"
+            initialPattern={savedPattern}
+            onUnlock={(success) => {
+              setIsUnlocked(success);
+              console.log("Unlock status:", success);
+            }}
+          />
+
+          {isUnlocked !== null && (
+            <div className="mt-4 text-lg font-semibold">
+              {isUnlocked ? (
+                <span className="text-green-400">✅ Access Granted</span>
+              ) : (
+                <span className="text-red-400">❌ Access Denied</span>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default PatternDemo;
+
+```
+
+### 🔒 PatternLock – Real World Usage
+
+1.  **Register Pattern**  
+    Use `mode="set"` → capture pattern with `onSetPattern` → save (hashed) in your DataBase.
+    
+2.  **Unlock**  
+    Use `mode="unlock"` → pass saved pattern as `initialPattern` → check via `onUnlock`.
+    
+3.  **Security**
+    
+    -   Hash pattern before storing (like a password).
+        
+    -   Add retry limits to prevent brute force.
+        
+4.  **UI/UX**
+    
+    -   Works with mouse & touch.
+        
+    -   Add “reset pattern” flow if forgotten.
+        
+5.  **Enhance**
+    
+    -   Confirm twice when setting.
+        
+    -   Optionally increase grid size (e.g., 4×4) for stronger locks.
