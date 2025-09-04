@@ -121,10 +121,10 @@ const SelectServiceViewExample = () => {
   const [selected, setSelected] = useState('motorbike');
 
   const options = [
-    { icon: 'Bike', text: 'Bicycle', value: 'bicycle' },
-    { icon: 'Motorcycle', text: 'Motorbike', value: 'motorbike' },
-    { icon: 'Car', text: 'Car', value: 'car' },
-    { icon: 'TramFront', text: 'Train', value: 'train' },
+    { icon: Bike, text: 'Bicycle', value: 'bicycle' },
+    { icon: Motorcycle, text: 'Motorbike', value: 'motorbike' },
+    { icon: Car, text: 'Car', value: 'car' },
+    { icon: TramFront, text: 'Train', value: 'train' },
   ];
 
   return (
@@ -301,6 +301,66 @@ A mobile-style pattern lock screen for web apps — adds a unique and secure int
   </TabsContent>
 </Tabs>
 
+
+### Usage (Pattern Lock)
+
+```tsx
+"use client";
+
+import React, { useState } from "react";
+import PatternLock from "./PatternLock";
+
+const PatternDemo = () => {
+  const [savedPattern, setSavedPattern] = useState<number[]>([]);
+  const [isUnlocked, setIsUnlocked] = useState<boolean | null>(null);
+
+  return (
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center space-y-12 p-6">
+      <h1 className="text-4xl font-bold">🔐 Pattern Lock Demo</h1>
+
+      {/* Step 1: Set Pattern */}
+      <div className="w-full max-w-xl bg-gray-800 p-6 rounded-2xl shadow-lg">
+        <h2 className="text-2xl font-semibold mb-4">Step 1: Set a Pattern</h2>
+        <PatternLock
+          mode="set"
+          onSetPattern={(pattern) => {
+            setSavedPattern(pattern);
+            console.log("Saved Pattern:", pattern);
+          }}
+        />
+      </div>
+
+      {/* Step 2: Unlock */}
+      {savedPattern.length > 0 && (
+        <div className="w-full max-w-xl bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h2 className="text-2xl font-semibold mb-4">Step 2: Unlock</h2>
+          <PatternLock
+            mode="unlock"
+            initialPattern={savedPattern}
+            onUnlock={(success) => {
+              setIsUnlocked(success);
+              console.log("Unlock status:", success);
+            }}
+          />
+
+          {isUnlocked !== null && (
+            <div className="mt-4 text-lg font-semibold">
+              {isUnlocked ? (
+                <span className="text-green-400">✅ Access Granted</span>
+              ) : (
+                <span className="text-red-400">❌ Access Denied</span>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default PatternDemo;
+
+```
 
 ### 🔒 PatternLock – Real World Usage
 

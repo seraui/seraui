@@ -60,8 +60,8 @@ const Volume: React.FC = () => {
           x="0"
           y="0"
           viewBox="0 0 24 24"
+          enableBackground="new 0 0 512 512" 
           style={{
-            enableBackground: 'new 0 0 512 512',
             verticalAlign: 'top',
             marginRight: 'var(--icon-margin)',
             color: 'var(--icon-color)',

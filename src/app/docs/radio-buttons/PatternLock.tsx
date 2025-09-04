@@ -1,28 +1,29 @@
 "use client";
 
-import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef, useCallback, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-/**
- * PatternLock Component
- *
- * Props:
- * - onSetPattern: callback when user sets a new pattern (array of ids)
- * - onUnlock: callback when user unlocks (boolean: success/fail)
- * - mode: "set" | "unlock"  (set mode lets user create a pattern, unlock mode requires matching the saved one)
- * - initialPattern: optional pre-set pattern (array of ids)
- */
+interface PatternLockProps {
+  mode?: "set" | "unlock";
+  initialPattern?: number[];
+  onSetPattern?: (pattern: number[]) => void;
+  onUnlock?: (success: boolean) => void;
+}
 
-const PatternLock = ({ mode = "unlock", initialPattern = [], onSetPattern, onUnlock }) => {
-  const [pattern, setPattern] = useState([]);
-  const [savedPattern, setSavedPattern] = useState(initialPattern);
+const PatternLock: React.FC<PatternLockProps> = ({
+  mode = "unlock",
+  initialPattern = [],
+  onSetPattern,
+  onUnlock,
+}) => {
+  const [pattern, setPattern] = useState<number[]>([]);
+  const [savedPattern, setSavedPattern] = useState<number[]>(initialPattern);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [currentPath, setCurrentPath] = useState('');
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [currentPath, setCurrentPath] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [message, setMessage] = useState("");
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   // Grid positions (3x3)
   const dots = Array.from({ length: 9 }, (_, i) => ({
@@ -30,27 +31,35 @@ const PatternLock = ({ mode = "unlock", initialPattern = [], onSetPattern, onUnl
     row: Math.floor(i / 3),
     col: i % 3,
     x: (i % 3) * 120 + 60,
-    y: Math.floor(i / 3) * 120 + 60
+    y: Math.floor(i / 3) * 120 + 60,
   }));
 
-  const getMousePosition = (e) => {
-    if (!containerRef.current) return { x: 0, y: 0 };
-    const rect = containerRef.current.getBoundingClientRect();
-    return {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    };
-  };
+  const getMousePosition = useCallback(
+    (e: MouseEvent) => {
+      if (!containerRef.current) return { x: 0, y: 0 };
+      const rect = containerRef.current.getBoundingClientRect();
+      return {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+    },
+    [containerRef]
+  );
 
-  const getDotAtPosition = (x, y) => {
-    return dots.find(dot => {
-      const distance = Math.sqrt(Math.pow(x - dot.x, 2) + Math.pow(y - dot.y, 2));
-      return distance <= 30; // 30px radius
-    });
-  };
+  const getDotAtPosition = useCallback(
+    (x: number, y: number) => {
+      return dots.find((dot) => {
+        const distance = Math.sqrt(
+          Math.pow(x - dot.x, 2) + Math.pow(y - dot.y, 2)
+        );
+        return distance <= 30; // 30px radius
+      });
+    },
+    [dots]
+  );
 
-  const createPath = (points) => {
-    if (points.length < 2) return '';
+  const createPath = (points: { x: number; y: number }[]) => {
+    if (points.length < 2) return "";
     let path = `M ${points[0].x} ${points[0].y}`;
     for (let i = 1; i < points.length; i++) {
       path += ` L ${points[i].x} ${points[i].y}`;
@@ -58,44 +67,48 @@ const PatternLock = ({ mode = "unlock", initialPattern = [], onSetPattern, onUnl
     return path;
   };
 
-  const handleMouseDown = useCallback((e) => {
-    const pos = getMousePosition(e);
-    const dot = getDotAtPosition(pos.x, pos.y);
-    if (dot) {
-      setIsDrawing(true);
-      setPattern([dot.id]);
-      setCurrentPath(`M ${dot.x} ${dot.y}`);
-      setMousePos(pos);
-      setShowResult(false);
-    }
-  }, []);
+  const handleMouseDown = useCallback(
+    (e: React.MouseEvent) => {
+      const pos = getMousePosition(e.nativeEvent);
+      const dot = getDotAtPosition(pos.x, pos.y);
+      if (dot) {
+        setIsDrawing(true);
+        setPattern([dot.id]);
+        setCurrentPath(`M ${dot.x} ${dot.y}`);
+        setShowResult(false);
+      }
+    },
+    [getMousePosition, getDotAtPosition]
+  );
 
-  const handleMouseMove = useCallback((e) => {
-    if (!isDrawing) return;
-    const pos = getMousePosition(e);
-    const dot = getDotAtPosition(pos.x, pos.y);
-    setMousePos(pos);
-    if (dot && !pattern.includes(dot.id)) {
-      setPattern(prev => [...prev, dot.id]);
-    }
-    const patternDots = pattern.map(id => dots.find(d => d.id === id));
-    if (patternDots.length > 0) {
-      let path = createPath(patternDots);
-      path += ` L ${pos.x} ${pos.y}`;
-      setCurrentPath(path);
-    }
-  }, [isDrawing, pattern]);
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (!isDrawing) return;
+      const pos = getMousePosition(e);
+      const dot = getDotAtPosition(pos.x, pos.y);
+      if (dot && !pattern.includes(dot.id)) {
+        setPattern((prev) => [...prev, dot.id]);
+      }
+      const patternDots = pattern.map((id) => dots.find((d) => d.id === id)!);
+      if (patternDots.length > 0) {
+        let path = createPath(patternDots);
+        path += ` L ${pos.x} ${pos.y}`;
+        setCurrentPath(path);
+      }
+    },
+    [isDrawing, pattern, dots, getMousePosition, getDotAtPosition]
+  );
 
   const handleMouseUp = useCallback(() => {
     if (!isDrawing) return;
     setIsDrawing(false);
 
-    const patternDots = pattern.map(id => dots.find(d => d.id === id));
+    const patternDots = pattern.map((id) => dots.find((d) => d.id === id)!);
     setCurrentPath(createPath(patternDots));
 
     if (mode === "set") {
       setSavedPattern(pattern);
-      onSetPattern && onSetPattern(pattern);
+      onSetPattern?.(pattern);
       setMessage("Pattern Saved!");
       setIsCorrect(true);
     } else if (mode === "unlock") {
@@ -104,15 +117,15 @@ const PatternLock = ({ mode = "unlock", initialPattern = [], onSetPattern, onUnl
         pattern.every((dot, index) => dot === savedPattern[index]);
       setIsCorrect(correct);
       setMessage(correct ? "Unlocked!" : "Incorrect Pattern");
-      onUnlock && onUnlock(correct);
+      onUnlock?.(correct); // ✅ fixed
     }
 
     setShowResult(true);
-  }, [isDrawing, pattern, mode, savedPattern, onSetPattern, onUnlock]);
+  }, [isDrawing, pattern, mode, savedPattern, dots, onSetPattern, onUnlock]);
 
   const resetPattern = () => {
     setPattern([]);
-    setCurrentPath('');
+    setCurrentPath("");
     setIsDrawing(false);
     setShowResult(false);
     setIsCorrect(false);
@@ -120,11 +133,11 @@ const PatternLock = ({ mode = "unlock", initialPattern = [], onSetPattern, onUnl
   };
 
   useEffect(() => {
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
     };
   }, [handleMouseMove, handleMouseUp]);
 
@@ -138,15 +151,24 @@ const PatternLock = ({ mode = "unlock", initialPattern = [], onSetPattern, onUnl
         <div
           ref={containerRef}
           className="relative rounded-2xl p-8 mx-auto select-none"
-          style={{ width: '400px', height: '400px' }}
+          style={{ width: "400px", height: "400px" }}
           onMouseDown={handleMouseDown}
         >
           {/* SVG Lines */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            style={{ zIndex: 1 }}
+          >
             {currentPath && (
               <motion.path
                 d={currentPath}
-                stroke={isCorrect && showResult ? "#22c55e" : pattern.length > 0 ? "#3b82f6" : "#6b7280"}
+                stroke={
+                  isCorrect && showResult
+                    ? "#22c55e"
+                    : pattern.length > 0
+                    ? "#3b82f6"
+                    : "#6b7280"
+                }
                 strokeWidth="4"
                 fill="none"
                 strokeLinecap="round"
@@ -161,7 +183,6 @@ const PatternLock = ({ mode = "unlock", initialPattern = [], onSetPattern, onUnl
           {/* Dots */}
           {dots.map((dot) => {
             const isSelected = pattern.includes(dot.id);
-            const isFirst = pattern[0] === dot.id;
             const selectionOrder = pattern.indexOf(dot.id) + 1;
             return (
               <motion.div
@@ -169,9 +190,9 @@ const PatternLock = ({ mode = "unlock", initialPattern = [], onSetPattern, onUnl
                 className={`absolute w-16 h-16 rounded-full border-4 flex items-center justify-center cursor-pointer transition-all duration-200 ${
                   isSelected
                     ? showResult && !isCorrect && mode === "unlock"
-                      ? 'bg-red-500 border-red-400'
-                      : 'bg-blue-500 border-blue-400'
-                    : 'bg-gray-600 border-gray-500 hover:bg-gray-500'
+                      ? "bg-red-500 border-red-400"
+                      : "bg-blue-500 border-blue-400"
+                    : "bg-gray-600 border-gray-500 hover:bg-gray-500"
                 }`}
                 style={{ left: dot.x - 32, top: dot.y - 32, zIndex: 2 }}
                 animate={{ scale: isSelected ? 1.2 : 1 }}
@@ -195,13 +216,19 @@ const PatternLock = ({ mode = "unlock", initialPattern = [], onSetPattern, onUnl
           {showResult && (
             <motion.div
               className={`mt-6 p-4 rounded-lg ${
-                isCorrect ? 'bg-green-500/20 border border-green-500/50' : 'bg-red-500/20 border border-red-500/50'
+                isCorrect
+                  ? "bg-green-500/20 border border-green-500/50"
+                  : "bg-red-500/20 border border-red-500/50"
               }`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
             >
-              <div className={`text-xl font-semibold ${isCorrect ? 'text-green-400' : 'text-red-400'}`}>
+              <div
+                className={`text-xl font-semibold ${
+                  isCorrect ? "text-green-400" : "text-red-400"
+                }`}
+              >
                 {message}
               </div>
             </motion.div>

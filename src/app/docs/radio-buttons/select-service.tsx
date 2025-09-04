@@ -1,8 +1,10 @@
-import React from 'react';
-import * as LucideIcons from 'lucide-react';
+"use client";
+
+import React from "react";
+import { Check } from "lucide-react";
 
 type Option = {
-  icon: keyof typeof LucideIcons;
+  icon: React.ElementType; // pass component directly
   text: string;
   value: string;
 };
@@ -17,7 +19,7 @@ const SelectService: React.FC<SelectServiceProps> = ({ options, selected, onChan
   return (
     <div className="flex flex-wrap justify-center gap-4 max-w-lg mx-auto select-none p-2">
       {options.map((option) => {
-        const IconComponent = LucideIcons[option.icon];
+        const IconComponent = option.icon;
         const isChecked = selected === option.value;
 
         return (
@@ -32,32 +34,28 @@ const SelectService: React.FC<SelectServiceProps> = ({ options, selected, onChan
             />
 
             <div
-              className={`
-                relative flex flex-col items-center justify-center p-4 rounded-xl border
+              className={`relative flex flex-col items-center justify-center p-4 rounded-xl border
                 bg-white/10 backdrop-blur-md border-white/20
                 transition-transform duration-300 ease-in-out
                 transform hover:scale-105 hover:z-10
-                ${isChecked ? 'bg-gradient-to-br from-blue-400/20 to-blue-600/20 border-blue-400 shadow-lg' : 'hover:border-blue-300'}
-              `}
+                ${isChecked ? "bg-gradient-to-br from-blue-400/20 to-blue-600/20 border-blue-400 shadow-lg" : "hover:border-blue-300"}`}
             >
               {/* Selection checkmark */}
               {isChecked && (
                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center shadow-lg animate-fade-in">
-                  <LucideIcons.Check className="w-4 h-4 text-white" />
+                  <Check className="w-4 h-4 text-white" />
                 </div>
               )}
 
               {/* Icon */}
-              {IconComponent && (
-                <IconComponent
-                  className={`w-8 h-8 mb-1 transition-all duration-300 ${
-                    isChecked ? 'text-blue-400 animate-bounce-in' : 'text-gray-400 group-hover:text-white'
-                  }`}
-                />
-              )}
+              <IconComponent
+                className={`w-8 h-8 mb-1 transition-all duration-300 ${
+                  isChecked ? "text-blue-400 animate-bounce-in" : "text-gray-400 group-hover:text-white"
+                }`}
+              />
 
               {/* Text */}
-              <span className={`text-sm font-medium text-center transition ${isChecked ? 'text-blue-300' : 'text-gray-300'}`}>
+              <span className={`text-sm font-medium text-center transition ${isChecked ? "text-blue-300" : "text-gray-300"}`}>
                 {option.text}
               </span>
 
@@ -70,9 +68,10 @@ const SelectService: React.FC<SelectServiceProps> = ({ options, selected, onChan
         );
       })}
 
-      {/*
+ {/*
       tips: move to global/index css for better performance
-      */}
+      
+  */}
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(10px); }

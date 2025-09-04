@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-08-29T11:49:12.361Z",
-  "totalFiles": 95,
+  "generatedAt": "2025-09-04T05:03:34.487Z",
+  "totalFiles": 96,
   "files": [
     {
       "name": "3d-carousel",
@@ -409,6 +409,12 @@
       "path": "/docs/prompt.md",
       "url": "/docs/prompt",
       "originalMdx": "prompt\\page.mdx"
+    },
+    {
+      "name": "radio-buttons",
+      "path": "/docs/radio-buttons.md",
+      "url": "/docs/radio-buttons",
+      "originalMdx": "radio-buttons\\page.mdx"
     },
     {
       "name": "resize-handle",
