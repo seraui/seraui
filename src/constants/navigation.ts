@@ -45,6 +45,7 @@ export const navigation: NavigationItem[] = [
       { label: "Orbiting Skills", href: "/docs/orbiting"},
       { label: "Orbiting Carousel", href: "/docs/orbit-carousel", badge: "New" },
       { label: "Timeline Components", href: "/docs/timeline", badge: "New" },
+      { label: "Radio Buttons", href: "/docs/radio-buttons", badge: "New" },
     ],
   },
   {
