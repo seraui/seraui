@@ -1,28 +1,43 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, CSSProperties } from "react";
 
 interface LoveReactProps {
   color?: string;
   size?: number;
+  onToggle?: (isLiked: boolean) => void;
 }
 
 const LoveReact: React.FC<LoveReactProps> = ({
   color = "rgb(255, 91, 137)",
   size = 50,
+  onToggle,
 }) => {
-  const [isLiked] = useState(false);
-  const [isAnimating] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  // Style object with CSS variable
+  const style: CSSProperties & { "--heart-color"?: string } = {
+    width: `${size}px`,
+    height: `${size}px`,
+    "--heart-color": color,
+  };
+
+  const handleClick = () => {
+    const newLikedState = !isLiked;
+    setIsLiked(newLikedState);
+    setIsAnimating(true);
+    onToggle?.(newLikedState);
+
+    setTimeout(() => setIsAnimating(false), 700);
+  };
 
   return (
     <div
-      className="relative transition duration-300 group select-none"
+      className="relative transition duration-300 group cursor-pointer select-none"
       title={isLiked ? "Unlike" : "Like"}
-      style={{
-        ["--heart-color" as string]: color,
-        width: `${size}px`,
-        height: `${size}px`,
-      }}
+      style={style}
+      onClick={handleClick}
     >
       {/* Animations */}
       <style>
@@ -53,27 +68,33 @@ const LoveReact: React.FC<LoveReactProps> = ({
       </style>
 
       <div className="w-full h-full flex justify-center items-center">
-        {/* Outline Heart (default) */}
+        {/* Outline Heart */}
         {!isLiked && (
           <svg
             viewBox="0 0 24 24"
-            className="fill-transparent stroke-[var(--heart-color)] stroke-2 absolute transition-transform duration-300 group-hover:scale-110"
+            className={`fill-transparent stroke-[var(--heart-color)] stroke-2 absolute transition-transform duration-300 group-hover:scale-110 ${
+              !isLiked && isAnimating ? "animate-heart-unfill" : ""
+            }`}
             xmlns="http://www.w3.org/2000/svg"
           >
             <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z" />
           </svg>
         )}
 
+        {/* Filled Heart */}
         {isLiked && (
           <svg
             viewBox="0 0 24 24"
-            className="fill-[var(--heart-color)] absolute transition-transform duration-300 group-hover:scale-110"
+            className={`fill-[var(--heart-color)] absolute transition-transform duration-300 group-hover:scale-110 ${
+              isAnimating ? "animate-heart-fill" : ""
+            }`}
             xmlns="http://www.w3.org/2000/svg"
           >
             <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z" />
           </svg>
         )}
 
+        {/* Celebration Burst */}
         {isLiked && isAnimating && (
           <div className="absolute w-[100px] h-[100px] animate-heart-celebrate pointer-events-none">
             <svg
