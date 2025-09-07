@@ -2,8 +2,8 @@
 
 This directory contains auto-generated Markdown versions of all MDX documentation pages.
 
-**Generated at:** 2025-08-29T11:49:12.395Z
-**Total files:** 95
+**Generated at:** 2025-09-07T10:35:51.272Z
+**Total files:** 96
 
 ## Available Files
 
@@ -100,6 +100,7 @@ This directory contains auto-generated Markdown versions of all MDX documentatio
 - [toast](/docs/toast.md) - Source: `toast\page.mdx`
 - [twostep](/docs/twostep.md) - Source: `twostep\page.mdx`
 - [verify-badge](/docs/verify-badge.md) - Source: `verify-badge\page.mdx`
+- [video-gallery](/docs/video-gallery.md) - Source: `video-gallery\page.mdx`
 - [video-text](/docs/video-text.md) - Source: `video-text\page.mdx`
 - [waitlist](/docs/waitlist.md) - Source: `waitlist\page.mdx`
 

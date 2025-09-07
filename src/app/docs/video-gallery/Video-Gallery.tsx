@@ -1,9 +1,8 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { Play, X, ChevronLeft, ChevronRight, Expand, Minimize, Share2, Download, Search, XCircle } from 'lucide-react';
-
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import { motion, AnimatePresence, useInView, Variants, Transition } from 'framer-motion';
+import { Play, X, ChevronLeft, ChevronRight, Expand, Minimize, Share2, Search, XCircle } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -27,6 +26,22 @@ interface Category {
   name: string;
 }
 
+interface AnimationVariants extends Variants {
+  hidden: {
+    opacity: number;
+    y?: number;
+    scale?: number;
+    width?: number | string;
+  };
+  visible: {
+    opacity: number;
+    y?: number;
+    scale?: number;
+    width?: number | string;
+    transition: Transition;
+  };
+}
+
 const categories: Category[] = [
   { id: 1, name: 'Documentary' },
   { id: 2, name: 'Wedding' },
@@ -40,7 +55,7 @@ const projects: Project[] = [
     title: "Cinematic Journey",
     category: "film",
     thumbnailUrl: "https://img.freepik.com/premium-photo/professional-cinema-camera-recording-commercial-studio_237404-9535.jpg",
-    videoUrl: "https://www.youtube.com/embed/8QCK_qEp_PI?si=siUiWFoitgtPNrfK",
+    videoUrl: "https://www.youtube.com/embed/EngW7tLk6R8?si=JqVwUbeK03kWJPcE",
     description: "A breathtaking visual narrative exploring the depths of human emotion through stunning cinematography and compelling storytelling.",
     client: "Independent Film",
     director: "Alex Rodriguez",
@@ -56,7 +71,7 @@ const projects: Project[] = [
     title: "Brand Vision",
     category: "commercial",
     thumbnailUrl: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=800&h=600&fit=crop",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    videoUrl: "https://www.youtube.com/embed/D0UnqGm_miA?si=0f0PwzfJNJ-CWQpq",
     description: "A dynamic commercial piece that captures the essence of modern lifestyle and brand identity.",
     client: "TechCorp Inc.",
     director: "Sarah Chen",
@@ -88,7 +103,7 @@ const projects: Project[] = [
     title: "Musical Harmony",
     category: "music",
     thumbnailUrl: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop",
-    videoUrl: "https://res.cloudinary.com/dxh3gzo3p/video/upload/v1748594449/SnapSave_App_8584206218347253_1080p_zl2qnq.mp4",
+    videoUrl: "https://www.youtube.com/embed/u_sIfs7Yom4?si=MOYOivOMl5mAc-wk",
     description: "A vibrant music video that blends visual artistry with rhythmic storytelling.",
     client: "Universal Music",
     director: "Emma Johnson",
@@ -104,7 +119,7 @@ const projects: Project[] = [
     title: 'Tuscany Wedding Trailer | Emma & James',
     category: 'wedding',
     thumbnailUrl: 'https://i.ytimg.com/vi/fjFB3B16cAo/hq720.jpg',
-    videoUrl: 'https://www.youtube.com/embed/fjFB3B16cAo?si=YCDbjtRmYMXyKuwq',
+    videoUrl: 'https://www.youtube.com/embed/rkpzYNB6xks?si=0ukSpD6me3CYdRiY',
     description: 'A cinematic trailer of Emma and James’s wedding in the Tuscan hills—pure romance, festivity, and family love.',
     client: 'Emma & James',
     director: 'Willow Tree Films',
@@ -118,7 +133,7 @@ const projects: Project[] = [
 ];
 
 const useScrollAnimation = () => {
-  const containerAnimation = {
+  const containerAnimation: AnimationVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -129,14 +144,14 @@ const useScrollAnimation = () => {
     },
   };
 
-  const itemAnimation = {
+  const itemAnimation: AnimationVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: 'easeOut' as const,
       },
     },
   };
@@ -154,7 +169,7 @@ const VideoGallery: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [isSearchActive, setIsSearchActive] = useState<boolean>(false);
 
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
@@ -162,12 +177,14 @@ const VideoGallery: React.FC = () => {
 
   const categoryOptions = ['all', ...categories.map(cat => cat.name.toLowerCase())];
 
-  const filteredProjects = projects.filter(project => {
-    const matchesCategory = category === 'all' || project.category === category;
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const filteredProjects = useMemo(() => {
+    return projects.filter(project => {
+      const matchesCategory = category === 'all' || project.category === category;
+      const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           project.description.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [category, searchTerm]);
 
   const openProject = useCallback((project: Project) => {
     const projectIndex = filteredProjects.findIndex(p => p.id === project.id);
@@ -199,11 +216,11 @@ const VideoGallery: React.FC = () => {
     setIsPlaying(true);
   };
 
-  const toggleFullscreen = () => {
-    setIsFullscreen(!isFullscreen);
-  };
+  const toggleFullscreen = useCallback(() => {
+    setIsFullscreen(prev => !prev);
+  }, []);
 
-  const handleShare = async () => {
+  const handleShare = useCallback(async () => {
     if (navigator.share && selectedProject) {
       try {
         await navigator.share({
@@ -211,11 +228,11 @@ const VideoGallery: React.FC = () => {
           text: selectedProject.description,
           url: window.location.href
         });
-      } catch (error) {
+      } catch {
         navigator.clipboard.writeText(window.location.href);
       }
     }
-  };
+  }, [selectedProject]);
 
   const getEmbedUrl = (url: string): string => {
     if (!url) return '';
@@ -270,7 +287,7 @@ const VideoGallery: React.FC = () => {
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [selectedProject, isPlaying, navigateProject, closeProject, isSearchActive]);
+  }, [selectedProject, isPlaying, navigateProject, closeProject, handleShare, toggleFullscreen, isSearchActive]);
 
   const handleImageError = (id: number) => {
     setImageError(prev => ({ ...prev, [id]: true }));
@@ -285,13 +302,12 @@ const VideoGallery: React.FC = () => {
     }
   };
 
-  const searchVariants = {
+  const searchVariants: AnimationVariants = {
     hidden: { width: 0, opacity: 0 },
     visible: {
       width: "100%",
       opacity: 1,
       transition: {
-        type: "spring",
         stiffness: 300,
         damping: 25
       }
@@ -301,7 +317,6 @@ const VideoGallery: React.FC = () => {
   const buttonHoverAnimation = {
     scale: 1.05,
     transition: {
-      type: "spring",
       stiffness: 400,
       damping: 10
     }
@@ -311,7 +326,6 @@ const VideoGallery: React.FC = () => {
     scale: 1.03,
     y: -8,
     transition: {
-      type: "spring",
       stiffness: 300,
       damping: 20
     }
@@ -347,7 +361,7 @@ const VideoGallery: React.FC = () => {
             className="text-gray-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed"
           >
             Explore a curated selection of cinematic projects showcasing storytelling and visual artistry.
-            <span className="block text-sm blur-sm text-gray-400/10 md:text-gray-400 md:blur-none mt-2">Press "/" to search or use arrow keys to navigate</span>
+            <span className="block text-sm blur-sm text-gray-400/10 md:text-gray-400 md:blur-none mt-2">Press &quot;/&quot; to search or use arrow keys to navigate</span>
           </motion.p>
         </motion.div>
 
@@ -534,7 +548,7 @@ const VideoGallery: React.FC = () => {
               initial={{ scale: 0.9, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 50 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              transition={{ damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="absolute top-0 left-0 right-0 z-20 flex justify-between items-center p-4 bg-gradient-to-b from-black/80 to-transparent">

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-08-29T11:49:12.361Z",
-  "totalFiles": 95,
+  "generatedAt": "2025-09-07T10:35:51.258Z",
+  "totalFiles": 96,
   "files": [
     {
       "name": "3d-carousel",
@@ -559,6 +559,12 @@
       "path": "/docs/verify-badge.md",
       "url": "/docs/verify-badge",
       "originalMdx": "verify-badge\\page.mdx"
+    },
+    {
+      "name": "video-gallery",
+      "path": "/docs/video-gallery.md",
+      "url": "/docs/video-gallery",
+      "originalMdx": "video-gallery\\page.mdx"
     },
     {
       "name": "video-text",
