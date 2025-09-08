@@ -1,0 +1,80 @@
+export const metadata = {
+    title: 'Video Gallery Component - Sera UI Component Library',
+    description: 'A customizable video gallery component featuring a responsive grid, category filters, search functionality, and a modal with video playback, built with React, Tailwind CSS, and Framer Motion.',
+    keywords: [
+        'React video gallery component',
+        'video gallery',
+        'animated video gallery',
+        'Tailwind CSS video gallery',
+        'UI video gallery library',
+        'customizable video gallery',
+        'modern video gallery design',
+        'Framer Motion animations',
+        'Sera UI components'
+    ],
+    openGraph: {
+        title: 'Video Gallery Component - Sera UI',
+        description: 'A customizable video gallery component with a responsive grid, category filters, search, and modal video playback, built with React, Tailwind CSS, and Framer Motion.',
+        type: 'article',
+        url: '/docs/video-gallery',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Video Gallery Component - Sera UI',
+        description: 'A customizable video gallery component with a responsive grid, category filters, search, and modal video playback.',
+    },
+    alternates: {
+        canonical: '/docs/video-gallery',
+    },
+};
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/site/tabs";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import VideoGallery from "./Video-Gallery.tsx";
+
+# Video Gallery
+
+A modern, interactive video gallery component featuring a responsive grid layout, category filtering, search functionality, and a modal with video playback.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="preview">
+    <ComponentRenderer component={<VideoGallery />} />
+  </TabsContent>
+
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/video-gallery/Video-Gallery.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Accessibility
+
+- Semantic HTML with appropriate ARIA roles for interactive elements (e.g., `role="button"` for clickable cards and buttons).
+- Full keyboard navigation support for opening/closing modals, navigating projects, and toggling search (`/` key, arrow keys, `Esc`, `Space`, etc.).
+- Screen reader compatibility with descriptive labels for buttons and modals.
+- High-contrast visuals and focus states for accessibility.
+
+## Styling
+
+- Utilizes **Tailwind CSS** for responsive, utility-first styling.
+- Supports **dark mode** with `dark:` classes for seamless theme integration.
+- Implements **glassmorphism** effects using `backdrop-blur-sm` for modal and button overlays.
+- Smooth animations powered by **Framer Motion** for card hovers, modal transitions, and search bar interactions.
+- Responsive grid layout with Tailwind’s `grid-cols-*` for varying screen sizes.
+- Gradient backgrounds and hover effects for enhanced visual appeal.
+
+## Features
+
+- **Category Filtering**: Filter projects by categories like Documentary, Wedding, Travel, and Film.
+- **Search Functionality**: Real-time search with animated input expansion.
+- **Modal Video Playback**: Displays videos in a modal with autoplay support for YouTube and Vimeo.
+- **Keyboard Navigation**: Navigate projects with arrow keys, toggle fullscreen with `F`, share with `S`, and close with `Esc`.
+- **Fullscreen Mode**: Toggle fullscreen video playback for an immersive experience.
+- **Error Handling**: Fallback for unavailable thumbnails with a clean placeholder.
+- **Responsive Design**: Adapts to various screen sizes with a flexible grid and modal layout.
