@@ -356,7 +356,7 @@ const VideoGallery: React.FC = () => {
             className="text-gray-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed"
           >
             Explore a curated selection of cinematic projects showcasing storytelling and visual artistry.
-            <span className="block text-sm text-gray-400 mt-2">Press "/" to search or use arrow keys to navigate</span>
+            <span className="block text-sm text-gray-400 mt-2">Press &quot;/&quot; to search or use arrow keys to navigate</span>
           </motion.p>
         </motion.div>
 
