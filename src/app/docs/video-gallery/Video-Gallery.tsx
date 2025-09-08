@@ -332,12 +332,7 @@ const VideoGallery: React.FC = () => {
   };
 
   return (
-    <section id="gallery" className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-900 via-black to-gray-800 min-h-screen relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-yellow-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-      </div>
-
+    <section id="gallery" className="py-12 sm:py-16 md:py-20 bg-black min-h-screen relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
@@ -350,18 +345,18 @@ const VideoGallery: React.FC = () => {
             variants={itemAnimation}
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-white tracking-tight"
           >
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Videos</span>
+            Featured Videos
           </motion.h2>
           <motion.div
             variants={itemAnimation}
-            className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto mb-6 rounded-full"
+            className="w-24 h-1 bg-white mx-auto mb-6"
           />
           <motion.p
             variants={itemAnimation}
             className="text-gray-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed"
           >
             Explore a curated selection of cinematic projects showcasing storytelling and visual artistry.
-            <span className="block text-sm blur-sm text-gray-400/10 md:text-gray-400 md:blur-none mt-2">Press &quot;/&quot; to search or use arrow keys to navigate</span>
+            <span className="block text-sm text-gray-400 mt-2">Press &quot;/&quot; to search or use arrow keys to navigate</span>
           </motion.p>
         </motion.div>
 
@@ -376,7 +371,7 @@ const VideoGallery: React.FC = () => {
               <div className="relative flex items-center">
                 <motion.button
                   onClick={toggleSearch}
-                  className={`flex items-center gap-2 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-300 hover:bg-gray-700 transition-all duration-300 ${
+                  className={`flex items-center gap-2 px-4 py-2 bg-black border border-gray-600 rounded text-gray-300 hover:bg-gray-800 transition-all duration-300 ${
                     isSearchActive ? 'w-full' : 'w-auto'
                   }`}
                   whileHover={buttonHoverAnimation}
@@ -401,7 +396,7 @@ const VideoGallery: React.FC = () => {
                         onChange={(e) => setSearchTerm(e.target.value)}
                         onBlur={() => !searchTerm && setIsSearchActive(false)}
                         placeholder="Search projects..."
-                        className="w-full px-4 py-2 pl-10 bg-gray-800 border border-yellow-400 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                        className="w-full px-4 py-2 pl-10 bg-black border border-gray-600 rounded text-white placeholder-gray-400 focus:outline-none focus:border-white"
                       />
                       <Search size={20} className="absolute left-3 text-gray-400" />
                       {searchTerm && (
@@ -428,11 +423,11 @@ const VideoGallery: React.FC = () => {
               <motion.button
                 key={cat}
                 variants={itemAnimation}
-                className={`px-6 py-3 rounded-full uppercase tracking-widest text-sm font-semibold transition-all duration-300 ${
+                className={`px-6 py-3 rounded uppercase tracking-widest text-sm font-semibold transition-all duration-300 ${
                   category === cat
-                    ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-black shadow-lg shadow-yellow-400/30'
-                    : 'border border-gray-600 text-gray-200 hover:border-yellow-400 hover:text-yellow-400'
-                } focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50`}
+                    ? 'bg-white text-black'
+                    : 'border border-gray-600 text-gray-200 hover:border-white hover:text-white'
+                } focus:outline-none focus:border-white`}
                 onClick={() => setCategory(cat)}
                 whileHover={buttonHoverAnimation}
                 whileTap={{ scale: 0.95 }}
@@ -456,7 +451,7 @@ const VideoGallery: React.FC = () => {
                 layout
                 key={project.id}
                 variants={itemAnimation}
-                className="relative group cursor-pointer rounded-2xl overflow-hidden h-72 sm:h-80 shadow-xl bg-gray-900"
+                className="relative group cursor-pointer rounded overflow-hidden h-72 sm:h-80 bg-gray-900 border border-gray-800"
                 onClick={() => openProject(project)}
                 whileHover={cardHoverAnimation}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -473,7 +468,7 @@ const VideoGallery: React.FC = () => {
                     loading="lazy"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center">
+                  <div className="w-full h-full bg-gray-900 flex items-center justify-center">
                     <span className="text-gray-400 text-sm font-medium">Image unavailable</span>
                   </div>
                 )}
@@ -487,7 +482,7 @@ const VideoGallery: React.FC = () => {
                     {project.title}
                   </motion.h3>
                   <motion.p
-                    className="text-yellow-400 text-sm uppercase tracking-wider mb-3"
+                    className="text-gray-300 text-sm uppercase tracking-wider mb-3"
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
@@ -500,13 +495,13 @@ const VideoGallery: React.FC = () => {
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3 }}
                   >
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg">
+                    <div className="w-12 h-12 rounded bg-white flex items-center justify-center">
                       <Play className="text-black ml-1" size={16} />
                     </div>
                     <span className="text-white text-sm font-medium">View Project</span>
                   </motion.div>
                 </div>
-                <div className="absolute top-4 left-4 px-3 py-1 bg-black/60 backdrop-blur-sm rounded-full text-xs text-yellow-400 uppercase tracking-wider font-semibold">
+                <div className="absolute top-4 left-4 px-3 py-1 bg-black/60 rounded text-xs text-gray-300 uppercase tracking-wider font-semibold">
                   {project.category}
                 </div>
               </motion.div>
@@ -523,7 +518,7 @@ const VideoGallery: React.FC = () => {
             <p className="text-gray-400 text-lg">No projects found matching your criteria.</p>
             <button
               onClick={() => { setCategory('all'); setSearchTerm(''); }}
-              className="mt-4 px-6 py-2 bg-yellow-400 text-black rounded-lg hover:bg-yellow-500 transition-colors"
+              className="mt-4 px-6 py-2 bg-white text-black rounded hover:bg-gray-200 transition-colors"
             >
               Clear Filters
             </button>
@@ -534,7 +529,7 @@ const VideoGallery: React.FC = () => {
       <AnimatePresence>
         {selectedProject && (
           <motion.div
-            className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 sm:p-6 ${isFullscreen ? 'p-0' : ''}`}
+            className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 sm:p-6 ${isFullscreen ? 'p-0' : ''}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -542,7 +537,7 @@ const VideoGallery: React.FC = () => {
           >
             <motion.div
               ref={modalRef}
-              className={`relative bg-gray-900 w-full overflow-y-auto rounded-2xl shadow-2xl border border-gray-800 ${
+              className={`relative bg-black w-full overflow-y-auto rounded shadow border border-gray-800 ${
                 isFullscreen ? 'max-w-none max-h-none h-full rounded-none' : 'max-w-6xl max-h-[90vh]'
               }`}
               initial={{ scale: 0.9, opacity: 0, y: 50 }}
@@ -561,21 +556,21 @@ const VideoGallery: React.FC = () => {
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={handleShare}
-                    className="w-10 h-10 rounded-full bg-gray-800/80 flex items-center justify-center text-white hover:bg-yellow-400 hover:text-black transition-colors duration-300"
+                    className="w-10 h-10 rounded bg-gray-800/80 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors duration-300"
                     title="Share (S)"
                   >
                     <Share2 size={16} />
                   </button>
                   <button
                     onClick={toggleFullscreen}
-                    className="w-10 h-10 rounded-full bg-gray-800/80 flex items-center justify-center text-white hover:bg-yellow-400 hover:text-black transition-colors duration-300"
+                    className="w-10 h-10 rounded bg-gray-800/80 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors duration-300"
                     title="Fullscreen (F)"
                   >
                     {isFullscreen ? <Minimize size={16} /> : <Expand size={16} />}
                   </button>
                   <button
                     onClick={closeProject}
-                    className="w-10 h-10 rounded-full bg-gray-800/80 flex items-center justify-center text-white hover:bg-red-500 transition-colors duration-300"
+                    className="w-10 h-10 rounded bg-gray-800/80 flex items-center justify-center text-white hover:bg-gray-500 transition-colors duration-300"
                     title="Close (Esc)"
                   >
                     <X size={16} />
@@ -587,14 +582,14 @@ const VideoGallery: React.FC = () => {
                 <>
                   <button
                     onClick={() => navigateProject('prev')}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/60 flex items-center justify-center text-white hover:bg-yellow-400 hover:text-black transition-colors duration-300"
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded bg-black/60 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors duration-300"
                     title="Previous (←)"
                   >
                     <ChevronLeft size={20} />
                   </button>
                   <button
                     onClick={() => navigateProject('next')}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/60 flex items-center justify-center text-white hover:bg-yellow-400 hover:text-black transition-colors duration-300"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded bg-black/60 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors duration-300"
                     title="Next (→)"
                   >
                     <ChevronRight size={20} />
@@ -621,7 +616,7 @@ const VideoGallery: React.FC = () => {
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <motion.button
-                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center shadow-2xl"
+                        className="w-16 h-16 sm:w-20 sm:h-20 rounded bg-white flex items-center justify-center"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={handlePlayClick}
@@ -644,7 +639,7 @@ const VideoGallery: React.FC = () => {
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-white">
                     {selectedProject.title}
                   </h2>
-                  <p className="text-yellow-400 text-sm uppercase tracking-widest mb-4">
+                  <p className="text-gray-300 text-sm uppercase tracking-widest mb-4">
                     {selectedProject.category}
                   </p>
                   <p className="text-gray-200 mb-8 text-base sm:text-lg leading-relaxed">
@@ -652,7 +647,7 @@ const VideoGallery: React.FC = () => {
                   </p>
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div>
-                      <h3 className="text-yellow-400 font-semibold mb-4 text-lg">Project Details</h3>
+                      <h3 className="text-white font-semibold mb-4 text-lg">Project Details</h3>
                       <ul className="text-gray-200 space-y-3">
                         <li><span className="font-semibold">Client:</span> {selectedProject.client}</li>
                         <li><span className="font-semibold">Director:</span> {selectedProject.director}</li>
@@ -661,7 +656,7 @@ const VideoGallery: React.FC = () => {
                       </ul>
                     </div>
                     <div>
-                      <h3 className="text-yellow-400 font-semibold mb-4 text-lg">Technical Specs</h3>
+                      <h3 className="text-white font-semibold mb-4 text-lg">Technical Specs</h3>
                       <ul className="text-gray-200 space-y-3">
                         <li><span className="font-semibold">Camera:</span> {selectedProject.camera}</li>
                         <li><span className="font-semibold">Lenses:</span> {selectedProject.lenses}</li>
