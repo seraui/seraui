@@ -70,7 +70,7 @@ function PatternCard({
         </div>
 
         {/* Overlay with buttons - visible on hover/tap */}
-        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 md:gap-2">
+        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 md:gap-2">
           <button
             onClick={(e) => {
               e.stopPropagation();
