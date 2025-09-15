@@ -12,6 +12,25 @@ interface Pattern {
 
 export const gridPatterns: Pattern[] = [
   {
+  id: "sunset-radial",
+  name: "Sunset Radial",
+  category: "decorative",
+  style: {
+    background:
+      "radial-gradient(120% 120% at 50% 20%, #fef3c7 30%, #f97316 70%, #7c2d12 100%)",
+  },
+  code: `<div className="min-h-screen w-full relative">
+  {/* Sunset Radial Background */}
+  <div
+    className="absolute inset-0 z-0"
+    style={{
+      background: "radial-gradient(120% 120% at 50% 20%, #fef3c7 30%, #f97316 70%, #7c2d12 100%)",
+    }}
+  />
+  {/* Your Content/Components */}
+</div>`,
+  },
+  {
     id: "top-gradient-radial",
     name: "Top Gradient Radial",
     category: "decorative",
