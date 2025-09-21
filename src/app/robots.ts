@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/_next/", "/tools/react-code-runner", "/standalone/"],
     },
-    sitemap: "https://seraui.seraprogrammer.com/sitemap.xml",
+    sitemap: "https://seraui.com/sitemap.xml",
   };
 }

@@ -16,7 +16,7 @@ export function StructuredData() {
             name: "Sera UI",
             description:
               "Modern React component library with 500+ animated components built with Tailwind CSS and Framer Motion.",
-            url: "https://seraui.seraprogrammer.com",
+            url: "https://seraui.com",
             applicationCategory: "DeveloperApplication",
             operatingSystem: "Web",
             softwareVersion: "1.0.0",
@@ -46,8 +46,8 @@ export function StructuredData() {
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Sera UI",
-            url: "https://seraui.seraprogrammer.com",
-            logo: "https://seraui.seraprogrammer.com/logo.svg",
+            url: "https://seraui.com",
+            logo: "https://seraui.com/logo.svg",
             description:
               "Modern React component library for developers. First UI library from Bangladesh.",
             foundingDate: "2024",
@@ -68,7 +68,7 @@ export function StructuredData() {
             "@context": "https://schema.org",
             "@type": "WebSite",
             name: "Sera UI",
-            url: "https://seraui.seraprogrammer.com",
+            url: "https://seraui.com",
             description:
               "Modern React component library with 500+ animated components",
             publisher: {
@@ -80,7 +80,7 @@ export function StructuredData() {
               target: {
                 "@type": "EntryPoint",
                 urlTemplate:
-                  "https://seraui.seraprogrammer.com/docs?search={search_term_string}",
+                  "https://seraui.com/docs?search={search_term_string}",
               },
               "query-input": "required name=search_term_string",
             },

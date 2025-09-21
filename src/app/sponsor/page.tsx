@@ -57,7 +57,7 @@ const sponsorshipPlans = [
 const contactLinks = [
   {
     platform: "LinkedIn",
-    url: "https://www.linkedin.com/in/codernazmulhossain/",
+    url: "https://www.linkedin.com/company/pimjo",
     icon: "💼",
     description: "Professional networking and career updates",
   },

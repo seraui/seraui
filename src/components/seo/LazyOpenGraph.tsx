@@ -19,10 +19,10 @@ export function LazyOpenGraph() {
           content:
             "Build stunning web applications with Sera UI's 500+ animated React components. Free, open-source, and built with Tailwind CSS & Framer Motion.",
         },
-        { property: "og:url", content: "https://seraui.seraprogrammer.com" },
+        { property: "og:url", content: "https://seraui.com" },
         {
           property: "og:image",
-          content: "https://seraui.seraprogrammer.com/og-image.png",
+          content: "https://seraui.com/og-image.png",
         },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
@@ -49,7 +49,7 @@ export function LazyOpenGraph() {
         },
         {
           name: "twitter:image",
-          content: "https://seraui.seraprogrammer.com/og-image.png",
+          content: "https://seraui.com/og-image.png",
         },
         {
           name: "twitter:image:alt",

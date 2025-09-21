@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://seraui.seraprogrammer.com/sitemap.xml
+Sitemap: https://seraui.com/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
@@ -98,4 +98,4 @@ Allow: /docs/
 Disallow: /
 
 # Host directive for better crawling
-Host: seraui.seraprogrammer.com 
+Host: seraui.com 

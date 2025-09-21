@@ -2,7 +2,7 @@
 export const seoConfig = {
   // Basic site information
   siteName: 'Sera UI',
-  siteUrl: 'https://seraui.seraprogrammer.com',
+  siteUrl: 'https://seraui.com',
   siteDescription: 'Modern React component library with 50+ animated components built with Tailwind CSS and Framer Motion. Free, open-source, and production-ready for modern web applications.',
   
   // Social media
@@ -128,8 +128,8 @@ export const seoConfig = {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'Sera UI',
-      url: 'https://seraui.seraprogrammer.com',
-      logo: 'https://seraui.seraprogrammer.com/logo.svg',
+      url: 'https://seraui.com',
+      logo: 'https://seraui.com/logo.svg',
       description: 'Modern React component library for developers',
       foundingDate: '2024',
       address: {

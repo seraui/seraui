@@ -3,8 +3,8 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Sera UI",
-  "url": "https://seraui.seraprogrammer.com",
-  "logo": "https://seraui.seraprogrammer.com/logo.svg",
+  "url": "https://seraui.com",
+  "logo": "https://seraui.com/logo.svg",
   "description": "Modern React component library with 50+ animated components built with Tailwind CSS and Framer Motion",
   "foundingDate": "2024",
   "founder": {
@@ -29,7 +29,7 @@ export const softwareApplicationSchema = {
   "@type": "SoftwareApplication",
   "name": "Sera UI",
   "description": "Modern React component library with 50+ animated components built with Tailwind CSS and Framer Motion",
-  "url": "https://seraui.seraprogrammer.com",
+  "url": "https://seraui.com",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Web",
   "browserRequirements": "Requires JavaScript. Requires HTML5.",
@@ -50,7 +50,7 @@ export const softwareApplicationSchema = {
     "name": "Sera UI",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://seraui.seraprogrammer.com/logo.svg"
+      "url": "https://seraui.com/logo.svg"
     }
   },
   "offers": {
@@ -94,7 +94,7 @@ export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Sera UI",
-  "url": "https://seraui.seraprogrammer.com",
+  "url": "https://seraui.com",
   "description": "Modern React component library with 50+ animated components",
   "publisher": {
     "@type": "Organization",
@@ -104,7 +104,7 @@ export const websiteSchema = {
     "@type": "SearchAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": "https://seraui.seraprogrammer.com/docs?search={search_term_string}"
+      "urlTemplate": "https://seraui.com/docs?search={search_term_string}"
     },
     "query-input": "required name=search_term_string"
   },
@@ -123,7 +123,7 @@ export const breadcrumbSchema = (items: Array<{name: string, url: string}>) => (
     "@type": "ListItem",
     "position": index + 1,
     "name": item.name,
-    "item": `https://seraui.seraprogrammer.com${item.url}`
+    "item": `https://seraui.com${item.url}`
   }))
 })
 

@@ -28,7 +28,7 @@ export function AIButton({ dir = 'right' }: AIButtonProps) {
   }, []);
 
   // Construct URLs
-  const baseUrl = 'https://seraui.seraprogrammer.com';
+  const baseUrl = 'https://seraui.com';
   const currentUrl = `${baseUrl}${pathname}`;
   
   // Extract component name from pathname

@@ -27,7 +27,7 @@ export const Footer = () => {
             <FaGithub />
           </a>
           <a
-            href="https://www.linkedin.com/in/codernazmulhossain/"
+            href="https://www.linkedin.com/company/pimjo"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -58,7 +58,7 @@ export const Footer = () => {
         <div className="text-zinc-500 dark:text-zinc-400 text-center md:text-right">
           <span className="mr-1">Built by</span>
           <a
-            href="https://seraprogrammer.com"
+            href="https://pimjo.com"
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium text-zinc-700 dark:text-zinc-100 hover:underline"

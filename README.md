@@ -1,18 +1,11 @@
 # Sera UI
-<a href="https://www.producthunt.com/products/sera-ui?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-sera&#0045;ui" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=994756&theme=light&t=1752876970839" alt="Sera&#0032;UI - Modern&#0032;react&#0032;component&#0032;library | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+# Sera UI - Open-source UI Library for React and Next.js
 
-<div align="center">
-  <h2>🚀 Join Our Official Discord Server!</h2>
-  <p>Stay connected with the community, get support, share ideas, and be part of something amazing!</p>
-  <a href="https://discord.gg/XqQkbTptvJ" target="_blank"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="join-discord"></a>
-  <a href="https://x.com/devshowcse" target="_blank"><img src="https://img.shields.io/badge/Ask%20on%20X-000000?style=for-the-badge&logo=x&logoColor=white" alt="ask-on-x"></a>
-</div>
+Sera UI is an open-source UI library loved by developers for React, Next.js, and other JSX frameworks. Built with Tailwind CSS, it makes creating beautiful, interactive and responsive interfaces fast and easy.
+
 
 ---
 
-<img width="1638" height="958" alt="Screenshot 2025-07-18 050214" src="https://github.com/user-attachments/assets/ef7fe2e7-e085-4cfb-bbed-7f2e53c9bee6" />
-
-https://github.com/user-attachments/assets/a9472d3e-8994-4775-b82b-69334bd270a3
 
 
 **Beautifully designed components you can copy and paste into your apps. Accessible. Customizable. Open Source.**
@@ -47,22 +40,22 @@ Our CLI will guide you through the process of adding components to your project.
 
 **npm**
 ```bash
-npx shadcn@latest add "https://seraui.seraprogrammer.com/registry/button.json"
+npx shadcn@latest add "https://seraui.com/registry/button.json"
 ```
 
 **pnpm**
 ```bash
-pnpm dlx shadcn@latest add "https://seraui.seraprogrammer.com/registry/button.json"
+pnpm dlx shadcn@latest add "https://seraui.com/registry/button.json"
 ```
 
 **yarn**
 ```bash
-yarn dlx shadcn@latest add "https://seraui.seraprogrammer.com/registry/button.json"
+yarn dlx shadcn@latest add "https://seraui.com/registry/button.json"
 ```
 
 **bun**
 ```bash
-bunx shadcn@latest add "https://seraui.seraprogrammer.com/registry/button.json"
+bunx shadcn@latest add "https://seraui.com/registry/button.json"
 ```
 
 ### Manual Installation
@@ -79,23 +72,23 @@ For manual installation, you can copy and paste the component code directly from
 
 We are constantly growing our library of components. Here are some of the components currently available:
 
-* [Accordion](https://seraui.seraprogrammer.com/docs/accordion/)
+* [Accordion](https://seraui.com/docs/accordion/)
 * Alert
 * Avatar
-* [Badge](https://seraui.seraprogrammer.com/docs/badge/)
-* [Button](https://seraui.seraprogrammer.com/docs/button/)
-* [Card](https://seraui.seraprogrammer.com/docs/card/)
-* [Carousel](https://seraui.seraprogrammer.com/docs/carousel/)
+* [Badge](https://seraui.com/docs/badge/)
+* [Button](https://seraui.com/docs/button/)
+* [Card](https://seraui.com/docs/card/)
+* [Carousel](https://seraui.com/docs/carousel/)
 * Checkbox
-* [Dialog (Modal)](https://seraui.seraprogrammer.com/docs/modal/)
-* [Dropdown Menu](https://seraui.seraprogrammer.com/docs/dropdown/)
-* [Divider](https://seraui.seraprogrammer.com/docs/divider/)
-* [Form (Input & Label)](https://seraui.seraprogrammer.com/docs/login/)
-* [Layout](https://seraui.seraprogrammer.com/docs/masonary/)
-* [Select (Combobox)](https://seraui.seraprogrammer.com/docs/combo-box/)
-* [Tabs](https://seraui.seraprogrammer.com/docs/tabs/)
-* [Text](https://seraui.seraprogrammer.com/docs/text/)
-* [Toast](https://seraui.seraprogrammer.com/docs/toast/)
+* [Dialog (Modal)](https://seraui.com/docs/modal/)
+* [Dropdown Menu](https://seraui.com/docs/dropdown/)
+* [Divider](https://seraui.com/docs/divider/)
+* [Form (Input & Label)](https://seraui.com/docs/login/)
+* [Layout](https://seraui.com/docs/masonary/)
+* [Select (Combobox)](https://seraui.com/docs/combo-box/)
+* [Tabs](https://seraui.com/docs/tabs/)
+* [Text](https://seraui.com/docs/text/)
+* [Toast](https://seraui.com/docs/toast/)
 * Tooltip
 
 ...and more are on the way!

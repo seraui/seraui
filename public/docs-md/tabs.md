@@ -32,7 +32,7 @@ Here's how to use the `Tabs` component in your project:
 You can manually copy the component into your project, **or** use the top-side CLI to install it automatically.
 
 ```bash
-npx shadcn@latest add "https://seraui.seraprogrammer.com/registry/tabs.json"
+npx shadcn@latest add "https://seraui.com/registry/tabs.json"
 ```
 
 > Once installed, you can use it anywhere in your app like this:

@@ -31,7 +31,7 @@ export function generateMetadata(config: SEOConfig): Metadata {
     tags = []
   } = config
 
-  const baseUrl = 'https://seraui.seraprogrammer.com'
+  const baseUrl = 'https://seraui.com'
   const fullTitle = title.includes('Sera UI') ? title : `${title} | Sera UI`
   const canonicalUrl = canonical ? `${baseUrl}${canonical}` : undefined
 
@@ -178,7 +178,7 @@ export function generateArticleMetadata(
 
 // Generate JSON-LD structured data
 export function generateStructuredData(type: 'component' | 'article' | 'faq' | 'howto', data: Record<string, unknown>) {
-  const baseUrl = 'https://seraui.seraprogrammer.com'
+  const baseUrl = 'https://seraui.com'
   
   switch (type) {
     case 'component':

@@ -73,12 +73,12 @@ const SupportAlertBanner = () => {
           <div className="flex items-center gap-2">
             <Heart className="h-4 w-4 fill-current animate-pulse text-rose-500" />
             <span className="font-medium">
-              Love This UI? Help It Grow and Reach More Developers Worldwide —{" "}
+              Pimjo has acquired Sera UI 🎉 —{" "}
               <Link
-                href="/sponsor"
+                href="https://links.pimjo.com/seraui-announcement"
                 className="underline hover:no-underline transition-all duration-200"
               >
-                Check out
+                Learn More
               </Link>
             </span>
           </div>
@@ -315,7 +315,7 @@ const Header = () => {
               </div>
             </button>
             <Link
-              href="https://www.linkedin.com/in/codernazmulhossain/"
+              href="https://www.linkedin.com/company/pimjo"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center h-9 w-9 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200"

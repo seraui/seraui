@@ -46,8 +46,8 @@
 Sera UI is born from real development needs — built by a developer, for developers.
 
 ### 🌐 Live Demo
-- **Website**: [seraui.seraprogrammer.com](https://seraui.seraprogrammer.com)
-- **Documentation**: [seraui.seraprogrammer.com/docs](https://seraui.seraprogrammer.com/docs)
+- **Website**: [seraui.seraprogrammer.com](https://seraui.com)
+- **Documentation**: [seraui.seraprogrammer.com/docs](https://seraui.com/docs)
 
 ---
 
@@ -169,16 +169,16 @@ seraui/
 #### CLI Installation (Recommended)
 ```bash
 # Using npm
-npx shadcn@latest add "https://seraui.seraprogrammer.com/registry/button.json"
+npx shadcn@latest add "https://seraui.com/registry/button.json"
 
 # Using pnpm
-pnpm dlx shadcn@latest add "https://seraui.seraprogrammer.com/registry/button.json"
+pnpm dlx shadcn@latest add "https://seraui.com/registry/button.json"
 
 # Using yarn
-yarn dlx shadcn@latest add "https://seraui.seraprogrammer.com/registry/button.json"
+yarn dlx shadcn@latest add "https://seraui.com/registry/button.json"
 
 # Using bun
-bunx shadcn@latest add "https://seraui.seraprogrammer.com/registry/button.json"
+bunx shadcn@latest add "https://seraui.com/registry/button.json"
 ```
 
 #### Manual Installation
@@ -533,7 +533,7 @@ For security vulnerabilities, contact: [codewithnazmul@gmail.com](mailto:codewit
   </p>
 
   <p>
-    <a href="https://seraui.seraprogrammer.com">Visit Website</a> •
+    <a href="https://seraui.com">Visit Website</a> •
     <a href="https://github.com/seraui/seraui">GitHub</a> •
     <a href="https://discord.gg/XqQkbTptvJ">Discord</a>
   </p>

@@ -138,7 +138,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://seraui.seraprogrammer.com"),
+  metadataBase: new URL("https://seraui.com"),
   alternates: {
     canonical: "/",
   },
@@ -147,11 +147,11 @@ export const metadata: Metadata = {
       "Sera UI - Modern React Component Library | 500+ Animated Components",
     description:
       "Build stunning web applications with Sera UI's 500+ animated React components. Free, open-source, and built with Tailwind CSS & Framer Motion.",
-    url: "https://seraui.seraprogrammer.com",
+    url: "https://seraui.com",
     siteName: "Sera UI",
     images: [
       {
-        url: "https://seraui.seraprogrammer.com/og-image.png",
+        url: "https://seraui.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "Sera UI - Modern React Component Library with 500+ Animated Components",
@@ -166,7 +166,7 @@ export const metadata: Metadata = {
     title: "Sera UI - Modern React Component Library",
     description:
       "500+ animated React components built with Tailwind CSS & Framer Motion. Free, open-source, and production-ready.",
-    images: ["https://seraui.seraprogrammer.com/og-image.png"],
+    images: ["https://seraui.com/og-image.png"],
     creator: "@sera_ui",
     site: "@sera_ui",
   },

@@ -17,7 +17,7 @@ npx seraui@latest init
 npx seraui@latest init
 ✔ SeraUI initialized successfully!
 
-🌐 Registry URL: https://seraui.seraprogrammer.com/registry
+🌐 Registry URL: https://seraui.com/registry
 
 📦 Dependencies installed:
   - clsx
@@ -65,7 +65,7 @@ Total components: 5
 ## Initialize with a custom registry URL
 
 ```bash
-npx seraui@latest init --url https://seraui.seraprogrammer.com/registry
+npx seraui@latest init --url https://seraui.com/registry
 ```
 
 ## Add a component (uses saved URL)
@@ -88,7 +88,7 @@ npx seraui@latest add button --url https://different-registry.com/registry
 ## Configure the default registry URL
 
 ```bash
-npx seraui@latest config --url https://seraui.seraprogrammer.com/registry
+npx seraui@latest config --url https://seraui.com/registry
 ```
 
 ---
