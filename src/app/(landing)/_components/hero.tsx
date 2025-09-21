@@ -49,14 +49,14 @@ export const Hero = () => {
               </span>
             </span>
             <span className="block">
-              websites <span className="mask-r-from-0%">with ease</span>
+              website UI <span className="mask-r-from-0%">with ease</span>
             </span>
           </h1>
 
           {/* Subtitle - better mobile spacing */}
           <p className="text-sm sm:text-base md:text-lg font-medium text-zinc-600 dark:text-zinc-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed px-2 sm:px-0">
-Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.
-          </p>
+Free and open-source UI library for React, Next.js, and JSX frameworks. Styled with Tailwind CSS, empowers developers to create fast, beautiful, highly customizable, and animated user interfaces for modern web projects.
+</p>
 
           {/* Action Buttons - better mobile layout */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center w-full sm:w-auto">
@@ -78,7 +78,7 @@ Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with
                 iconLeft={<Wrench className="h-5 w-5" />}
                 className="w-full sm:w-auto min-w-[180px] shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                Visit Tools
+                Explore Tools
               </Button>
             </Link>
           </div>
