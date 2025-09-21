@@ -4,7 +4,7 @@
 
 If you discover a security vulnerability in **Sera UI**, please report it to us as soon as possible.
 
-**Contact Email:** [chello@seraui.com](mailto:chello@seraui.com)  
+**Contact Email:** [hello@seraui.com](mailto:hello@seraui.com)  
 
 When reporting a vulnerability, please include:
 
