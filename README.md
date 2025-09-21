@@ -1,6 +1,10 @@
-# Sera UI - Open-source UI Library for React and Next.js
+# Sera UI - Open-source UI Components for React and Next.js
 
-Sera UI is an open-source UI library loved by developers for React, Next.js, and other JSX frameworks. Built with Tailwind CSS, it makes creating beautiful, interactive and responsive interfaces fast and easy.
+Sera UI is an open-source UI components library loved by developers. Crafted and ready to use for React, Next.js, and other JSX frameworks. Built with Tailwind CSS, it makes creating beautiful, interactive and responsive interfaces fast and easy.
+
+
+![Sera UI](https://github.com/seraui/seraui/blob/main/public/images/sera-ui.png)
+
 
 ---
 
