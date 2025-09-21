@@ -3,7 +3,7 @@
   "name": "retrocard",
   "title": "Retro Card",
   "description": "A Retro card component",
-  "author": "Nazmul Hossain",
+  "author": "Zane Whitaker",
   "type": "registry:ui",
   "dependencies": [],
   "devDependencies": [],

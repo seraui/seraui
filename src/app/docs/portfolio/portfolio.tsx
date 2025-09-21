@@ -12,7 +12,7 @@ const DotIcon = () => (
 
 // The data for the code snippet
 const coderData = {
-  name: 'Nazmul Hossain',
+  name: 'Zane Whitaker',
   role: 'Frontend Developer',
   seniority: 'Mid-Level',
   location: 'Bangladesh',
@@ -160,7 +160,7 @@ const Portfolio = () => {
                     Hello <br />
                     I&apos;m{' '}
                     <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-                        Nazmul Hossain
+                        Zane Whitaker
                     </span>
                 </h1>
             </div>

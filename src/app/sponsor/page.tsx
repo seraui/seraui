@@ -75,7 +75,7 @@ const contactLinks = [
   },
   {
     platform: "X (Twitter)",
-    url: "https://x.com/devshowcse",
+    url: "https://x.com/pimjoHQ",
     icon: "🐦",
     description: "Latest thoughts and tech insights",
   },
@@ -199,7 +199,7 @@ export default function Page() {
                     variant={plan.popular ? "default" : "outline"}
                     onClick={() =>
                       window.open(
-                        "mailto:codewithnazmul@gmail.com?subject=Sponsorship Inquiry - " +
+                        "mailto:chello@seraui.com?subject=Sponsorship Inquiry - " +
                           plan.name +
                           " Plan",
                         "_blank"
@@ -231,13 +231,13 @@ export default function Page() {
               className="mb-4"
               onClick={() =>
                 window.open(
-                  "mailto:codewithnazmul@gmail.com?subject=Sponsorship Inquiry",
+                  "mailto:chello@seraui.com?subject=Sponsorship Inquiry",
                   "_blank"
                 )
               }
             >
               <Mail className="w-4 h-4 mr-2" />
-              codewithnazmul@gmail.com
+              chello@seraui.com
             </Button>
             <p className="text-sm text-muted-foreground">
               Or reach out through any of the platforms below

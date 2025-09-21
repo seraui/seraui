@@ -58,7 +58,7 @@ function Testimonial() {
     {
       name: "Ornella Gigante",
       title: "Fullstack Developer",
-      text: "This is amazing and so useful!! Tysm for sharing this and congrats Nazmul Hossain ♻!! Great job! ✨",
+      text: "This is amazing and so useful!! Tysm for sharing this and congrats Zane Whitaker ♻!! Great job! ✨",
       image: "https://i.postimg.cc/xTJRXYxs/image.png",
     },
     {

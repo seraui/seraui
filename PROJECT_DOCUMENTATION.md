@@ -12,7 +12,7 @@
   <a href="https://discord.gg/XqQkbTptvJ" target="_blank">
     <img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="join-discord">
   </a>
-  <a href="https://x.com/devshowcse" target="_blank">
+  <a href="https://x.com/pimjoHQ" target="_blank">
     <img src="https://img.shields.io/badge/Ask%20on%20X-000000?style=for-the-badge&logo=x&logoColor=white" alt="ask-on-x">
   </a>
 </div>
@@ -476,7 +476,7 @@ Sera UI is released under the MIT License, allowing:
 Copyright (c) 2025 Sera UI. All rights reserved.
 
 ### Security
-For security vulnerabilities, contact: [codewithnazmul@gmail.com](mailto:codewithnazmul@gmail.com)
+For security vulnerabilities, contact: [chello@seraui.com](mailto:chello@seraui.com)
 
 ---
 
@@ -484,7 +484,7 @@ For security vulnerabilities, contact: [codewithnazmul@gmail.com](mailto:codewit
 
 ### Get Help
 - **Discord**: [Join our Discord server](https://discord.gg/XqQkbTptvJ)
-- **Twitter/X**: [@devshowcse](https://x.com/devshowcse)
+- **Twitter/X**: [@pimjoHQ](https://x.com/pimjoHQ)
 - **GitHub Discussions**: [Community discussions](https://github.com/seraui/seraui/discussions)
 - **Issues**: [Report bugs](https://github.com/seraui/seraui/issues)
 

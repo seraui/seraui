@@ -181,7 +181,7 @@ export default function MagicCardView() {
             <div className="text-left pt-2">
               <div className="flex items-center gap-1">
                 <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                  Nazmul Hossain
+                  Zane Whitaker
                 </h2>
                 <VerifiedIcon className="w-5 h-5" />
               </div>

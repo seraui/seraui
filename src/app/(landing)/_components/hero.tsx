@@ -27,7 +27,7 @@ export const Hero = () => {
               className="rounded-full"
             />
             <span className="text-xs sm:text-sm font-medium text-muted-foreground tracking-wide">
-              ✨ Now with enhanced components
+              ✨ Now with enhanced performance
             </span>
           </div>
 
@@ -45,17 +45,17 @@ export const Hero = () => {
                 className="inline mx-1 sm:mx-2 align-middle w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-[70px] xl:h-[70px]"
               />
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                beautiful
+                Beautiful
               </span>
             </span>
             <span className="block">
-              website UI <span className="mask-r-from-0%">with ease</span>
+              Website UI <span className="mask-r-from-0%">with Ease</span>
             </span>
           </h1>
 
           {/* Subtitle - better mobile spacing */}
           <p className="text-sm sm:text-base md:text-lg font-medium text-zinc-600 dark:text-zinc-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed px-2 sm:px-0">
-Free and open-source UI library for React, Next.js, and JSX frameworks. Styled with Tailwind CSS, empowers developers to create fast, beautiful, highly customizable, and animated user interfaces for modern web projects.
+Free and open-source UI component library for React, Next.js, and JSX frameworks. Styled with Tailwind CSS, empowers developers to create fast, beautiful, and customizable user interfaces for modern web projects.
 </p>
 
           {/* Action Buttons - better mobile layout */}

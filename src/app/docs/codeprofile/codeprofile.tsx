@@ -9,7 +9,7 @@ export default function CodeProfile() {
 }
 
 const coderData = {
-  name: "Nazmul Hossain",
+  name: "Zane Whitaker",
   role: "Frontend Developer",
   seniority: "Mid-Level",
   location: "Bangladesh",

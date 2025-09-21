@@ -3,7 +3,7 @@
   "name": "retrobtn",
   "title": "Retro Button",
   "description": "A minimalistic prompt component designed with React and Tailwind CSS.",
-  "author": "Nazmul Hossain",
+  "author": "Zane Whitaker",
   "type": "registry:ui",
   "dependencies": [],
   "devDependencies": [],

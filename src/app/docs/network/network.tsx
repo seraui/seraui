@@ -98,7 +98,7 @@ function NetworkVisualization() {
     ];
 
     return [
-    { id: 1, name: "Nazmul Hossain", image: newImageLinks[0], ring: "outer" },
+    { id: 1, name: "Zane Whitaker", image: newImageLinks[0], ring: "outer" },
     { id: 2, name: "Maya", image: newImageLinks[1], ring: "outer" },
     { id: 3, name: "Jordan", image: newImageLinks[2], ring: "outer" },
     { id: 4, name: "Zara", image: newImageLinks[3], ring: "outer" },

@@ -27,14 +27,24 @@ export const metadata: Metadata = {
     description:
       "Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.",
     type: "website",
+    images: [
+      {
+        url: "https://seraui.com/og-image.png", // <-- replace with your actual image URL
+        width: 1200,
+        height: 630,
+        alt: "Sera UI - Open Source React Component Library",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sera UI - Modern React, Next.js and JSX Component Library",
     description:
       "Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.",
+    images: ["https://seraui.com/og-image.png"], // <-- replace with your actual image URL
   },
 };
+
 
 const page = () => {
   return (
