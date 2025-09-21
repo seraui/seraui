@@ -190,7 +190,7 @@ const Footer3 = () => {
             <span className="text-sm text-gray-500 dark:text-gray-400">
               ©{" "}
               <a
-                href="https://pagedone.io/"
+                href="#"
                 className="hover:text-indigo-600 dark:hover:text-indigo-400"
               >
                 pagedone

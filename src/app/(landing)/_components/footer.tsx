@@ -45,7 +45,7 @@ export const Footer = () => {
             <FaDiscord />
           </a>
           <a
-            href="https://www.facebook.com/pimjo"
+            href="https://www.facebook.com/pimjoHQ"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
