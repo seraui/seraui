@@ -46,8 +46,8 @@
 Sera UI is born from real development needs — built by a developer, for developers.
 
 ### 🌐 Live Demo
-- **Website**: [seraui.seraprogrammer.com](https://seraui.com)
-- **Documentation**: [seraui.seraprogrammer.com/docs](https://seraui.com/docs)
+- **Website**: [Sera UI Website](https://seraui.com)
+- **Documentation**: [seraui.com/docs](https://seraui.com/docs)
 
 ---
 
