@@ -12,9 +12,9 @@ import { DynamicCarousel } from "@/components/ui/dynamic-loader";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "Sera UI - Modern React Component Library",
+  title: "Sera UI - Modern React, Next.js and JSX Component Library",
   description:
-    "Build stunning web applications with Sera UI's modern React components. Free, open-source, and built with Tailwind CSS & Framer Motion.",
+    "Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.",
   keywords: [
     "React components",
     "UI library",
@@ -23,16 +23,16 @@ export const metadata: Metadata = {
     "TypeScript",
   ],
   openGraph: {
-    title: "Sera UI - Modern React Component Library",
+    title: "Sera UI - Modern React, Next.js and JSX Component Library",
     description:
-      "Build stunning web applications with Sera UI's modern React components.",
+      "Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sera UI - Modern React Component Library",
+    title: "Sera UI - Modern React, Next.js and JSX Component Library",
     description:
-      "Build stunning web applications with Sera UI's modern React components.",
+      "Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.",
   },
 };
 

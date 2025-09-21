@@ -18,7 +18,7 @@ export const Footer = () => {
         </div>
     <div className="flex items-center gap-4 text-xl text-zinc-500 dark:text-zinc-400">
           <a
-            href="https://github.com/seraprogrammer"
+            href="https://github.com/seraui"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -45,7 +45,7 @@ export const Footer = () => {
             <FaDiscord />
           </a>
           <a
-            href="https://www.facebook.com/codervai"
+            href="https://www.facebook.com/pimjo"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
@@ -56,14 +56,14 @@ export const Footer = () => {
         </div>
 
         <div className="text-zinc-500 dark:text-zinc-400 text-center md:text-right">
-          <span className="mr-1">Built by</span>
+          <span className="mr-1">An Open-source Project by</span>
           <a
             href="https://pimjo.com"
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium text-zinc-700 dark:text-zinc-100 hover:underline"
           >
-            Sera Programmer
+            Pimjo
           </a>
         </div>
       </div>

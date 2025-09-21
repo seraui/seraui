@@ -126,11 +126,11 @@ export const allKeywords = [
 
 export const metadata: Metadata = {
   title:
-    "Sera UI - Modern React Component Library | Tailwind CSS & Framer Motion",
+    "Sera UI - Modern React, Next.js and JSX Component Library",
   description:
     "Sera UI is a premium React component library with 500+ animated components. Built with Tailwind CSS, Framer Motion, and TypeScript. Free, open-source, and production-ready for modern web applications.",
   keywords: allKeywords,
-  authors: [{ name: "Sera UI Team", url: "https://github.com/sera-ui" }],
+  authors: [{ name: "Sera UI Team", url: "https://github.com/seraui" }],
   creator: "Sera UI",
   publisher: "Sera UI",
   formatDetection: {
@@ -144,9 +144,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Sera UI - Modern React Component Library | 500+ Animated Components",
+      "Sera UI - Modern React, Next.js and JSX Component Library",
     description:
-      "Build stunning web applications with Sera UI's 500+ animated React components. Free, open-source, and built with Tailwind CSS & Framer Motion.",
+      "Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.",
     url: "https://seraui.com",
     siteName: "Sera UI",
     images: [
@@ -154,7 +154,7 @@ export const metadata: Metadata = {
         url: "https://seraui.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Sera UI - Modern React Component Library with 500+ Animated Components",
+        alt: "Sera UI - Modern React, Next.js and JSX Component Library",
         type: "image/png",
       },
     ],
@@ -163,9 +163,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sera UI - Modern React Component Library",
+    title: "Sera UI - Modern React, Next.js and JSX Component Library",
     description:
-      "500+ animated React components built with Tailwind CSS & Framer Motion. Free, open-source, and production-ready.",
+      "Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.",
     images: ["https://seraui.com/og-image.png"],
     creator: "@sera_ui",
     site: "@sera_ui",

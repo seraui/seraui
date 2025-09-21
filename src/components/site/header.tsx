@@ -276,7 +276,7 @@ const Header = () => {
                 href="/docs"
               >
                 <BookOpen className="h-4 w-4" />
-                Docs
+                Components
               </Link>
             </nav>
           </div>

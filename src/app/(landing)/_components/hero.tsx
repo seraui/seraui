@@ -55,9 +55,7 @@ export const Hero = () => {
 
           {/* Subtitle - better mobile spacing */}
           <p className="text-sm sm:text-base md:text-lg font-medium text-zinc-600 dark:text-zinc-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed px-2 sm:px-0">
-            Effortlessly copy and paste stunning, responsive components—no need
-            to worry about styling or animations. Build quickly and launch
-            faster.
+Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.
           </p>
 
           {/* Action Buttons - better mobile layout */}
