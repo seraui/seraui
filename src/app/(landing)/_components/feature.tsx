@@ -40,7 +40,7 @@ const features: BentoCardProps[] = [
     description:
       "Access a diverse set of over 100 customizable UI components. Seamlessly integrated and scalable, these elements enhance your application's visual appeal and functionality, simplifying asset management.",
     Icon: CogIcon,
-    className: "lg:col-span-1",
+    className: "lg:col-span-2",
     background: (
       <div className="absolute inset-0 bg-green-50 dark:bg-green-950/20" />
     ),
@@ -50,7 +50,7 @@ const features: BentoCardProps[] = [
     description:
       "Sera UI supports multiple frameworks and based on JSX, including React and Next.js, offering flexible integration for diverse projects. Its modular design ensures compatibility and ease of use across various development environments.",
     Icon: HeartIcon,
-    className: "lg:col-span-2",
+    className: "lg:col-span-1",
     background: (
       <div className="absolute inset-0 bg-rose-50 dark:bg-green-950/20" />
     ),
