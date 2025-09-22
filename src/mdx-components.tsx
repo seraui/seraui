@@ -17,14 +17,21 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
 
-    h1: ({ children, ...props }: React.ComponentProps<'h1'>) => {
-      const id = createSlug(children?.toString() || '');
-      return (
-        <h1 id={id} className="text-4xl font-bold mb-6 mt-8 first:mt-0"React {...props}>
-          {children} Component
-        </h1>
-      );
-    },
+h1: ({ children, ...props }: React.ComponentProps<'h1'>) => {
+  const id = createSlug(
+    typeof children === "string" ? children : ""
+  );
+
+  return (
+    <h1
+      id={id}
+      className="text-4xl font-bold mb-6 mt-8 first:mt-0"
+      {...props}
+    >
+      {children} Component
+    </h1>
+  );
+},
 
     h2: ({ children, ...props }: React.ComponentProps<'h2'>) => {
       const id = createSlug(children?.toString() || '');
