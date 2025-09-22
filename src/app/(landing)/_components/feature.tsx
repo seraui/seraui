@@ -16,9 +16,9 @@ import {
 
 const features: BentoCardProps[] = [
   {
-    name: "Rapid Development with Reusable Components",
+    name: "Beautiful and Reusable React Components",
     description:
-      "Accelerate your project timelines with a robust library of pre-built, modular React and Next.js components. From dynamic forms to interactive dashboards, Sera UI provides intuitive, ready-to-use building blocks that reduce coding overhead and boost productivity.",
+      "Streamline development with a versatile collection of pre-designed React and Next.js components. From dynamic forms to interactive dashboards, Sera UI offers modular, reusable building blocks to accelerate your workflow and enhance project efficiency.",
     Icon: BoltIcon,
     className: "lg:col-span-1",
     background: (
@@ -26,11 +26,10 @@ const features: BentoCardProps[] = [
     ),
   },
   {
-    name: "Seamless Customization with Tailwind CSS",
+    name: "Highly-Customizable with Tailwind CSS",
     description:
-      "Utilize the power of Tailwind CSS for effortless theming and styling. Customize your UI with precision using Tailwind's utility-first classes and configuration, ensuring your designs are pixel-perfect and aligned with your brand—without writing custom CSS from scratch.",
+      "Effortlessly style and theme your UI with Tailwind CSS. Leverage utility-first classes and flexible configurations to create pixel-perfect, brand-aligned designs without writing custom CSS, saving time and ensuring consistency.",
     Icon: PaintRollerIcon,
-
     className: "lg:col-span-2",
     background: (
       <div className="absolute inset-0 bg-purple-50 dark:bg-purple-950/20" />
@@ -39,7 +38,7 @@ const features: BentoCardProps[] = [
   {
     name: "Engaging Animations Powered by Framer Motion",
     description:
-      "Elevate user experiences with smooth, performant animations and transitions. Sera UI integrates Framer Motion to deliver dynamic motion effects that captivate users, from subtle micro-interactions to bold page transitions, all while maintaining accessibility and performance.",
+      "Captivate users with fluid animations and transitions using Framer Motion. Sera UI delivers seamless micro-interactions and striking page transitions, balancing accessibility and performance to elevate user engagement.",
     Icon: SparklesIcon,
     className: "lg:col-span-2",
     background: (
@@ -47,9 +46,9 @@ const features: BentoCardProps[] = [
     ),
   },
   {
-    name: "Built-In Iconography with Lucide React",
+    name: "100+ Unique UI Components",
     description:
-      "Enhance your interfaces with a sleek, scalable and large collection of Lucide React icons. Seamlessly integrated and fully customizable, these icons add visual flair and clarity to your applications, saving you time on asset management.",
+      "Access a diverse set of over 100 customizable UI components. Seamlessly integrated and scalable, these elements enhance your application's visual appeal and functionality, simplifying asset management.",
     Icon: CogIcon,
     className: "lg:col-span-1",
     background: (
@@ -59,7 +58,7 @@ const features: BentoCardProps[] = [
   {
     name: "Developer-Centric Design for Scalability",
     description:
-      "Created by developers, for developers, Sera UI prioritizes clean code, modularity, and extensibility. Whether you’re building a startup MVP or an enterprise-grade application, Sera UI scales effortlessly to meet your project’s needs.",
+      "Built for developers, Sera UI emphasizes clean, modular, and extensible code. From startup MVPs to enterprise applications, it scales effortlessly, supporting rapid development and long-term maintainability.",
     Icon: CodeIcon,
     className: "lg:col-span-2",
     background: (
@@ -69,7 +68,7 @@ const features: BentoCardProps[] = [
   {
     name: "Multi-framework Support",
     description:
-      "Created by developers, for developers, Sera UI prioritizes clean code, modularity, and extensibility. Whether you’re building a startup MVP or an enterprise-grade application, Sera UI scales effortlessly to meet your project’s needs.",
+      "Sera UI supports multiple frameworks and based on JSX, including React and Next.js, offering flexible integration for diverse projects. Its modular design ensures compatibility and ease of use across various development environments.",
     Icon: HeartIcon,
     className: "lg:col-span-1",
     background: (

@@ -20,8 +20,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: ({ children, ...props }: React.ComponentProps<'h1'>) => {
       const id = createSlug(children?.toString() || '');
       return (
-        <h1 id={id} className="text-4xl font-bold mb-6 mt-8 first:mt-0" {...props}>
-          {children}
+        <h1 id={id} className="text-4xl font-bold mb-6 mt-8 first:mt-0"React {...props}>
+          {children} Component
         </h1>
       );
     },
