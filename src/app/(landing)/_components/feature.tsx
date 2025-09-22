@@ -5,8 +5,14 @@ import {
   BentoCardProps,
   BentoGrid,
 } from "@/app/docs/bento-grid/bento-grid";
-import { CogIcon, SparklesIcon } from "lucide-react";
-import { BoltIcon, CodeIcon, PaintRollerIcon } from "./icons";
+import {
+  BoltIcon,
+  CodeIcon,
+  CogIcon,
+  HeartIcon,
+  PaintRollerIcon,
+  SparklesIcon,
+} from "lucide-react";
 
 const features: BentoCardProps[] = [
   {
@@ -58,6 +64,16 @@ const features: BentoCardProps[] = [
     className: "lg:col-span-2",
     background: (
       <div className="absolute inset-0 bg-amber-50 dark:bg-green-950/20" />
+    ),
+  },
+  {
+    name: "Multi-framework Support",
+    description:
+      "Created by developers, for developers, Sera UI prioritizes clean code, modularity, and extensibility. Whether you’re building a startup MVP or an enterprise-grade application, Sera UI scales effortlessly to meet your project’s needs.",
+    Icon: HeartIcon,
+    className: "lg:col-span-1",
+    background: (
+      <div className="absolute inset-0 bg-rose-50 dark:bg-green-950/20" />
     ),
   },
 ];
