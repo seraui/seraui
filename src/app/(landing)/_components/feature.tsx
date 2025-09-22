@@ -1,14 +1,19 @@
+"use client";
+
 import {
   BentoCard,
   BentoCardProps,
   BentoGrid,
 } from "@/app/docs/bento-grid/bento-grid";
+import { CogIcon, SparklesIcon } from "lucide-react";
+import { BoltIcon, CodeIcon, PaintRollerIcon } from "./icons";
 
 const features: BentoCardProps[] = [
   {
     name: "Rapid Development with Reusable Components",
     description:
       "Accelerate your project timelines with a robust library of pre-built, modular React and Next.js components. From dynamic forms to interactive dashboards, Sera UI provides intuitive, ready-to-use building blocks that reduce coding overhead and boost productivity.",
+    Icon: BoltIcon,
     className: "lg:col-span-1",
     background: (
       <div className="absolute inset-0 bg-amber-50 dark:bg-amber-950/20" />
@@ -18,6 +23,8 @@ const features: BentoCardProps[] = [
     name: "Seamless Customization with Tailwind CSS",
     description:
       "Utilize the power of Tailwind CSS for effortless theming and styling. Customize your UI with precision using Tailwind's utility-first classes and configuration, ensuring your designs are pixel-perfect and aligned with your brand—without writing custom CSS from scratch.",
+    Icon: PaintRollerIcon,
+
     className: "lg:col-span-2",
     background: (
       <div className="absolute inset-0 bg-purple-50 dark:bg-purple-950/20" />
@@ -27,6 +34,7 @@ const features: BentoCardProps[] = [
     name: "Engaging Animations Powered by Framer Motion",
     description:
       "Elevate user experiences with smooth, performant animations and transitions. Sera UI integrates Framer Motion to deliver dynamic motion effects that captivate users, from subtle micro-interactions to bold page transitions, all while maintaining accessibility and performance.",
+    Icon: SparklesIcon,
     className: "lg:col-span-2",
     background: (
       <div className="absolute inset-0 bg-blue-50 dark:bg-blue-950/20" />
@@ -36,6 +44,7 @@ const features: BentoCardProps[] = [
     name: "Built-In Iconography with Lucide React",
     description:
       "Enhance your interfaces with a sleek, scalable and large collection of Lucide React icons. Seamlessly integrated and fully customizable, these icons add visual flair and clarity to your applications, saving you time on asset management.",
+    Icon: CogIcon,
     className: "lg:col-span-1",
     background: (
       <div className="absolute inset-0 bg-green-50 dark:bg-green-950/20" />
@@ -45,7 +54,8 @@ const features: BentoCardProps[] = [
     name: "Developer-Centric Design for Scalability",
     description:
       "Created by developers, for developers, Sera UI prioritizes clean code, modularity, and extensibility. Whether you’re building a startup MVP or an enterprise-grade application, Sera UI scales effortlessly to meet your project’s needs.",
-    className: "lg:col-span-full _lg:justify-self-center",
+    Icon: CodeIcon,
+    className: "lg:col-span-2",
     background: (
       <div className="absolute inset-0 bg-amber-50 dark:bg-green-950/20" />
     ),
@@ -59,7 +69,7 @@ export function FeatureSection() {
         Features
       </h2>
 
-      <BentoGrid className="auto-rows-[20rem]">
+      <BentoGrid className="auto-rows-[23rem]">
         {features.map((feature, idx) => (
           <BentoCard key={idx} {...feature} />
         ))}
