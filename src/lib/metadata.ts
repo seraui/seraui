@@ -126,7 +126,7 @@ export const allKeywords = [
 
 export const metadata: Metadata = {
   title:
-    "Sera UI - Modern React, Next.js and JSX Component Library",
+    "Sera UI - Free React and Next.js UI Component Library",
   description:
     "Sera UI is a premium React component library with 500+ animated components. Built with Tailwind CSS, Framer Motion, and TypeScript. Free, open-source, and production-ready for modern web applications.",
   keywords: allKeywords,
@@ -144,9 +144,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Sera UI - Modern React, Next.js and JSX Component Library",
+      "Sera UI - Free React and Next.js UI Component Library",
     description:
-      "Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.",
+      "Free, open-source UI library for React, Next.js & JSX. Styled with Tailwind CSS for fast, beautiful, customizable, animated interfaces.",
     url: "https://seraui.com",
     siteName: "Sera UI",
     images: [
@@ -154,7 +154,7 @@ export const metadata: Metadata = {
         url: "https://seraui.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Sera UI - Modern React, Next.js and JSX Component Library",
+        alt: "Sera UI - Free React and Next.js UI Component Library",
         type: "image/png",
       },
     ],
@@ -163,9 +163,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sera UI - Modern React, Next.js and JSX Component Library",
+    title: "Sera UI - Free React and Next.js UI Component Library",
     description:
-      "Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.",
+      "Free, open-source UI library for React, Next.js & JSX. Styled with Tailwind CSS for fast, beautiful, customizable, animated interfaces.",
     images: ["https://seraui.com/og-image.png"],
     creator: "@sera_ui",
     site: "@sera_ui",

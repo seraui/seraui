@@ -9,9 +9,9 @@ import Testimonial from "./_components/testimonial";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "Sera UI - Modern React, Next.js and JSX Component Library",
+  title: "Sera UI - Free React and Next.js UI Component Library",
   description:
-    "Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.",
+    "Free, open-source UI library for React, Next.js & JSX. Styled with Tailwind CSS for fast, beautiful, customizable, animated interfaces.",
   keywords: [
     "React components",
     "UI library",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     "TypeScript",
   ],
   openGraph: {
-    title: "Sera UI - Modern React, Next.js and JSX Component Library",
+    title: "Sera UI - Free React and Next.js UI Component Library",
     description:
-      "Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.",
+      "Free, open-source UI library for React, Next.js & JSX. Styled with Tailwind CSS for fast, beautiful, customizable, animated interfaces.",
     type: "website",
     images: [
       {
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sera UI - Modern React, Next.js and JSX Component Library",
+    title: "Sera UI - Free React and Next.js UI Component Library",
     description:
-      "Free and Open-source UI library for React, Next.js & JSX frameworks. Styled with Tailwind CSS crafted for fast, beautiful, highly-customizable and animated user interfaces.",
+      "Free, open-source UI library for React, Next.js & JSX. Styled with Tailwind CSS for fast, beautiful, customizable, animated interfaces.",
     images: ["https://seraui.com/og-image.png"], // <-- replace with your actual image URL
   },
 };
