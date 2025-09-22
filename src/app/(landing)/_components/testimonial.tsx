@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 
 function Testimonial() {
   const testimonials = [
@@ -10,26 +9,27 @@ function Testimonial() {
       image: "https://avatars.githubusercontent.com/u/7549148?v=4&s=64",
     },
     {
-  name: "Ikram Sarkar",
-  title: "Web Developer",
-  text: `Sera UI is really good! I have used many websites with Sera UI and it’s always very helpful. The design is clean and user-friendly.`,
-  image: "https://i.postimg.cc/1Rj7JLG4/512908506-1261994748789025-5837757630180600658-n.jpg",
-},
+      name: "Ikram Sarkar",
+      title: "Web Developer",
+      text: `Sera UI is really good! I have used many websites with Sera UI and it’s always very helpful. The design is clean and user-friendly.`,
+      image:
+        "https://i.postimg.cc/1Rj7JLG4/512908506-1261994748789025-5837757630180600658-n.jpg",
+    },
     {
       name: "Sehab Ahmed",
       title: "Full Stack Developer",
       text: "I’m speechless. This site is extraordinary! I’m truly surprised after visiting it. It’s so good means so good. I have no words to describe it.",
       image: "https://i.postimg.cc/3rjmyNYJ/image.png",
     },
-   {
-    name: "Jakaria Ahmed",
-    title: "Web Designer",
-    text: `Sera UI is truly amazing! 🎉
+    {
+      name: "Jakaria Ahmed",
+      title: "Web Designer",
+      text: `Sera UI is truly amazing! 🎉
        The interface is clean, the color scheme is pleasant to the eyes, and the navigation feels super smooth. I especially love the user-friendly design—it’s easy for even new users to get comfortable quickly.
        In the future, adding a dark mode and more customization options could make it even more powerful.
        Kudos to the team for such an impressive work. 🙌`,
-    image: "https://i.postimg.cc/4xpQZLVt/image.png",
-   },
+      image: "https://i.postimg.cc/4xpQZLVt/image.png",
+    },
 
     {
       name: "Sidharth Baby",
@@ -74,22 +74,21 @@ function Testimonial() {
       image: "https://i.postimg.cc/MT9YNnRF/image.png",
     },
     {
-  name: "Md Sinikdho Mahmud",
-  title: "Web Developer",
-  text: `Sera UI truly lives up to its name—it's the best in both design and performance.  
-The UI components are next-level and incredibly good-looking.  
+      name: "Md Sinikdho Mahmud",
+      title: "Web Developer",
+      text: `Sera UI truly lives up to its name—it's the best in both design and performance.
+The UI components are next-level and incredibly good-looking.
 In one word: outstanding! I'm using Sera UI in my projects, and it’s working perfectly.`,
-  image: "https://i.postimg.cc/rsttjs9W/image.png",
-},
+      image: "https://i.postimg.cc/rsttjs9W/image.png",
+    },
 
-{
-  name: "AL Shahed",
-  title: "Web Developer",
-  text: `Sera UI is simply outstanding! ✨ The website looks clean and modern, and it’s super easy to use. Every component feels like exactly what I was looking for. As an open-source library, it not only saves time but also makes projects more polished and professional. Truly a great resource for developers. Huge thanks to the team—please keep up the amazing work!|
+    {
+      name: "AL Shahed",
+      title: "Web Developer",
+      text: `Sera UI is simply outstanding! ✨ The website looks clean and modern, and it’s super easy to use. Every component feels like exactly what I was looking for. As an open-source library, it not only saves time but also makes projects more polished and professional. Truly a great resource for developers. Huge thanks to the team—please keep up the amazing work!|
 `,
-  image: "https://avatars.githubusercontent.com/u/163788370?v=4",
-}
-
+      image: "https://avatars.githubusercontent.com/u/163788370?v=4",
+    },
   ];
 
   const anonymousFallbackImage =
@@ -98,9 +97,9 @@ In one word: outstanding! I'm using Sera UI in my projects, and it’s working p
   return (
     <div className="font-sans flex flex-col items-center py-16 px-4 sm:px-6 lg:px-8">
       {/* Main Heading */}
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center max-w-4xl leading-tight mb-4 text-gray-900 dark:text-white">
+      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center max-w-4xl leading-tight mb-4 text-gray-900 dark:text-white">
         Loved by community
-      </h1>
+      </h2>
 
       {/* Subheading */}
       <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 text-center max-w-3xl mb-16">

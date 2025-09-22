@@ -1,5 +1,5 @@
-import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
+import type { NextConfig } from "next";
 
 // Bundle analyzer for performance monitoring
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
@@ -52,16 +52,16 @@ const nextConfig: NextConfig = {
     return config;
   },
 
-  // Redirects must be inside the config
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        destination: "https://seraui.com/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  // // Redirects must be inside the config
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/:path*",
+  //       destination: "https://seraui.com/:path*",
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
 };
 
 const withMDX = createMDX({

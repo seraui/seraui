@@ -1,14 +1,11 @@
 "use client";
+import { cn } from "@/lib/utils";
 import React, {
   ComponentPropsWithoutRef,
-  ReactNode,
   FC,
+  ReactNode,
   SVGProps,
 } from "react";
-
-const cn = (...inputs: (string | boolean | undefined | null)[]) => {
-  return inputs.filter(Boolean).join(" ");
-};
 
 const ArrowRightIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg
@@ -30,12 +27,16 @@ interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
   className?: string;
 }
 
-const BentoGrid: FC<BentoGridProps> = ({ children, className, ...props }) => {
+export const BentoGrid: FC<BentoGridProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
     <div
       className={cn(
         "grid w-full auto-rows-[22rem] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",
-        className
+        className,
       )}
       {...props}
     >
@@ -44,17 +45,17 @@ const BentoGrid: FC<BentoGridProps> = ({ children, className, ...props }) => {
   );
 };
 
-interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
+export interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
   name: string;
   className: string;
   background: ReactNode;
-  Icon: React.ElementType;
+  Icon?: React.ElementType;
   description: string;
-  href: string;
-  cta: string;
+  href?: string;
+  cta?: string;
 }
 
-const BentoCard: FC<BentoCardProps> = ({
+export const BentoCard: FC<BentoCardProps> = ({
   name,
   className,
   background,
@@ -72,13 +73,15 @@ const BentoCard: FC<BentoCardProps> = ({
       "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
 
       "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
-      className
+      className,
     )}
     {...props}
   >
     <div>{background}</div>
     <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
-      <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75 dark:text-neutral-300" />
+      {Icon && (
+        <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75 dark:text-neutral-300" />
+      )}
 
       <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
         {name}
@@ -89,19 +92,21 @@ const BentoCard: FC<BentoCardProps> = ({
       </p>
     </div>
 
-    <div
-      className={cn(
-        "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
-      )}
-    >
-      <a
-        href={href}
-        className="pointer-events-auto text-sm font-semibold text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 flex items-center"
+    {href && (
+      <div
+        className={cn(
+          "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100",
+        )}
       >
-        {cta}
-        <ArrowRightIcon className="ml-2 h-4 w-4" />
-      </a>
-    </div>
+        <a
+          href={href}
+          className="pointer-events-auto text-sm font-semibold text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 flex items-center"
+        >
+          {cta}
+          <ArrowRightIcon className="ml-2 h-4 w-4" />
+        </a>
+      </div>
+    )}
 
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
   </div>
