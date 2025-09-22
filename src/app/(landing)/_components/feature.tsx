@@ -82,7 +82,7 @@ export function FeatureSection() {
   return (
     <section className="max-w-7xl mx-auto px-4 py-12 md:py-20">
       <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center leading-tight mb-16 text-gray-900 dark:text-white">
-        Sera UI Features
+      Key Features of Sera UI
       </h2>
 
       <BentoGrid className="auto-rows-[23rem]">

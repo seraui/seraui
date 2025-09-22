@@ -28,7 +28,7 @@ h1: ({ children, ...props }: React.ComponentProps<'h1'>) => {
       className="text-4xl font-bold mb-6 mt-8 first:mt-0"
       {...props}
     >
-      React Component {children} 
+      React {children} 
     </h1>
   );
 },
