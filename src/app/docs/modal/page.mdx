@@ -18,11 +18,20 @@ export const metadata = {
         description: 'Versatile React modal components with animations, different sizes, and customizable content for modern web applications.',
         type: 'article',
         url: '/docs/modal',
+        images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Sera UI - Modern React Component Library",
+          },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Modal Component - Sera UI',
         description: 'Versatile React modal components with animations, different sizes, and customizable content for modern web applications.',
+        images: ["/og-image.png"]
     },
     alternates: {
         canonical: '/docs/modal',
@@ -164,7 +173,7 @@ A flexible and accessible modal dialog component that displays content in a laye
 
 <MdxTable>
   | **Prop** | **Type** | **Default** | **Description** |
-  |----------|----------|-------------|-----------------| 
+  |----------|----------|-------------|-----------------|
   | `isOpen` | `boolean` | — | Controls modal visibility |
   | `onClose` | `() => void` | — | Called when modal should close |
   | `children` | `ReactNode` | — | Content inside the modal |

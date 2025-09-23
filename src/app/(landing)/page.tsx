@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
 };
 
-const page = () => {
+export default function Page() {
   return (
     <main className="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 min-h-screen">
       <Header />
@@ -52,6 +52,4 @@ const page = () => {
       <Footer />
     </main>
   );
-};
-
-export default page;
+}

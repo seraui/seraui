@@ -18,11 +18,20 @@ export const metadata = {
         description: 'Interactive React text highlighter component with customizable colors, selection modes, and highlight effects.',
         type: 'article',
         url: '/docs/text-highlighter',
+        images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Sera UI - Modern React Component Library",
+          },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Text Highlighter Component - Sera UI',
         description: 'Interactive React text highlighter component with customizable colors, selection modes, and highlight effects.',
+        images: ["/og-image.png"]
     },
     alternates: {
         canonical: '/docs/text-highlighter',
@@ -88,7 +97,7 @@ The component supports different trigger types for animations:
     <TabsTrigger value="auto">Auto</TabsTrigger>
     <TabsTrigger value="ref">Ref Control</TabsTrigger>
   </TabsList>
-  
+
   <TabsContent value="inView">
     ```tsx
     <TextHighlighter triggerType="inView">
@@ -96,7 +105,7 @@ The component supports different trigger types for animations:
     </TextHighlighter>
     ```
   </TabsContent>
-  
+
   <TabsContent value="hover">
     ```tsx
     <TextHighlighter triggerType="hover">
@@ -104,7 +113,7 @@ The component supports different trigger types for animations:
     </TextHighlighter>
     ```
   </TabsContent>
-  
+
   <TabsContent value="auto">
     ```tsx
     <TextHighlighter triggerType="auto">
@@ -112,14 +121,14 @@ The component supports different trigger types for animations:
     </TextHighlighter>
     ```
   </TabsContent>
-  
+
   <TabsContent value="ref">
     ```tsx
     import { useRef } from 'react';
-    
+
     function Example() {
       const highlighterRef = useRef(null);
-      
+
       return (
         <>
           <TextHighlighter ref={highlighterRef} triggerType="ref">
@@ -160,24 +169,24 @@ Control the direction of the highlight animation:
     <TabsTrigger value="css">CSS Colors</TabsTrigger>
     <TabsTrigger value="tailwind">Tailwind Classes</TabsTrigger>
   </TabsList>
-  
+
   <TabsContent value="css">
     ```tsx
     // Solid color
     <TextHighlighter highlightColor="#3b82f6">
       Blue highlight
     </TextHighlighter>
-    
+
     // Gradient
     <TextHighlighter highlightColor="linear-gradient(45deg, #3b82f6, #8b5cf6)">
       Gradient highlight
     </TextHighlighter>
     ```
   </TabsContent>
-  
+
   <TabsContent value="tailwind">
     ```tsx
-    <TextHighlighter 
+    <TextHighlighter
       useTailwindClasses={true}
       highlightColor="bg-gradient-to-r from-blue-500 to-purple-500"
     >

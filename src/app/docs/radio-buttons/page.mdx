@@ -19,12 +19,21 @@ export const metadata = {
       'Beautiful, customizable radio buttons and interactive selectors — service toggles, payment methods, star ratings, volume sliders, and pattern locks — built with React, Tailwind, and Framer Motion.',
     type: 'article',
     url: '/docs/radio-buttons',
+    images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Sera UI - Modern React Component Library",
+          },
+        ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Radio Button & Interactive Selection Components - Sera UI',
     description:
       'Modern, animated radio buttons and selectors for React apps — from payment toggles to star ratings, all in one sleek library.',
+      images: ["/og-image.png"]
   },
   alternates: {
     canonical: '/docs/radio-buttons',
@@ -48,7 +57,7 @@ import PatternLockDemo from "./PatternLockDemo.tsx"
 
 # Radio Buttons
 
-A collection of sleek, interactive, and fully customizable components — 
+A collection of sleek, interactive, and fully customizable components —
 
 ## Love React
 
@@ -163,7 +172,7 @@ export default SelectServiceViewExample;
     required: "yes",
     description: "The unique value for identifying which option is selected."
   }
-]} /> 
+]} />
 
 
 ## Payment Method
@@ -364,26 +373,26 @@ export default PatternDemo;
 
 ### 🔒 PatternLock – Real World Usage
 
-1.  **Register Pattern**  
+1.  **Register Pattern**
     Use `mode="set"` → capture pattern with `onSetPattern` → save (hashed) in your DataBase.
-    
-2.  **Unlock**  
+
+2.  **Unlock**
     Use `mode="unlock"` → pass saved pattern as `initialPattern` → check via `onUnlock`.
-    
+
 3.  **Security**
-    
+
     -   Hash pattern before storing (like a password).
-        
+
     -   Add retry limits to prevent brute force.
-        
+
 4.  **UI/UX**
-    
+
     -   Works with mouse & touch.
-        
+
     -   Add “reset pattern” flow if forgotten.
-        
+
 5.  **Enhance**
-    
+
     -   Confirm twice when setting.
-        
+
     -   Optionally increase grid size (e.g., 4×4) for stronger locks.

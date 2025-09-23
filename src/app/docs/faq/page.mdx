@@ -16,11 +16,20 @@ export const metadata = {
         description: 'A customizable FAQ component featuring accordion-style layouts, smooth animations, and Tailwind CSS styling for displaying frequently asked questions.',
         type: 'article',
         url: '/docs/faq',
+        images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Sera UI - Modern React Component Library",
+          },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'FAQ Component - Sera UI',
         description: 'A customizable FAQ component featuring accordion-style layouts, smooth animations, and Tailwind CSS styling.',
+        images: ["/og-image.png"]
     },
     alternates: {
         canonical: '/docs/faq',
@@ -96,50 +105,50 @@ export default function FAQViewDemo() {
 ## Props – FAQ
 
 <PropsTable props={[
-{ 
-    name: "faqs", 
-    type: "FAQItem[]", 
-    description: "Array of FAQ objects with question and answer." 
+{
+    name: "faqs",
+    type: "FAQItem[]",
+    description: "Array of FAQ objects with question and answer."
     },
-{ 
-    name: "title", 
-    type: "string", 
-    default: '"Frequently Asked Questions"', 
-    description: "Title of the FAQ section." 
+{
+    name: "title",
+    type: "string",
+    default: '"Frequently Asked Questions"',
+    description: "Title of the FAQ section."
     },
-{ 
-    name: "searchable", 
-    type: "boolean", 
-    default: "false", 
-    description: "Enable/disable search functionality." 
+{
+    name: "searchable",
+    type: "boolean",
+    default: "false",
+    description: "Enable/disable search functionality."
     },
-{ 
-    name: "colorScheme", 
-    type: '"blue" | "purple" | "green"', 
-    default: '"blue"', 
+{
+    name: "colorScheme",
+    type: '"blue" | "purple" | "green"',
+    default: '"blue"',
     description: "Color scheme for styling." },
-{ 
-    name: "className", 
-    type: "string", 
+{
+    name: "className",
+    type: "string",
     description: "Additional Tailwind CSS classes." }
 ]} />
 
 ## FAQItem Object
 
 <PropsTable props={[
-{ 
-    name: "index", 
-    type: "number", 
-    description: "Optional index for display." 
+{
+    name: "index",
+    type: "number",
+    description: "Optional index for display."
     },
-{ 
-    name: "question", 
-    type: "string", 
-    description: "The FAQ question." 
+{
+    name: "question",
+    type: "string",
+    description: "The FAQ question."
     },
-{ 
-    name: "answer", 
-    type: "string", 
-    description: "The FAQ answer." 
+{
+    name: "answer",
+    type: "string",
+    description: "The FAQ answer."
     }
 ]} />
