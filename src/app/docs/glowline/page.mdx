@@ -18,11 +18,20 @@ export const metadata = {
         description: 'Animated React glow line component with customizable colors, directions, and pulsing effects for decorative elements.',
         type: 'article',
         url: '/docs/glowline',
+        images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Sera UI - Modern React Component Library",
+          },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Glow Line Component - Sera UI',
         description: 'Animated React glow line component with customizable colors, directions, and pulsing effects for decorative elements.',
+        images: ["/og-image.png"]
     },
     alternates: {
         canonical: '/docs/glowline',
@@ -83,10 +92,10 @@ import { GlowLine } from './components/GlowLine';
 export default function Example() {
   return (
     <div className="relative w-full h-screen bg-gray-900">
-      <GlowLine 
-        orientation="horizontal" 
-        position="50%" 
-        color="blue" 
+      <GlowLine
+        orientation="horizontal"
+        position="50%"
+        color="blue"
       />
     </div>
   );

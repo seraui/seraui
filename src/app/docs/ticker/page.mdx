@@ -18,11 +18,20 @@ export const metadata = {
         description: 'Animated React ticker component with scrolling text, customizable speed, and direction controls for news feeds and announcements.',
         type: 'article',
         url: '/docs/ticker',
+        images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Sera UI - Modern React Component Library",
+          },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Ticker Component - Sera UI',
         description: 'Animated React ticker component with scrolling text, customizable speed, and direction controls for news feeds and announcements.',
+        images: ["/og-image.png"]
     },
     alternates: {
         canonical: '/docs/ticker',
@@ -151,9 +160,9 @@ export default function Example() {
 
 ### Currency Display
 ```tsx
-<NumberTicker 
-  value={1234.56} 
-  prefix="$" 
+<NumberTicker
+  value={1234.56}
+  prefix="$"
   decimalPlaces={2}
   className="text-2xl font-bold text-green-600"
 />
@@ -161,9 +170,9 @@ export default function Example() {
 
 ### Percentage with Callback
 ```tsx
-<NumberTicker 
-  value={95.5} 
-  suffix="%" 
+<NumberTicker
+  value={95.5}
+  suffix="%"
   decimalPlaces={1}
   duration={3000}
   onComplete={() => console.log('Animation complete!')}

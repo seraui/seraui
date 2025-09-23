@@ -18,11 +18,20 @@ export const metadata = {
         description: 'React sliding drawer components with smooth animations, multiple positions, and customizable content for navigation and side panels.',
         type: 'article',
         url: '/docs/drawer',
+        images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Sera UI - Modern React Component Library",
+          },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Drawer Component - Sera UI',
         description: 'React sliding drawer components with smooth animations, multiple positions, and customizable content for navigation and side panels.',
+        images: ["/og-image.png"]
     },
     alternates: {
         canonical: '/docs/drawer',
@@ -108,11 +117,11 @@ function MyComponent() {
               This is a description of what this drawer contains.
             </DrawerDescription>
           </DrawerHeader>
-          
+
           <div className="p-6">
             {/* Your content here */}
           </div>
-          
+
           <DrawerFooter>
             <Button variant="outline" onClick={() => setIsOpen(false)}>
               Cancel
@@ -156,7 +165,7 @@ function MyComponent() {
         Make changes to your profile here.
       </DrawerDescription>
     </DrawerHeader>
-    
+
     <div className="p-6">
       <form className="grid gap-4">
         <div className="grid gap-2">
@@ -169,7 +178,7 @@ function MyComponent() {
         </div>
       </form>
     </div>
-    
+
     <DrawerFooter>
       <Button variant="outline" onClick={() => setIsOpen(false)}>
         Cancel
@@ -210,4 +219,3 @@ function MyComponent() {
 - **Filters**: Search and filter options in a slide-out panel
 - **Shopping cart**: E-commerce cart sidebar
 - **Notifications**: Slide-in notification panels
-

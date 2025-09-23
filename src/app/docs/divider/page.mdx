@@ -18,11 +18,20 @@ export const metadata = {
         description: 'Modern React divider components with various styles and orientations for separating content sections beautifully.',
         type: 'article',
         url: '/docs/divider',
+        images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Sera UI - Modern React Component Library",
+          },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Divider Component - Sera UI',
         description: 'Modern React divider components with various styles and orientations for separating content sections beautifully.',
+        images: ["/og-image.png"]
     },
     alternates: {
         canonical: '/docs/divider',
@@ -98,11 +107,11 @@ import Divider from './divider';
 ### With Custom Styling
 
 ```tsx
-<Divider 
-  variant="dashed" 
-  thickness={2} 
-  color="blue" 
-  className="my-8" 
+<Divider
+  variant="dashed"
+  thickness={2}
+  color="blue"
+  className="my-8"
 />
 ```
 
@@ -118,9 +127,9 @@ Perfect for separating different content sections in articles or blog posts:
     <h2>Introduction</h2>
     <p>Welcome to our comprehensive guide...</p>
   </section>
-  
+
   <Divider variant="solid" className="my-8" />
-  
+
   <section>
     <h2>Getting Started</h2>
     <p>Let's begin with the basics...</p>
@@ -150,9 +159,9 @@ Create visual separation within cards:
 <div className="bg-white rounded-lg shadow-md p-6">
   <h3 className="text-xl font-bold">User Profile</h3>
   <p className="text-gray-600">john.doe@example.com</p>
-  
+
   <Divider className="my-4" />
-  
+
   <div className="flex justify-between">
     <span>Last Login</span>
     <span>2 hours ago</span>
@@ -171,9 +180,9 @@ Organize form fields into logical groups:
     <input placeholder="Full Name" />
     <input placeholder="Email" />
   </div>
-  
+
   <Divider variant="dashed" />
-  
+
   <div>
     <h3>Address Details</h3>
     <input placeholder="Street Address" />
@@ -192,9 +201,9 @@ Separate different metrics or widgets:
     <h4>Total Users</h4>
     <p className="text-2xl font-bold">1,234</p>
   </div>
-  
+
   <Divider orientation="vertical" className="hidden md:block" />
-  
+
   <div className="bg-green-50 p-4 rounded">
     <h4>Revenue</h4>
     <p className="text-2xl font-bold">$45,678</p>
@@ -212,9 +221,9 @@ Separate individual comments or replies:
     <h5>John Doe</h5>
     <p>Great article! Very informative.</p>
   </div>
-  
+
   <Divider variant="dotted" opacity={0.5} />
-  
+
   <div className="comment">
     <h5>Jane Smith</h5>
     <p>Thanks for sharing this resource.</p>
@@ -233,9 +242,9 @@ Create clear separation between pricing tiers:
     <p className="text-3xl">$9/mo</p>
     <ul>...</ul>
   </div>
-  
+
   <Divider orientation="vertical" height={300} />
-  
+
   <div className="pricing-card">
     <h3>Pro</h3>
     <p className="text-3xl">$29/mo</p>
@@ -272,16 +281,16 @@ Create clear separation between pricing tiers:
 <div className="product-details">
   <h1>Product Name</h1>
   <p className="price">$99.99</p>
-  
+
   <Divider className="my-6" />
-  
+
   <div className="description">
     <h3>Description</h3>
     <p>Product description here...</p>
   </div>
-  
+
   <Divider variant="dashed" className="my-6" />
-  
+
   <div className="reviews">
     <h3>Customer Reviews</h3>
     {/* Reviews content */}
@@ -297,16 +306,16 @@ Create clear separation between pricing tiers:
     <h3>Account Settings</h3>
     {/* Account settings */}
   </div>
-  
+
   <Divider className="my-8" />
-  
+
   <div className="setting-group">
     <h3>Privacy Settings</h3>
     {/* Privacy settings */}
   </div>
-  
+
   <Divider className="my-8" />
-  
+
   <div className="setting-group">
     <h3>Notification Settings</h3>
     {/* Notification settings */}
