@@ -1,58 +1,60 @@
 export const metadata = {
-    title: 'React Orbits - React and Next.js UI Components | Sera UI',
-    description: 'Orbits components and examples for Sera UI. Includes Nexus Orbit and Spider Orbits etc.',
-    keywords: [
-        'Sera UI orbits',
-        'Nexus Orbit',
-        'Spider orbits',
-        'React orbits',
-        'UI library orbits',
-        'orbit components',
-        'Sera UI components'
+  title: 'React Orbits - React and Next.js UI Components | Sera UI',
+  description:
+    'Orbits components and examples for Sera UI. Includes Nexus Orbit and Spider Orbits etc.',
+  keywords: [
+    'Sera UI orbits',
+    'Nexus Orbit',
+    'Spider orbits',
+    'React orbits',
+    'UI library orbits',
+    'orbit components',
+    'Sera UI components',
+  ],
+  openGraph: {
+    title: 'Orbits - Sera UI',
+    description:
+      'Orbits components and examples for Sera UI. Includes Nexus Orbit and Spider Orbits etc.',
+    type: 'article',
+    url: '/docs/orbits',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Sera UI - Modern React Component Library',
+      },
     ],
-    openGraph: {
-        title: 'Orbits - Sera UI',
-        description: 'Orbits components and examples for Sera UI. Includes Nexus Orbit and Spider Orbits etc.',
-        type: 'article',
-        url: '/docs/orbits',
-        images: [
-          {
-            url: "/og-image.png",
-            width: 1200,
-            height: 630,
-            alt: "Sera UI - Modern React Component Library",
-          },
-        ],
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: 'Orbits - Sera UI',
-        description: 'Orbits components and examples for Sera UI. Includes Nexus Orbit and Spider Orbits etc.',
-        images: ["/og-image.png"]
-    },
-    alternates: {
-        canonical: '/docs/integrations',
-    },
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Orbits - Sera UI',
+    description:
+      'Orbits components and examples for Sera UI. Includes Nexus Orbit and Spider Orbits etc.',
+    images: ['/og-image.png'],
+  },
+  alternates: {
+    canonical: '/docs/integrations',
+  },
 };
 
-import { CodeBlock } from "@/components/site/code-block";
-import { ComponentRenderer } from "@/components/site/component-renderer";
-import { Cli } from "@/components/site/cli";
+import { CodeBlock } from '@/components/site/code-block';
+import { ComponentRenderer } from '@/components/site/component-renderer';
+import { Cli } from '@/components/site/cli';
 import {
   Tabs,
   TabsList,
   TabsTrigger,
   TabsContent,
-} from "@/components/site/tabs.tsx";
+} from '@/components/site/tabs.tsx';
 
-import NexusOrb from "./nexusorb.tsx";
-import Spider from "./spider.tsx";
-import NexusOrbSup from "./nexusorbsup.tsx";
-
+import NexusOrb from './nexusorb.tsx';
+import Spider from './spider.tsx';
+import NexusOrbSup from './nexusorbsup.tsx';
 
 # Orbit <AI dir="left"/>
-A modern, responsive orbit component with a clean design and smooth animations.
 
+A modern, responsive orbit component with a clean design and smooth animations.
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -67,10 +69,9 @@ A modern, responsive orbit component with a clean design and smooth animations.
   </TabsContent>
 </Tabs>
 
-
 # Spider
-A modern, responsive spider orbit component with a clean design and smooth animations.
 
+A modern, responsive spider orbit component with a clean design and smooth animations.
 
 <Tabs defaultValue="preview" className="">
   <TabsList>
@@ -85,10 +86,9 @@ A modern, responsive spider orbit component with a clean design and smooth anima
   </TabsContent>
 </Tabs>
 
-
 # Nexus Orb Sup
-A modern, responsive nexus orbit sup component with a clean design and smooth animations.
 
+A modern, responsive nexus orbit sup component with a clean design and smooth animations.
 
 <Tabs defaultValue="preview">
   <TabsList>
