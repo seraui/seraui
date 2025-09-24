@@ -1,22 +1,22 @@
-import { geistMono } from "@/assets/fonts";
-import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
-import { CriticalCSS } from "@/components/performance/critical-css";
-import { PerformanceMonitor } from "@/components/performance/PerformanceMonitor";
-import { ResourcePreloader } from "@/components/performance/resource-preloader";
-import { WebVitals } from "@/components/performance/web-vitals";
-import { LazyOpenGraph } from "@/components/seo/LazyOpenGraph";
-import { MetaTags } from "@/components/seo/MetaTags";
-import { StructuredData } from "@/components/seo/StructuredData";
-import { PackageManagerProvider } from "@/contexts/package-manager-context";
-import { metadata } from "@/lib/metadata";
-import { ThemeProvider } from "next-themes";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { geistMono } from '@/assets/fonts';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
+import { CriticalCSS } from '@/components/performance/critical-css';
+import { PerformanceMonitor } from '@/components/performance/PerformanceMonitor';
+import { ResourcePreloader } from '@/components/performance/resource-preloader';
+import { WebVitals } from '@/components/performance/web-vitals';
+import { LazyOpenGraph } from '@/components/seo/LazyOpenGraph';
+import { MetaTags } from '@/components/seo/MetaTags';
+import { StructuredData } from '@/components/seo/StructuredData';
+import { PackageManagerProvider } from '@/contexts/package-manager-context';
+import { metadata } from '@/lib/metadata';
+import { ThemeProvider } from 'next-themes';
+import { Inter } from 'next/font/google';
+import './globals.css';
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
 });
 
 export { metadata };
@@ -30,8 +30,9 @@ export default function RootLayout({
       <head>
         <MetaTags />
         <CriticalCSS />
-        <ResourcePreloader fonts={[]} images={["/logo.svg", "/og-image.png"]} />
+        <ResourcePreloader fonts={[]} images={['/logo.svg', '/og-image.png']} />
       </head>
+
       <body
         className={`${inter.className} ${geistMono.variable} antialiased min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100`}
       >

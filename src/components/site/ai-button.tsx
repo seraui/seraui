@@ -87,52 +87,54 @@ export function AIButton({ dir = "right" }: AIButtonProps) {
       className={`relative inline-block ${dir === "left" ? "justify-start" : "justify-end"} ml-3`}
       ref={dropdownRef}
     >
-      <div className="flex items-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:cursor-pointer duration-200 ease-out transition hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md py-1.5 px-2 gap-1.5 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 shadow-sm">
-        <button
-          title="Copy Page URL"
-          onClick={handleCopyPage}
-          className="contents"
-        >
-          {isCopied ? (
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-4 h-4 mr-1 shrink-0 text-green-600 dark:text-green-400"
-            >
-              <polyline points="20,6 9,17 4,12"></polyline>
-            </svg>
-          ) : (
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-4 h-4 mr-1 shrink-0"
-            >
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
-            </svg>
-          )}
+      <div className="flex gap-1">
+        <div className="flex items-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:cursor-pointer duration-200 ease-out transition hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md py-1.5 px-2 gap-1.5 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 shadow-sm">
+          <button
+            title="Copy Page URL"
+            onClick={handleCopyPage}
+            className="contents"
+          >
+            {isCopied ? (
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-4 h-4 mr-1 shrink-0 text-green-600 dark:text-green-400"
+              >
+                <polyline points="20,6 9,17 4,12"></polyline>
+              </svg>
+            ) : (
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-4 h-4 mr-1 shrink-0"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+              </svg>
+            )}
 
-          {isCopied ? "Copied!" : "Copy Page"}
-        </button>
+            {isCopied ? "Copied!" : "Copy Page"}
+          </button>
+        </div>
 
         <button
           onClick={(e) => {
             e.stopPropagation();
             setIsOpen(!isOpen);
           }}
-          className="ml-1 p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-150"
+          className="rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-150 px-2 py-1.5 border border-gray-200 dark:border-gray-700 shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300"
           title="More options"
         >
           <svg

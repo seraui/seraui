@@ -1,8 +1,8 @@
-import { BorderBeam } from "@/components/ui";
-import Link from "next/link";
-import Button from "@/app/docs/button/button";
-import { BookOpen, Wrench } from "lucide-react";
-import Image from "next/image";
+import { BorderBeam } from '@/components/ui';
+import Link from 'next/link';
+import Button from '@/app/docs/button/button';
+import { BookOpen, Wrench } from 'lucide-react';
+import Image from 'next/image';
 
 export const Hero = () => {
   return (
@@ -34,7 +34,7 @@ export const Hero = () => {
           {/* Main Heading - better mobile scaling */}
           <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-[1.1] mb-4 sm:mb-6">
             <span className="block">
-              <span className="mask-l-from-0%">Build</span>{" "}
+              <span className="mask-l-from-0%">Build</span>{' '}
               <Image
                 src="/images/rose.webp"
                 alt="Rose"
@@ -49,14 +49,17 @@ export const Hero = () => {
               </span>
             </span>
             <span className="block">
-              Website UI <span className="mask-r-from-0%">with Ease</span>
+              Website UI with <span className="mask-r-from-0%">Ease</span>
             </span>
           </h1>
 
           {/* Subtitle - better mobile spacing */}
           <p className="text-sm sm:text-base md:text-lg font-medium text-zinc-600 dark:text-zinc-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed px-2 sm:px-0">
-Free and open-source UI component library for React, Next.js, and JSX frameworks. Styled with Tailwind CSS, empowers developers to create fast, beautiful, and customizable user interfaces for modern web projects.
-</p>
+            Free and open-source UI component library for React, Next.js, and
+            JSX frameworks. Styled with Tailwind CSS, empowers developers to
+            create fast, beautiful, and customizable user interfaces for modern
+            web projects.
+          </p>
 
           {/* Action Buttons - better mobile layout */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center w-full sm:w-auto">
