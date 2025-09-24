@@ -1,8 +1,8 @@
 # Seraui Documentation
 
-> Free and open-source UI component library for React, Next.js, and JSX frameworks. Styled with Tailwind CSS, empowers developers to create fast, beautiful, and customizable user interfaces for modern web projects. Easily copy and paste into your apps. Accessible. Customizable. Open Source.
+> Free and open-source UI component library for React, Next.js, and JSX/TSX frameworks. Styled with Tailwind CSS, empowers developers to create fast, beautiful, and customizable user interfaces for modern web projects. Easily copy and paste into your apps. Accessible. Customizable. Open Source.
 
-This documentation covers all basic aspects and components of Flowbite.
+This documentation covers all basic aspects and components of Sera UI or seraui.
 
 ## Documentation sections
 
@@ -88,7 +88,7 @@ This documentation covers all basic aspects and components of Flowbite.
 - [Orbiting Skills](https://seraui.com/docs/orbiting)
 - [Password Input Components](https://seraui.com/docs/password)
 - [Portfolio Hero section](https://seraui.com/docs/portfolio)
-- [💸 Pricing Section Component](https://seraui.com/docs/pricing)
+- [Pricing Section Component](https://seraui.com/docs/pricing)
 - [Chatbot UI](https://seraui.com/docs/prompt)
 - [Radio Buttons](https://seraui.com/docs/radio-buttons)
 - [Resize Handle Text](https://seraui.com/docs/resize-handle)
@@ -101,9 +101,9 @@ This documentation covers all basic aspects and components of Flowbite.
 - [Sign In](https://seraui.com/docs/signin)
 - [Sparkles Text](https://seraui.com/docs/sparklestext)
 - [Spotlight Card Component](https://seraui.com/docs/spotlightcard)
-- [🎛️ Tabs Component](https://seraui.com/docs/tabs)
-- [🎨 Tabs View: Classic](https://seraui.com/docs/tabs-classic)
-- [💎 Tabs View: Fancy](https://seraui.com/docs/tabs-fancy)
+- [Tabs Component](https://seraui.com/docs/tabs)
+- [Tabs View: Classic](https://seraui.com/docs/tabs-classic)
+- [Tabs View: Fancy](https://seraui.com/docs/tabs-fancy)
 - [Team Member](https://seraui.com/docs/teammember)
 - [Testimonial](https://seraui.com/docs/testimonial)
 - [Text Animation Components](https://seraui.com/docs/text)
