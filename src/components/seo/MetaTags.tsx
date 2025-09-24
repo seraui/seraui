@@ -6,6 +6,7 @@ export function MetaTags() {
         name="google-site-verification"
         content="y3qEBdgYG32ZoXRsNqWxh6QgyxhQ337zoKpLwmb_dic"
       />
+
       <meta name="yandex-verification" content="1b0095f6bfc08171" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="#000000" />
@@ -20,8 +21,8 @@ export function MetaTags() {
 
       {/* Icons and Manifest */}
       <link rel="manifest" href="/manifest.json" />
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="apple-touch-icon" href="/logo.svg" />
+      <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32" />
+      {/*<link rel="apple-touch-icon" href="/logo.svg" />*/}
 
       {/* Preconnect for Performance - Deduplicated */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />

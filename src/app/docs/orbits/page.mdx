@@ -1,0 +1,104 @@
+export const metadata = {
+  title: 'React Orbits - React and Next.js UI Components | Sera UI',
+  description:
+    'Orbits components and examples for Sera UI. Includes Nexus Orbit and Spider Orbits etc.',
+  keywords: [
+    'Sera UI orbits',
+    'Nexus Orbit',
+    'Spider orbits',
+    'React orbits',
+    'UI library orbits',
+    'orbit components',
+    'Sera UI components',
+  ],
+  openGraph: {
+    title: 'Orbits - Sera UI',
+    description:
+      'Orbits components and examples for Sera UI. Includes Nexus Orbit and Spider Orbits etc.',
+    type: 'article',
+    url: '/docs/orbits',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Sera UI - Modern React Component Library',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Orbits - Sera UI',
+    description:
+      'Orbits components and examples for Sera UI. Includes Nexus Orbit and Spider Orbits etc.',
+    images: ['/og-image.png'],
+  },
+  alternates: {
+    canonical: '/docs/integrations',
+  },
+};
+
+import { CodeBlock } from '@/components/site/code-block';
+import { ComponentRenderer } from '@/components/site/component-renderer';
+import { Cli } from '@/components/site/cli';
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from '@/components/site/tabs.tsx';
+
+import NexusOrb from './nexusorb.tsx';
+import Spider from './spider.tsx';
+import NexusOrbSup from './nexusorbsup.tsx';
+
+# Orbit <AI dir="left"/>
+
+A modern, responsive orbit component with a clean design and smooth animations.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<NexusOrb />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/orbits/nexusorb.tsx" />
+  </TabsContent>
+</Tabs>
+
+# Spider
+
+A modern, responsive spider orbit component with a clean design and smooth animations.
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<Spider />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/orbits/spider.tsx" />
+  </TabsContent>
+</Tabs>
+
+# Nexus Orb Sup
+
+A modern, responsive nexus orbit sup component with a clean design and smooth animations.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<NexusOrbSup />} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/orbits/nexusorbsup.tsx" />
+  </TabsContent>
+</Tabs>

@@ -31,19 +31,23 @@ export const navigation: NavigationItem[] = [
       { label: "Marquee Scroller", href: "/docs/marquee" },
       { label: "Code Profile Card", href: "/docs/codeprofile" },
       { label: "Portfolio Showcase", href: "/docs/portfolio" },
-      { label: "Orbiting Circles Animation", href: "/docs/integrations" },
+      { label: "Orbiting Circles Animation", href: "/docs/orbits" },
       { label: "Network Visualization", href: "/docs/network" },
       { label: "Video Text Overlay", href: "/docs/video-text" },
       { label: "Image Swiper Carousel", href: "/docs/imageswiper" },
       { label: "Section Divider", href: "/docs/divider" },
       { label: "Noise Background", href: "/docs/noise", badge: "New" },
       { label: "Glitch Vault Card", href: "/docs/glitchvault" },
-      { label: "Glow Line Effect", href: "/docs/glowline"},
+      { label: "Glow Line Effect", href: "/docs/glowline" },
       { label: "Modal Dialog", href: "/docs/modal", badge: "New" },
-      { label: "HTML code runner", href: "/docs/html-code"},
-      { label: "Infinite Grid", href: "/docs/infinite-grid"},
-      { label: "Orbiting Skills", href: "/docs/orbiting"},
-      { label: "Orbiting Carousel", href: "/docs/orbit-carousel", badge: "New" },
+      { label: "HTML code runner", href: "/docs/html-code" },
+      { label: "Infinite Grid", href: "/docs/infinite-grid" },
+      { label: "Orbiting Skills", href: "/docs/orbiting" },
+      {
+        label: "Orbiting Carousel",
+        href: "/docs/orbit-carousel",
+        badge: "New",
+      },
       { label: "Timeline Components", href: "/docs/timeline", badge: "New" },
       { label: "Radio Buttons", href: "/docs/radio-buttons", badge: "New" },
     ],
@@ -57,7 +61,11 @@ export const navigation: NavigationItem[] = [
       { label: "Dropdown Menu", href: "/docs/dropdown" },
       { label: "Shimmer Button", href: "/docs/shimmer" },
       { label: "Slide-out Drawer", href: "/docs/drawer" },
-      { label: "Liquid Glass Button", href: "/docs/liquid-glass", badge: "New" },
+      {
+        label: "Liquid Glass Button",
+        href: "/docs/liquid-glass",
+        badge: "New",
+      },
     ],
   },
   {
@@ -66,9 +74,9 @@ export const navigation: NavigationItem[] = [
       { label: "Status Badge", href: "/docs/badge" },
       { label: "Animated Badge", href: "/docs/animatedbadge", badge: "New" },
       {
-        label: 'Verify Badge',
-        href: '/docs/verify-badge',
-        badge: 'New'
+        label: "Verify Badge",
+        href: "/docs/verify-badge",
+        badge: "New",
       },
       { label: "Toast Notification", href: "/docs/toast" },
       {
@@ -172,8 +180,16 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "Retro-style Button", href: "/docs/retro-button" },
       { label: "Retro-style Card", href: "/docs/retro-card" },
-      { label: "Retro-style Accordion", href: "/docs/retro-style-accordion" , badge : "New" },
-      { label: "Retro-style Form", href: "/docs/retro-style-form" , badge : "New" }
+      {
+        label: "Retro-style Accordion",
+        href: "/docs/retro-style-accordion",
+        badge: "New",
+      },
+      {
+        label: "Retro-style Form",
+        href: "/docs/retro-style-form",
+        badge: "New",
+      },
     ],
   },
   {
@@ -187,7 +203,7 @@ export const navigation: NavigationItem[] = [
       { label: "Forgot Password Form", href: "/docs/forgotpassword" },
       { label: "Team Member Card", href: "/docs/teammember" },
       { label: "FAQ Section", href: "/docs/faq", badge: "New" },
-      { label: "Video Gallery", href: "/docs/video-gallery", badge: "New" }
+      { label: "Video Gallery", href: "/docs/video-gallery", badge: "New" },
     ],
   },
 ];
