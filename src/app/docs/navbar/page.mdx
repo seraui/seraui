@@ -18,11 +18,20 @@ export const metadata = {
         description: 'Modern React navigation bar components with animated menus, mobile-friendly design, and customizable styling.',
         type: 'article',
         url: '/docs/navbar',
+        images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Sera UI - Modern React Component Library",
+          },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Navbar Component - Sera UI',
         description: 'Modern React navigation bar components with animated menus, mobile-friendly design, and customizable styling.',
+        images: ["/og-image.png"]
     },
     alternates: {
         canonical: '/docs/navbar',
@@ -79,7 +88,7 @@ The **Blog Header** component is a customizable header section designed for Blog
 
 ## PortfolioHeader
 
-The **PortfolioHeader** component is a customizable header section designed for portfolio or personal websites.  
+The **PortfolioHeader** component is a customizable header section designed for portfolio or personal websites.
 It provides an elegant way to display navigation, branding, or quick links at the top of your portfolio page.
 
 
@@ -145,7 +154,7 @@ A sophisticated navigation header with enhanced styling, perfect for business an
     <TabsTrigger value="code">Code</TabsTrigger>
   </TabsList>
   <TabsContent value="preview">
-    <ComponentRenderer component={<Header />} /> 
+    <ComponentRenderer component={<Header />} />
   </TabsContent>
   <TabsContent value="code">
     <CodeBlock filePath="src/app/docs/navbar/header.tsx" />
