@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "prebuild": "tsx ./scripts/generate-sitemap.ts",
     "build": "tsx ./src/scripts/build-md-files.ts && next build",
     "build:analyze": "set ANALYZE=true && next build",
     "start": "next start",

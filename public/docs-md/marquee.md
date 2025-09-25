@@ -1,4 +1,4 @@
-# Logomarquee 
+# Logo Marquee 
 A beautiful logomarquee component with smooth animations and customizable logos. Perfect for creating a dynamic and engaging header for your website.
 
 ---
@@ -11,7 +11,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/marquee/logomarquee.tsx`
 
-# 🏁 Marquee Component
+## 🏁 Marquee Component
 
 > **Effortlessly create eye-catching, animated marquees for your site.**
 
@@ -23,7 +23,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/marquee/marquee.tsx`
 
-# Marquee Text loop
+## Marquee Text loop
 > **Effortlessly create eye-catching, animated marquees for your site.**
 
 ## Preview
@@ -73,6 +73,6 @@ See implementation in: `src/app/docs/marquee/marqueeText.tsx`
 
 ---
 
-**Component Path:** `marquee\page.mdx`
+**Component Path:** `marquee/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

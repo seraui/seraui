@@ -9,7 +9,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/prompt/prompt.tsx`
 
-# Vercel v0 Chat
+## Vercel v0 Chat
 
 ## Preview
 
@@ -45,6 +45,6 @@ function App() {
 
 ---
 
-**Component Path:** `prompt\page.mdx`
+**Component Path:** `prompt/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

@@ -32,6 +32,6 @@ const phrases = [
 
 ---
 
-**Component Path:** `resize-handle\page.mdx`
+**Component Path:** `resize-handle/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

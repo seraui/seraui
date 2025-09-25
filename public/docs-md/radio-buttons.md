@@ -1,6 +1,6 @@
 # Radio Buttons
 
-A collection of sleek, interactive, and fully customizable components — 
+A collection of sleek, interactive, and fully customizable components —
 
 ## Love React
 
@@ -202,32 +202,32 @@ export default PatternDemo;
 
 ### 🔒 PatternLock – Real World Usage
 
-1.  **Register Pattern**  
+1.  **Register Pattern**
     Use `mode="set"` → capture pattern with `onSetPattern` → save (hashed) in your DataBase.
-    
-2.  **Unlock**  
+
+2.  **Unlock**
     Use `mode="unlock"` → pass saved pattern as `initialPattern` → check via `onUnlock`.
-    
+
 3.  **Security**
-    
+
     -   Hash pattern before storing (like a password).
-        
+
     -   Add retry limits to prevent brute force.
-        
+
 4.  **UI/UX**
-    
+
     -   Works with mouse & touch.
-        
+
     -   Add “reset pattern” flow if forgotten.
-        
+
 5.  **Enhance**
-    
+
     -   Confirm twice when setting.
-        
+
     -   Optionally increase grid size (e.g., 4×4) for stronger locks.
 
 ---
 
-**Component Path:** `radio-buttons\page.mdx`
+**Component Path:** `radio-buttons/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

@@ -1,4 +1,4 @@
-# 🎨 Tabs View: Classic 
+# Tabs View: Classic 
 
 The **Classic Tabs** component provides a timeless and functional design, offering a structured and familiar layout that users intuitively understand. Its clean lines and clear separation of content make it a reliable choice for any application where clarity and usability are
 
@@ -10,7 +10,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/tabs-classic/tabs-view-classic.tsx`
 
-# 🚀 Installation
+## Installation
 Once installed, import the component and use it within your pages. The component encapsulates a set of pre-defined tabs and content for demonstration.
 
     CLI
@@ -22,7 +22,7 @@ npx shadcn@latest add tabs-classic.json
 
     Code available at: `src/app/docs/tabs-classic/tabs-view-classic.tsx`
 
-# 💻 Usage
+## Usage
 
 Once installed, import the component and use it within your pages. The component encapsulates a set of pre-defined tabs and content for demonstration.
 
@@ -38,6 +38,6 @@ export default function SettingsPage() {
 
 ---
 
-**Component Path:** `tabs-classic\page.mdx`
+**Component Path:** `tabs-classic/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

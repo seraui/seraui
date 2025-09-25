@@ -22,7 +22,7 @@ Sera UI is born from real development needs — built by a developer, for develo
 
 You can add Sera UI components to your project in two ways: using our CLI for a quick setup or by manually copying the component code for more control.
 
-# CLI Installation
+### CLI Installation
 Our CLI will guide you through the process of adding components to your project. Here is an example of how to add the `Tabs` component:
 
 ### NPM

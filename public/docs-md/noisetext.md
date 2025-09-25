@@ -63,6 +63,6 @@ style={{ opacity: 0.02 }} // More subtle effect
 
 ---
 
-**Component Path:** `noisetext\page.mdx`
+**Component Path:** `noisetext/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

@@ -4,9 +4,9 @@ How to install dependencies and structure your app.
 
 > **Note:** We have the exact same installation process as shadcn/ui.
 
-# Seraui (Alternative) without Shadcn/ui
+## Seraui (Alternative) without Shadcn/ui
 
-## CLI Usage
+### CLI Usage
 
 Initialize your project with the CLI:
 
@@ -62,30 +62,30 @@ Total components: 5
 
 ```
 
-## Initialize with a custom registry URL
+### Initialize with a custom registry URL
 
 ```bash
 npx seraui@latest init --url https://seraui.com/registry
 ```
 
-## Add a component (uses saved URL)
+### Add a component (uses saved URL)
 
 ```bash
 npx seraui@latest add button
 ```
-	
+
 ```md
 npx seraui@latest add button
 ✔ Button added successfully!
 ```
 
-## Add a component with a custom URL (one-time)
+### Add a component with a custom URL (one-time)
 
 ```bash
 npx seraui@latest add button --url https://different-registry.com/registry
 ```
 
-## Configure the default registry URL
+### Configure the default registry URL
 
 ```bash
 npx seraui@latest config --url https://seraui.com/registry
@@ -93,6 +93,6 @@ npx seraui@latest config --url https://seraui.com/registry
 
 ---
 
-**Component Path:** `installation\page.mdx`
+**Component Path:** `installation/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

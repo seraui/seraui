@@ -69,7 +69,7 @@ export function useToast() {
       showIcon: true,
       duration,
     };
-    
+
     setNotifications(prev => [...prev, newToast]);
   };
 
@@ -77,19 +77,19 @@ export function useToast() {
     setNotifications(prev => prev.filter(toast => toast.id !== id));
   };
 
-  const success = (title: string, message?: string, duration = 3000) => 
+  const success = (title: string, message?: string, duration = 3000) =>
     addToast('success', title, message, duration);
-  
-  const error = (title: string, message?: string, duration = 5000) => 
+
+  const error = (title: string, message?: string, duration = 5000) =>
     addToast('error', title, message, duration);
-  
-  const warning = (title: string, message?: string, duration = 4000) => 
+
+  const warning = (title: string, message?: string, duration = 4000) =>
     addToast('warning', title, message, duration);
-  
-  const info = (title: string, message?: string, duration = 4000) => 
+
+  const info = (title: string, message?: string, duration = 4000) =>
     addToast('info', title, message, duration);
-  
-  const loading = (title: string, message?: string) => 
+
+  const loading = (title: string, message?: string) =>
     addToast('loading', title, message);
 
   return {
@@ -113,10 +113,10 @@ function MyComponent() {
   const handleSubmit = async () => {
     try {
       loading('Processing...', 'Please wait');
-      
+
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
       success('Success!', 'Data saved successfully');
     } catch (err) {
       error('Error!', 'Failed to save data');
@@ -126,7 +126,7 @@ function MyComponent() {
   return (
     
       Submit
-      
+
       {/* Toast Container */}
       
         {notifications.map(toast => (
@@ -145,13 +145,13 @@ For operations that show loading state and then success:
 ```tsx
 const handlePayment = () => {
   const loadingId = addToast('loading', 'Processing Payment', 'Please wait...');
-  
+
   // Simulate payment processing
   setTimeout(() => {
     // Replace loading with success
-    setNotifications(prev => 
-      prev.map(toast => 
-        toast.id === loadingId 
+    setNotifications(prev =>
+      prev.map(toast =>
+        toast.id === loadingId
           ? { ...toast, type: 'success', title: 'Payment Successful!', duration: 4000 }
           : toast
       )
@@ -165,12 +165,12 @@ const handlePayment = () => {
 ### Available Positions
 
 ```tsx
-type NotificationPosition = 
-  | 'top-left' 
-  | 'top-right' 
+type NotificationPosition =
+  | 'top-left'
+  | 'top-right'
   | 'top-center'
-  | 'bottom-left' 
-  | 'bottom-right' 
+  | 'bottom-left'
+  | 'bottom-right'
   | 'bottom-center';
 ```
 
@@ -283,7 +283,7 @@ const handleFormSubmit = async (data) => {
 ```tsx
 const handleFileUpload = async (file) => {
   const loadingId = loading('Uploading...', 'Please wait');
-  
+
   try {
     await uploadFile(file);
     // Replace loading with success
@@ -362,6 +362,6 @@ const fetchData = async () => {
 
 ---
 
-**Component Path:** `toast\page.mdx`
+**Component Path:** `toast/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

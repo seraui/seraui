@@ -57,6 +57,6 @@ See implementation in: `src/app/docs/noise/cards/vibrant-orange-card.tsx`
 
 ---
 
-**Component Path:** `noise\page.mdx`
+**Component Path:** `noise/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

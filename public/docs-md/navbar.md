@@ -2,7 +2,7 @@
 
 A comprehensive collection of modern, responsive navigation components designed for web applications. These navbar components feature clean designs, smooth animations, mobile-first responsive layouts, and accessibility-focused implementations.
 
-# Blog Header
+## Blog Header
 The **Blog Header** component is a customizable header section designed for Blog or personal websites.
 
 ## Preview
@@ -13,9 +13,9 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/navbar/navbar3.tsx`
 
-# PortfolioHeader
+## PortfolioHeader
 
-The **PortfolioHeader** component is a customizable header section designed for portfolio or personal websites.  
+The **PortfolioHeader** component is a customizable header section designed for portfolio or personal websites.
 It provides an elegant way to display navigation, branding, or quick links at the top of your portfolio page.
 
 ## Preview
@@ -26,7 +26,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/navbar/navbar2.tsx`
 
-# Animated Menu
+## Animated Menu
  A unique and interactive navigation menu with animated icons and gradients.
 
 ## Preview
@@ -93,7 +93,7 @@ See implementation in: `src/app/docs/navbar/header3.tsx`
 
 ---
 
-# Standalone Navigation Header
+## Standalone Navigation Header
 A standalone navigation header component with a static logged-in view, perfect for internal applications and dashboards.
 
 ## Preview
@@ -106,7 +106,7 @@ See implementation in: `src/app/docs/navbar/header4.tsx`
 
 ---
 
-# Glassmorphism Header
+## Glassmorphism Header
 
 A modern glassmorphism navigation header with translucent backgrounds, backdrop blur effects, and gradient accents. Perfect for contemporary web applications seeking a sleek, modern aesthetic with depth and visual hierarchy.
 
@@ -120,6 +120,6 @@ See implementation in: `src/app/docs/navbar/navbar5.tsx`
 
 ---
 
-**Component Path:** `navbar\page.mdx`
+**Component Path:** `navbar/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

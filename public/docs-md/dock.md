@@ -256,6 +256,6 @@ className="bg-white/80 dark:bg-black/50 [backdrop-filter:blur(16px)] supports-[b
 
 ---
 
-**Component Path:** `dock\page.mdx`
+**Component Path:** `dock/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

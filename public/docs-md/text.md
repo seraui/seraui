@@ -160,6 +160,6 @@ See implementation in: `src/app/docs/text/particle.tsx`
 
 ---
 
-**Component Path:** `text\page.mdx`
+**Component Path:** `text/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

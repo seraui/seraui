@@ -38,7 +38,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/carousel/enhanced-carousel.tsx`
 
-# Image Carousel
+## Image Carousel
 A simple image carousel component that displays images in a clean and modern interface. Features smooth animations, drag interactions, and autoplay functionality.
 
 ## Preview
@@ -51,6 +51,6 @@ See implementation in: `src/app/docs/carousel/imagecarousel.tsx`
 
 ---
 
-**Component Path:** `carousel\page.mdx`
+**Component Path:** `carousel/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

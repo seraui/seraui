@@ -1,4 +1,4 @@
-# Buttons 
+# Buttons Component 
 A customizable and interactive button component with a built-in ripple effect.
 
 ## Basic Variants
@@ -70,7 +70,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/button/commerce.tsx`
 
-# Installation
+## Installation
 
     CLI
     Manual
@@ -81,11 +81,11 @@ npx shadcn@latest add button.json
 
     Code available at: `src/app/docs/button/button.tsx`
 
-# Button Component
+## Button Component
 
 A customizable and interactive button component with a built-in ripple effect.
 
-## Installation & Import
+### Installation & Import
 
 First, make sure the `Button` component file is included in your project. Then, you can import it into your MDX or React files like this:
 
@@ -93,7 +93,7 @@ First, make sure the `Button` component file is included in your project. Then, 
 
 ```
 
-## Basic Usage
+### Basic Usage
 
 Here's the most basic way to use the component:
 
@@ -113,7 +113,7 @@ The standard, primary button for your application.
 Default Button
 ```
 
-## Destructive
+### Destructive
 
 Use this for actions that could have destructive consequences, like deleting data.
 
@@ -121,7 +121,7 @@ Use this for actions that could have destructive consequences, like deleting dat
 Delete Action
 ```
 
-## Outline
+### Outline
 
 A lower-emphasis button with a transparent background and a border.
 
@@ -129,7 +129,7 @@ A lower-emphasis button with a transparent background and a border.
 Outline Button
 ```
 
-## Secondary
+### Secondary
 
 For actions that are secondary to the main call-to-action on a page.
 
@@ -137,7 +137,7 @@ For actions that are secondary to the main call-to-action on a page.
 Secondary Button
 ```
 
-## Ghost
+### Ghost
 
 The lowest-emphasis button, used for supplemental actions that need to be available but not prominent.
 
@@ -145,7 +145,7 @@ The lowest-emphasis button, used for supplemental actions that need to be availa
 Ghost Button
 ```
 
-## Link
+### Link
 
 A button that looks and behaves like a hyperlink.
 
@@ -153,7 +153,7 @@ A button that looks and behaves like a hyperlink.
 Link Button
 ```
 
-## Sizes
+### Sizes
 
 The button is available in three sizes.
 
@@ -165,7 +165,7 @@ The button is available in three sizes.
 
 ```
 
-## Loading State
+### Loading State
 
 You can put the button into a loading state, which disables it and shows a spinner. This is useful for indicating that an action (like a form submission) is in progress.
 
@@ -176,7 +176,7 @@ You can put the button into a loading state, which disables it and shows a spinn
 
 ```
 
-# Props
+## Props
 
 | **Prop**    | **Type**                                                                                          | **Default**   | **Description**                                                                                                      |
 |-------------|---------------------------------------------------------------------------------------------------|---------------|----------------------------------------------------------------------------------------------------------------------|
@@ -187,6 +187,6 @@ You can put the button into a loading state, which disables it and shows a spinn
 
 ---
 
-**Component Path:** `button\page.mdx`
+**Component Path:** `button/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

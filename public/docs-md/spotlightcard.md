@@ -11,7 +11,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/spotlightcard/spotlightcard.tsx`
 
-# 🛠️ Installation
+## Installation
 
 You can add this component to your project using the CLI or by manually copying the code.
 
@@ -23,7 +23,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/spotlightcard/spotlight-card.tsx`
 
-# Usage
+## Usage
 
 ```tsx
 
@@ -34,6 +34,6 @@ See implementation in: `src/app/docs/spotlightcard/spotlight-card.tsx`
 
 ---
 
-**Component Path:** `spotlightcard\page.mdx`
+**Component Path:** `spotlightcard/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

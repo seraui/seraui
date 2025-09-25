@@ -57,7 +57,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/dropdown/notification-dropdown.tsx`
 
-# Installation
+## Installation
 
     CLI
     Manual
@@ -211,6 +211,6 @@ You can override these by modifying the component's CSS classes directly.
 
 ---
 
-**Component Path:** `dropdown\page.mdx`
+**Component Path:** `dropdown/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

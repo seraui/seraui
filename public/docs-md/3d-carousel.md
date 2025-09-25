@@ -33,6 +33,6 @@ export default function BasicCarouselPage() {
 
 ---
 
-**Component Path:** `3d-carousel\page.mdx`
+**Component Path:** `3d-carousel/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.
