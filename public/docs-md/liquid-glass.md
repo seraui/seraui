@@ -85,6 +85,6 @@ The component automatically detects browser capabilities and provides appropriat
 
 ---
 
-**Component Path:** `liquid-glass\page.mdx`
+**Component Path:** `liquid-glass/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

@@ -177,6 +177,6 @@ Works in all modern browsers that support CSS transforms and transitions.
 
 ---
 
-**Component Path:** `retro-card\page.mdx`
+**Component Path:** `retro-card/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

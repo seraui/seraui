@@ -30,6 +30,6 @@ See implementation in: `src/app/docs/doctabs/doctabs-gradient.tsx`
 
 ---
 
-**Component Path:** `doctabs\page.mdx`
+**Component Path:** `doctabs/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

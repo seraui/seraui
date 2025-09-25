@@ -35,6 +35,6 @@ export default function Example() {
 
 ---
 
-**Component Path:** `glowline\page.mdx`
+**Component Path:** `glowline/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

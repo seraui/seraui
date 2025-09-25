@@ -149,6 +149,6 @@ The component dynamically imports Shiki to keep the initial bundle size small.
 
 ---
 
-**Component Path:** `html-code\page.mdx`
+**Component Path:** `html-code/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

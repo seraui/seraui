@@ -254,6 +254,6 @@ The component automatically adapts to dark mode with white shadows instead of bl
 
 ---
 
-**Component Path:** `retro-button\page.mdx`
+**Component Path:** `retro-button/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

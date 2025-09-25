@@ -55,10 +55,10 @@ The component supports different trigger types for animations:
 
     ```tsx
     import { useRef } from 'react';
-    
+
     function Example() {
       const highlighterRef = useRef(null);
-      
+
       return (
         <>
           
@@ -151,6 +151,6 @@ Highlighted Heading
 
 ---
 
-**Component Path:** `text-highlighter\page.mdx`
+**Component Path:** `text-highlighter/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

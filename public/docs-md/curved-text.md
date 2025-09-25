@@ -9,7 +9,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/curved-text/curved-text.tsx`
 
-# Usage
+## Usage
 
 ```tsx
 
@@ -22,6 +22,6 @@ export default function CanvasCurvedLoopExample() {
 
 ---
 
-**Component Path:** `curved-text\page.mdx`
+**Component Path:** `curved-text/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

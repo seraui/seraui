@@ -11,7 +11,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/accordion-last/accordion-last.tsx`
 
-# 🚀 Installation
+## 🚀 Installation
 You can add this component to your project using the CLI or by manually copying the code.
 
     CLI
@@ -23,7 +23,7 @@ npx shadcn@latest add accordion-last.json
 
     Code available at: `src/app/docs/accordion-last/accordion-last.tsx`
 
-# 🛠️ Usage
+## 🛠️ Usage
 
 After installation, import and use the accordion component in your React application:
 
@@ -38,6 +38,6 @@ function App() {
 
 ---
 
-**Component Path:** `accordion-last\page.mdx`
+**Component Path:** `accordion-last/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

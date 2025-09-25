@@ -152,6 +152,6 @@ The component gracefully degrades in older browsers by showing static text witho
 
 ---
 
-**Component Path:** `flipwords\page.mdx`
+**Component Path:** `flipwords/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

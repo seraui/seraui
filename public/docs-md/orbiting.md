@@ -77,6 +77,6 @@ The component uses Tailwind CSS classes and can be customized by modifying:
 
 ---
 
-**Component Path:** `orbiting\page.mdx`
+**Component Path:** `orbiting/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

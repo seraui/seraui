@@ -80,7 +80,7 @@ See implementation in: `src/app/docs/modal/success-modal.tsx`
 ## Props
 
   | **Prop** | **Type** | **Default** | **Description** |
-  |----------|----------|-------------|-----------------| 
+  |----------|----------|-------------|-----------------|
   | `isOpen` | `boolean` | — | Controls modal visibility |
   | `onClose` | `() => void` | — | Called when modal should close |
   | `children` | `ReactNode` | — | Content inside the modal |
@@ -112,6 +112,6 @@ function App() {
 
 ---
 
-**Component Path:** `modal\page.mdx`
+**Component Path:** `modal/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

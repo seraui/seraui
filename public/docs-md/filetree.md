@@ -25,6 +25,6 @@ See implementation in: `src/app/docs/filetree/filetree2.tsx`
 
 ---
 
-**Component Path:** `filetree\page.mdx`
+**Component Path:** `filetree/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

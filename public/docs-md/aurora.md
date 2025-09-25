@@ -12,6 +12,6 @@ See implementation in: `src/app/docs/aurora/aurora.tsx`
 
 ---
 
-**Component Path:** `aurora\page.mdx`
+**Component Path:** `aurora/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

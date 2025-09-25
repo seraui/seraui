@@ -36,6 +36,6 @@ Both components are ready to use and can be easily integrated into your React ap
 
 ---
 
-**Component Path:** `copybutton\page.mdx`
+**Component Path:** `copybutton/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

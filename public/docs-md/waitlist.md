@@ -1,4 +1,7 @@
-# Modern Newsletter 
+# Newsletter 
+A collection of three newsletter/waitlist components, each with a live preview and code tab. Use these for product launches, early access, or ongoing updates.
+
+## Modern Newsletter 
 A modern newsletter component with email collection, loading states, and success animations. Perfect for capturing early user interest before product launches with professional shadcn-style design aesthetics.
 
 ## Preview
@@ -39,6 +42,6 @@ See implementation in: `src/app/docs/waitlist/waitlist2.tsx`
 
 ---
 
-**Component Path:** `waitlist\page.mdx`
+**Component Path:** `waitlist/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

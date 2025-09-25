@@ -196,6 +196,6 @@ Perfect for creating that authentic "digital archaeology" feeling where secrets 
 
 ---
 
-**Component Path:** `decrypting\page.mdx`
+**Component Path:** `decrypting/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

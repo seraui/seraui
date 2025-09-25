@@ -76,7 +76,7 @@ You can customize the gradient colors by modifying the `background` style in the
 
 ```tsx
 // Custom colors
-background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, 
+background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px,
   #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, transparent 80%)`
 ```
 
@@ -86,7 +86,7 @@ Modify the circle size in the radial gradient:
 
 ```tsx
 // Larger glow (500px instead of 350px)
-background: `radial-gradient(500px circle at ${mousePos.x}px ${mousePos.y}px, 
+background: `radial-gradient(500px circle at ${mousePos.x}px ${mousePos.y}px,
   #9E7AFF, #38bdf8, #FF5C5C, #FE8BBB, transparent 80%)`
 ```
 
@@ -116,6 +116,6 @@ Ideal for e-commerce with product images, prices, and action buttons.
 
 ---
 
-**Component Path:** `magic\page.mdx`
+**Component Path:** `magic/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

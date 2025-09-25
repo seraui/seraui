@@ -11,6 +11,6 @@ See implementation in: `src/app/docs/nftmarketplace/nftmarketplace.tsx`
 
 ---
 
-**Component Path:** `nftmarketplace\page.mdx`
+**Component Path:** `nftmarketplace/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

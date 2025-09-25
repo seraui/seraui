@@ -79,7 +79,7 @@ const customSearches: SearchItemType[] = [
 ];
 ```
 
-# Installation
+## Installation
 
     CLI
     Manual
@@ -90,7 +90,7 @@ npx shadcn@latest add search.json
 
     Code available at: `src/app/docs/search/search.tsx`
 
-## Dependencies
+### Dependencies
 
 This component requires the following dependencies:
 
@@ -143,6 +143,6 @@ The search component follows accessibility best practices:
 
 ---
 
-**Component Path:** `search\page.mdx`
+**Component Path:** `search/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

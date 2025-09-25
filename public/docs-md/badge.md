@@ -22,7 +22,7 @@ npx shadcn@latest add badge.json
 
     Code available at: `src/app/docs/badge/badge.tsx`
 
-# Usage
+## Usage
 after installing the component, import it into your page or component file. The `Badge`
 component is the main component that you will use. It has many props that you can use to customize it.
 
@@ -145,6 +145,6 @@ Here are some examples of how to use different props:
 
 ---
 
-**Component Path:** `badge\page.mdx`
+**Component Path:** `badge/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

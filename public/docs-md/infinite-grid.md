@@ -93,6 +93,6 @@ export default function ResponsiveGallery() {
 
 ---
 
-**Component Path:** `infinite-grid\page.mdx`
+**Component Path:** `infinite-grid/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

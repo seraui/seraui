@@ -1,8 +1,8 @@
-# 🎛️ Tabs Component 
+# Tabs Component 
 
 A minimalistic and animated tab component built with **React**, **Tailwind CSS**, and powered by **Framer Motion** for smooth transitions.
 
-# Introduction
+## Introduction
 
 ## Preview
 
@@ -12,7 +12,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/tabs/tabs-view.tsx`
 
-# Installation
+## Installation
 
     CLI
     Manual
@@ -23,11 +23,11 @@ npx shadcn@latest add tabs.json
 
     Code available at: `src/components/core/tabs.tsx`
 
-# 🚀 Usage
+## Usage
 
 Here's how to use the `Tabs` component in your project:
 
-# 🛠️ Installation
+## Installation
 
 You can manually copy the component into your project, **or** use the top-side CLI to install it automatically.
 
@@ -37,11 +37,11 @@ npx shadcn@latest add "https://seraui.com/registry/tabs.json"
 
 > Once installed, you can use it anywhere in your app like this:
 
-## ✨ Example Use Case
+## Example Use Case
 
 Use the `Tabs` component to organize different sections of content into a clean, navigable interface.
 
-# 🧩 Code Example
+### Code Example
 
 ```tsx
 
@@ -79,6 +79,6 @@ Need more examples or want to add custom icons or components inside tabs? Let me
 
 ---
 
-**Component Path:** `tabs\page.mdx`
+**Component Path:** `tabs/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

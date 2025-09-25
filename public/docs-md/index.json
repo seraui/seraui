@@ -1,378 +1,378 @@
 {
-  "generatedAt": "2025-09-04T05:19:45.291Z",
-  "totalFiles": 96,
+  "generatedAt": "2025-09-25T04:11:02.584Z",
+  "totalFiles": 97,
   "files": [
     {
       "name": "3d-carousel",
       "path": "/docs/3d-carousel.md",
       "url": "/docs/3d-carousel",
-      "originalMdx": "3d-carousel\\page.mdx"
+      "originalMdx": "3d-carousel/page.mdx"
     },
     {
       "name": "accordion",
       "path": "/docs/accordion.md",
       "url": "/docs/accordion",
-      "originalMdx": "accordion\\page.mdx"
+      "originalMdx": "accordion/page.mdx"
     },
     {
       "name": "accordion-last",
       "path": "/docs/accordion-last.md",
       "url": "/docs/accordion-last",
-      "originalMdx": "accordion-last\\page.mdx"
+      "originalMdx": "accordion-last/page.mdx"
     },
     {
       "name": "amazongift",
       "path": "/docs/amazongift.md",
       "url": "/docs/amazongift",
-      "originalMdx": "amazongift\\page.mdx"
+      "originalMdx": "amazongift/page.mdx"
     },
     {
       "name": "animatedbadge",
       "path": "/docs/animatedbadge.md",
       "url": "/docs/animatedbadge",
-      "originalMdx": "animatedbadge\\page.mdx"
+      "originalMdx": "animatedbadge/page.mdx"
     },
     {
       "name": "announcement",
       "path": "/docs/announcement.md",
       "url": "/docs/announcement",
-      "originalMdx": "announcement\\page.mdx"
+      "originalMdx": "announcement/page.mdx"
     },
     {
       "name": "aurora",
       "path": "/docs/aurora.md",
       "url": "/docs/aurora",
-      "originalMdx": "aurora\\page.mdx"
+      "originalMdx": "aurora/page.mdx"
     },
     {
       "name": "badge",
       "path": "/docs/badge.md",
       "url": "/docs/badge",
-      "originalMdx": "badge\\page.mdx"
+      "originalMdx": "badge/page.mdx"
     },
     {
       "name": "bento-grid",
       "path": "/docs/bento-grid.md",
       "url": "/docs/bento-grid",
-      "originalMdx": "bento-grid\\page.mdx"
+      "originalMdx": "bento-grid/page.mdx"
     },
     {
       "name": "button",
       "path": "/docs/button.md",
       "url": "/docs/button",
-      "originalMdx": "button\\page.mdx"
+      "originalMdx": "button/page.mdx"
     },
     {
       "name": "card",
       "path": "/docs/card.md",
       "url": "/docs/card",
-      "originalMdx": "card\\page.mdx"
+      "originalMdx": "card/page.mdx"
     },
     {
       "name": "carousel",
       "path": "/docs/carousel.md",
       "url": "/docs/carousel",
-      "originalMdx": "carousel\\page.mdx"
+      "originalMdx": "carousel/page.mdx"
     },
     {
       "name": "codeprofile",
       "path": "/docs/codeprofile.md",
       "url": "/docs/codeprofile",
-      "originalMdx": "codeprofile\\page.mdx"
+      "originalMdx": "codeprofile/page.mdx"
     },
     {
       "name": "colorpalette",
       "path": "/docs/colorpalette.md",
       "url": "/docs/colorpalette",
-      "originalMdx": "colorpalette\\page.mdx"
+      "originalMdx": "colorpalette/page.mdx"
     },
     {
       "name": "combo-box",
       "path": "/docs/combo-box.md",
       "url": "/docs/combo-box",
-      "originalMdx": "combo-box\\page.mdx"
+      "originalMdx": "combo-box/page.mdx"
     },
     {
       "name": "copybutton",
       "path": "/docs/copybutton.md",
       "url": "/docs/copybutton",
-      "originalMdx": "copybutton\\page.mdx"
+      "originalMdx": "copybutton/page.mdx"
     },
     {
       "name": "curved-text",
       "path": "/docs/curved-text.md",
       "url": "/docs/curved-text",
-      "originalMdx": "curved-text\\page.mdx"
+      "originalMdx": "curved-text/page.mdx"
     },
     {
       "name": "decrypting",
       "path": "/docs/decrypting.md",
       "url": "/docs/decrypting",
-      "originalMdx": "decrypting\\page.mdx"
+      "originalMdx": "decrypting/page.mdx"
     },
     {
       "name": "divider",
       "path": "/docs/divider.md",
       "url": "/docs/divider",
-      "originalMdx": "divider\\page.mdx"
+      "originalMdx": "divider/page.mdx"
     },
     {
       "name": "dock",
       "path": "/docs/dock.md",
       "url": "/docs/dock",
-      "originalMdx": "dock\\page.mdx"
+      "originalMdx": "dock/page.mdx"
     },
     {
       "name": "doctabs",
       "path": "/docs/doctabs.md",
       "url": "/docs/doctabs",
-      "originalMdx": "doctabs\\page.mdx"
+      "originalMdx": "doctabs/page.mdx"
     },
     {
       "name": "drawer",
       "path": "/docs/drawer.md",
       "url": "/docs/drawer",
-      "originalMdx": "drawer\\page.mdx"
+      "originalMdx": "drawer/page.mdx"
     },
     {
       "name": "dropdown",
       "path": "/docs/dropdown.md",
       "url": "/docs/dropdown",
-      "originalMdx": "dropdown\\page.mdx"
+      "originalMdx": "dropdown/page.mdx"
     },
     {
       "name": "falling-glitch",
       "path": "/docs/falling-glitch.md",
       "url": "/docs/falling-glitch",
-      "originalMdx": "falling-glitch\\page.mdx"
+      "originalMdx": "falling-glitch/page.mdx"
     },
     {
       "name": "faq",
       "path": "/docs/faq.md",
       "url": "/docs/faq",
-      "originalMdx": "faq\\page.mdx"
+      "originalMdx": "faq/page.mdx"
     },
     {
       "name": "filetree",
       "path": "/docs/filetree.md",
       "url": "/docs/filetree",
-      "originalMdx": "filetree\\page.mdx"
+      "originalMdx": "filetree/page.mdx"
     },
     {
       "name": "flipwords",
       "path": "/docs/flipwords.md",
       "url": "/docs/flipwords",
-      "originalMdx": "flipwords\\page.mdx"
+      "originalMdx": "flipwords/page.mdx"
     },
     {
       "name": "footer",
       "path": "/docs/footer.md",
       "url": "/docs/footer",
-      "originalMdx": "footer\\page.mdx"
+      "originalMdx": "footer/page.mdx"
     },
     {
       "name": "forgotpassword",
       "path": "/docs/forgotpassword.md",
       "url": "/docs/forgotpassword",
-      "originalMdx": "forgotpassword\\page.mdx"
+      "originalMdx": "forgotpassword/page.mdx"
     },
     {
       "name": "fuzzy",
       "path": "/docs/fuzzy.md",
       "url": "/docs/fuzzy",
-      "originalMdx": "fuzzy\\page.mdx"
+      "originalMdx": "fuzzy/page.mdx"
     },
     {
       "name": "glitchvault",
       "path": "/docs/glitchvault.md",
       "url": "/docs/glitchvault",
-      "originalMdx": "glitchvault\\page.mdx"
+      "originalMdx": "glitchvault/page.mdx"
     },
     {
       "name": "glow-button",
       "path": "/docs/glow-button.md",
       "url": "/docs/glow-button",
-      "originalMdx": "glow-button\\page.mdx"
+      "originalMdx": "glow-button/page.mdx"
     },
     {
       "name": "glowline",
       "path": "/docs/glowline.md",
       "url": "/docs/glowline",
-      "originalMdx": "glowline\\page.mdx"
+      "originalMdx": "glowline/page.mdx"
     },
     {
       "name": "gradient",
       "path": "/docs/gradient.md",
       "url": "/docs/gradient",
-      "originalMdx": "gradient\\page.mdx"
+      "originalMdx": "gradient/page.mdx"
     },
     {
       "name": "gradient-accordion",
       "path": "/docs/gradient-accordion.md",
       "url": "/docs/gradient-accordion",
-      "originalMdx": "gradient-accordion\\page.mdx"
+      "originalMdx": "gradient-accordion/page.mdx"
     },
     {
       "name": "gradientgen",
       "path": "/docs/gradientgen.md",
       "url": "/docs/gradientgen",
-      "originalMdx": "gradientgen\\page.mdx"
+      "originalMdx": "gradientgen/page.mdx"
     },
     {
       "name": "hero",
       "path": "/docs/hero.md",
       "url": "/docs/hero",
-      "originalMdx": "hero\\page.mdx"
+      "originalMdx": "hero/page.mdx"
     },
     {
       "name": "hide-toc-example",
       "path": "/docs/hide-toc-example.md",
       "url": "/docs/hide-toc-example",
-      "originalMdx": "hide-toc-example\\page.mdx"
+      "originalMdx": "hide-toc-example/page.mdx"
     },
     {
       "name": "html-code",
       "path": "/docs/html-code.md",
       "url": "/docs/html-code",
-      "originalMdx": "html-code\\page.mdx"
+      "originalMdx": "html-code/page.mdx"
     },
     {
       "name": "imageswiper",
       "path": "/docs/imageswiper.md",
       "url": "/docs/imageswiper",
-      "originalMdx": "imageswiper\\page.mdx"
+      "originalMdx": "imageswiper/page.mdx"
     },
     {
       "name": "infinite-grid",
       "path": "/docs/infinite-grid.md",
       "url": "/docs/infinite-grid",
-      "originalMdx": "infinite-grid\\page.mdx"
+      "originalMdx": "infinite-grid/page.mdx"
     },
     {
       "name": "installation",
       "path": "/docs/installation.md",
       "url": "/docs/installation",
-      "originalMdx": "installation\\page.mdx"
-    },
-    {
-      "name": "integrations",
-      "path": "/docs/integrations.md",
-      "url": "/docs/integrations",
-      "originalMdx": "integrations\\page.mdx"
+      "originalMdx": "installation/page.mdx"
     },
     {
       "name": "kbd",
       "path": "/docs/kbd.md",
       "url": "/docs/kbd",
-      "originalMdx": "kbd\\page.mdx"
+      "originalMdx": "kbd/page.mdx"
     },
     {
       "name": "letter-glitch",
       "path": "/docs/letter-glitch.md",
       "url": "/docs/letter-glitch",
-      "originalMdx": "letter-glitch\\page.mdx"
+      "originalMdx": "letter-glitch/page.mdx"
     },
     {
       "name": "liquid-glass",
       "path": "/docs/liquid-glass.md",
       "url": "/docs/liquid-glass",
-      "originalMdx": "liquid-glass\\page.mdx"
+      "originalMdx": "liquid-glass/page.mdx"
     },
     {
       "name": "loaders",
       "path": "/docs/loaders.md",
       "url": "/docs/loaders",
-      "originalMdx": "loaders\\page.mdx"
+      "originalMdx": "loaders/page.mdx"
     },
     {
       "name": "login",
       "path": "/docs/login.md",
       "url": "/docs/login",
-      "originalMdx": "login\\page.mdx"
+      "originalMdx": "login/page.mdx"
     },
     {
       "name": "magic",
       "path": "/docs/magic.md",
       "url": "/docs/magic",
-      "originalMdx": "magic\\page.mdx"
+      "originalMdx": "magic/page.mdx"
     },
     {
       "name": "marquee",
       "path": "/docs/marquee.md",
       "url": "/docs/marquee",
-      "originalMdx": "marquee\\page.mdx"
+      "originalMdx": "marquee/page.mdx"
     },
     {
       "name": "masonary",
       "path": "/docs/masonary.md",
       "url": "/docs/masonary",
-      "originalMdx": "masonary\\page.mdx"
+      "originalMdx": "masonary/page.mdx"
     },
     {
       "name": "modal",
       "path": "/docs/modal.md",
       "url": "/docs/modal",
-      "originalMdx": "modal\\page.mdx"
+      "originalMdx": "modal/page.mdx"
     },
     {
       "name": "modern-button",
       "path": "/docs/modern-button.md",
       "url": "/docs/modern-button",
-      "originalMdx": "modern-button\\page.mdx"
+      "originalMdx": "modern-button/page.mdx"
     },
     {
       "name": "moving-grid",
       "path": "/docs/moving-grid.md",
       "url": "/docs/moving-grid",
-      "originalMdx": "moving-grid\\page.mdx"
+      "originalMdx": "moving-grid/page.mdx"
     },
     {
       "name": "multiselector",
       "path": "/docs/multiselector.md",
       "url": "/docs/multiselector",
-      "originalMdx": "multiselector\\page.mdx"
+      "originalMdx": "multiselector/page.mdx"
     },
     {
       "name": "navbar",
       "path": "/docs/navbar.md",
       "url": "/docs/navbar",
-      "originalMdx": "navbar\\page.mdx"
+      "originalMdx": "navbar/page.mdx"
     },
     {
       "name": "network",
       "path": "/docs/network.md",
       "url": "/docs/network",
-      "originalMdx": "network\\page.mdx"
+      "originalMdx": "network/page.mdx"
     },
     {
       "name": "nftmarketplace",
       "path": "/docs/nftmarketplace.md",
       "url": "/docs/nftmarketplace",
-      "originalMdx": "nftmarketplace\\page.mdx"
+      "originalMdx": "nftmarketplace/page.mdx"
     },
     {
       "name": "noise",
       "path": "/docs/noise.md",
       "url": "/docs/noise",
-      "originalMdx": "noise\\page.mdx"
+      "originalMdx": "noise/page.mdx"
     },
     {
       "name": "noisetext",
       "path": "/docs/noisetext.md",
       "url": "/docs/noisetext",
-      "originalMdx": "noisetext\\page.mdx"
+      "originalMdx": "noisetext/page.mdx"
     },
     {
       "name": "orbit-carousel",
       "path": "/docs/orbit-carousel.md",
       "url": "/docs/orbit-carousel",
-      "originalMdx": "orbit-carousel\\page.mdx"
+      "originalMdx": "orbit-carousel/page.mdx"
     },
     {
       "name": "orbiting",
       "path": "/docs/orbiting.md",
       "url": "/docs/orbiting",
-      "originalMdx": "orbiting\\page.mdx"
+      "originalMdx": "orbiting/page.mdx"
+    },
+    {
+      "name": "orbits",
+      "path": "/docs/orbits.md",
+      "url": "/docs/orbits",
+      "originalMdx": "orbits/page.mdx"
     },
     {
       "name": "page.mdx",
@@ -384,199 +384,205 @@
       "name": "password",
       "path": "/docs/password.md",
       "url": "/docs/password",
-      "originalMdx": "password\\page.mdx"
+      "originalMdx": "password/page.mdx"
     },
     {
       "name": "pattern",
       "path": "/docs/pattern.md",
       "url": "/docs/pattern",
-      "originalMdx": "pattern\\page.mdx"
+      "originalMdx": "pattern/page.mdx"
     },
     {
       "name": "portfolio",
       "path": "/docs/portfolio.md",
       "url": "/docs/portfolio",
-      "originalMdx": "portfolio\\page.mdx"
+      "originalMdx": "portfolio/page.mdx"
     },
     {
       "name": "pricing",
       "path": "/docs/pricing.md",
       "url": "/docs/pricing",
-      "originalMdx": "pricing\\page.mdx"
+      "originalMdx": "pricing/page.mdx"
     },
     {
       "name": "prompt",
       "path": "/docs/prompt.md",
       "url": "/docs/prompt",
-      "originalMdx": "prompt\\page.mdx"
+      "originalMdx": "prompt/page.mdx"
     },
     {
       "name": "radio-buttons",
       "path": "/docs/radio-buttons.md",
       "url": "/docs/radio-buttons",
-      "originalMdx": "radio-buttons\\page.mdx"
+      "originalMdx": "radio-buttons/page.mdx"
     },
     {
       "name": "resize-handle",
       "path": "/docs/resize-handle.md",
       "url": "/docs/resize-handle",
-      "originalMdx": "resize-handle\\page.mdx"
+      "originalMdx": "resize-handle/page.mdx"
     },
     {
       "name": "retro-button",
       "path": "/docs/retro-button.md",
       "url": "/docs/retro-button",
-      "originalMdx": "retro-button\\page.mdx"
+      "originalMdx": "retro-button/page.mdx"
     },
     {
       "name": "retro-card",
       "path": "/docs/retro-card.md",
       "url": "/docs/retro-card",
-      "originalMdx": "retro-card\\page.mdx"
+      "originalMdx": "retro-card/page.mdx"
     },
     {
       "name": "retro-style-accordion",
       "path": "/docs/retro-style-accordion.md",
       "url": "/docs/retro-style-accordion",
-      "originalMdx": "retro-style-accordion\\page.mdx"
+      "originalMdx": "retro-style-accordion/page.mdx"
     },
     {
       "name": "retro-style-form",
       "path": "/docs/retro-style-form.md",
       "url": "/docs/retro-style-form",
-      "originalMdx": "retro-style-form\\page.mdx"
+      "originalMdx": "retro-style-form/page.mdx"
     },
     {
       "name": "search",
       "path": "/docs/search.md",
       "url": "/docs/search",
-      "originalMdx": "search\\page.mdx"
+      "originalMdx": "search/page.mdx"
     },
     {
       "name": "shimmer",
       "path": "/docs/shimmer.md",
       "url": "/docs/shimmer",
-      "originalMdx": "shimmer\\page.mdx"
+      "originalMdx": "shimmer/page.mdx"
     },
     {
       "name": "signin",
       "path": "/docs/signin.md",
       "url": "/docs/signin",
-      "originalMdx": "signin\\page.mdx"
+      "originalMdx": "signin/page.mdx"
     },
     {
       "name": "sparklestext",
       "path": "/docs/sparklestext.md",
       "url": "/docs/sparklestext",
-      "originalMdx": "sparklestext\\page.mdx"
+      "originalMdx": "sparklestext/page.mdx"
     },
     {
       "name": "spotlightcard",
       "path": "/docs/spotlightcard.md",
       "url": "/docs/spotlightcard",
-      "originalMdx": "spotlightcard\\page.mdx"
+      "originalMdx": "spotlightcard/page.mdx"
     },
     {
       "name": "svg-icons",
       "path": "/docs/svg-icons.md",
       "url": "/docs/svg-icons",
-      "originalMdx": "svg-icons\\page.mdx"
+      "originalMdx": "svg-icons/page.mdx"
     },
     {
       "name": "tabs",
       "path": "/docs/tabs.md",
       "url": "/docs/tabs",
-      "originalMdx": "tabs\\page.mdx"
+      "originalMdx": "tabs/page.mdx"
     },
     {
       "name": "tabs-classic",
       "path": "/docs/tabs-classic.md",
       "url": "/docs/tabs-classic",
-      "originalMdx": "tabs-classic\\page.mdx"
+      "originalMdx": "tabs-classic/page.mdx"
     },
     {
       "name": "tabs-fancy",
       "path": "/docs/tabs-fancy.md",
       "url": "/docs/tabs-fancy",
-      "originalMdx": "tabs-fancy\\page.mdx"
+      "originalMdx": "tabs-fancy/page.mdx"
     },
     {
       "name": "teammember",
       "path": "/docs/teammember.md",
       "url": "/docs/teammember",
-      "originalMdx": "teammember\\page.mdx"
+      "originalMdx": "teammember/page.mdx"
     },
     {
       "name": "testimonial",
       "path": "/docs/testimonial.md",
       "url": "/docs/testimonial",
-      "originalMdx": "testimonial\\page.mdx"
+      "originalMdx": "testimonial/page.mdx"
     },
     {
       "name": "text",
       "path": "/docs/text.md",
       "url": "/docs/text",
-      "originalMdx": "text\\page.mdx"
+      "originalMdx": "text/page.mdx"
     },
     {
       "name": "text-highlighter",
       "path": "/docs/text-highlighter.md",
       "url": "/docs/text-highlighter",
-      "originalMdx": "text-highlighter\\page.mdx"
+      "originalMdx": "text-highlighter/page.mdx"
     },
     {
       "name": "textreveal",
       "path": "/docs/textreveal.md",
       "url": "/docs/textreveal",
-      "originalMdx": "textreveal\\page.mdx"
+      "originalMdx": "textreveal/page.mdx"
     },
     {
       "name": "threed-card",
       "path": "/docs/threed-card.md",
       "url": "/docs/threed-card",
-      "originalMdx": "threed-card\\page.mdx"
+      "originalMdx": "threed-card/page.mdx"
     },
     {
       "name": "ticker",
       "path": "/docs/ticker.md",
       "url": "/docs/ticker",
-      "originalMdx": "ticker\\page.mdx"
+      "originalMdx": "ticker/page.mdx"
     },
     {
       "name": "timeline",
       "path": "/docs/timeline.md",
       "url": "/docs/timeline",
-      "originalMdx": "timeline\\page.mdx"
+      "originalMdx": "timeline/page.mdx"
     },
     {
       "name": "toast",
       "path": "/docs/toast.md",
       "url": "/docs/toast",
-      "originalMdx": "toast\\page.mdx"
+      "originalMdx": "toast/page.mdx"
     },
     {
       "name": "twostep",
       "path": "/docs/twostep.md",
       "url": "/docs/twostep",
-      "originalMdx": "twostep\\page.mdx"
+      "originalMdx": "twostep/page.mdx"
     },
     {
       "name": "verify-badge",
       "path": "/docs/verify-badge.md",
       "url": "/docs/verify-badge",
-      "originalMdx": "verify-badge\\page.mdx"
+      "originalMdx": "verify-badge/page.mdx"
+    },
+    {
+      "name": "video-gallery",
+      "path": "/docs/video-gallery.md",
+      "url": "/docs/video-gallery",
+      "originalMdx": "video-gallery/page.mdx"
     },
     {
       "name": "video-text",
       "path": "/docs/video-text.md",
       "url": "/docs/video-text",
-      "originalMdx": "video-text\\page.mdx"
+      "originalMdx": "video-text/page.mdx"
     },
     {
       "name": "waitlist",
       "path": "/docs/waitlist.md",
       "url": "/docs/waitlist",
-      "originalMdx": "waitlist\\page.mdx"
+      "originalMdx": "waitlist/page.mdx"
     }
   ]
 }

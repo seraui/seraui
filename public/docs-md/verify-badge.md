@@ -11,7 +11,7 @@ Interactive component preview available in the web version.
 See implementation in: `src/app/docs/verify-badge/verify-badge.tsx`
 
 {/* Optional */}
-#### Verify Profile 
+#### Verify Profile
 
     *Interactive component preview available in the web version.*} />
 
@@ -37,7 +37,7 @@ export function Example() {
     default: "'top-right'",
     description: "Floating position for the badge"
   }
-]} /> 
+]} />
 
 ## Accessibility
 
@@ -54,6 +54,6 @@ export function Example() {
 
 ---
 
-**Component Path:** `verify-badge\page.mdx`
+**Component Path:** `verify-badge/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.

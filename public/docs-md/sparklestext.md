@@ -11,7 +11,7 @@ Interactive component preview available in the web version.
 
 See implementation in: `src/app/docs/sparklestext/sparklestext.tsx`
 
-# Usage
+## Usage
 ```tsx
 
 function App() {
@@ -25,6 +25,6 @@ function App() {
 
 ---
 
-**Component Path:** `sparklestext\page.mdx`
+**Component Path:** `sparklestext/page.mdx`
 
 **Web Version:** Visit the interactive version at the corresponding URL on the Sera UI documentation site for live previews and interactive examples.
