@@ -23,11 +23,6 @@ export const navigation: NavigationItem[] = [
   {
     label: "UI Components",
     children: [
-      { label: "Loading Spinners", href: "/docs/loaders", badge: "Tool" },
-      { label: "Pattern Collection", href: "/docs/pattern", badge: "Tool" },
-      { label: "Color Palette", href: "/docs/colorpalette", badge: "Tool" },
-      { label: "Gradient Generator", href: "/docs/gradientgen", badge: "Tool" },
-      { label: "SVG Icon Library", href: "/docs/svg-icons", badge: "Tool" },
       { label: "Marquee Scroller", href: "/docs/marquee" },
       { label: "Code Profile Card", href: "/docs/codeprofile" },
       { label: "Portfolio Showcase", href: "/docs/portfolio" },
@@ -204,6 +199,16 @@ export const navigation: NavigationItem[] = [
       { label: "Team Member Card", href: "/docs/teammember" },
       { label: "FAQ Section", href: "/docs/faq", badge: "New" },
       { label: "Video Gallery", href: "/docs/video-gallery", badge: "New" },
+    ],
+  },
+  {
+    label: "Tools",
+    children: [
+      { label: "Loading Spinners", href: "/docs/loaders" },
+      { label: "Pattern Collection", href: "/docs/pattern" },
+      { label: "Color Palette", href: "/docs/colorpalette" },
+      { label: "Gradient Generator", href: "/docs/gradientgen" },
+      { label: "SVG Icon Library", href: "/docs/svg-icons" },
     ],
   },
 ];
