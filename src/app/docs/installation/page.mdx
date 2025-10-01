@@ -51,23 +51,41 @@ import { PropsTable } from "@/components/site/props-table.tsx";
 import { Table, StatusBadge } from "@/components/ui/table";
 import Install from "./install.tsx";
 
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { PropsTable } from "@/components/site/props-table.tsx";
+import { Table, StatusBadge } from "@/components/ui/table";
+import Install from "./install.tsx";
+
 # Installation
 
-## ⚡ TL;DR — Get Started in 30 Seconds
+## Shadcn/ui (Recommended) <AI dir="left"/>
+
+How to install dependencies and structure your app.
+
+> **Note:** We have the exact same installation process as shadcn/ui.
+
+<Install />
+
+
+### CLI Usage
+
+Initialize your project with the CLI:
 
 ```bash
-npx seraui@latest init && npx seraui@latest add button
-````
-
-Then use it:
-
-```tsx
-import { Button } from '@/components/button'
-
-export default function Page() {
-  return <Button>Click me!</Button>
-}
+npx seraui@latest init
 ```
+```md
+npx seraui@latest init
+✔ SeraUI initialized successfully!
+
 
 ---
 

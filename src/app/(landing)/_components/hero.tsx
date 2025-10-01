@@ -74,14 +74,14 @@ export const Hero = () => {
               </Button>
             </Link>
 
-            <Link href="/docs/pattern">
+            <Link href="/docs/hero">
               <Button
                 size="lg"
                 variant="outline"
                 iconLeft={<Wrench className="h-5 w-5" />}
                 className="w-full sm:w-auto min-w-[180px] shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                Explore Tools
+                Explore UI Blocks
               </Button>
             </Link>
           </div>

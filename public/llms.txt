@@ -11,7 +11,7 @@ This documentation covers all basic aspects and components of Sera UI or seraui.
 - [Introduction](https://seraui.com/docs)
 - [License](https://github.com/seraui/seraui/blob/main/LICENSE)
 
-### Installation guides
+### Installation
 
 - [Seraui installation docs](https://seraui.com/docs/installation)
 
