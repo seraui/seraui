@@ -72,7 +72,7 @@ npx seraui@latest init
 ```md
 npx seraui@latest init
 ✔ SeraUI initialized successfully!
-
+```
 
 ---
 
@@ -173,19 +173,19 @@ Output:
 
 ### ⚙️ Advanced CLI Options
 
-* **Initialize with a custom registry**
+**Initialize with a custom registry**
 
   ```bash
   npx seraui@latest init --url https://seraui.com/registry
   ```
 
-* **Add a single component from a custom registry**
+**Add a single component from a custom registry**
 
   ```bash
   npx seraui@latest add button --url https://different-registry.com/registry
   ```
 
-* **Set a default registry URL**
+**Set a default registry URL**
 
   ```bash
   npx seraui@latest config --url https://seraui.com/registry
@@ -214,25 +214,8 @@ Run your dev server — you should see a styled button.
 1. **Browse components:** `npx seraui@latest show`
 2. **Add more:** `npx seraui@latest add tabs`
 3. **Customize theme:** edit `tailwind.config.js` to match your brand
-4. **Explore examples:** [seraui.com/examples](https://seraui.com/examples)
 
 ---
-
-## 🛠️ Troubleshooting
-
-**“Command not found”?**
-Make sure you’re using `npx` (not `npm`).
-
-**Components not styled?**
-Check that Tailwind is running:
-`npm run dev` and ensure your `tailwind.config.js` includes:
-
-```js
-content: [
-  "./components/**/*.{js,ts,jsx,tsx}",
-  "./app/**/*.{js,ts,jsx,tsx}"
-]
-```
 
 **Still stuck?**
 
