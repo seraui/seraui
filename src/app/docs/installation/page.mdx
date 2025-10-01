@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'React Installation Guide | Sera UI',
+    title: 'Installation Guide | Sera UI',
     description: 'Complete installation guide for Sera UI component library with step-by-step instructions, setup requirements, and configuration options.',
     keywords: [
         'Sera UI installation',
@@ -7,14 +7,14 @@ export const metadata = {
         'Tailwind CSS installation',
         'UI library installation',
         'component library setup',
-        'React installation guide',
+        'installation guide',
         'Sera UI setup',
         'frontend library installation',
         'UI components setup',
         'Sera UI components'
     ],
     openGraph: {
-        title: 'React Installation Guide - Sera UI',
+        title: 'Installation Guide - Sera UI',
         description: 'Complete installation guide for Sera UI component library with step-by-step instructions and setup requirements.',
         type: 'article',
         url: '/docs/installation',
@@ -51,101 +51,186 @@ import { PropsTable } from "@/components/site/props-table.tsx";
 import { Table, StatusBadge } from "@/components/ui/table";
 import Install from "./install.tsx";
 
+# Installation
 
+## ⚡ TL;DR — Get Started in 30 Seconds
 
-# Shadcn/ui (Recommended) <AI dir="left"/>
+```bash
+npx seraui@latest init && npx seraui@latest add button
+````
 
-How to install dependencies and structure your app.
+Then use it:
 
-> **Note:** We have the exact same installation process as shadcn/ui.
+```tsx
+import { Button } from '@/components/button'
 
-<Install />
+export default function Page() {
+  return <Button>Click me!</Button>
+}
+```
 
+---
 
-## Seraui (Alternative) without Shadcn/ui
+## 🛠️Prerequisites
 
-### CLI Usage
+* **Node.js 18+** and npm / yarn / pnpm
+* A **React/Next.js project** (or create one: `npx create-next-app@latest`)
+* **Tailwind CSS** installed
+  *(We’ll help if not set up yet — see the [Tailwind guide](https://tailwindcss.com/docs/guides/nextjs))*
 
-Initialize your project with the CLI:
+---
+
+## 🚀 Which Installation Method?
+
+* **Already using shadcn/ui?** → Use [Option 1](#-option-1--use-shadcnui-recommended)
+* **Starting fresh / want a custom registry?** → Use [Option 2](#-option-2--use-seraui-cli-alternative)
+* **Just want to test a component quickly?** → Jump to [Quick Test](#-quick-test)
+
+---
+
+## ✅ Option 1 — Use shadcn/ui (Recommended)
+
+If you’re already using shadcn/ui, **you’re done** — Sera UI uses the same setup.
+
+**New to shadcn/ui? Run:**
+
+```bash
+npx shadcn@latest init
+```
+
+Then add a Sera UI component:
+
+```bash
+npx shadcn@latest add https://seraui.com/registry/button.json
+```
+
+📘 [Full shadcn setup guide →](https://ui.shadcn.com/docs/installation)
+
+---
+
+## 🚀 Option 2 — Use SeraUI CLI (Alternative)
+
+Use the CLI to scaffold and manage components from the Sera UI registry.
+
+### 1️⃣ Initialize your project
 
 ```bash
 npx seraui@latest init
 ```
-```md
-npx seraui@latest init
+
+Example output:
+
+```shell
 ✔ SeraUI initialized successfully!
 
 🌐 Registry URL: https://seraui.com/registry
 
-📦 Dependencies installed:
+📦 Installed dependencies:
   - clsx
   - tailwind-merge
 
-📁 Directories created:
+📁 Created folders:
   - lib/
   - components/
 
 ✨ Ready to add components!
 ```
 
-To see all available components:
+📁 **What got created:**
+
+* `lib/utils.ts` — Helper utilities (e.g., `cn()` for merging classes)
+* `components/` — Where your UI components live
+* `tailwind.config.js` — Updated with Sera UI theme tokens
+
+---
+
+### 2️⃣ Browse available components
 
 ```bash
 npx seraui@latest show
 ```
 
-```md
-npx seraui@latest show
-Need to install the following packages:
-seraui@0.0.2
-Ok to proceed? (y)
+---
 
-✔ SeraUI Available Components:
-
-🧩 Components available for installation:
-Last updated: 6/27/2025, 1:08:46 PM
-Total components: 5
-
-  1. accordion
-  2. button
-  3. tabs-classic
-  4. tabs-fancy
-  5. tabs
-
-📖 For installation, type:
-  npx seraui@latest add <component-name>
-
-💡 Example:
-  npx seraui@latest add button
-
-```
-
-### Initialize with a custom registry URL
-
-```bash
-npx seraui@latest init --url https://seraui.com/registry
-```
-
-### Add a component (uses saved URL)
+### 3️⃣ Add a component
 
 ```bash
 npx seraui@latest add button
 ```
 
-```md
-npx seraui@latest add button
+Output:
+
+```shell
 ✔ Button added successfully!
 ```
 
+---
 
-### Add a component with a custom URL (one-time)
+### ⚙️ Advanced CLI Options
 
-```bash
-npx seraui@latest add button --url https://different-registry.com/registry
+* **Initialize with a custom registry**
+
+  ```bash
+  npx seraui@latest init --url https://seraui.com/registry
+  ```
+
+* **Add a single component from a custom registry**
+
+  ```bash
+  npx seraui@latest add button --url https://different-registry.com/registry
+  ```
+
+* **Set a default registry URL**
+
+  ```bash
+  npx seraui@latest config --url https://seraui.com/registry
+  ```
+
+---
+
+## 🎨 Quick Test
+
+Add this to any page:
+
+```tsx
+import { Button } from '@/components/button'
+
+export default function Page() {
+  return <Button>Click me!</Button>
+}
 ```
 
-### Configure the default registry URL
+Run your dev server — you should see a styled button.
 
-```bash
-npx seraui@latest config --url https://seraui.com/registry
+---
+
+## ✅ What’s Next?
+
+1. **Browse components:** `npx seraui@latest show`
+2. **Add more:** `npx seraui@latest add tabs`
+3. **Customize theme:** edit `tailwind.config.js` to match your brand
+4. **Explore examples:** [seraui.com/examples](https://seraui.com/examples)
+
+---
+
+## 🛠️ Troubleshooting
+
+**“Command not found”?**
+Make sure you’re using `npx` (not `npm`).
+
+**Components not styled?**
+Check that Tailwind is running:
+`npm run dev` and ensure your `tailwind.config.js` includes:
+
+```js
+content: [
+  "./components/**/*.{js,ts,jsx,tsx}",
+  "./app/**/*.{js,ts,jsx,tsx}"
+]
 ```
+
+**Still stuck?**
+
+* Open an issue: [GitHub](https://github.com/sera-ui/sera-ui)
+
+
