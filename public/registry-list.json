@@ -1,6 +1,6 @@
 {
   "lastUpdated": "2025-08-27T07:10:12.122Z",
-  "totalFiles": 18,
+  "totalFiles": 19,
   "files": [
     {
       "name": "accordion",
@@ -102,6 +102,12 @@
       "name": "textreveal",
       "filename": "textreveal.json",
       "path": "/registry/textreveal.json",
+      "size": 3691
+    },
+    {
+      "name": "randomtextreveal",
+      "filename": "randomtextreveal.json",
+      "path": "/registry/randomtextreveal.json",
       "size": 3691
     }
   ]

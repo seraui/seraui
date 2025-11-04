@@ -1,0 +1,334 @@
+export const metadata = {
+    title: 'React Random Text Reveal Component | Sera UI',
+    description: 'Interactive text animation component that reveals text with random character scrambling effect. Perfect for creating engaging hover animations and attention-grabbing text effects.',
+    keywords: [
+        'React random text reveal',
+        'text scramble animation',
+        'character animation',
+        'hover text effect',
+        'random text animation',
+        'text effects',
+        'Tailwind CSS text animation',
+        'UI text reveal',
+        'scramble effect',
+        'Sera UI components'
+    ],
+    openGraph: {
+        title: 'React Random Text Reveal Component | Sera UI',
+        description: 'Interactive React text animation component with random character scrambling effect for engaging hover animations and text effects.',
+        type: 'article',
+        url: '/docs/randomtextreveal',
+        images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Sera UI - Modern React Component Library",
+          },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Random Text Reveal Component | Sera UI',
+        description: 'Interactive React text animation component with random character scrambling effect for engaging hover animations and text effects.',
+        images: ["/og-image.png"]
+    },
+    alternates: {
+        canonical: '/docs/randomtextreveal',
+    },
+};
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { VitePressTable } from "@/components/ui/vitepress-table";
+import RandomTextReveal from "./RandomTextReveal"
+
+# Random Text Reveal Animation <AI dir="left"/>
+
+An interactive text animation component that creates a mesmerizing random character scrambling effect before revealing the actual text. Perfect for hover effects, loading animations, and creating engaging text interactions that capture user attention.
+
+## Preview
+
+<Tabs defaultValue="preview" className="">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<RandomTextReveal text="Hover over this text to see the magic!" 
+    className='text-2xl font-bold text-slate-50 cursor-pointer'
+    />} reTrigger={true} />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/randomtextreveal/RandomTextReveal.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Features
+
+- ✨ **Interactive Animation**: Hover or click-triggered random character scrambling
+- 🎲 **Random Scrambling**: Letters randomly cycle through alphabet before revealing
+- 🎯 **Customizable**: Control duration, trigger events, and styling
+- 📱 **Responsive**: Works perfectly on all screen sizes and devices
+- ⚡ **Performance**: Optimized with Framer Motion for smooth 60fps animations
+- 🎨 **Flexible**: Supports any text content and custom styling
+- 🔧 **Easy Integration**: Simple props-based API for quick setup
+
+## Installation
+
+You can add this component to your project using the CLI or by manually copying the code.
+
+<Tabs defaultValue="cli" className="">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add randomtextreveal.json`} />
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/randomtextreveal/RandomTextReveal.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Dependencies
+
+This component requires `framer-motion` for animations. Install it if you haven't already:
+
+```bash
+npm install framer-motion
+```
+
+## Basic Usage
+
+Import and use the RandomTextReveal component in your React application:
+
+```tsx
+import RandomTextReveal from "./RandomTextReveal";
+
+export default function App() {
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <RandomTextReveal text="Hello World!" />
+    </div>
+  );
+}
+```
+
+## Customization
+
+### Custom Text Content
+
+You can easily customize the text content by passing the `text` prop:
+
+```tsx
+<RandomTextReveal text="Your custom message goes here" />
+```
+
+### Animation Duration
+
+Control the speed of the scrambling animation by adjusting the `duration` prop:
+
+```tsx
+// Faster animation (default: 50ms)
+<RandomTextReveal text="Fast Animation" duration={30} />
+
+// Slower animation
+<RandomTextReveal text="Slow Animation" duration={100} />
+```
+
+### Trigger Events
+
+Choose how the animation is triggered with the `onHover` or `onScroll` props:
+
+```tsx
+// Trigger on hover (default)
+<RandomTextReveal text="Hover me!" onHover={true} />
+
+// Trigger on click
+<RandomTextReveal text="Click me!" onHover={false} />
+
+// Trigger on viewport enter (e.g., when scrolled into view)
+// Uses Framer Motion's onViewportEnter under the hood
+<RandomTextReveal text="Appears as I scroll" onScroll={true} onHover={false} />
+```
+
+### Custom Styling
+
+Apply custom styles using the `className` prop:
+
+```tsx
+<RandomTextReveal 
+  text="Styled Text" 
+  className="text-4xl font-bold text-blue-600 cursor-pointer"
+/>
+```
+
+### Click Handler
+
+Add click functionality with the `onClick` prop:
+
+```tsx
+<RandomTextReveal 
+  text="Clickable Text" 
+  onClick={() => console.log("Text clicked!")}
+/>
+```
+
+## Advanced Examples
+
+### Hero Section with Hover Effect
+
+```tsx
+export function HeroSection() {
+  return (
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black">
+      <div className="text-center px-4">
+        <h1 className="text-white mb-8">
+          <RandomTextReveal 
+            text="Welcome to the Future" 
+            className="text-6xl font-bold"
+            duration={40}
+          />
+        </h1>
+        <p className="text-gray-300 text-xl">
+          <RandomTextReveal 
+            text="Experience the magic of interactive text" 
+            className="text-2xl"
+            duration={60}
+          />
+        </p>
+      </div>
+    </section>
+  );
+}
+```
+
+### Interactive Navigation
+
+```tsx
+export function InteractiveNav() {
+  const navItems = ["Home", "About", "Services", "Contact"];
+  
+  return (
+    <nav className="flex space-x-8 p-8">
+      {navItems.map((item) => (
+        <RandomTextReveal
+          key={item}
+          text={item}
+          className="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors"
+          duration={35}
+          onClick={() => console.log(`Navigating to ${item}`)}
+        />
+      ))}
+    </nav>
+  );
+}
+```
+
+### Loading Animation
+
+```tsx
+export function LoadingAnimation() {
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+  
+  return (
+    <div className="flex items-center justify-center h-64">
+      {isLoading ? (
+        <RandomTextReveal 
+          text="Loading..." 
+          onHover={false}
+          className="text-2xl font-semibold"
+        />
+      ) : (
+        <div>Content Loaded!</div>
+      )}
+    </div>
+  );
+}
+```
+
+## Component Props
+
+<VitePressTable
+  headers={["Prop", "Type", "Default", "Description"]}
+  rows={[
+    ["text", "string", "required", "The text content to be animated"],
+    ["duration", "number", "50", "Duration in milliseconds between character changes"],
+    ["onHover", "boolean", "true", "Whether to trigger animation on hover (true) or click (false)"],
+    ["onScroll", "boolean", "false", "Trigger animation when the element enters the viewport"],
+    ["className", "string", "undefined", "Additional CSS classes for styling"],
+    ["onClick", "function", "undefined", "Click handler function"]
+  ]}
+/>
+
+## Animation Properties
+
+<VitePressTable
+  headers={["Property", "Type", "Default", "Description"]}
+  rows={[
+    ["iteration speed", "number", "0.5", "Speed of character iteration (higher = faster)"],
+    ["character set", "string", "A-Z", "Alphabet used for random characters"],
+    ["space handling", "boolean", "preserved", "White spaces are preserved during animation"],
+    ["trigger event", "string", "hover/click/viewport", "User interaction that starts animation"]
+  ]}
+/>
+
+## Browser Support
+
+This component works in all modern browsers that support:
+- ES6+ JavaScript features
+- Framer Motion (React 16.8+)
+- CSS transforms and transitions
+- Modern event handling
+
+## Performance Tips
+
+- The component uses efficient interval-based animations
+- Automatically clears intervals when animation completes
+- Minimal DOM manipulation for smooth performance
+- Optimized character generation using pre-defined alphabet
+- Consider reducing `duration` for better performance on slower devices
+
+## Accessibility
+
+The component maintains accessibility by:
+- Preserving original text content for screen readers
+- Maintaining semantic HTML structure
+- Supporting keyboard navigation
+- Not interfering with assistive technologies
+- Text remains selectable and copyable
+
+## Troubleshooting
+
+**Animation not working?**
+- Ensure `framer-motion` is properly installed
+- Check that the component is wrapped in a client component (`'use client'`)
+- Verify that text prop is provided and not empty
+
+**Animation too fast/slow?**
+- Adjust the `duration` prop (lower values = faster animation)
+- Test different values to find the optimal speed for your use case
+
+**Text not visible?**
+- Check CSS classes and ensure text color contrasts with background
+- Verify that the component has proper dimensions and positioning
+- Ensure no parent elements are hiding the content
+
+**Performance issues?**
+- Reduce `duration` for faster completion
+- Avoid using very long text strings
+- Consider using the component sparingly on a single page
