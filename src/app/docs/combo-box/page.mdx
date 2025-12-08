@@ -49,6 +49,7 @@ import {
 } from "@/components/site/tabs.tsx";
 import { PropsTable } from "@/components/site/props-table.tsx";
 import { Table, StatusBadge } from "@/components/ui/table";
+import { VitePressTable } from "@/components/ui/vitepress-table";
 
 import ComboBoxView from "./combo-box-view";
 
@@ -119,11 +120,15 @@ function App() {
 
 ### Props
 
-| Prop          | Type                               | Default                 | Description                                         |
-| ------------- | ---------------------------------- | ----------------------- | --------------------------------------------------- |
-| `options`     | `string[]`                         | `[]`                    | Array of options to display in the dropdown         |
-| `placeholder` | `string`                           | `"Select an option..."` | Placeholder text for the input field                |
-| `onSelect`    | `(option: string \| null) => void` | `undefined`             | Callback function called when an option is selected |
+<VitePressTable
+headers={["Prop","Type","Default","Description"]}
+rows={[
+  ["option","string[]","[]","Array of options to display in the dropdown."],
+  ["placeholder","string","Select an option...","Placeholder text for the input field"],
+  ["onSelect","function","undefined","Callback function called when an option is selected"],
+]}
+
+/>
 
 ### ComboBoxProps Interface
 
@@ -382,14 +387,19 @@ The ComboBox component follows accessibility best practices:
 
 ### Keyboard Shortcuts
 
-| Key             | Action                         |
-| --------------- | ------------------------------ |
-| `Tab`           | Navigate to/from the component |
-| `Enter`         | Select highlighted option      |
-| `Escape`        | Close dropdown                 |
-| `Arrow Up/Down` | Navigate through options       |
-| `Type`          | Filter options in real-time    |
 
+<VitePressTable
+headers={["Key","Action"]}
+rows={[
+  ["Tab","Navigate to/from the component"],
+  ["Enter","Select highlighted option"],
+  ["Escape","Close dropdown"],
+  ["Arrow Up/Down","Navigate through options"],
+  ["Type","Filter options in real-time"],
+
+]}
+
+/>
 ## Browser Support
 
 The ComboBox component is compatible with all modern browsers:
