@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "randomtextreveal",
+  "title": "RandomTextReveal",
+  "description": "A dynamic text reveal component with random character animation effects.",
+  "author": "Reche Soares",
+  "type": "registry:ui",
+  "dependencies": ["framer-motion"],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "cssVars": {
+    "dark": {},
+    "light": {}
+  },
+  "files": [
+    {
+      "path": "randomtextreveal.tsx",
+      "content": "'use client'\nimport { motion } from \"framer-motion\"\nimport { forwardRef, useState } from \"react\";\n\ninterface RandomTextRevealProps{\n  text:string;\n  duration?:number;\n  onHover?:boolean;\n  className?:string;\n  onClick?:() => void;\n\n}\nconst letters = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\n\nconst RandomTextReveal = forwardRef<HTMLHeadingElement, RandomTextRevealProps>(({ text,onHover = true, duration = 50, ...props }, ref) => {\n\n  const [displayText, setDisplayText] =  useState(text);\n\n  const randomText = () => {\n    let iteration = 0;\n    const interval = setInterval(() => {\n      setDisplayText(\n          text.split(\"\").map((char,index) => {\n            if(iteration > index){\n              return text[index]\n            }\n            if(char == \" \"){ // if there is a white space in the original text return a white space no change\n              return \" \"\n            }\n            return letters[Math.floor(Math.random() * 26)]//return a random character from the string array [letter]\n          }).join(\"\")\n      );\n      iteration += 1 / 2;//speed control\n      if(iteration >= text.length){\n        //Return to the original letter\n        clearInterval(interval)\n        setDisplayText(text)\n      }\n    \n    },duration) //duration\n  }\n\n  return (\n    \n      <motion.span\n      ref={ref}\n      onHoverStart={() => onHover && randomText()}\n      onAnimationStart={() => !onHover && randomText()}\n      {...props}\n      >\n        {displayText}\n      </motion.span>\n  )\n})\nRandomTextReveal.displayName = \"RandomTextReveal\";\nexport default RandomTextReveal\n",
+      "type": "registry:ui"
+    }
+  ]
+}

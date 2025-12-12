@@ -104,6 +104,7 @@ export const navigation: NavigationItem[] = [
       { label: "Letter Glitch Effect", href: "/docs/letter-glitch" },
       { label: "Resize Handle Text", href: "/docs/resize-handle" },
       { label: "Noise Text", href: "/docs/noisetext", badge: "New" },
+      { label: "Random Text Reveal", href: "/docs/randomtextreveal", badge: "New" },
       {
         label: "Text Highlighter",
         href: "/docs/text-highlighter",

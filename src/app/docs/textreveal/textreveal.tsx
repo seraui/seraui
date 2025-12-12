@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 // Main App Component
 export default function TextReveal() {
   const textToAnimate = "Don’t wait for the perfect moment. Take the moment and make it perfect. Consistent effort, even when no one is watching, is what builds greatness over time.";
-  const words = textToAnimate.split(" ");
+  const words = textToAnimate.match(/[\p{L}\p{N}]+[^\s\p{L}\p{N}]?|[^\s]/gu) || [];
 
   // Variants for the container to orchestrate the animation
   const containerVariants = {
