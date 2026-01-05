@@ -1,0 +1,153 @@
+export const metadata = {
+    title: 'React Progress Bar Component | Sera UI',
+    description: 'A modern, animated progress bar component built with Framer Motion and Tailwind CSS. Supports multiple variants, sizes, and real-time updates.',
+    keywords: [
+        'React progress bar',
+        'animated progress bar',
+        'Framer Motion progress',
+        'Tailwind CSS progress bar',
+        'UI progress component',
+        'customizable progress bar',
+        'Sera UI components'
+    ],
+    openGraph: {
+        title: 'React Progress Bar Component | Sera UI',
+        description: 'A modern, animated progress bar component built with Framer Motion and Tailwind CSS.',
+        type: 'article',
+        url: '/docs/progress',
+        images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Sera UI - Modern React Component Library",
+          },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Progress Bar Component | Sera UI',
+        description: 'A modern, animated progress bar component built with Framer Motion and Tailwind CSS.',
+        images: ["/og-image.png"]
+    },
+    alternates: {
+        canonical: '/docs/progress',
+    },
+};
+
+import { CodeBlock } from "@/components/site/code-block";
+import { ComponentRenderer } from "@/components/site/component-renderer";
+import { Cli } from "@/components/site/cli";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/site/tabs.tsx";
+import { MdxTable } from "@/components/site/mdx-table.tsx";
+import { AI } from "@/components/site/ai-button";
+import ProgressView from "./progress-view";
+import Progress from "./progress";
+
+# Progress Bar <AI dir="left"/>
+
+A modern, animated progress bar component built with **Framer Motion** and **Tailwind CSS**. It provides a visual representation of a task's completion status with smooth transitions and customizable styles.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <ComponentRenderer component={<ProgressView />} componentName="progress" />
+  </TabsContent>
+  <TabsContent value="code">
+    <CodeBlock filePath="src/app/docs/progress/progress-view.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    <Cli command={`add progress.json`} />
+  </TabsContent>
+  <TabsContent value="manual">
+    <CodeBlock filePath="src/app/docs/progress/progress.tsx" />
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+Import the `Progress` component and provide a `value` between 0 and `max` (default 100).
+
+```tsx
+import Progress from "./progress";
+
+export function Example() {
+  return <Progress value={60} variant="gradient" showValue />;
+}
+```
+
+## Variants
+
+The progress bar supports several visual variants to match your UI's context.
+
+### Default
+The standard primary progress bar.
+```tsx live
+<Progress value={40} />
+```
+
+### Gradient
+A vibrant gradient variant using indigo, purple, and pink.
+```tsx live
+<Progress value={60} variant="gradient" />
+```
+
+### Success
+Used for completed tasks or positive progress.
+```tsx live
+<Progress value={100} variant="success" />
+```
+
+### Warning
+Used for tasks that require attention or are nearing a limit.
+```tsx live
+<Progress value={75} variant="warning" />
+```
+
+### Error
+Used for failed tasks or critical states.
+```tsx live
+<Progress value={30} variant="error" />
+```
+
+## Sizes
+
+Available in three sizes: `sm`, `md` (default), and `lg`.
+
+```tsx live
+<div className="flex flex-col gap-4 w-full">
+  <Progress value={50} size="sm" />
+  <Progress value={50} size="md" />
+  <Progress value={50} size="lg" />
+</div>
+```
+
+## Props
+
+<MdxTable>
+| Prop        | Type                                                     | Default     | Description                                     |
+| ----------- | -------------------------------------------------------- | ----------- | ----------------------------------------------- |
+| `value`     | `number`                                                 | `0`         | The current progress value                      |
+| `max`       | `number`                                                 | `100`       | The maximum value                               |
+| `variant`   | `'default' \| 'gradient' \| 'success' \| 'warning' \| 'error'` | `'default'` | The visual style of the progress bar            |
+| `size`      | `'sm' \| 'md' \| 'lg'`                                   | `'md'`      | The height of the progress bar                  |
+| `showValue` | `boolean`                                                | `false`     | Whether to show the percentage and value labels |
+| `animated`  | `boolean`                                                | `true`      | Whether to animate width changes                |
+</MdxTable>

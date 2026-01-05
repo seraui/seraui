@@ -45,6 +45,7 @@ export const navigation: NavigationItem[] = [
       },
       { label: "Timeline Components", href: "/docs/timeline", badge: "New" },
       { label: "Radio Buttons", href: "/docs/radio-buttons", badge: "New" },
+      { label: "Progress Bar", href: "/docs/progress", badge: "New" },
     ],
   },
   {
