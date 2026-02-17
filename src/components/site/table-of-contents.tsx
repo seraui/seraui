@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import React from "react";
-import { motion } from "framer-motion";
-import { useTableOfContents } from "@/hooks/use-table-of-contents";
-import { cn } from "@/lib/utils";
-import { ArrowUp, ArrowDown } from "lucide-react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useTableOfContents } from '@/hooks/use-table-of-contents';
+import { cn } from '@/lib/utils';
+import { ArrowUp, ArrowDown } from 'lucide-react';
 
 export const TableOfContents: React.FC = () => {
   const { toc, activeId, scrollToHeading } = useTableOfContents();
 
   // Don't render if there are no headings or all headings are empty
-  if (toc.length === 0 || toc.every(item => !item.text.trim())) {
+  if (toc.length === 0 || toc.every((item) => !item.text.trim())) {
     return null;
   }
 
@@ -19,7 +19,11 @@ export const TableOfContents: React.FC = () => {
       <div className="h-full py-8 px-6 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         <div className="space-y-6">
           {/* Table of Contents */}
-          <nav className="relative" role="navigation" aria-label="Table of contents">
+          <nav
+            className="relative"
+            role="navigation"
+            aria-label="Table of contents"
+          >
             <div className="space-y-3">
               {toc.map((item) => {
                 const isActive = item.id === activeId;
@@ -38,13 +42,16 @@ export const TableOfContents: React.FC = () => {
                     <button
                       onClick={() => scrollToHeading(item.id)}
                       className={cn(
-                        "text-left transition-all duration-200 hover:text-zinc-900 dark:hover:text-zinc-100",
+                        'text-left transition-all duration-200 hover:text-zinc-900 dark:hover:text-zinc-100',
                         // Font size and weight based on heading level
-                        item.level === 1 ? "text-[0.80rem] font-medium" :
-                        item.level === 2 ? "text-[0.8rem]" : "text-[0.75rem]",
+                        item.level === 1
+                          ? 'text-[0.80rem] font-medium'
+                          : item.level === 2
+                            ? 'text-[0.8rem]'
+                            : 'text-[0.75rem]',
                         isActive
-                          ? "text-blue-600 dark:text-blue-400 font-medium"
-                          : "text-zinc-600 dark:text-zinc-400"
+                          ? 'text-blue-600 dark:text-blue-400 font-medium'
+                          : 'text-zinc-600 dark:text-zinc-400',
                       )}
                     >
                       {item.text}
@@ -57,7 +64,6 @@ export const TableOfContents: React.FC = () => {
 
           {/* Reading Progress */}
           <div className="space-y-3">
-
             {/* Cool Progress Container */}
             <div className="relative">
               {/* Background track with glow */}
@@ -66,9 +72,13 @@ export const TableOfContents: React.FC = () => {
                   className="h-2 rounded-full relative overflow-hidden shadow-lg"
                   style={{
                     background: (() => {
-                      const progress = toc.length > 0
-                        ? ((toc.findIndex(item => item.id === activeId) + 1) / toc.length) * 100
-                        : 0;
+                      const progress =
+                        toc.length > 0
+                          ? ((toc.findIndex((item) => item.id === activeId) +
+                              1) /
+                              toc.length) *
+                            100
+                          : 0;
 
                       if (progress <= 25) {
                         // Red to Yellow (0-25%)
@@ -85,34 +95,42 @@ export const TableOfContents: React.FC = () => {
                       }
                     })(),
                     boxShadow: (() => {
-                      const progress = toc.length > 0
-                        ? ((toc.findIndex(item => item.id === activeId) + 1) / toc.length) * 100
-                        : 0;
+                      const progress =
+                        toc.length > 0
+                          ? ((toc.findIndex((item) => item.id === activeId) +
+                              1) /
+                              toc.length) *
+                            100
+                          : 0;
 
-                      if (progress <= 25) return '0 0 8px rgba(239, 68, 68, 0.4)';
-                      if (progress <= 50) return '0 0 8px rgba(245, 158, 11, 0.4)';
-                      if (progress <= 75) return '0 0 8px rgba(249, 115, 22, 0.4)';
+                      if (progress <= 25)
+                        return '0 0 8px rgba(239, 68, 68, 0.4)';
+                      if (progress <= 50)
+                        return '0 0 8px rgba(245, 158, 11, 0.4)';
+                      if (progress <= 75)
+                        return '0 0 8px rgba(249, 115, 22, 0.4)';
                       return '0 0 8px rgba(34, 197, 94, 0.4)';
-                    })()
+                    })(),
                   }}
-                  initial={{ width: "0%" }}
+                  initial={{ width: '0%' }}
                   animate={{
-                    width: toc.length > 0
-                      ? `${((toc.findIndex(item => item.id === activeId) + 1) / toc.length) * 100}%`
-                      : "0%"
+                    width:
+                      toc.length > 0
+                        ? `${((toc.findIndex((item) => item.id === activeId) + 1) / toc.length) * 100}%`
+                        : '0%',
                   }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
                 >
                   {/* Animated shimmer effect */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                     animate={{
-                      x: ["-100%", "100%"],
+                      x: ['-100%', '100%'],
                     }}
                     transition={{
                       duration: 2,
                       repeat: Infinity,
-                      ease: "linear",
+                      ease: 'linear',
                     }}
                   />
                 </motion.div>
@@ -122,12 +140,15 @@ export const TableOfContents: React.FC = () => {
               <motion.div
                 className="absolute top-0 -mt-6 text-xs font-medium px-2 py-1 rounded-md shadow-sm"
                 style={{
-                  left: `${toc.length > 0 ? ((toc.findIndex(item => item.id === activeId) + 1) / toc.length) * 100 : 0}%`,
+                  left: `${toc.length > 0 ? ((toc.findIndex((item) => item.id === activeId) + 1) / toc.length) * 100 : 0}%`,
                   transform: 'translateX(-50%)',
                   background: (() => {
-                    const progress = toc.length > 0
-                      ? ((toc.findIndex(item => item.id === activeId) + 1) / toc.length) * 100
-                      : 0;
+                    const progress =
+                      toc.length > 0
+                        ? ((toc.findIndex((item) => item.id === activeId) + 1) /
+                            toc.length) *
+                          100
+                        : 0;
 
                     if (progress <= 25) return 'rgba(239, 68, 68, 0.1)';
                     if (progress <= 50) return 'rgba(245, 158, 11, 0.1)';
@@ -135,9 +156,12 @@ export const TableOfContents: React.FC = () => {
                     return 'rgba(34, 197, 94, 0.1)';
                   })(),
                   color: (() => {
-                    const progress = toc.length > 0
-                      ? ((toc.findIndex(item => item.id === activeId) + 1) / toc.length) * 100
-                      : 0;
+                    const progress =
+                      toc.length > 0
+                        ? ((toc.findIndex((item) => item.id === activeId) + 1) /
+                            toc.length) *
+                          100
+                        : 0;
 
                     if (progress <= 25) return '#ef4444';
                     if (progress <= 50) return '#f59e0b';
@@ -145,24 +169,38 @@ export const TableOfContents: React.FC = () => {
                     return '#22c55e';
                   })(),
                   border: (() => {
-                    const progress = toc.length > 0
-                      ? ((toc.findIndex(item => item.id === activeId) + 1) / toc.length) * 100
-                      : 0;
+                    const progress =
+                      toc.length > 0
+                        ? ((toc.findIndex((item) => item.id === activeId) + 1) /
+                            toc.length) *
+                          100
+                        : 0;
 
-                    if (progress <= 25) return '1px solid rgba(239, 68, 68, 0.2)';
-                    if (progress <= 50) return '1px solid rgba(245, 158, 11, 0.2)';
-                    if (progress <= 75) return '1px solid rgba(249, 115, 22, 0.2)';
+                    if (progress <= 25)
+                      return '1px solid rgba(239, 68, 68, 0.2)';
+                    if (progress <= 50)
+                      return '1px solid rgba(245, 158, 11, 0.2)';
+                    if (progress <= 75)
+                      return '1px solid rgba(249, 115, 22, 0.2)';
                     return '1px solid rgba(34, 197, 94, 0.2)';
-                  })()
+                  })(),
                 }}
                 animate={{
-                  left: toc.length > 0
-                    ? `${((toc.findIndex(item => item.id === activeId) + 1) / toc.length) * 100}%`
-                    : "0%"
+                  left:
+                    toc.length > 0
+                      ? `${((toc.findIndex((item) => item.id === activeId) + 1) / toc.length) * 100}%`
+                      : '0%',
                 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
               >
-                {toc.length > 0 ? Math.round(((toc.findIndex(item => item.id === activeId) + 1) / toc.length) * 100) : 0}%
+                {toc.length > 0
+                  ? Math.round(
+                      ((toc.findIndex((item) => item.id === activeId) + 1) /
+                        toc.length) *
+                        100,
+                    )
+                  : 0}
+                %
               </motion.div>
             </div>
 
@@ -172,17 +210,38 @@ export const TableOfContents: React.FC = () => {
             </div>
           </div>
 
+          <a
+            href="http://tailgrids.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/tailgrids.png"
+              alt="Tailgrids promotional banner"
+              width={100}
+              height={100}
+              className="w-full block border"
+            />
+
+            <span className="sr-only">Visit Tailgrids Website</span>
+          </a>
+
           {/* Glassy Navigation Buttons */}
-          <div className="space-y-2">
+          <div className="space-y-2 mt-5">
             <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="w-full flex items-center gap-2 px-3 py-2 text-sm text-zinc-700 dark:text-zinc-300 bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md border border-white/20 dark:border-zinc-700/50 rounded-lg hover:bg-white/80 dark:hover:bg-zinc-800/80 transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <ArrowUp className="w-3.5 h-3.5" />
               <span>Back to top</span>
             </button>
             <button
-              onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })}
+              onClick={() =>
+                window.scrollTo({
+                  top: document.body.scrollHeight,
+                  behavior: 'smooth',
+                })
+              }
               className="w-full flex items-center gap-2 px-3 py-2 text-sm text-zinc-700 dark:text-zinc-300 bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md border border-white/20 dark:border-zinc-700/50 rounded-lg hover:bg-white/80 dark:hover:bg-zinc-800/80 transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <ArrowDown className="w-3.5 h-3.5" />
