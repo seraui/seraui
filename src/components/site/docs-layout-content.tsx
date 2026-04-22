@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import Header from "@/components/site/header";
 import Sidebar from "@/components/site/sidebar";
 import { TableOfContents } from "@/components/site/table-of-contents";
+import { DocPagination } from "@/components/site/doc-pagination";
 import { useTOC } from "@/contexts/toc-context";
 
 export function DocsLayoutContent({ children }: { children: ReactNode }) {
@@ -20,6 +21,7 @@ export function DocsLayoutContent({ children }: { children: ReactNode }) {
           <div className="prose prose-zinc dark:prose-invert prose-h1:text-3xl prose-h1:font-semibold prose-h2:text-xl prose-h2:font-semibold prose-h2:mt-14 prose-h3:text-lg prose-h3:font-medium prose-h3:scroll-m-20 max-w-full">
             {children}
           </div>
+          <DocPagination />
         </main>
         {showTOC && <TableOfContents />}
       </div>
